@@ -1,0 +1,386 @@
+root@parrot:~/hackthebox/popcorn# nmmkdir nmap                                 
+-bash: nmmkdir: command not found      
+root@parrot:~/hackthebox/popcorn# nmap -sC -sV -oA nmap/popcorn 10.10.10.6     
+Failed to open normal output file nmap/popcorn.nmap for writing                
+QUITTING!                              
+root@parrot:~/hackthebox/popcorn# mkdir nmap                                   
+root@parrot:~/hackthebox/popcorn# nmap -sC -sV -oA nmap/popcorn 10.10.10.6     
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-14 04:15 EST                
+Nmap scan report for 10.10.10.6        
+Host is up (0.63s latency).            
+Not shown: 998 closed ports            
+PORT   STATE SERVICE VERSION           
+22/tcp open  ssh     OpenSSH 5.1p1 Debian 6ubuntu2 (Ubuntu Linux; protocol 2.0)                                                                                
+| ssh-hostkey:                         
+|   1024 3e:c8:1b:15:21:15:50:ec:6e:63:bc:c5:6b:80:7b:38 (DSA)                 
+|_  2048 aa:1f:79:21:b8:42:f4:8a:38:bd:b8:05:ef:1a:07:4d (RSA)                 
+80/tcp open  http    Apache httpd 2.2.12 ((Ubuntu))                            
+|_http-server-header: Apache/2.2.12 (Ubuntu)                                   
+|_http-title: Site doesn't have a title (text/html).                           
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                        
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                 
+Nmap done: 1 IP address (1 host up) scanned in 69.06 seconds                   
+root@parrot:~/hackthebox/popcorn# gobuster dir -u 10.10.10.6 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt                                    
+===============================================================                
+Gobuster v3.0.1                        
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                
+===============================================================                
+[+] Url:            http://10.10.10.6  
+[+] Threads:        10                 
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt                                                                                
+[+] Status codes:   200,204,301,302,307,401,403                                
+[+] User Agent:     gobuster/3.0.1     
+[+] Timeout:        10s                
+===============================================================                
+2020/01/14 04:17:42 Starting gobuster  
+===============================================================                
+/index (Status: 200)                   
+Progress: 105 / 87665 (0.12%)^C        
+[!] Keyboard interrupt detected, terminating.                                  
+===============================================================                
+2020/01/14 04:17:53 Finished           
+===============================================================                
+root@parrot:~/hackthebox/popcorn# gobuster dir -u 10.10.10.6 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -o gobuster.out                    
+===============================================================                
+Gobuster v3.0.1                        
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                
+===============================================================                
+[+] Url:            http://10.10.10.6  
+[+] Threads:        10                 
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt                                                                                
+[+] Status codes:   200,204,301,302,307,401,403                                
+[+] User Agent:     gobuster/3.0.1     
+[+] Timeout:        10s                
+===============================================================                
+2020/01/14 04:18:12 Starting gobuster  
+===============================================================                
+/index (Status: 200)                   
+[ERROR] 2020/01/14 04:18:28 [!] Get http://10.10.10.6/4: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                           
+[ERROR] 2020/01/14 04:18:30 [!] Get http://10.10.10.6/services: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/14 04:18:32 [!] Get http://10.10.10.6/docs: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/14 04:18:32 [!] Get http://10.10.10.6/contactus: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/14 04:18:32 [!] Get http://10.10.10.6/files: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/14 04:18:32 [!] Get http://10.10.10.6/features: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/14 04:18:34 [!] Get http://10.10.10.6/21: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                          
+[ERROR] 2020/01/14 04:18:34 [!] Get http://10.10.10.6/5: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                           
+[ERROR] 2020/01/14 04:18:34 [!] Get http://10.10.10.6/22: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                          
+[ERROR] 2020/01/14 04:18:34 [!] Get http://10.10.10.6/page: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+^C                                     
+[!] Keyboard interrupt detected, terminating.                                  
+===============================================================                
+2020/01/14 04:18:35 Finished           
+===============================================================                
+root@parrot:~/hackthebox/popcorn# dirb http://10.10.10.6 -r -o gobuster.out    
+
+-----------------                      
+DIRB v2.22                             
+By The Dark Raver                      
+-----------------                      
+
+OUTPUT_FILE: gobuster.out              
+START_TIME: Tue Jan 14 04:33:05 2020   
+URL_BASE: http://10.10.10.6/           
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt                           
+OPTION: Not Recursive                  
+
+-----------------                      
+
+GENERATED WORDS: 4612                                                                                                                                          
+
+---- Scanning URL: http://10.10.10.6/ ----                                     
++ http://10.10.10.6/cgi-bin/ (CODE:403|SIZE:286)                                                                                                               
++ http://10.10.10.6/index (CODE:200|SIZE:177)                                                                                                                  
++ http://10.10.10.6/index.html (CODE:200|SIZE:177)                                                                                                             
++ http://10.10.10.6/server-status (CODE:403|SIZE:291)                                                                                                          
++ http://10.10.10.6/test (CODE:200|SIZE:47330)                                                                                                                 
+==> DIRECTORY: http://10.10.10.6/torrent/                                                                                                                      
+                                                                                                                                                               
+-----------------                      
+END_TIME: Tue Jan 14 04:58:32 2020     
+DOWNLOADED: 4612 - FOUND: 5            
+root@parrot:~/hackthebox/popcorn# cat ~/.gdbinit                               
+source /root/.gdbinit-gef.py           
+root@parrot:~/hackthebox/popcorn# locate pattern                               
+/home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/vendor/bundle/ruby/2.6.0/gems/rubocop-rspec-1.37.1/lib/rubocop/rspec/language/node_pattern.rb             
+/opt/Yuki-Chan-The-Auto-Pentest/Module/WhatWeb/plugin-development/get-pattern  
+/opt/Yuki-Chan-The-Auto-Pentest/Module/WhatWeb/plugins/textpattern-cms.rb      
+/opt/Yuki-Chan-The-Auto-Pentest/Module/WhatWeb/plugins/textpattern.rb          
+/opt/Yuki-Chan-The-Auto-Pentest/Module/WhatWeb/plugins-disabled/tagpattern-hash.rb                                                                             
+/opt/ctf-tools/matplotlib-master/extern/agg24-svn/include/agg_pattern_filters_rgba.h                                                                           
+/opt/ctf-tools/matplotlib-master/extern/agg24-svn/include/agg_span_pattern_gray.h                                                                              
+/opt/ctf-tools/matplotlib-master/extern/agg24-svn/include/agg_span_pattern_rgb.h                                                                               
+/opt/ctf-tools/matplotlib-master/extern/agg24-svn/include/agg_span_pattern_rgba.h                                                                              
+/opt/ctf-tools/matplotlib-master/lib/matplotlib/fontconfig_pattern.py          
+/opt/firmware-mod-kit/trunk/src/addpattern                                     
+/opt/firmware-mod-kit/trunk/src/addpattern.c                                   
+/opt/firmware-mod-kit/trunk/src/addpattern.o                                   
+/opt/firmware-mod-kit/trunk/src/firmware-tools/addpattern.c                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bytepatterns     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining                                                                              
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui  
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info 
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/AlignmentPanelBuilder.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/BitsInputDialogComponentProvider.java                                            
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ByteSequenceAnalyzerProvider.java                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ByteSequenceLengthFilterInputDialog.java                                         
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ByteSequencePanelBuilder.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ByteSequenceTableModel.java                                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ClipboardPanel.java                                                              
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ClipboardPatternFactory.java                                                     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ClosedPatternRowObject.java                                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ClosedPatternTableDialog.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ClosedPatternTableModel.java                                                     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ContextRegisterFilterInputDialog.java                                            
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ContextRegisterFilterablePanelBuilder.java                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ContextRegisterPanelBuilder.java                                                 
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/DataGatheringParamsDialog.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/DisassembledByteSequenceTableModel.java                                          
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ExportPatternFileActionListener.java                                             
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/FunctionBitPatternsExplorerPlugin.java                                           
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/FunctionBitPatternsMainProvider.java                                             
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/ImportPatternFileActionListener.java                                             
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/InputDialogComponentProvider.java                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/InstructionSequenceTreePanelBuilder.java                                         
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/MineSequenceTask.java                                                            
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/PatternEvalTabelModel.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/PatternEvalTableProvider.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/PatternInfoRowObject.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/PatternInfoTableModel.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/PatternMiningAnalyzerProvider.java                                               
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/RegisterValueWrapper.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/SequenceMiningParamsInputDialog.java                                             
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/gui/SimpleByteSequenceAnalyzerProvider.java                                          
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/ByteSequenceLengthFilter.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/ByteSequenceRowObject.java                                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/BytesAndDisassembly.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/ContextRegisterExtent.java                                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/ContextRegisterFilter.java                                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/ContextRegisterInfo.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/DataGatheringParams.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FileBitPatternInfo.java                                                         
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FileBitPatternInfoReader.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FilteredBytesAndDisassembly.java                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FunctionBitPatternInfo.java                                                     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FunctionBitPatternsGTree.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FunctionBitPatternsGTreeNode.java                                               
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/FunctionBitPatternsGTreeRootNode.java                                           
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/InstructionSequence.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/InstructionSequenceTreePathFilter.java                                          
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/PatternEvalRowObject.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/PatternEvaluationStats.java                                                     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/PatternMatchType.java                                                           
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/PatternType.java                                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bitpatterns/info/PercentageFilter.java                                                           
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bytepatterns/bitcluster                                                                          
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bytepatterns/bitcluster/Face.java                                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/bytepatterns/bitcluster/FacePatterns.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/ClosedSequenceMiner.java                                                     
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/FrequentSequence.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/FrequentSequenceItem.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/ProjectedDatabase.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/ProjectedSequenceInfo.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/Sequence.java                                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/SequenceDatabase.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/SequenceItem.java                                                            
+/opt/ghidra/Ghidra/Features/BytePatterns/src/main/java/ghidra/closedpatternmining/SequenceMiningParams.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining                                                                              
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/gui  
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info 
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/gui/FunctionBitPatternsXmlImportExportTest.java                                      
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ByteSequenceLengthFilterTest.java                                               
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ByteSequenceRowObjectTest.java                                                  
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ClosedPatternRowObjectTest.java                                                 
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ContextRegisterExtentTest.java                                                  
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ContextRegisterFilterTest.java                                                  
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/ContextRegisterInfoTest.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/DataGatheringParamsTest.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/FileBitPatternInfoReaderTest.java                                               
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/InstructionSequenceTest.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/PatternEvalutationStatsTest.java                                                
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/bitpatterns/info/PercentageFilterTest.java                                                       
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining/ClosedSequenceMinerTest.java                                                 
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining/ProjectedDatabaseTest.java                                                   
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining/SequenceDatabaseTest.java                                                    
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining/SequenceItemTest.java                                                        
+/opt/ghidra/Ghidra/Features/BytePatterns/src/test/java/ghidra/closedpatternmining/SequenceTest.java                                                            
+/opt/ghidra/Ghidra/Features/Decompiler/src/decompile/cpp/slghpattern.cc        
+/opt/ghidra/Ghidra/Features/Decompiler/src/decompile/cpp/slghpattern.hh        
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern                                                        
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/CombinePattern.java                                    
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/ContextPattern.java                                    
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/DisjointPattern.java                                   
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/InstructionPattern.java                                
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/OrPattern.java                                         
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/Pattern.java                                           
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/app/plugin/processors/sleigh/pattern/PatternBlock.java                                      
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern                                                                      
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/CombinePattern.java                                                  
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/ContextPattern.java                                                  
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/DisjointPattern.java                                                 
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/InstructionPattern.java                                              
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/OrPattern.java                                                       
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/Pattern.java                                                         
+/opt/ghidra/Ghidra/Framework/SoftwareModeling/src/main/java/ghidra/pcodeCPort/slghpattern/PatternBlock.java                                                    
+/opt/ghidra/Ghidra/Processors/AARCH64/data/patterns                            
+/opt/ghidra/Ghidra/Processors/AARCH64/data/patterns/AARCH64_LE_patterns.xml    
+/opt/ghidra/Ghidra/Processors/AARCH64/data/patterns/patternconstraints.xml     
+/opt/ghidra/Ghidra/Processors/ARM/data/patterns                                
+/opt/ghidra/Ghidra/Processors/ARM/data/patterns/ARM_BE_patterns.xml            
+/opt/ghidra/Ghidra/Processors/ARM/data/patterns/ARM_LE_patterns.xml            
+/opt/ghidra/Ghidra/Processors/ARM/data/patterns/patternconstraints.xml         
+/opt/ghidra/Ghidra/Processors/MIPS/data/patterns                               
+/opt/ghidra/Ghidra/Processors/MIPS/data/patterns/MIPS_BE_patterns.xml          
+/opt/ghidra/Ghidra/Processors/MIPS/data/patterns/MIPS_LE_patterns.xml          
+/opt/ghidra/Ghidra/Processors/MIPS/data/patterns/patternconstraints.xml        
+/opt/ghidra/Ghidra/Processors/PA-RISC/data/patterns                            
+/opt/ghidra/Ghidra/Processors/PA-RISC/data/patterns/pa-risc_patterns.xml       
+/opt/ghidra/Ghidra/Processors/PA-RISC/data/patterns/patternconstraints.xml     
+/opt/ghidra/Ghidra/Processors/PowerPC/data/patterns                            
+/opt/ghidra/Ghidra/Processors/PowerPC/data/patterns/PPC_BE_patterns.xml        
+/opt/ghidra/Ghidra/Processors/PowerPC/data/patterns/patternconstraints.xml     
+/opt/ghidra/Ghidra/Processors/Sparc/data/patterns                              
+/opt/ghidra/Ghidra/Processors/Sparc/data/patterns/SPARC_patterns.xml           
+/opt/ghidra/Ghidra/Processors/Sparc/data/patterns/patternconstraints.xml       
+/opt/ghidra/Ghidra/Processors/SuperH4/data/patterns                            
+/opt/ghidra/Ghidra/Processors/SuperH4/data/patterns/SuperH4_patterns.xml       
+/opt/ghidra/Ghidra/Processors/SuperH4/data/patterns/patternconstraints.xml     
+/opt/ghidra/Ghidra/Processors/x86/data/patterns                                
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/patternconstraints.xml         
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86-16_default_patterns.xml    
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86-64gcc_patterns.xml         
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86-64win_patterns.xml         
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86delphi_patterns.xml         
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86gcc_patterns.xml            
+/opt/ghidra/Ghidra/Processors/x86/data/patterns/x86win_patterns.xml            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/AARCH64/data/patterns               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/AARCH64/data/patterns/AARCH64_LE_patterns.xml                                                                       
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/AARCH64/data/patterns/patternconstraints.xml                                                                        
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/ARM/data/patterns                   
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/ARM/data/patterns/ARM_BE_patterns.xml                                                                               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/ARM/data/patterns/ARM_LE_patterns.xml                                                                               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/ARM/data/patterns/patternconstraints.xml                                                                            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/MIPS/data/patterns                  
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/MIPS/data/patterns/MIPS_BE_patterns.xml                                                                             
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/MIPS/data/patterns/MIPS_LE_patterns.xml                                                                             
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/MIPS/data/patterns/patternconstraints.xml                                                                           
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PA-RISC/data/patterns               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PA-RISC/data/patterns/pa-risc_patterns.xml                                                                          
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PA-RISC/data/patterns/patternconstraints.xml                                                                        
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PowerPC/data/patterns               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PowerPC/data/patterns/PPC_BE_patterns.xml                                                                           
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/PowerPC/data/patterns/patternconstraints.xml                                                                        
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/Sparc/data/patterns                 
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/Sparc/data/patterns/SPARC_patterns.xml                                                                              
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/Sparc/data/patterns/patternconstraints.xml                                                                          
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/SuperH4/data/patterns               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/SuperH4/data/patterns/SuperH4_patterns.xml                                                                          
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/SuperH4/data/patterns/patternconstraints.xml                                                                        
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns                   
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/patternconstraints.xml                                                                            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86-16_default_patterns.xml                                                                       
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86-64gcc_patterns.xml                                                                            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86-64win_patterns.xml                                                                            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86delphi_patterns.xml                                                                            
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86gcc_patterns.xml                                                                               
+/opt/ghidra_9.1.1_PUBLIC/Ghidra/Processors/x86/data/patterns/x86win_patterns.xml                                                                               
+/root/.bundle/cache/compact_index/rubygems.org.443.29b0360b937aa4d161703e6160654e47/info/pattern-match                                                         
+/root/.config/google-chrome/Default/Extensions/gcknhkkoolaabfmlnjonogaaifnjlfnp/3.0.7.1_0/scripts/options/options.addpattern.js                                
+/root/.config/google-chrome/Default/Extensions/gcknhkkoolaabfmlnjonogaaifnjlfnp/3.0.7.1_0/scripts/options/options.ippatternedit.js                             
+/root/.config/google-chrome/Default/Extensions/gcknhkkoolaabfmlnjonogaaifnjlfnp/3.0.7.1_0/scripts/options/options.logpattern.js                                
+/root/.config/google-chrome/Default/Extensions/gcknhkkoolaabfmlnjonogaaifnjlfnp/3.0.7.1_0/scripts/options/options.patternedit.js                               
+/root/tools/wpscan/app/finders/plugins/body_pattern.rb                         
+/root/tools/wpscan/app/finders/plugins/header_pattern.rb                       
+/root/tools/wpscan/lib/wpscan/finders/dynamic_finder/version/body_pattern.rb   
+/root/tools/wpscan/lib/wpscan/finders/dynamic_finder/version/header_pattern.rb 
+/root/tools/wpscan/spec/app/finders/plugins/body_pattern_spec.rb               
+/root/tools/wpscan/spec/app/finders/plugins/header_pattern_spec.rb             
+/root/tools/wpscan/spec/fixtures/dynamic_finders/plugin_version/body_pattern_passive_all.html                                                                  
+/root/tools/wpscan/spec/fixtures/dynamic_finders/plugin_version/header_pattern_passive_all.html                                                                
+/root/tools/wpscan/spec/fixtures/dynamic_finders/plugin_version/gotmls/header_pattern                                                                          
+/root/tools/wpscan/spec/fixtures/dynamic_finders/plugin_version/gotmls/header_pattern/index.php                                                                
+/root/tools/wpscan/spec/fixtures/dynamic_finders/wp_version/header_pattern_passive_all.html                                                                    
+/root/tools/wpscan/spec/lib/finders/dynamic_finder/version/body_pattern_spec.rb                                                                                
+/root/tools/wpscan/spec/lib/finders/dynamic_finder/version/header_pattern_spec.rb                                                                              
+/snap/chromium/971/usr/bin/fc-pattern  
+/usr/bin/fc-pattern                    
+/usr/bin/msf-pattern_create            
+/usr/bin/msf-pattern_offset            
+/usr/bin/xmlpatterns                   
+/usr/bin/xmlpatternsvalidator          
+/usr/include/glib-2.0/glib/gpattern.h  
+/usr/include/libxml2/libxml/pattern.h  
+/usr/include/libxslt/pattern.h         
+/usr/include/unicode/messagepattern.h  
+/usr/lib/dradis/ruby/2.5.0/gems/actionpack-5.1.7/lib/action_dispatch/journey/path/pattern.rb                                                                   
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb     
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/lib/mustermann/pattern_cache.rb                                                                               
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/lib/mustermann/to_pattern.rb  
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/lib/mustermann/ast/pattern.rb 
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/spec/pattern_spec.rb          
+/usr/lib/dradis/ruby/2.5.0/gems/mustermann-1.0.3/spec/to_pattern_spec.rb       
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/ports/x86_64-pc-linux-gnu/libxml2/2.9.10/include/libxml2/libxml/pattern.h                        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/pattern.c                            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/.deps/pattern.Plo                    
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/doc/devhelp/libxml2-pattern.html     
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/doc/html/libxml-pattern.html         
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include/libxml/pattern.h             
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/os400/libxmlrpg/pattern.rpgle        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/pattern                       
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/SVG/patternfill.xml           
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/pattern/conj                  
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/pattern/multiple              
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/pattern/namespaces            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/pattern/simple                
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern1_err          
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern1_valid        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern2_err          
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern2_valid        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern3_1            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern3_1.err        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern3_err          
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/result/relaxng/pattern3_valid        
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern                         
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/SVG/patternfill.xml             
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/conj.pat                
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/conj.xml                
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/multiple.pat            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/multiple.xml            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/namespaces.pat          
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/namespaces.xml          
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/simple.pat              
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/pattern/simple.xml              
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/relaxng/pattern1.rng            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/relaxng/pattern2.rng            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/relaxng/pattern3.rng            
+/usr/lib/dradis/ruby/2.5.0/gems/nokogumbo-2.0.2/ext/nokogumbo/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/test/relaxng/pattern3_1.xml          
+/usr/lib/dradis/ruby/2.5.0/gems/parslet-1.6.2/lib/parslet/pattern              
+/usr/lib/dradis/ruby/2.5.0/gems/parslet-1.6.2/lib/parslet/pattern.rb           
+/usr/lib/dradis/ruby/2.5.0/gems/parslet-1.6.2/lib/parslet/pattern/binding.rb   
+/usr/lib/dradis/ruby/2.5.0/gems/simple_form-5.0.1/lib/simple_form/components/pattern.rb                                                                        
+/usr/lib/gnupg/gpg-check-pattern       
+/usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/patterntabpage.ui         
+/usr/lib/python2.7/dist-packages/autobahn/wamp/test/test_uri_pattern.py        
+/usr/lib/python2.7/dist-packages/matplotlib/fontconfig_pattern.py              
+/usr/lib/python2.7/dist-packages/matplotlib/fontconfig_pattern.pyc             
+/usr/lib/python3/dist-packages/autobahn/wamp/test/test_uri_pattern.py          
+/usr/lib/python3/dist-packages/autobahn/wamp/test/__pycache__/test_uri_pattern.cpython-37.pyc                                                                  
+/usr/lib/python3/dist-packages/cairocffi/patterns.py                           
+/usr/lib/python3/dist-packages/cairocffi/__pycache__/patterns.cpython-37.pyc   
+^C                                     
+root@parrot:~/hackthebox/popcorn# locate pattern_create.rb                     
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb                
+root@parrot:~/hackthebox/popcorn# /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -h                                                           
+Usage: msf-pattern_create [options]    
+Example: msf-pattern_create -l 50 -s ABC,def,123                               
+Ad1Ad2Ad3Ae1Ae2Ae3Af1Af2Af3Bd1Bd2Bd3Be1Be2Be3Bf1Bf                             
+
+Options:                               
+    -l, --length <length>            The length of the pattern                 
+    -s, --sets <ABC,def,123>         Custom Pattern Sets                       
+    -h, --help                       Show this message                         
+root@parrot:~/hackthebox/popcorn# /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 200                                                       
+Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag                                      
+root@parrot:~/hackthebox/popcorn#      

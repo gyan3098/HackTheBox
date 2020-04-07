@@ -1,0 +1,23 @@
+┌─[root@parrot]─[~/hackthebox/bank]       
+└──╼ #ssh bank.htb                        
+The authenticity of host 'bank.htb (10.10.10.29)' can't be established.              
+ECDSA key fingerprint is SHA256:FzRjUWEJH7r9hunMHbWe5kA2nfM0lnrdGyDQQ9uXg68.         
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes             
+Warning: Permanently added 'bank.htb,10.10.10.29' (ECDSA) to the list of known hosts.                                                                                     
+root@bank.htb's password:                 
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-79-generic i686)                      
+
+  System information as of Sun Dec 29 04:52:53 EET 2019                              
+
+  System load: 0.4               Memory usage: 4%   Processes:       89              
+  Usage of /:  7.4% of 28.42GB   Swap usage:   0%   Users logged in: 0               
+
+  Graph this data and manage this system at:                                         
+    https://landscape.canonical.com/      
+Your Hardware Enablement Stack (HWE) is supported until April 2019.                  
+Last login: Fri Jun 16 07:44:56 2017      
+root@bank:~# ls                           
+root.txt                                  
+root@bank:~# cat root.txt                 
+d5be56adc67b488f81a4b9de30c8a68e          
+root@bank:~#                              

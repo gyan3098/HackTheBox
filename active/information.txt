@@ -1,0 +1,9 @@
+10.10.10.100  active.htb htb
+
+Users info :
+username :- SVC_TGS 
+Password :- GPPstillStandingStrong2k18
+
+Administrator info:
+username :- administrator
+password :- Ticketmaster1968

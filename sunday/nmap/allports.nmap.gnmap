@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Tue Dec 31 02:43:54 2019 as: nmap -p- -oA allports.nmap --max-retries 0 10.10.10.76
+Host: 10.10.10.76 ()	Status: Up
+Host: 10.10.10.76 ()	Ports: 79/open/tcp//finger///, 111/open/tcp//rpcbind///, 36683/open/tcp/////, 57258/open/tcp/////
+# Nmap done at Tue Dec 31 04:07:51 2019 -- 1 IP address (1 host up) scanned in 5036.56 seconds

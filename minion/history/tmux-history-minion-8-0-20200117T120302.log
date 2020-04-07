@@ -1,0 +1,88 @@
+root@parrot:~/hackthebox/minion# hashid 28a5d1e0c15af9f8fce7db65d75bbf17                                                                                        
+Analyzing '28a5d1e0c15af9f8fce7db65d75bbf17'                                    
+[+] MD2                                 
+[+] MD5                                 
+[+] MD4                                 
+[+] Double MD5                          
+[+] LM                                  
+[+] RIPEMD-128                          
+[+] Haval-128                           
+[+] Tiger-128                           
+[+] Skein-256(128)                      
+[+] Skein-512(128)                      
+[+] Lotus Notes/Domino 5                
+[+] Skype                               
+[+] Snefru-128                          
+[+] NTLM                                
+[+] Domain Cached Credentials           
+[+] Domain Cached Credentials 2         
+[+] DNSSEC(NSEC3)                       
+[+] RAdmin v2.x                         
+root@parrot:~/hackthebox/minion# hashcat -a0 -m 1000 28a5d1e0c15af9f8fce7db65d75bbf17 /opt/wordlists/rockyou.txt                                                
+hashcat (v5.1.0) starting...            
+
+* Device #1: Not a native Intel OpenCL runtime. Expect massive speed loss.      
+             You can use --force to override, but do not report related errors. 
+No devices found/left.                  
+
+Started: Fri Jan 17 11:25:18 2020       
+Stopped: Fri Jan 17 11:25:20 2020       
+root@parrot:~/hackthebox/minion# hashcat -a0 -m 1000 28a5d1e0c15af9f8fce7db65d75bbf17 /opt/wordlists/rockyou.txt --force                                        
+hashcat (v5.1.0) starting...            
+
+OpenCL Platform #1: The pocl project    
+====================================    
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 1024/2247 MB allocatable, 3MCU                                                                  
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                             
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates    
+Rules: 1                                
+
+Applicable optimizers:                  
+* Zero-Byte                             
+* Early-Skip                            
+* Not-Salted                            
+* Not-Iterated                          
+* Single-Hash                           
+* Single-Salt                           
+* Raw-Hash                              
+
+Minimum password length supported by kernel: 0                                  
+Maximum password length supported by kernel: 256                                
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                          
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.                                                     
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.                                                                               
+
+Watchdog: Hardware monitoring interface not found on your system.               
+Watchdog: Temperature abort trigger disabled.                                   
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=3 -D DGST_R2=2 -D DGST_R3=1 -D DGST_ELEM=4 -D KERN_TYPE=1000 -D _unroll'                                                 
+* Device #1: Kernel m01000_a0-pure.9aba0094.kernel not found in cache! Building may take a while...                                                             
+Dictionary cache hit:                   
+* Filename..: /opt/wordlists/rockyou.txt                                        
+* Passwords.: 14344384                  
+* Bytes.....: 139921497                 
+* Keyspace..: 14344384                  
+
+28a5d1e0c15af9f8fce7db65d75bbf17:1234test                                       
+                                                                                
+Session..........: hashcat              
+Status...........: Cracked              
+Hash.Type........: NTLM                 
+Hash.Target......: 28a5d1e0c15af9f8fce7db65d75bbf17                             
+Time.Started.....: Fri Jan 17 11:25:51 2020 (1 sec)                             
+Time.Estimated...: Fri Jan 17 11:25:52 2020 (0 secs)                            
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:  1080.0 kH/s (0.77ms) @ Accel:1024 Loops:1 Thr:1 Vec:8       
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts                   
+Progress.........: 1121280/14344384 (7.82%)                                     
+Rejected.........: 0/1121280 (0.00%)    
+Restore.Point....: 1118208/14344384 (7.80%)                                     
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1                           
+Candidates.#1....: 1234turboo -> 10shadow                                       
+
+Started: Fri Jan 17 11:25:26 2020       
+Stopped: Fri Jan 17 11:25:54 2020       
+root@parrot:~/hackthebox/minion#        

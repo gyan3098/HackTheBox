@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Jan  3 07:41:28 2020 as: nmap -T4 -sV -n -sSU -O -p T:25,135,137,139,445,1433,3306,5432,U:137,161,162,1434 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074127-nmapstage2 10.10.10.22
+Host: 10.10.10.22 ()	Status: Up
+Host: 10.10.10.22 ()	Ports: 25/filtered/tcp//smtp///, 135/filtered/tcp//msrpc///, 137/filtered/tcp//netbios-ns///, 139/filtered/tcp//netbios-ssn///, 445/filtered/tcp//microsoft-ds///, 1433/filtered/tcp//ms-sql-s///, 3306/filtered/tcp//mysql///, 5432/filtered/tcp//postgresql///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 162/open|filtered/udp//snmptrap///, 1434/open|filtered/udp//ms-sql-m///
+# Nmap done at Fri Jan  3 07:43:37 2020 -- 1 IP address (1 host up) scanned in 130.13 seconds

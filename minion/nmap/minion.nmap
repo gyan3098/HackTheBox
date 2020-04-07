@@ -1,0 +1,7 @@
+# Nmap 7.80 scan initiated Fri Jan 17 07:55:23 2020 as: nmap -sC -sV -oA nmap/minion 10.10.10.57
+Nmap scan report for 10.10.10.57
+Host is up (0.39s latency).
+All 1000 scanned ports on 10.10.10.57 are filtered
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan 17 08:01:58 2020 -- 1 IP address (1 host up) scanned in 394.67 seconds

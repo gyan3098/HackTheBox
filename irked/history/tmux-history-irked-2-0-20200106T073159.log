@@ -1,0 +1,109 @@
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #nmap -sC -sV -p 8067 10.10.10.117   
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-06 05:51 EST                      
+Nmap scan report for 10.10.10.117         
+Host is up (0.89s latency).               
+
+PORT     STATE SERVICE VERSION            
+8067/tcp open  irc     UnrealIRCd         
+| irc-info:                               
+|   users: 1                              
+|   servers: 1                            
+|   lusers: 1                             
+|   lservers: 0                           
+|   server: irked.htb                     
+|   version: Unreal3.2.8.1. irked.htb     
+|   uptime: 0 days, 0:10:31               
+|   source ident: nmap                    
+|   source host: 2C109619.F1E0FC2D.9F3BFBDD.IP                                       
+|_  error: Closing Link: gcjoikoah[10.10.14.14] (Quit: gcjoikoah)                    
+Service Info: Host: irked.htb             
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                            
+Nmap done: 1 IP address (1 host up) scanned in 17.35 seconds                         
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #vi viewuser.b64                     
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #base64 -d viewuser.b64 > viewuser                                              
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #chmod +x viewuser                   
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #ls                                  
+creds  gobuster.out  irked.jpg  nmap  pass.txt  ssh-creds  viewuser  viewuser.b64  www                                                                                    
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #ltrace viewuser                     
+-bash: ltrace: command not found          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #apt-get install ltrace              
+Reading package lists... Done             
+Building dependency tree                  
+Reading state information... Done         
+The following NEW packages will be installed:                                        
+  ltrace                                  
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.                       
+Need to get 143 kB of archives.           
+After this operation, 372 kB of additional disk space will be used.                  
+Get:1 https://mirror.0x.sg/parrot rolling/main amd64 ltrace amd64 0.7.3-6.1 [143 kB] 
+Fetched 143 kB in 4s (33.5 kB/s)          
+Selecting previously unselected package ltrace.                                      
+(Reading database ... 512120 files and directories currently installed.)             
+Preparing to unpack .../ltrace_0.7.3-6.1_amd64.deb ...                               
+Unpacking ltrace (0.7.3-6.1) ...          
+Setting up ltrace (0.7.3-6.1) ...         
+Processing triggers for man-db (2.9.0-1) ...                                         
+Scanning application launchers            
+Updating active launchers                 
+Done                                      
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #ltrace viewuser                     
+Can't execute `viewuser': No such file or directory                                  
+failed to initialize process 119626: No such file or directory                       
+couldn't open program 'viewuser': No such file or directory                          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #cat viewuser                        
+ELF@44  (444  T04hhhDDPtd44QtdRtd         
+
+                                 /lib/ld-linux.so.2GNUGNUiK[ 7I+U               Kd -"!& <                                                                                 
+                                                                                          |libc.so.6_IO_stdin_usedsetuidputssystem__cxa_finalize__libc_start_mainGLIBC_2.0NsiBC_  X.3_ITM_deregisterTMCloneTable__gmon_start___ITM_registerTMCloneTableii      
+          ;t[                             
+            hhhff1^PTR"ðPPQV$fffff$ffffffkttUQЃt&+$$)ȉSÃtt                           
+PQ҃]'USW$u't                               
+            5ƃ$]'U]W$ÍL$qUSQo             
+                             PJ           
+                               P8         
+                                 P6       
+                                   jI     
+                                     PeY[]affUWVSw                                   
+                                                  l$()t%1Ut$,t$,9u                   
+                                                                  [^_]Ív[This application is being devleoped to set and test user permissionsIt is still being actively developedwho/tmp/listusers0L0p}`zR|         
+                               F          
+                                J         
+                                 tx?;*2$"@0T~D                                       
+                                              GuDuxu|i                               
+                                                      AAC                            
+                                                         H@]A                        
+                                                             AAN i$A(D,D0M GAA       
+                                                                              ATp    
+dol                                       
+
+  \o,ooo}&  GCC: (Debian 7.2.0-8) 7.2.0Thl\                                          
+
+
+@dx4f"    |]( @ x$ }~!3$ ?                
+                           crtstuff.cderegister_tm_clones__do_global_dtors_auxcompleted.6586__do_global_dtors_aux_fini_array_entryframe_dummy__frame_dummy_init_array_entryviewuser.c__FRAME_END____init_array_end_DYNAMIC__init_array_start__GNU_EH_FRAME_HDR_GLOBAL_OFFSET_TABLE___libc_csu_fini_ITM_deregisterTMCloneTable__x86.get_pc_thunk.bx_edata__x86.get_pc_thunk.dx__cxa_finalize@@GLIBC_2.1.3__data_startputs@@GLIBC_2.0system@@GLIBC_2.0__gmon_start____dso_handle_IO_stdin_used__libc_start_main@@GLIBC_2.0__libc_csu_init_fp_hw__bss_startmainsetuid@@GLIBC_2.0__TMC_END___ITM_registerTMCloneTable.symtab.strtab.shstrtab.interp.note.ABI-tag.note.gnu.build-id.gnu.hash.dynsym.dynstr.gnu.version.gnu.version_r.rel.dyn.rel.plt.init.plt.got.text.fini.rodata.eh_frame_hdr.eh_frame.init_array.fini_array.dynamic.got.plt.data.bss.commentT#hh 1$Do N             
+                                                                                                                                                             Vll^oko,,0z \\@      B#P@@"ddxx44$ $0$@P,    Y┌─[root@parrot]─[~/hackthebox/irked]                
+└──╼ #ltrace viewuser                     
+Can't execute `viewuser': No such file or directory                                  
+failed to initialize process 120506: No such file or directory                       
+couldn't open program 'viewuser': No such file or directory                          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #ghidra                              
+-bash: ghidra: command not found          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #gihdra                              
+-bash: gihdra: command not found          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #ghidra                              
+-bash: ghidra: command not found          
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #                                    

@@ -1,0 +1,2 @@
+# Nmap 7.80 scan initiated Fri Jan  3 07:48:55 2020 as: nmap -T4 -sV -n -sSU -p T:30000-65535 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074855-nmapstage5 10.10.10.22
+# Nmap done at Fri Jan  3 07:49:04 2020 -- 1 IP address (0 hosts up) scanned in 8.82 seconds

@@ -1,0 +1,63 @@
+root@parrot:~/hackthebox/ctf# ntp       
+-bash: ntp: command not found           
+root@parrot:~/hackthebox/ctf# timedatectl --help                                
+timedatectl [OPTIONS...] COMMAND ...    
+
+Query or change system time and date settings.                                  
+
+Commands:                               
+  status                   Show current time settings                           
+  show                     Show properties of systemd-timedated                 
+  set-time TIME            Set system time                                      
+  set-timezone ZONE        Set system time zone                                 
+  list-timezones           Show known time zones                                
+  set-local-rtc BOOL       Control whether RTC is in local time                 
+  set-ntp BOOL             Enable or disable network time synchronization       
+
+systemd-timesyncd Commands:             
+  timesync-status          Show status of systemd-timesyncd                     
+  show-timesync            Show properties of systemd-timesyncd                 
+
+Options:                                
+  -h --help                Show this help message                               
+     --version             Show package version                                 
+     --no-pager            Do not pipe output into a pager                      
+     --no-ask-password     Do not prompt for password                           
+  -H --host=[USER@]HOST    Operate on remote host                               
+  -M --machine=CONTAINER   Operate on local container                           
+     --adjust-system-clock Adjust system clock when changing local RTC mode     
+     --monitor             Monitor status of systemd-timesyncd                  
+  -p --property=NAME       Show only properties by this name                    
+  -a --all                 Show all properties, including empty ones            
+     --value               When showing properties, only print the value        
+
+See the timedatectl(1) man page for details.                                    
+root@parrot:~/hackthebox/ctf# timedatectl set-ntp 1                             
+root@parrot:~/hackthebox/ctf# timedatectl set-ntp 0                             
+root@parrot:~/hackthebox/ctf# timedatectl set-time 14:10:00                     
+root@parrot:~/hackthebox/ctf# timedatectl set-time 14:13:00                                                                                                      
+root@parrot:~/hackthebox/ctf# xclip --help                                      
+xclip: --help: No such file or directory                                        
+root@parrot:~/hackthebox/ctf# xclip -h  
+Usage: xclip [OPTION] [FILE]...         
+Access an X server selection for reading or writing.                            
+
+  -i, -in          read text into X selection from standard input or files      
+                   (default)            
+  -o, -out         prints the selection to standard out (generally for          
+                   piping to a file or program)                                 
+  -l, -loops       number of selection requests to wait for before exiting      
+  -d, -display     X display to connect to (eg localhost:0")                    
+  -h, -help        usage information    
+      -selection   selection to access ("primary", "secondary", "clipboard" or "buffer-cut")                                                                     
+      -noutf8      don't treat text as utf-8, use old unicode                   
+      -target      use the given target atom                                    
+      -rmlastnl    remove the last newline character if present                 
+      -version     version information  
+      -silent      errors only, run in background (default)                     
+      -quiet       run in foreground, show what's happening                     
+      -verbose     running commentary   
+
+Report bugs to <astrand@lysator.liu.se> 
+root@parrot:~/hackthebox/ctf# echo gyan | xclip -selection clipboard            
+root@parrot:~/hackthebox/ctf# timedatectl set-time 1                            

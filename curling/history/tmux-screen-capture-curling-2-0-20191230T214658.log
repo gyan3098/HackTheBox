@@ -1,0 +1,34 @@
+# Allow members of group sudo to execute any command                        
+%sudo   ALL=(ALL:ALL) ALL             
+
+# See sudoers(5) for more information on "#include" directives:             
+
+#includedir /etc/sudoers.d            
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cp /etc/sudoers .               
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #ls                              
+cewl.out  credential  joomscan.out  nmap  password.txt  secret.txt  sudoers  www                                                                        
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #mv sudoers www/                 
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cd www/                         
+┌─[root@parrot]─[~/hackthebox/curling/www]                                  
+└──╼ #vi sudoers                      
+┌─[root@parrot]─[~/hackthebox/curling/www]                                  
+└──╼ #ls                              
+sudoers  thanks.sh                    
+┌─[root@parrot]─[~/hackthebox/curling/www]                                  
+└──╼ #cd ..                           
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cat credential                  
+username : Floris                     
+password : Curling2018!               
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cat password.txt                
+password got from password_backup file                                      
+found in the location ~floris/        
+
+5d<wdCbdZu)|hChXll                    
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #                                

@@ -1,0 +1,17 @@
+root@parrot:~/hackthebox/popcorn# searchsploit "torrent hoster"                
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                        |  Path                                  
+                                                                                                                      | (/usr/share/exploitdb/)                
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Torrent Hoster - Remount Upload                                                                                       | exploits/php/webapps/11746.txt         
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                  
+root@parrot:~/hackthebox/popcorn# searchsploit -x 11746.txt                    
+  Exploit: Torrent Hoster - Remount Upload                                     
+      URL: https://www.exploit-db.com/exploits/11746                           
+     Path: /usr/share/exploitdb/exploits/php/webapps/11746.txt                 
+File Type: HTML document, ASCII text, with CRLF line terminators               
+
+
+
+root@parrot:~/hackthebox/popcorn#      

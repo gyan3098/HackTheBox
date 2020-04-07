@@ -1,0 +1,62 @@
+ifconi┌─[root@parrot]─[~/hackthebox/valentine]                               
+└──╼ #ifconfig                        
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500                   
+        inet 10.0.2.8  netmask 255.255.255.0  broadcast 10.0.2.255           
+        inet6 fe80::ed96:d3ba:685a:109f  prefixlen 64  scopeid 0x20<link>    
+        ether 08:00:27:29:cf:e4  txqueuelen 1000  (Ethernet)                 
+        RX packets 4314  bytes 2712951 (2.5 MiB)                             
+        RX errors 0  dropped 0  overruns 0  frame 0                          
+        TX packets 4918  bytes 915925 (894.4 KiB)                            
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0           
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                                 
+        inet 127.0.0.1  netmask 255.0.0.0                                    
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>                         
+        loop  txqueuelen 1000  (Local Loopback)                              
+        RX packets 8564  bytes 2893413 (2.7 MiB)                             
+        RX errors 0  dropped 0  overruns 0  frame 0                          
+        TX packets 8564  bytes 2893413 (2.7 MiB)                             
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0           
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500           
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14     
+        inet6 fe80::a34f:a7ae:4d9e:723d  prefixlen 64  scopeid 0x20<link>    
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>           
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                   
+        RX packets 106  bytes 12682 (12.3 KiB)                               
+        RX errors 0  dropped 0  overruns 0  frame 0                          
+        TX packets 165  bytes 16932 (16.5 KiB)                               
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0           
+
+┌─[root@parrot]─[~/hackthebox/valentine]                                     
+└──╼ #                                
+┌─[root@parrot]─[~/hackthebox/valentine]                                     
+└──╼ #cat credential                  
+found this on doing 100 times heartbleed(base64)                             
+aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==  
+
+ssh password: heartbleedbelievethehype                                       
+┌─[root@parrot]─[~/hackthebox/valentine]                                     
+└──╼ #ssh -i rsa.key hype@10.10.10.79 
+Enter passphrase for key 'rsa.key':   
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)              
+
+ * Documentation:  https://help.ubuntu.com/                                  
+
+New release '14.04.5 LTS' available.  
+Run 'do-release-upgrade' to upgrade to it.                                   
+
+Last login: Sat Dec 28 02:41:34 2019 from 10.10.14.14                        
+hype@Valentine:~$ python -c "import pty;pty.spawn('/bin/bash')"              
+hype@Valentine:~$ vi dirty.c          
+hype@Valentine:~/Desktop$ ls -la      
+total 60                              
+drwxr-xr-x  2 hype hype  4096 Dec 28 04:06 .                                 
+drwxr-xr-x 21 hype hype  4096 Dec 28 03:38 ..                                
+-rw-rw-r--  1 hype hype     0 Dec 28 04:06 dirty.c                           
+-rw-rw-r--  1 hype hype 46488 Dec 28 02:46 LinEnum.sh                        
+-rw-rw-r--  1 hype hype    33 Dec 13  2017 user.txt                          
+hype@Valentine:~/Desktop$ cat dirty.c 
+hype@Valentine:~/Desktop$ vi dirty.c  
+hype@Valentine:~/Desktop$ cat dirty.c 
+hype@Valentine:~/Desktop$             

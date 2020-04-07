@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Jan  3 01:41:26 2020 as: nmap -sC -sV -oA nmap/luke 10.10.10.137
+Host: 10.10.10.137 ()	Status: Up
+Host: 10.10.10.137 ()	Ports: 21/open/tcp//ftp//vsftpd 3.0.3+ (ext.1)/, 22/open/tcp//ssh?///, 3000/open/tcp//http//Node.js Express framework/, 8000/open/tcp//http//Ajenti http control panel/	Ignored State: closed (996)
+# Nmap done at Fri Jan  3 01:45:06 2020 -- 1 IP address (1 host up) scanned in 220.29 seconds

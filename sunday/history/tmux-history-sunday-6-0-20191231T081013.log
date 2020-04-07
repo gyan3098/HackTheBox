@@ -1,0 +1,169 @@
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ls                                
+allports.nmap.gnmap  allports.nmap.nmap  allports.nmap.xml  nmap                
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #mv allports.nmap.* nmap/          
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ls                                
+nmap                                    
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #vi creential                      
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #mv creential ssh_credential       
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ls                                
+nmap  ssh_credential                    
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #vi sammy                          
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #cat s                             
+cat: s: No such file or directory       
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #cat sammy                         
+$5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB                         
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #hashcat -m 7400 sammy  /opt/wordlists/rockyou.txt --force                 
+hashcat (v5.1.0) starting...            
+
+OpenCL Platform #1: The pocl project    
+====================================    
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU                                                                    
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                             
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates    
+Rules: 1                                
+
+Applicable optimizers:                  
+* Zero-Byte                             
+* Single-Hash                           
+* Single-Salt                           
+
+Minimum password length supported by kernel: 0                                  
+Maximum password length supported by kernel: 256                                
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                          
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.                                                      
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.                                                                                
+
+Watchdog: Hardware monitoring interface not found on your system.               
+Watchdog: Temperature abort trigger disabled.                                   
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=1 -D DGST_R2=2 -D DGST_R3=3 -D DGST_ELEM=8 -D KERN_TYPE=7400 -D _unroll'                                                   
+* Device #1: Kernel m07400-pure.c58ae81c.kernel not found in cache! Building may take a while...                                                                 
+Dictionary cache hit:                   
+* Filename..: /opt/wordlists/rockyou.txt                                        
+* Passwords.: 14344384                  
+* Bytes.....: 139921497                 
+* Keyspace..: 14344384                  
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (11 secs)                           
+Time.Estimated...: Fri Jan  3 14:51:40 2020 (3 days, 8 hours)                   
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       50 H/s (11.16ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 512/14344384 (0.00%) 
+Rejected.........: 0/512 (0.00%)        
+Restore.Point....: 512/14344384 (0.00%) 
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:1696-1728                     
+Candidates.#1....: hockey -> pebbles    
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (1 min, 18 secs)                    
+Time.Estimated...: Fri Jan  3 02:34:19 2020 (2 days, 19 hours)                  
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       59 H/s (12.68ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 4480/14344384 (0.03%)                                        
+Rejected.........: 0/4480 (0.00%)       
+Restore.Point....: 4480/14344384 (0.03%)                                        
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:1376-1408                     
+Candidates.#1....: guzman -> Liverpool  
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (2 mins, 12 secs)                   
+Time.Estimated...: Fri Jan  3 02:42:00 2020 (2 days, 20 hours)                  
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       58 H/s (13.57ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 7552/14344384 (0.05%)                                        
+Rejected.........: 0/7552 (0.00%)       
+Restore.Point....: 7552/14344384 (0.05%)                                        
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:4512-4544                     
+Candidates.#1....: dynamite -> somebody 
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (4 mins, 38 secs)                   
+Time.Estimated...: Fri Jan  3 03:06:49 2020 (2 days, 20 hours)                  
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       58 H/s (13.76ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 16128/14344384 (0.11%)                                       
+Rejected.........: 0/16128 (0.00%)      
+Restore.Point....: 16128/14344384 (0.11%)                                       
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:1184-1216                     
+Candidates.#1....: 101080 -> ALBERT     
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (10 mins, 38 secs)                  
+Time.Estimated...: Fri Jan  3 02:28:29 2020 (2 days, 19 hours)                  
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       59 H/s (13.43ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 37376/14344384 (0.26%)                                       
+Rejected.........: 0/37376 (0.00%)      
+Restore.Point....: 37376/14344384 (0.26%)                                       
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:2304-2336                     
+Candidates.#1....: sempre -> minute     
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                              
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: sha256crypt $5$, SHA256 (Unix)                               
+Hash.Target......: $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB      
+Time.Started.....: Tue Dec 31 06:34:19 2019 (15 mins, 12 secs)                  
+Time.Estimated...: Fri Jan  3 02:50:59 2020 (2 days, 20 hours)                  
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                            
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       58 H/s (14.01ms) @ Accel:64 Loops:32 Thr:1 Vec:8       
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                       
+Progress.........: 53120/14344384 (0.37%)                                       
+Rejected.........: 0/53120 (0.00%)      
+Restore.Point....: 53120/14344384 (0.37%)                                       
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:2304-2336                     
+Candidates.#1....: !QAZxsw2 -> soydivina                                        
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => ^C                             
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #                                  

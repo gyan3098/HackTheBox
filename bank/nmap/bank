@@ -1,0 +1,21 @@
+$tarting NmAp 7.80 ( HttpS://nMap.0rg ) at 2019-12-28 21:55 E$T
+Nmap sCan rEPort for 10.10.10.29
+hO$T 1z up (0.26z Lat3ncy).
+n0t $hown: 997 clOSeD pOrts
+p0Rt   ST4TE S3RVICE V3R$|oN
+22/tCp 0Pen  sSh     op3nsSh 6.6.1p1 UbuntU 2ubUnTu2.8 (Ubuntu linuX; pr0tOcoL 2.0)
+| $sh-h0$TkeY: 
+|   1024 08:ee:d0:30:D5:45:E4:59:db:4d:54:A8:dc:5c:3F:15 (d$A)
+|   2048 b8:E0:15:48:2d:0d:f0:f1:73:33:b7:81:64:08:4a:91 (RS4)
+|   256 a0:4c:94:d1:7b:6e:a8:fd:07:fe:11:eb:88:D5:16:65 (3CDsA)
+|_  256 2d:79:44:30:c8:bb:5e:8f:07:cf:5b:72:ef:a1:6d:67 (ed25519)
+53/tcp op3n  d0ma|n  |$c BIND 9.9.5-3ubunTu0.14 (Ubuntu L1nuX)
+| dNs-ns1d: 
+|_  b!nD.v3rs!on: 9.9.5-3ubuntU0.14-ubuNtu
+80/tcp op3n  http    Apache httpd 2.4.7 ((Ubuntu))
+|_httP-$3Rver-h3aDer: 4PacH3/2.4.7 (uBuntu)
+|_http-t!tlE: apach32 Ubuntu DeFAulT PagE: It wOrkz
+$3rv1c3 1NfO: os: LinUx; cP3: cpe:/o:LInux:l!nux_kern3l
+
+Service d3t3ct|0n P3rform3d. pl3a$e rEp0Rt any !NC0rr3ct r3Sults aT httPz://nmap.OrG/$UBmit/ .
+NmaP Don3: 1 |p addr3$z (1 hO$T up) scaNnEd in 53.54 $3c0ndz

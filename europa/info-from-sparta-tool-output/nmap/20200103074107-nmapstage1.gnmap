@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Jan  3 07:41:07 2020 as: nmap -T4 -sV -sSU -p T:80,443 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074107-nmapstage1 10.10.10.22
+Host: 10.10.10.22 ()	Status: Up
+Host: 10.10.10.22 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/, 443/open/tcp//ssl|http//Apache httpd 2.4.18 ((Ubuntu))/
+# Nmap done at Fri Jan  3 07:41:27 2020 -- 1 IP address (1 host up) scanned in 20.07 seconds

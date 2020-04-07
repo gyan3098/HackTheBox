@@ -1,0 +1,52 @@
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #ssh-keygen -f safe                      
+Generating public/private rsa key pair.       
+Enter passphrase (empty for no passphrase):   
+Enter same passphrase again:                  
+Your identification has been saved in safe.   
+Your public key has been saved in safe.pub.   
+The key fingerprint is:                       
+SHA256:XQQzrHbyI5XsXwfpUWmrg6TVNXkYNhes1/qkY9FAsdg root@parrot                               
+The key's randomart image is:                 
++---[RSA 3072]----+    
+|         .+.. *==|    
+|          .+ +o@o|    
+|         o .+.Eo=|    
+|        +.=+ o=o.|    
+|       .S*= ..o* |    
+|        ..+. o= +|    
+|         . o ..* |    
+|            . + .|    
+|             . . |    
++----[SHA256]-----+    
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #ls               
+exploit.py  myapp  myappp  nmap  safe  safe.pub                                              
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #chmod 600 safe   
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #cat safe.pub     
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQpj0jak3YVude2KmrAPScBfV2rC5hcnZNjiAcXZ+4PGOToVHsu9IfAwcIL58KKDgC3DN8b+rOx8nH7CJVBt+ALKYfz4Gjc7VoFeKrvFeKQCCQ9IFGU0unKc57u3jl70eIqxEZDKu6VE4ySWuWCYo/9xfM4bs2CdUUR5Pdb4UAl70QJTPEmJH4xVaIWZEDY857Pe5u1OVwDaYCaB6qkab1m55J9tv+xrc34KxnVpfuw8hEHglscpC/yfDetYCY0SYBHtAvxMyU38g87V+Y0RmEKcp9ZxUkSw6SbPVPRharpqftIqg3ZzGYes8qKInpnVoB1tBktXq/IdRRaasXEF0XCXxQ2R9ocvoIJQlnh+iRk3PGeeLwsBI/OZm8Ga/kIdR95UGnhcCySzxVhXxz7ZeSgBuDMEuH8bfssmtV6FVgXzkqDb2dSNNT8vv22i8ApNBfXKzak0nTtb2qkpPtrHid3XsI95OWsf+sr9g+/CaM6XZsx3qI0Fbpay7PmyMyzlM= root@parrot   
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #chmod 600 safe   
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #ls               
+exploit.py  myapp  myappp  nmap  safe  safe.pub                                              
+┌─[root@parrot]─[~/hackthebox/safe]           
+└──╼ #ssh -i safe user@10.10.10.147           
+The authenticity of host '10.10.10.147 (10.10.10.147)' can't be established.                 
+ECDSA key fingerprint is SHA256:SLbYsnF/xaUQIxRufe8Ux6dZJ9+Jler9PTISUR90xkc.                 
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes                     
+Warning: Permanently added '10.10.10.147' (ECDSA) to the list of known hosts.                
+Linux safe 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1 (2019-04-12) x86_64                         
+
+The programs included with the Debian GNU/Linux system are free software;                    
+the exact distribution terms for each program are described in the                           
+individual files in /usr/share/doc/*/copyright.                                              
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                            
+permitted by applicable law.                  
+user@safe:~$ clear                      
+user@safe:~$ ls                         
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  myapp  MyPasswords.kdbx  user.txt                                             
+user@safe:~$                            

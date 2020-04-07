@@ -1,0 +1,2 @@
+# Nmap 7.80 scan initiated Thu Jan 16 00:56:29 2020 as: nmap -sC -sV -oA nmap/nightmare 10.10.10.66
+# Nmap done at Thu Jan 16 00:56:33 2020 -- 1 IP address (0 hosts up) scanned in 3.87 seconds

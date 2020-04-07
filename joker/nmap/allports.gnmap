@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Tue Dec 31 23:51:57 2019 as: nmap -p- -sC -oA nmap/allports 10.10.21
+Host: 10.10.0.21 ()	Status: Up
+Host: 10.10.0.21 ()	Status: Up
+# Nmap done at Tue Dec 31 23:53:43 2019 -- 1 IP address (1 host up) scanned in 106.09 seconds

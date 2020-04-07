@@ -1,0 +1,69 @@
+root@parrot:~/hackthebox/calamity# cd /opt/lxd-alpine-builder/apline/           
+root@parrot:/opt/lxd-alpine-builder/apline# ls                                  
+alpine-v3.11-i686-20200115_0409.tar.gz  metadata.yaml  rootfs  templates        
+root@parrot:/opt/lxd-alpine-builder/apline# cd rootfs/                          
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# ls                           
+bin  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# cd bin                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/bin# ls                       
+arch      cat     date           echo     fgrep   hostname  link     lzop      mount       pidof          pwd        run-parts  stat   true    zcat             
+ash       chgrp   dd             ed       fsync   ionice    linux32  makemime  mountpoint  ping           rc-status  sed        stty   umount                   
+base64    chmod   df             egrep    getopt  iostat    linux64  mkdir     mpstat      ping6          reformime  setpriv    su     uname                    
+bbconfig  chown   dmesg          false    grep    ipcalc    ln       mknod     mv          pipe_progress  rev        setserial  sync   uniso                    
+bbsuid    conspy  dnsdomainname  fatattr  gunzip  kbd_mode  login    mktemp    netstat     printenv       rm         sh         tar    usleep                   
+busybox   cp      dumpkmap       fdflush  gzip    kill      ls       more      nice        ps             rmdir      sleep      touch  watch                    
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/bin# cd sbin                  
+-bash: cd: sbin: No such file or directory                                      
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/bin# cd ../sbin/              
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/sbin# ls                      
+acpid     fsck       init      klogd        losetup    nologin          rc-update       setup-apkrepos         setup-ntp          swapon                        
+adjtimex  fstrim     inotifyd  lbu          lsmod      openrc           reboot          setup-bootable         setup-proxy        switch_root                   
+apk       getty      insmod    lbu_commit   mdev       openrc-init      rmmod           setup-disk             setup-sshd         sysctl                        
+arp       halt       ip        lbu_exclude  mkdosfs    openrc-run       route           setup-dns              setup-timezone     syslogd                       
+blkid     hdparm     ipaddr    lbu_include  mkfs.vfat  openrc-shutdown  runscript       setup-gparted-desktop  setup-xen-dom0     tunctl                        
+blockdev  hwclock    iplink    lbu_status   mkmntdirs  poweroff         service         setup-hostname         setup-xorg-base    udhcpc                        
+depmod    ifconfig   ipneigh   lbu_update   mkswap     raidautorun      setconsole      setup-interfaces       slattach           update-conf                   
+fbsplash  ifdown     iproute   ldconfig     modinfo    rc               setup-acf       setup-keymap           start-stop-daemon  update-kernel                 
+fdisk     ifenslave  iprule    loadkmap     modprobe   rc-service       setup-alpine    setup-lbu              supervise-daemon   vconfig                       
+findfs    ifup       iptunnel  logread      nameif     rc-sstat         setup-apkcache  setup-mta              swapoff            watchdog                      
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/sbin# man wget                
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/sbin# cd ~/hackthebox/calamity/                                                                               
+root@parrot:~/hackthebox/calamity# ls   
+creds  nmap  www  xalvas-files          
+root@parrot:~/hackthebox/calamity# nc -nvlp 9001 > goodluck                     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.27.      
+Ncat: Connection from 10.10.10.27:33182.                                        
+root@parrot:~/hackthebox/calamity# ls   
+creds  goodluck  nmap  www  xalvas-files                                        
+root@parrot:~/hackthebox/calamity# ls -la                                       
+total 40                                
+drwxr-xr-x  5 root root  4096 Jan 15 06:39 .                                    
+drwxr-xr-x 43 root root  4096 Jan 15 02:41 ..                                   
+-rw-r--r--  1 root root    44 Jan 15 03:01 creds                                
+-rw-r--r--  1 root root 12584 Jan 15 06:39 goodluck                             
+drwxr-xr-x  2 root root  4096 Jan 15 02:52 nmap                                 
+drwxr-xr-x  2 root root  4096 Jan 15 03:06 www                                  
+drwxr-xr-x  3 root root  4096 Jan 15 05:54 xalvas-files                         
+root@parrot:~/hackthebox/calamity# ./goodluck                                   
+-bash: ./goodluck: Permission denied    
+root@parrot:~/hackthebox/calamity# chmod +x goodluck                            
+root@parrot:~/hackthebox/calamity# ./goodluck                                   
+Segmentation fault                      
+root@parrot:~/hackthebox/calamity# cd /opt/                                     
+root@parrot:/opt# ls                    
+bbht                finger-user-enum     impacket            passwords                                   RFCpwn        truffleHog                               
+BloodHound          firmware-mod-kit     IntruderPayloads    php-reverse-shell                           SecLists      Ultimate-Facebook-Scraper                
+BurpSuiteCommunity  fsociety             JAWS                PowerSploit                                 ssh2john.py   unicorn                                  
+car-hacking         fuzzdb               lazyrecon           privilege-escalation-awesome-scripts-suite  Sublist3r     Veil                                     
+ctf-tools           ghidra               linux_privsec       PRTG-Network-Monitor-RCE                    Teeth         wicd-git                                 
+dirsearch           ghidra_9.1.1_PUBLIC  lxd-alpine-builder  pspy                                        tmux          wordlists                                
+dsync               gobuster             mRemoteNG-Decrypt   PyRFC                                       tmux-logging  XposedOrNot                              
+Empire              google               nishang             python3-pwntools                            tmux-yank     Yuki-Chan-The-Auto-Pentest               
+root@parrot:/opt# cd ghidra_9.1.1_PUBLIC/                                       
+root@parrot:/opt/ghidra_9.1.1_PUBLIC# ls
+docs  Extensions  Ghidra  ghidraRun  ghidraRun.bat  GPL  LICENSE  licenses  server  support                                                                     
+root@parrot:/opt/ghidra_9.1.1_PUBLIC# ./ghidraRun                               
+root@parrot:/opt/ghidra_9.1.1_PUBLIC#   

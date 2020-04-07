@@ -1,0 +1,17 @@
+# Got from after logging into wp webpage
+SMTP Credential
+username: orestis
+password : kHGuERB29DNiNE
+
+
+# Got from email client(Evolution)
+
+Secret web page credential
+username : orestis
+password :  kIEnnfEKJ#9UmdO
+
+link for rsa_key
+https://10.10.10.17/8ba5aa10e915218697d1c658cdee0bb8/orestis/id_rsa
+
+ssh-cred
+password : 3poulakia!

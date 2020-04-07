@@ -1,0 +1,25 @@
+# Nmap 7.80 scan initiated Mon Jan 13 04:38:42 2020 as: nmap --script redis-info -sV -p 6379 -oA nmap/redis 10.10.10.160
+Nmap scan report for postman.htb (10.10.10.160)
+Host is up (0.59s latency).
+
+PORT     STATE SERVICE VERSION
+6379/tcp open  redis   Redis key-value store 4.0.9 (64 bits)
+| redis-info: 
+|   Version: 4.0.9
+|   Operating System: Linux 4.15.0-58-generic x86_64
+|   Architecture: 64 bits
+|   Process ID: 598
+|   Used CPU (sys): 61.30
+|   Used CPU (user): 19.45
+|   Connected clients: 1
+|   Connected slaves: 0
+|   Used memory: 820.63K
+|   Role: master
+|   Bind addresses: 
+|     0.0.0.0
+|     ::1
+|   Client connections: 
+|_    10.10.14.14
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jan 13 04:38:57 2020 -- 1 IP address (1 host up) scanned in 14.53 seconds

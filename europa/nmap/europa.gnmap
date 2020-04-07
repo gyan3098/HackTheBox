@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Jan  3 07:30:33 2020 as: nmap -sC -sV -oA nmap/europa 10.10.10.22
+Host: 10.10.10.22 ()	Status: Up
+Host: 10.10.10.22 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/, 443/open/tcp//ssl|http//Apache httpd 2.4.18 ((Ubuntu))/	Ignored State: filtered (997)
+# Nmap done at Fri Jan  3 07:31:31 2020 -- 1 IP address (1 host up) scanned in 58.16 seconds

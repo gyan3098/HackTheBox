@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Sun Jan 19 12:26:17 2020 as: nmap -sC -sV -oA nmap/player 10.10.10.145
+Host: 10.10.10.145 ()	Status: Up
+Host: 10.10.10.145 ()	Ports: 22/open/tcp//ssh//OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.11 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.7/	Ignored State: closed (998)
+# Nmap done at Sun Jan 19 12:27:18 2020 -- 1 IP address (1 host up) scanned in 61.84 seconds

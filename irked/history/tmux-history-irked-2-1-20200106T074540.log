@@ -1,0 +1,13 @@
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #ncat 10.10.10.117 8067              
+:irked.htb NOTICE AUTH :*** Looking up your hostname...                              
+:irked.htb NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead                 
+ERROR :Closing Link: [10.10.14.14] (Ping timeout)                                    
+PASS ^C              
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #ncat 10.10.10.117 8067              
+:irked.htb NOTICE AUTH :*** Looking up your hostname...                              
+PASS arrow           
+:irked.htb NOTICE AUTH :*** Couldn't resolve your hostname; using your IP address instead                 
+NICK arrowERROR :Closing Link: [10.10.14.14] (Ping timeout)                          
+USER arrow gyan ranjan :gyan              

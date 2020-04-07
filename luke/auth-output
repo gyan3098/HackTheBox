@@ -1,0 +1,12 @@
+{"success":true,"message":"Authentication successful!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o"}
+
+
+checking base64 -d of 3 parts
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9    	{"alg":"HS256","typ":"JWT"}
+^ information about the token algo used for signing 
+
+eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9	{"username":"admin","iat":1578044739,"exp":1578131139}
+^ Data
+
+wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o   --    
+^ signature 

@@ -1,0 +1,214 @@
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cd ..         
+┌─[root@parrot]─[~/hackthebox]          
+└──╼ #mkdir Access  
+┌─[root@parrot]─[~/hackthebox]          
+└──╼ #cd Access     
+┌─[root@parrot]─[~/hackthebox/Access]   
+└──╼ #mkdir nmap    
+┌─[root@parrot]─[~/hackthebox/Access]   
+└──╼ #nmap -sC -sV -oA nmap/access 10.10.10.98                                  
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-24 03:13 EST                 
+
+[1]+  Stopped                 nmap -sC -sV -oA nmap/access 10.10.10.98 
+┌─[✗]─[root@parrot]─[~/hackthebox/Access]                              
+└──╼ #nmap -sC -sV -oA nmap/access 10.10.10.98                         
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-24 03:17 EST        
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn                                                               
+Nmap done: 1 IP address (0 hosts up) scanned in 4.30 seconds           
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #nmap -sC -sV -oA nmap/access 10.10.10.98                         
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-24 03:17 EST        
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn                                                               
+Nmap done: 1 IP address (0 hosts up) scanned in 4.84 seconds           
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #nmap -sC -sV -oA nmap/access 10.10.10.98                         
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-24 03:19 EST        
+Nmap scan report for 10.10.10.98   
+Host is up (0.27s latency).        
+Not shown: 997 filtered ports      
+PORT   STATE SERVICE VERSION       
+21/tcp open  ftp     Microsoft ftpd                                    
+23/tcp open  telnet?               
+80/tcp open  http    Microsoft IIS httpd 7.5                           
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows               
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                 
+Nmap done: 1 IP address (1 host up) scanned in 126.92 seconds          
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #find . -f credentials        
+find: unknown predicate `-f'       
+┌─[✗]─[root@parrot]─[~/hackthebox/Access]                              
+└──╼ #find . credentials           
+.                                  
+./web                              
+./web/out.jpg                      
+./nmap                             
+./nmap/access.gnmap                
+./nmap/access.xml                  
+./nmap/access.nmap                 
+./www                              
+./www/nishang.ps1                  
+./ftp                              
+./ftp/Backups                      
+./ftp/Backups/.listing             
+./ftp/Backups/backup.mdb           
+./ftp/Backups/tables               
+./ftp/Backups/tables/AttParam      
+./ftp/Backups/tables/personnel_area                                    
+./ftp/Backups/tables/UsersMachines 
+./ftp/Backups/tables/TmpPermitUsers                                    
+./ftp/Backups/tables/FingerVeinEx  
+./ftp/Backups/tables/TBSMSALLOT    
+./ftp/Backups/tables/auth_user_user_permissions                        
+./ftp/Backups/tables/base_appoption                                    
+./ftp/Backups/tables/devlog        
+./ftp/Backups/tables/UserUpdates   
+./ftp/Backups/tables/personnel_cardtype                                
+./ftp/Backups/tables/acc_monitor_log                                   
+./ftp/Backups/tables/EXCNOTES      
+./ftp/Backups/tables/TBSMSINFO     
+./ftp/Backups/tables/SHIFT         
+./ftp/Backups/tables/acc_door      
+./ftp/Backups/tables/UserACPrivilege                                   
+./ftp/Backups/tables/USER_OF_RUN   
+./ftp/Backups/tables/att_attreport 
+./ftp/Backups/tables/acc_reader    
+./ftp/Backups/tables/acc_auxiliary 
+./ftp/Backups/tables/acc_firstopen 
+./ftp/Backups/tables/USER_SPEDAY   
+./ftp/Backups/tables/acc_mapdoorpos                                    
+./ftp/Backups/tables/CHECKEXACT    
+./ftp/Backups/tables/EmOpLog       
+./ftp/Backups/tables/USER_TEMP_SCH 
+./ftp/Backups/tables/acc_map       
+./ftp/Backups/tables/ACGroup       
+./ftp/Backups/tables/dbbackuplog   
+./ftp/Backups/tables/dbapp_viewmodel                                   
+./ftp/Backups/tables/USERINFO      
+./ftp/Backups/tables/auth_group    
+./ftp/Backups/tables/acc_wiegandfmt                                    
+./ftp/Backups/tables/ZKAttendanceMonthStatistics                       
+./ftp/Backups/tables/OfflinePermitUsers                                
+./ftp/Backups/tables/base_systemoption                                 
+./ftp/Backups/tables/auth_user_groups                                  
+./ftp/Backups/tables/worktable_instantmsg                              
+./ftp/Backups/tables/iclock_oplog  
+./ftp/Backups/tables/django_content_type                               
+./ftp/Backups/tables/devcmds_bak   
+./ftp/Backups/tables/base_personaloption                               
+./ftp/Backups/tables/LossCard      
+./ftp/Backups/tables/auth_permission                                   
+./ftp/Backups/tables/operatecmds   
+./ftp/Backups/tables/worktable_usrmsg                                  
+./ftp/Backups/tables/DEPARTMENTS   
+./ftp/Backups/tables/attexception  
+./ftp/Backups/tables/acc_levelset  
+./ftp/Backups/tables/UserACMachines                                    
+./ftp/Backups/tables/auth_group_permissions                            
+./ftp/Backups/tables/TmpPermitGroups                                   
+./ftp/Backups/tables/Machines      
+./ftp/Backups/tables/base_datatranslation                              
+./ftp/Backups/tables/acc_interlock 
+./ftp/Backups/tables/FaceTempEx    
+./ftp/Backups/tables/acc_holidays  
+./ftp/Backups/tables/auth_user     
+./ftp/Backups/tables/base_additiondata                                 
+./ftp/Backups/tables/TBKEY         
+./ftp/Backups/tables/ServerLog     
+./ftp/Backups/tables/SchClass      
+./ftp/Backups/tables/worktable_groupmsg                                
+./ftp/Backups/tables/DeptUsedSchs  
+./ftp/Backups/tables/AlarmLog      
+./ftp/Backups/tables/iclock_dstime 
+./ftp/Backups/tables/UserUsedSClasses                                  
+./ftp/Backups/tables/CustomReport  
+./ftp/Backups/tables/attcalclog    
+./ftp/Backups/tables/SystemLog     
+./ftp/Backups/tables/ReportField   
+./ftp/Backups/tables/django_session                                    
+./ftp/Backups/tables/iclock_testdata                                   
+./ftp/Backups/tables/ParamSet      
+./ftp/Backups/tables/NUM_RUN_DEIL  
+./ftp/Backups/tables/acc_morecardgroup                                 
+./ftp/Backups/tables/personnel_empchange                               
+./ftp/Backups/tables/acc_linkageio 
+./ftp/Backups/tables/LeaveClass1   
+./ftp/Backups/tables/areaadmin     
+./ftp/Backups/tables/LeaveClass    
+./ftp/Backups/tables/personnel_leavelog                                
+./ftp/Backups/tables/userinfo_attarea                                  
+./ftp/Backups/tables/base_strresource                                  
+./ftp/Backups/tables/empitemdefine 
+./ftp/Backups/tables/acholiday     
+./ftp/Backups/tables/deptadmin     
+./ftp/Backups/tables/action_log    
+./ftp/Backups/tables/acc_levelset_emp                                  
+./ftp/Backups/tables/OfflinePermitDoors                                
+./ftp/Backups/tables/personnel_issuecard                               
+./ftp/Backups/tables/SECURITYDETAILS                                   
+./ftp/Backups/tables/acc_levelset_door_group                           
+./ftp/Backups/tables/acc_firstopen_emp                                 
+./ftp/Backups/tables/base_operatortemplate                             
+./ftp/Backups/tables/FaceTemp      
+./ftp/Backups/tables/base_option   
+./ftp/Backups/tables/AuditedExc    
+./ftp/Backups/tables/iclock_testdata_admin_dept                        
+./ftp/Backups/tables/ReportItem    
+./ftp/Backups/tables/devcmds       
+./ftp/Backups/tables/NUM_RUN       
+./ftp/Backups/tables/acc_morecardset                                   
+./ftp/Backups/tables/HOLIDAYS      
+./ftp/Backups/tables/ACUnlockComb  
+./ftp/Backups/tables/STD_WiegandFmt                                    
+./ftp/Backups/tables/CHECKINOUT    
+./ftp/Backups/tables/iclock_testdata_admin_area                        
+./ftp/Backups/tables/att_waitforprocessdata                            
+./ftp/Backups/tables/AUTHDEVICE    
+./ftp/Backups/tables/TmpPermitDoors                                    
+./ftp/Backups/tables/base_strtranslation                               
+./ftp/Backups/tables/base_basecode 
+./ftp/Backups/tables/ACTimeZones   
+./ftp/Backups/tables/acc_morecardempgroup                              
+./ftp/Backups/tables/OfflinePermitGroups                               
+./ftp/Backups/tables/BioTemplate   
+./ftp/Backups/tables/worktable_msgtype                                 
+./ftp/Backups/tables/auth_message  
+./ftp/Backups/tables/acc_antiback  
+./ftp/Backups/tables/acc_timeseg   
+./ftp/Backups/tables/TEMPLATEEx    
+./ftp/Backups/tables/TEMPLATE      
+./ftp/Backups/tables/FingerVein    
+./ftp/.listing                     
+./ftp/Engineer                     
+./ftp/Engineer/Access Control.hash 
+./ftp/Engineer/worlist             
+./ftp/Engineer/Access Control.zip  
+./ftp/Engineer/.listing            
+./ftp/Engineer/Access Control.pst  
+./ftp/Engineer/credentials         
+./ftp/Engineer/Access Control.mbox 
+find: ‘credentials’: No such file or directory                         
+┌─[✗]─[root@parrot]─[~/hackthebox/Access]                              
+└──╼ #cd ..                        
+┌─[root@parrot]─[~/hackthebox]     
+└──╼ #cd Access/                   
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #cd ftp/                      
+┌─[root@parrot]─[~/hackthebox/Access/ftp]                              
+└──╼ #cd ../                       
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #cat credentials              
+From email we got                  
+username :- security               
+Password :- 4Cc3ssC0ntr0ller       
+┌─[root@parrot]─[~/hackthebox/Access]                                  
+└──╼ #telnet 10.10.10.168          
+Trying 10.10.10.168...             
+^Z^C                               
+┌─[✗]─[root@parrot]─[~/hackthebox/Access]                              
+└──╼ #telnet 10.10.10.98           
+Trying 10.10.10.98...              
+telnet: Unable to connect to remote host: Connection timed out         
+┌─[✗]─[root@parrot]─[~/hackthebox/Access]                              
+└──╼ #                             

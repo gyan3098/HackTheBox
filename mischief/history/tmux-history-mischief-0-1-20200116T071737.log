@@ -1,0 +1,26 @@
+root@parrot:~/hackthebox/mischief# nmap -p- -v --max-retries 0 -oA nmap/tcp-all 10.10.10.92                                                                      
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:29 IST                 
+Initiating Ping Scan at 02:29           
+Scanning 10.10.10.92 [4 ports]          
+Warning: 10.10.10.92 giving up on port because retransmission cap hit (0).      
+Completed Ping Scan at 02:29, 1.04s elapsed (1 total hosts)                     
+Nmap scan report for 10.10.10.92 [host down]                                    
+Read data files from: /usr/bin/../share/nmap                                    
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn                                                                                 
+Nmap done: 1 IP address (0 hosts up) scanned in 1.16 seconds                    
+           Raw packets sent: 4 (152B) | Rcvd: 0 (0B)                            
+root@parrot:~/hackthebox/mischief# nmap -p- -v --max-retries 0 -oA nmap/tcp-all 10.10.10.92                                                                      
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:30 IST                 
+Initiating Ping Scan at 02:30           
+Scanning 10.10.10.92 [4 ports]          
+Warning: 10.10.10.92 giving up on port because retransmission cap hit (0).      
+Completed Ping Scan at 02:30, 1.04s elapsed (1 total hosts)                     
+Nmap scan report for 10.10.10.92 [host down]                                    
+Read data files from: /usr/bin/../share/nmap                                    
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn                                                                                 
+Nmap done: 1 IP address (0 hosts up) scanned in 1.16 seconds                    
+           Raw packets sent: 4 (152B) | Rcvd: 0 (0B)                            
+root@parrot:~/hackthebox/mischief# cd /opt/SecLists/Discovery/SNMP/             
+root@parrot:/opt/SecLists/Discovery/SNMP# ls                                    
+common-snmp-community-strings-onesixtyone.txt  common-snmp-community-strings.txt  snmp-onesixtyone.txt  snmp.txt                                                 
+root@parrot:/opt/SecLists/Discovery/SNMP#                                       

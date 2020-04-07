@@ -1,0 +1,13 @@
+# Nmap 7.80 scan initiated Tue Dec 31 23:54:50 2019 as: nmap -sU -oA nmap/udp 10.10.10.21
+Nmap scan report for 10.10.10.21
+Host is up (0.36s latency).
+Not shown: 994 closed ports
+PORT      STATE         SERVICE
+69/udp    open|filtered tftp
+5355/udp  open|filtered llmnr
+23980/udp open|filtered unknown
+37843/udp open|filtered unknown
+49194/udp open|filtered unknown
+58002/udp open|filtered unknown
+
+# Nmap done at Wed Jan  1 00:13:46 2020 -- 1 IP address (1 host up) scanned in 1136.26 seconds

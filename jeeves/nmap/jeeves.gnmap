@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Sat Jan  4 23:02:25 2020 as: nmap -sC -sV -oA nmap/jeeves 10.10.10.63
+Host: 10.10.10.63 ()	Status: Up
+Host: 10.10.10.63 ()	Ports: 80/open/tcp//http//Microsoft IIS httpd 10.0/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 445/open/tcp//microsoft-ds//Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)/, 50000/open/tcp//http//Jetty 9.4.z-SNAPSHOT/	Ignored State: filtered (996)
+# Nmap done at Sat Jan  4 23:03:39 2020 -- 1 IP address (1 host up) scanned in 73.46 seconds

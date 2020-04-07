@@ -1,0 +1,13 @@
+127 - reference used
+IPv6 only homepage hosting service called DoubleColonOne
+
+SFTP login 
+It does but we wanted to provide PHP hosting as well for all of you but we could not master chroot() handling for Apache properly
+
+vulnerable : chroot()
+
+Just like twitter only allows 140 characters we only allow old-school pages.
+
+DOS : protection 
+
+so we can't do gobuster

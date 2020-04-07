@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Mon Jan 13 04:38:42 2020 as: nmap -&#45;script redis-info -sV -p 6379 -oA nmap/redis 10.10.10.160 -->
+<nmaprun scanner="nmap" args="nmap -&#45;script redis-info -sV -p 6379 -oA nmap/redis 10.10.10.160" start="1578908322" startstr="Mon Jan 13 04:38:42 2020" version="7.80" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="1" services="6379"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1578908323" endtime="1578908337"><status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="10.10.10.160" addrtype="ipv4"/>
+<hostnames>
+<hostname name="postman.htb" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="6379"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="redis" product="Redis key-value store" version="4.0.9" extrainfo="64 bits" method="probed" conf="10"><cpe>cpe:/a:redis:redis:4.0.9</cpe></service><script id="redis-info" output="&#xa;  Version: 4.0.9&#xa;  Operating System: Linux 4.15.0-58-generic x86_64&#xa;  Architecture: 64 bits&#xa;  Process ID: 598&#xa;  Used CPU (sys): 61.30&#xa;  Used CPU (user): 19.45&#xa;  Connected clients: 1&#xa;  Connected slaves: 0&#xa;  Used memory: 820.63K&#xa;  Role: master&#xa;  Bind addresses: &#xa;    0.0.0.0&#xa;    ::1&#xa;  Client connections: &#xa;    10.10.14.14"><elem key="Version">4.0.9</elem>
+<elem key="Operating System">Linux 4.15.0-58-generic x86_64</elem>
+<elem key="Architecture">64 bits</elem>
+<elem key="Process ID">598</elem>
+<elem key="Used CPU (sys)">61.30</elem>
+<elem key="Used CPU (user)">19.45</elem>
+<elem key="Connected clients">1</elem>
+<elem key="Connected slaves">0</elem>
+<elem key="Used memory">820.63K</elem>
+<elem key="Role">master</elem>
+<table key="Bind addresses">
+<elem>0.0.0.0</elem>
+<elem>::1</elem>
+</table>
+<table key="Client connections">
+<elem>10.10.14.14</elem>
+</table>
+</script></port>
+</ports>
+<times srtt="591594" rttvar="509025" to="2627694"/>
+</host>
+<runstats><finished time="1578908337" timestr="Mon Jan 13 04:38:57 2020" elapsed="14.53" summary="Nmap done at Mon Jan 13 04:38:57 2020; 1 IP address (1 host up) scanned in 14.53 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

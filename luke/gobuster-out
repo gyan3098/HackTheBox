@@ -1,0 +1,15 @@
+#####on port 80#########
+/login.php (Status: 200)
+/member (Status: 301)
+/management (Status: 401) (HTTP Auth)                   
+/vendor (Status: 301)
+/config.php (Status: 200)
+/LICENSE (Status: 200)
+
+#####On port 3000######
+/login (Status: 200)
+/users (Status: 200)
+/Login (Status: 200)
+
+####On port 8000########
+/

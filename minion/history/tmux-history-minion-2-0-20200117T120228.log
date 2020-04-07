@@ -1,0 +1,35 @@
+root@parrot:~/hackthebox/minion# echo -n TmVsIG1lenpvIGRlbCBjYW1taW4gZGkgbm9zdHJhIHZpdGENCm1pIHJpdHJvdmFpIHBlciB1bmEgc2VsdmEgb3NjdXJhLA0KY2jDqSBsYSBkaXJpdHRhIHZpYSBlcmEgc21hcnJpdGEu | base64 -d -w 0                                                                                                                          
+Nel mezzo del cammin di nostra vita     
+mi ritrovai per una selva oscura,       
+ché la diritta via era smarrita.root@parrot:~/hackthebox/minion# vi hints       
+root@parrot:~/hackthebox/minion# gobuster dir -u http://10.10.10.57:62696 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x asp                
+===============================================================                 
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                 
+===============================================================                 
+[+] Url:            http://10.10.10.57:62696                                    
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                                                
+[+] Status codes:   200,204,301,302,307,401,403                                 
+[+] User Agent:     gobuster/3.0.1      
+[+] Extensions:     asp                 
+[+] Timeout:        10s                 
+===============================================================                 
+2020/01/17 08:05:52 Starting gobuster   
+===============================================================                 
+/test.asp (Status: 200)                 
+/backend (Status: 301)                  
+[ERROR] 2020/01/17 08:08:16 [!] Get http://10.10.10.57:62696/I.asp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/17 08:08:17 [!] Get http://10.10.10.57:62696/box: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/17 08:13:31 [!] Get http://10.10.10.57:62696/david.asp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/17 08:14:37 [!] Get http://10.10.10.57:62696/weekend.asp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/17 08:14:37 [!] net/http: request canceled (Client.Timeout exceeded while reading body)                                                         
+[ERROR] 2020/01/17 08:14:37 [!] net/http: request canceled (Client.Timeout exceeded while reading body)                                                         
+[ERROR] 2020/01/17 08:14:37 [!] Get http://10.10.10.57:62696/613.asp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/17 08:14:37 [!] Get http://10.10.10.57:62696/1397.asp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)              
+Progress: 4428 / 220561 (2.01%)^C       
+[!] Keyboard interrupt detected, terminating.                                   
+===============================================================                 
+2020/01/17 08:17:02 Finished            
+===============================================================                 
+root@parrot:~/hackthebox/minion#        

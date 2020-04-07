@@ -1,0 +1,17 @@
+root@parrot:~/hackthebox/october# nc -nvlp 9001                                 
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+^C                                      
+root@parrot:~/hackthebox/october# cd ../../                                     
+root@parrot:~# mkdir challenges         
+root@parrot:~# mv Downloads/digitalcube.zip challenges/stego/                   
+root@parrot:~# cd challenges/stego/     
+root@parrot:~/challenges/stego# unzip digitalcube.zip                           
+Archive:  digitalcube.zip               
+[digitalcube.zip] digitalcube.txt password:                                     
+  inflating: digitalcube.txt            
+root@parrot:~/challenges/stego# ls      
+digitalcube.txt  digitalcube.zip        
+root@parrot:~/challenges/stego# cd ~/hackthebox/october/                        
+root@parrot:~/hackthebox/october#       

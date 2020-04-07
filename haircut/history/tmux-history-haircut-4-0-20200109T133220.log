@@ -1,0 +1,62 @@
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #searchsploit screen              
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                        |  Path                                  
+                                                                                                                      | (/usr/share/exploitdb/)                
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Advanced Desktop Locker 6.0.0 - Lock Screen Bypass                                                                    | exploits/windows/local/40995.txt       
+Amateur Photographer's Image Gallery - 'fullscreen.php?albumid' SQL Injection                                         | exploits/php/webapps/37963.txt         
+Apple Safari - GdiDrawStream Blue Screen of Death                                                                     | exploits/windows_x86-64/dos/18275.txt  
+Apple iOS 7.0.2 - Sim Lock Screen Display Bypass                                                                      | exploits/ios/webapps/28978.txt         
+Aqua Real Screensaver - '.ar' Buffer Overflow                                                                         | exploits/windows/dos/34094.pl          
+Aruba MC-800 Mobility Controller - Screens Directory HTML Injection                                                   | exploits/multiple/remote/30771.txt     
+ClipShare Pro 4.0 - 'fullscreen.php' Cross-Site Scripting                                                             | exploits/php/webapps/32526.txt         
+CommView 6.1 (Build 636) - Local Blue Screen of Death (Denial of Service)                                             | exploits/windows/dos/12356.c           
+Crush FTP 5 - 'APPE' Remote JVM Blue Screen of Death (PoC)                                                            | exploits/windows/dos/17795.py          
+ELS Screen to Screen 1.0 - Multiple Password Vulnerabilities                                                          | exploits/osx/local/19437.txt           
+Faleemi Desktop Software 1.8.2 - 'SavePath for ScreenShots' Buffer Overflow (SEH)                                     | exploits/windows/local/45402.py        
+GNU Screen 3.9.x Braille Module - Local Buffer Overflow                                                               | exploits/unix/local/21414.c            
+GNU Screen 4.5.0 - Local Privilege Escalation                                                                         | exploits/linux/local/41154.sh          
+GNU Screen 4.5.0 - Local Privilege Escalation (PoC)                                                                   | exploits/linux/local/41152.txt         
+Juergen Weigert screen 3.9 - User Supplied Format String                                                              | exploits/bsd/local/20191.c             
+Juniper NetScreen 5.0 - VPN 'Username' Enumeration                                                                    | exploits/hardware/remote/26168.txt     
+LG G4 - Touchscreen Driver write_log Kernel Read/Write                                                                | exploits/android/dos/41353.txt         
+League of Legends Screensaver - Insecure File Permissions Privilege Escalation                                        | exploits/windows/local/39903.txt       
+League of Legends Screensaver - Unquoted Service Path Privilege Escalation                                            | exploits/windows/local/39902.txt       
+Microsoft Internet Explorer - JavaScript screen[ ] Denial of Service                                                  | exploits/windows/dos/7710.html         
+Microsoft Windows NT 4.0/SP1/SP2/SP3/SP4 / NT 3.5.1/SP1/SP2/SP3/SP4/SP5 - Screensaver                                 | exploits/windows/local/19359.txt       
+Microsoft Windows Server 2003 - '.EOT' Blue Screen of Death Crash                                                     | exploits/windows/dos/9417.txt          
+Microsoft Windows Vista - Access Violation from Limited Account (Blue Screen of Death)                                | exploits/windows/dos/6671.c            
+Microsoft Windows Vista/7 - SMB2.0 Negotiate Protocol Request Remote Blue Screen of Death (MS07-063)                  | exploits/windows/dos/9594.txt          
+Microsoft Winows 7 - Keyboard Layout Blue Screen of Death (MS10-073)                                                  | exploits/windows/dos/18140.c           
+Monitoring software iSmartViewPro 1.5 - 'SavePath for ScreenShots' Buffer Overflow                                    | exploits/windows_x86/local/45181.py    
+NetScreen ScreenOS 4.0.1/4.0.3 - TCP Window Size Remote Denial of Service                                             | exploits/windows/dos/22970.txt         
+PeerBlock 1.1 - Blue Screen of Death                                                                                  | exploits/windows/dos/18475.txt         
+Screen 4.0.3 (OpenBSD) - Local Authentication Bypass                                                                  | exploits/linux/local/4028.txt          
+ScreenOS 1.73/2.x - Firewall Denial of Service                                                                        | exploits/sco/dos/20532.txt             
+ScreenStream 3.0.15 - Denial of Service                                                                               | exploits/android/dos/46443.py          
+Solaris 11.4 - xscreensaver Privilege Escalation                                                                      | exploits/solaris/local/47529.txt       
+Solaris xscreensaver 11.4 - Privilege Escalation                                                                      | exploits/solaris/local/47509.txt       
+Sun Microsystems SunScreen Firewall - Privilege Escalation                                                            | exploits/multiple/remote/16041.txt     
+XBMC 8.10 - 'takescreenshot' Remote Buffer Overflow                                                                   | exploits/windows/remote/8339.py        
+Yasr Screen Reader 0.6.9 - Local Buffer Overflow                                                                      | exploits/linux/local/39734.py          
+iSmartViewPro 1.5 - 'SavePath for ScreenShots' Local Buffer Overflow (SEH)                                            | exploits/windows_x86/local/45349.py    
+xscreensaver 5.01 - Arbitrary File Disclosure Symlink                                                                 | exploits/multiple/local/9097.txt       
+---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                  
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #searchsploit -m exploits/linux/local/41154.sh                            
+  Exploit: GNU Screen 4.5.0 - Local Privilege Escalation                       
+      URL: https://www.exploit-db.com/exploits/41154                           
+     Path: /usr/share/exploitdb/exploits/linux/local/41154.sh                  
+File Type: Bourne-Again shell script, ASCII text executable, with CRLF line terminators                                                                        
+
+Copied to: /root/hackthebox/haircut/41154.sh                                   
+
+
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #mv 41154.sh shell.sh             
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #vi shell.sh                      
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #                                 

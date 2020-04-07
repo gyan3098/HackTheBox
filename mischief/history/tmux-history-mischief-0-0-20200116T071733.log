@@ -1,0 +1,697 @@
+root@parrot:~/hackthebox/mischief# mkdir nmap                                   
+root@parrot:~/hackthebox/mischief# nmap -sC -sV -oA nmap/mischief 10.10.10.92   
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:16 IST                 
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn                                                                                 
+Nmap done: 1 IP address (0 hosts up) scanned in 4.46 seconds                    
+root@parrot:~/hackthebox/mischief# ping 10.10.10.92                             
+PING 10.10.10.92 (10.10.10.92) 56(84) bytes of data.                            
+64 bytes from 10.10.10.92: icmp_seq=1 ttl=63 time=359 ms                        
+64 bytes from 10.10.10.92: icmp_seq=2 ttl=63 time=234 ms                        
+^C                                      
+--- 10.10.10.92 ping statistics ---     
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2003ms            
+rtt min/avg/max/mdev = 233.596/296.075/358.554/62.479 ms                        
+root@parrot:~/hackthebox/mischief# nmap -sC -sV -oA nmap/mischief 10.10.10.92                                                                                    
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:17 IST                 
+Nmap scan report for 10.10.10.92        
+Host is up (0.42s latency).             
+Not shown: 999 filtered ports           
+PORT   STATE SERVICE VERSION            
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)        
+| ssh-hostkey:                          
+|   2048 2a:90:a6:b1:e6:33:85:07:15:b2:ee:a7:b9:46:77:52 (RSA)                  
+|   256 d0:d7:00:7c:3b:b0:a6:32:b2:29:17:8d:69:a6:84:3f (ECDSA)                 
+|_  256 3f:1c:77:93:5c:c0:6c:ea:26:f4:bb:6c:59:e9:7c:b0 (ED25519)               
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                         
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                   
+Nmap done: 1 IP address (1 host up) scanned in 55.00 seconds                    
+root@parrot:~/hackthebox/mischief# nmap -sU  -v -oA nmap/mischief-udp 10.10.10.92                                                                                
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:27 IST                 
+Initiating Ping Scan at 02:27           
+Scanning 10.10.10.92 [4 ports]          
+Completed Ping Scan at 02:27, 0.35s elapsed (1 total hosts)                     
+Initiating Parallel DNS resolution of 1 host. at 02:27                          
+Completed Parallel DNS resolution of 1 host. at 02:27, 0.01s elapsed            
+Initiating UDP Scan at 02:27            
+Scanning 10.10.10.92 [1000 ports]       
+UDP Scan Timing: About 10.60% done; ETC: 02:32 (0:04:30 remaining)              
+UDP Scan Timing: About 21.10% done; ETC: 02:32 (0:03:52 remaining)              
+UDP Scan Timing: About 31.00% done; ETC: 02:32 (0:03:25 remaining)              
+UDP Scan Timing: About 41.60% done; ETC: 02:32 (0:02:51 remaining)              
+UDP Scan Timing: About 52.05% done; ETC: 02:32 (0:02:21 remaining)              
+
+root@parrot:~/hackthebox/mischief# nmap -sU  -v -p161 -oA nmap/mischief-udp 10.10.10.92                                                                          
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-16 02:30 IST                 
+Initiating Ping Scan at 02:30           
+Scanning 10.10.10.92 [4 ports]          
+Completed Ping Scan at 02:30, 0.31s elapsed (1 total hosts)                     
+Initiating Parallel DNS resolution of 1 host. at 02:30                          
+Completed Parallel DNS resolution of 1 host. at 02:30, 0.01s elapsed            
+Initiating UDP Scan at 02:30            
+Scanning 10.10.10.92 [1 port]           
+Discovered open port 161/udp on 10.10.10.92                                     
+Completed UDP Scan at 02:30, 0.27s elapsed (1 total ports)                      
+Nmap scan report for 10.10.10.92        
+Host is up (0.26s latency).             
+
+PORT    STATE SERVICE                   
+161/udp open  snmp                      
+
+Read data files from: /usr/bin/../share/nmap                                    
+Nmap done: 1 IP address (1 host up) scanned in 0.76 seconds                     
+           Raw packets sent: 5 (240B) | Rcvd: 2 (168B)                          
+root@parrot:~/hackthebox/mischief# onesixtyone -v                               
+onesixtyone: invalid option -- 'v'      
+onesixtyone 0.3.3 [options] <host> <community>                                  
+  -c <communityfile> file with community names to try                           
+  -i <inputfile>     file with target hosts                                     
+  -o <outputfile>    output log         
+  -p                 specify an alternate destination SNMP port                 
+  -d                 debug mode, use twice for more information                 
+
+  -s                 short mode, only print IP addresses                        
+
+  -w n               wait n milliseconds (1/1000 of a second) between sending packets (default 10)                                                               
+  -q                 quiet mode, do not print log to stdout, use with -l        
+host is either an IPv4 address or an IPv4 address and a netmask                 
+default community names are: public private                                     
+
+Max number of hosts :           65535   
+Max community length:           32      
+Max number of communities:      16384   
+
+
+examples: onesixtyone 192.168.4.0/24 public                                     
+          onesixtyone -c dict.txt -i hosts -o my.log -w 100                     
+
+root@parrot:~/hackthebox/mischief# onesixtyone -c /opt/SecLists/opt/SecLists/Discovery/SNMP/common-snmp-community-strings.txt 10.10.10.92                        
+Error opening community file /opt/SecLists/opt/SecLists/Discovery/SNMP/common-snmp-community-strings.txt                                                         
+root@parrot:~/hackthebox/mischief# onesixtyone -c /opt/SecLists/opt/SecLists/Discovery/SNMP/common-snmp-community-onesixtyone.txt 10.10.10.92                    
+Error opening community file /opt/SecLists/opt/SecLists/Discovery/SNMP/common-snmp-community-onesixtyone.txt                                                     
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v2c 10.10.10.92 > snmpwalk.out                                                                            
+-bash: snmpwalk: command not found      
+root@parrot:~/hackthebox/mischief# apt search snmp                              
+Sorting... Done                         
+Full Text Search... Done                
+ap-utils/rolling 1.5-3+b1 amd64         
+  Access Point SNMP Utils for Linux     
+
+braa/rolling,now 0.82-4 amd64 [installed,automatic]                             
+  Mass SNMP scanner                     
+
+cacti/rolling,rolling 1.2.8+ds1-1 all   
+  web interface for graphing of monitoring systems                              
+
+cisco-torch/rolling,rolling,now 0.4b-1kali4 all [installed,automatic]           
+  Cisco device scanner                  
+
+collectd-core/rolling 5.9.2.g-1 amd64   
+  statistics collection and monitoring daemon (core system)                     
+
+copy-router-config/rolling,rolling,now 1.0-1kali2 all [installed,automatic]     
+  Copies Cisco configs via SNMP         
+
+corosync-notifyd/rolling 3.0.3-2 amd64  
+  cluster engine notification daemon    
+
+cpqarrayd/rolling 2.3.6+b1 amd64        
+  monitoring tool for HP (Compaq) SmartArray controllers                        
+
+dropwatch/rolling 1.5.1-2 amd64         
+  tool for detecting and diagnosing dropped network packets                     
+
+erlang-common-test/rolling 1:22.2+dfsg-1 amd64                                  
+  Erlang/OTP application for automated testing                                  
+
+erlang-snmp/rolling 1:22.2+dfsg-1 amd64 
+  Erlang/OTP SNMP applications          
+
+fence-agents/rolling 4.5.2-1 amd64      
+  Fence Agents for Red Hat Cluster      
+
+frr-snmp/rolling 6.0.2-2+b3 amd64       
+  FRRouting suite - SNMP support        
+
+fusioninventory-agent/rolling,rolling 1:2.5.2-1 all                             
+  hardware and software inventory tool (client)                                 
+
+fusioninventory-agent-task-network/rolling,rolling 1:2.5.2-1 all                
+  network device discovery for FusionInventory Agent                            
+
+golang-github-soniah-gosnmp-dev/rolling,rolling 1.16-1 all                      
+  SNMP library written in Go            
+
+hydra/rolling,now 9.0-1 amd64 [installed,automatic]                             
+  very fast network logon cracker       
+
+hydra-gtk/rolling,now 9.0-1 amd64 [installed,automatic]                         
+  very fast network logon cracker - GTK+ based GUI                              
+
+ifstat/rolling 1.1-8.1+b2 amd64         
+  InterFace STATistics Monitoring       
+
+iptotal/rolling 0.3.3-13.1+b1 amd64     
+  monitor for IP traffic, not requiring SNMP                                    
+
+irssi-scripts/rolling,rolling 20181120 all                                      
+  collection of scripts for irssi       
+
+kamailio/rolling 5.3.1-1 amd64          
+  very fast, dynamic and configurable SIP server                                
+
+kamailio-snmpstats-modules/rolling 5.3.1-1 amd64                                
+  SNMP AgentX subagent module for the Kamailio SIP server                       
+
+liblldpctl-dev/rolling 1.0.4-1+b3 amd64 
+  implementation of IEEE 802.1ab (LLDP) - development files                     
+
+libnet-snmp-perl/rolling,rolling,now 6.0.1-5 all [installed,automatic]          
+  Script SNMP connections               
+
+libnet-telnet-cisco-perl/rolling,rolling 1.10-5.3 all                           
+  Additional functionality to automate Cisco management                         
+
+libosmoctrl0/rolling 0.12.1-3 amd64     
+  Osmo control library                  
+
+libsmi2-common/rolling,rolling 0.4.8+dfsg2-16 all                               
+  library to access SMI MIB information - MIB module files                      
+
+libsnmp-base/rolling,rolling,now 5.8+dfsg-2 all [installed,automatic]           
+  SNMP configuration script, MIBs and documentation                             
+
+libsnmp-dev/rolling 5.8+dfsg-2 amd64    
+  SNMP (Simple Network Management Protocol) development files                   
+
+libsnmp-extension-passpersist-perl/rolling,rolling 0.07-2 all                   
+  Generic pass/pass_persist extension framework for Net-SNMP                    
+
+libsnmp-info-perl/rolling,rolling 3.70-1 all                                    
+  Object Oriented Perl5 Interface to Network devices and MIBs through SNMP      
+
+libsnmp-mib-compiler-perl/rolling,rolling 0.06-3 all                            
+  MIB Compiler supporting SMIv1 and SMIv2                                       
+
+libsnmp-multi-perl/rolling,rolling 2.1-4 all                                    
+  Perform SNMP operations on multiple hosts simultaneously                      
+
+libsnmp-perl/rolling,now 5.8+dfsg-2 amd64 [installed,automatic]                 
+  SNMP (Simple Network Management Protocol) Perl5 support                       
+
+libsnmp-session-perl/rolling,rolling 1.14~git20130523.186a005-5 all             
+  Perl support for accessing SNMP-aware devices                                 
+
+libsnmp30/rolling 5.7.3+dfsg-5+b2 amd64 
+  SNMP (Simple Network Management Protocol) library                             
+
+libsnmp35/rolling,now 5.8+dfsg-2 amd64 [installed,automatic]                    
+  SNMP (Simple Network Management Protocol) library                             
+
+libsnmp35-dbg/rolling 5.8+dfsg-2 amd64  
+  SNMP (Simple Network Management Protocol) library debug                       
+
+lldpd/rolling 1.0.4-1+b3 amd64          
+  implementation of IEEE 802.1ab (LLDP) 
+
+monitoring-plugins-standard/rolling 2.2-6 amd64                                 
+  Plugins for nagios compatible monitoring systems (standard)                   
+
+mrtg/rolling 2.17.7-1+b1 amd64          
+  multi router traffic grapher          
+
+munin-plugins-core/rolling,rolling 2.0.51-1 all                                 
+  network-wide graphing framework (plugins for node)                            
+
+nagios-plugins-contrib/rolling 25.20191015+1 amd64                              
+  Plugins for nagios compatible monitoring systems                              
+
+nagios-snmp-plugins/rolling,rolling 2.1.0-1 all                                 
+  SNMP Plugins for nagios               
+
+netwox/rolling,now 5.39.0-1.3+b1 amd64 [installed,automatic]                    
+  networking utilities                  
+
+netwox-doc/rolling,rolling 5.39.0-1.3 all                                       
+  documentation for netwox toolbox      
+
+nfs-ganesha/rolling 2.7.6-3 amd64       
+  NFS server in User Space              
+
+nfs-ganesha-ceph/rolling 2.7.6-3 amd64  
+  nfs-ganesha fsal ceph libraries       
+
+nfs-ganesha-doc/rolling,rolling 2.7.6-3 all                                     
+  Documentation for nfs-ganesha         
+
+nfs-ganesha-gluster/rolling 2.7.6-3 amd64                                       
+  nfs-ganesha fsal gluster libraries    
+
+nfs-ganesha-gpfs/rolling 2.7.6-3 amd64  
+  nfs-ganesha fsal gpfs libraries       
+
+nfs-ganesha-mem/rolling 2.7.6-3 amd64   
+  nfs-ganesha fsal mem libraries        
+
+nfs-ganesha-mount-9p/rolling 2.7.6-3 amd64                                      
+  nfs-ganesha mount.9P                  
+
+nfs-ganesha-nullfs/rolling 2.7.6-3 amd64
+  nfs-ganesha fsal nullfs libraries     
+
+nfs-ganesha-proxy/rolling 2.7.6-3 amd64 
+  nfs-ganesha fsal proxy libraries      
+
+nfs-ganesha-vfs/rolling 2.7.6-3 amd64   
+  nfs-ganesha fsal vfs libraries        
+
+nfs-ganesha-xfs/rolling 2.7.6-3 amd64   
+  nfs-ganesha fsal xfs libraries        
+
+nut-snmp/rolling 2.7.4-11 amd64         
+  network UPS tools - SNMP driver       
+
+onesixtyone/rolling,now 0.3.3~git20190328-2 amd64 [installed,automatic]         
+  fast and simple SNMP scanner          
+
+openhpi-plugin-snmp-bc/rolling 3.8.0-2+b2 amd64                                 
+  OpenHPI plugin module for IBM's BladeCenter or RSA over SNMP                  
+
+opensips-snmpstats-module/rolling 2.2.2-3.1+b3 amd64                            
+  SNMP AgentX subagent module for OpenSIPS                                      
+
+patator/rolling,rolling,now 0.7-2 all [installed,automatic]                     
+  Multi-purpose brute-forcer            
+
+pcs-snmp/rolling,rolling 0.10.4-2 all   
+  Pacemaker Configuration System SNMP agent                                     
+
+perl-cisco-copyconfig/rolling,now 1.4-1kali2 amd64 [installed,automatic]        
+  Provides methods for manipulating Cisco devices                               
+
+php-snmp/rolling,rolling 2:7.3+69 all   
+  SNMP module for PHP [default]         
+
+php7.3-snmp/rolling 7.3.12-1 amd64      
+  SNMP module for PHP                   
+
+proftpd-mod-snmp/rolling 1.3.6b-2 amd64 
+  Versatile, virtual-hosting FTP daemon - SNMP module                           
+
+prometheus-snmp-exporter/rolling 0.15.0+ds-1+b1 amd64                           
+  Prometheus exporter for SNMP-enabled devices                                  
+
+pypy-pyasn1/rolling,rolling 0.4.2-3 all 
+  ASN.1 library for Python (PyPy module)                                        
+
+python-netsnmp/rolling 5.7.3+dfsg-5+b2 amd64                                    
+  SNMP (Simple Network Management Protocol) Python support                      
+
+python-pyasn1/rolling,rolling,now 0.4.2-3 all [installed,automatic]             
+  ASN.1 library for Python (Python 2 module)                                    
+
+python-pyasn1-doc/rolling,rolling 0.4.2-3 all                                   
+  ASN.1 library for Python (documentation)                                      
+
+python-pysmi/rolling,rolling 0.3.2-1 all
+  SNMP SMI/MIB Parser (Python 2.X)      
+
+python-pysmi-doc/rolling,rolling 0.3.2-1 all                                    
+  SNMP SMI/MIB Parser (documentation)   
+
+python-pysnmp4/rolling,rolling 4.4.6+repack1-1 all                              
+  Python SNMP library for agents and managers (Python 2 module)                 
+
+python-pysnmp4-apps/rolling,rolling 0.3.2-1 all                                 
+  Applications for the Python SNMP library                                      
+
+python-pysnmp4-doc/rolling,rolling 4.4.6+repack1-1 all                          
+  Python SNMP library for agents and managers (unstable branch)                 
+
+python-pysnmp4-mibs/rolling,rolling 0.1.3-1 all                                 
+  MIBs for the Python SNMP library      
+
+python-snimpy-doc/rolling,rolling 0.8.13-2 all                                  
+  interactive SNMP tool with Python (documentation)                             
+
+python3-pyagentx/rolling,rolling 0.4.1-5 all                                    
+  AgentX package to extend SNMP with pure Python                                
+
+python3-pyasn1/rolling,rolling,now 0.4.2-3 all [installed,automatic]            
+  ASN.1 library for Python (Python 3 module)                                    
+
+python3-pysmi/rolling,rolling,now 0.3.2-1 all [installed,automatic]             
+  SNMP SMI/MIB Parser                   
+
+python3-pysnmp4/rolling,rolling,now 4.4.6+repack1-1 all [installed,automatic]   
+  Python SNMP library for agents and managers (Python 3 module)                 
+
+python3-snimpy/rolling 0.8.13-2 amd64   
+  high-level SNMP bindings for Python 3 
+
+ruby-snmp/rolling,rolling,now 1.3.1-1 all [installed,automatic]                 
+  simple network management protocol bindings for ruby                          
+
+sblim-wbemcli/rolling 1.6.3-2 amd64     
+  WBEM Command Line Interface for CIMOM access                                  
+
+snimpy/rolling,rolling 0.8.13-2 all     
+  interactive SNMP tool with Python     
+
+snmp/rolling 5.8+dfsg-2 amd64           
+  SNMP (Simple Network Management Protocol) applications                        
+
+snmp-mibs-downloader/rolling,rolling 1.2 all                                    
+  install and manage Management Information Base (MIB) files                    
+
+snmpcheck/rolling,rolling,now 1.9-0kali1 all [installed,automatic]              
+  SNMP service enumeration tool         
+
+snmpd/rolling 5.8+dfsg-2 amd64          
+  SNMP (Simple Network Management Protocol) agents                              
+
+snmpenum/rolling,rolling 0-0kali2 all   
+  SNMP tabledump                        
+
+snmpsim/rolling,rolling 0.4.5-1 all     
+  SNMP agent simulator                  
+
+snmptrapd/rolling 5.8+dfsg-2 amd64      
+  Net-SNMP notification receiver        
+
+snmptrapfmt/rolling 1.16+b1 amd64       
+  configurable snmp trap handler daemon for snmpd                               
+
+snmptt/rolling,rolling 1.4-2 all        
+  SNMP trap handler for use with snmptrapd                                      
+
+syslog-ng-mod-snmptrapd-parser/rolling 3.25.1-1 amd64                           
+  Enhanced system logging daemon (snmptrapd-parser plugin)                      
+
+tcpdump/rolling 4.9.3-4 amd64 [upgradable from: 4.9.3-3]                        
+  command-line network traffic analyzer 
+
+tkmib/rolling,rolling 5.8+dfsg-2 all    
+  SNMP (Simple Network Management Protocol) MIB browser                         
+
+torrus-common/rolling,rolling 3.00-1 all
+  Universal front-end for Round-Robin Databases (common files)                  
+
+vitrage-snmp-parsing/rolling,rolling 5.0.0-2 all                                
+  OpenStack RCA as a Service - SNMP Parsing Service                             
+
+wmnd-snmp/rolling 0.4.17-3+b2 amd64     
+  Dockapp monitoring network interfaces with SNMP support                       
+
+yasat/rolling,rolling,now 848-1 all [installed,automatic]                       
+  simple stupid audit tool              
+
+zabbix-agent/rolling 1:4.0.16+dfsg-1 amd64                                      
+  network monitoring solution - agent   
+
+zabbix-frontend-php/rolling,rolling 1:4.0.16+dfsg-1 all                         
+  network monitoring solution - PHP front-end                                   
+
+zabbix-java-gateway/rolling,rolling 1:4.0.16+dfsg-1 all                         
+  network monitoring solution - Java gateway                                    
+
+zabbix-proxy-mysql/rolling 1:4.0.16+dfsg-1 amd64                                
+  network monitoring solution - proxy (using MySQL)                             
+
+zabbix-proxy-pgsql/rolling 1:4.0.16+dfsg-1 amd64                                
+  network monitoring solution - proxy (using PostgreSQL)                        
+
+zabbix-proxy-sqlite3/rolling 1:4.0.16+dfsg-1 amd64                              
+  network monitoring solution - proxy (using SQLite3)                           
+
+zabbix-server-mysql/rolling 1:4.0.16+dfsg-1 amd64                               
+  network monitoring solution - server (using MySQL)                            
+
+zabbix-server-pgsql/rolling 1:4.0.16+dfsg-1 amd64                               
+  network monitoring solution - server (using PostgreSQL)                       
+
+root@parrot:~/hackthebox/mischief# apt install snmp                             
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following packages were automatically installed and are no longer required: 
+  cython dcraw flac libdbd-sqlite3-perl libfluidsynth1 libhtml-linkextractor-perl libjpeg-turbo-progs liblwp-protocol-socks-perl libndpi2.6 libout123-0          
+  libreadline7 librecode0 libstd-rust-1.39 libturbojpeg0 libxml-simple-perl linux-compiler-gcc-8-x86 linux-headers-5.2.0-2parrot1-amd64                          
+  linux-headers-5.2.0-2parrot1-common linux-image-5.2.0-2parrot1-amd64 linux-kbuild-5.2 mpg123 php-sqlite3 php7.3-sqlite3 python-alembic python-autobahn         
+  python-babel python-bottle python-cbor python-chameleon python-click-plugins python-cssselect python-deprecation python-django python-editor                   
+  python-feedparser python-filedepot python-filteralchemy python-flask-babelex python-flask-classful python-flask-kvsession python-flask-login                   
+  python-flask-mail python-flask-principal python-flask-restless python-flask-security python-flask-session python-flask-sqlalchemy python-flaskext.wtf          
+  python-formencode python-html2text python-hupper python-ipy python-lz4 python-marshmallow python-marshmallow-sqlalchemy python-mimeparse python-mimerender     
+  python-neovim python-nplusone python-openid python-passlib python-paste python-pastedeploy python-pastescript python-pcapfile python-plaster                   
+  python-plaster-pastedeploy python-png python-pyqrcode python-pyquery python-pyramid python-qrcode python-repoze.lru python-scgi python-selenium python-shodan  
+  python-simplekv python-snappy python-speaklater python-sqlalchemy-schemadisplay python-sqlparse python-syslog-rfc5424-formatter python-tempita                 
+  python-translationstring python-trie python-trollius python-txaio python-u-msgpack python-ubjson python-unidecode python-venusian python-waitress              
+  python-webargs python-webob python-websocket python-webtest python-wsaccel python-wtforms python-xlsxwriter python-zope.component python-zope.deprecation      
+  python-zope.event python-zope.hookable recode ruby-dataobjects ruby-dataobjects-mysql ruby-dataobjects-postgres ruby-dataobjects-sqlite3 ruby-dm-core          
+  ruby-dm-do-adapter ruby-dm-migrations ruby-dm-sqlite-adapter                  
+Use 'apt autoremove' to remove them.    
+The following NEW packages will be installed:                                   
+  snmp                                  
+0 upgraded, 1 newly installed, 0 to remove and 139 not upgraded.                
+Need to get 167 kB of archives.         
+After this operation, 665 kB of additional disk space will be used.             
+Get:1 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 snmp amd64 5.8+dfsg-2 [167 kB]                                                                  
+Fetched 167 kB in 11s (14.6 kB/s)       
+Selecting previously unselected package snmp.                                   
+(Reading database ... 548429 files and directories currently installed.)        
+Preparing to unpack .../snmp_5.8+dfsg-2_amd64.deb ...                           
+Unpacking snmp (5.8+dfsg-2) ...         
+Setting up snmp (5.8+dfsg-2) ...        
+Processing triggers for man-db (2.9.0-2) ...                                    
+Scanning application launchers          
+Updating active launchers               
+Done                                    
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v2c 10.10.10.92 > snmpwalk.out                                                                            
+Created directory: /var/lib/snmp/mib_indexes                                    
+Timeout: No Response from 10.10.10.92   
+root@parrot:~/hackthebox/mischief# ls   
+nmap  snmpwalk.out                      
+root@parrot:~/hackthebox/mischief# vi snmpwalk.out                              
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v2c 10.10.10.92 > snmpwalk.out                                                                            
+Timeout: No Response from 10.10.10.92   
+root@parrot:~/hackthebox/mischief# ping 10.10.10.92                             
+PING 10.10.10.92 (10.10.10.92) 56(84) bytes of data.                            
+64 bytes from 10.10.10.92: icmp_seq=15 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.92: icmp_seq=16 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.92: icmp_seq=17 ttl=63 time=267 ms                       
+^C                                      
+--- 10.10.10.92 ping statistics ---     
+17 packets transmitted, 3 received, 82.3529% packet loss, time 16344ms          
+rtt min/avg/max/mdev = 209.374/228.692/267.308/27.305 ms                        
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v2c 10.10.10.92 > snmpwalk.out                                                                            
+Timeout: No Response from 10.10.10.92   
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v3c 10.10.10.92 > snmpwalk.out                                                                            
+Invalid version specified after -v flag: 3c                                     
+USAGE: snmpwalk [OPTIONS] AGENT [OID]   
+
+  Version:  5.8                         
+  Web:      http://www.net-snmp.org/    
+  Email:    net-snmp-coders@lists.sourceforge.net                               
+
+OPTIONS:                                
+  -h, --help            display this help message                               
+  -H                    display configuration file directives understood        
+  -v 1|2c|3             specifies SNMP version to use                           
+  -V, --version         display package version number                          
+SNMP Version 1 or 2c specific           
+  -c COMMUNITY          set the community string                                
+SNMP Version 3 specific                 
+  -a PROTOCOL           set authentication protocol (MD5|SHA|SHA-224|SHA-256|SHA-384|SHA-512)                                                                    
+  -A PASSPHRASE         set authentication protocol pass phrase                 
+  -e ENGINE-ID          set security engine ID (e.g. 800000020109840301)        
+  -E ENGINE-ID          set context engine ID (e.g. 800000020109840301)         
+  -l LEVEL              set security level (noAuthNoPriv|authNoPriv|authPriv)   
+  -n CONTEXT            set context name (e.g. bridge1)                         
+  -u USER-NAME          set security name (e.g. bert)                           
+  -x PROTOCOL           set privacy protocol (DES|AES)                          
+  -X PASSPHRASE         set privacy protocol pass phrase                        
+  -Z BOOTS,TIME         set destination engine boots/time                       
+General communication options           
+  -r RETRIES            set the number of retries                               
+  -t TIMEOUT            set the request timeout (in seconds)                    
+Debugging                               
+  -d                    dump input/output packets in hexadecimal                
+  -D[TOKEN[,...]]       turn on debugging output for the specified TOKENs       
+                           (ALL gives extremely verbose debugging output)       
+General options                         
+  -m MIB[:...]          load given list of MIBs (ALL loads everything)          
+  -M DIR[:...]          look in given list of directories for MIBs              
+    (default: $HOME/.snmp/mibs:/usr/share/snmp/mibs:/usr/share/snmp/mibs/iana:/usr/share/snmp/mibs/ietf)                                                         
+  -P MIBOPTS            Toggle various defaults controlling MIB parsing:        
+                          u:  allow the use of underlines in MIB symbols        
+                          c:  disallow the use of "--" to terminate comments    
+                          d:  save the DESCRIPTIONs of the MIB objects          
+                          e:  disable errors when MIB symbols conflict          
+                          w:  enable warnings when MIB symbols conflict         
+                          W:  enable detailed warnings when MIB symbols conflict                                                                                 
+                          R:  replace MIB symbols from latest module            
+  -O OUTOPTS            Toggle various defaults controlling output display:     
+                          0:  print leading 0 for single-digit hex characters   
+                          a:  print all strings in ascii format                 
+                          b:  do not break OID indexes down                     
+                          e:  print enums numerically                           
+                          E:  escape quotes in string indices                   
+                          f:  print full OIDs on output                         
+                          n:  print OIDs numerically                            
+                          p PRECISION:  display floating point values with specified PRECISION (printf format string)                                            
+                          q:  quick print for easier parsing                    
+                          Q:  quick print with equal-signs                      
+                          s:  print only last symbolic element of OID           
+                          S:  print MIB module-id plus last element             
+                          t:  print timeticks unparsed as numeric integers      
+                          T:  print human-readable text along with hex strings  
+                          u:  print OIDs using UCD-style prefix suppression     
+                          U:  don't print units                                 
+                          v:  print values only (not OID = value)               
+                          x:  print all strings in hex format                   
+                          X:  extended index format                             
+  -I INOPTS             Toggle various defaults controlling input parsing:      
+                          b:  do best/regex matching to find a MIB node         
+                          h:  don't apply DISPLAY-HINTs                         
+                          r:  do not check values for range/type legality       
+                          R:  do random access to OID labels                    
+                          u:  top-level OIDs must have '.' prefix (UCD-style)   
+                          s SUFFIX:  Append all textual OIDs with SUFFIX before parsing                                                                          
+                          S PREFIX:  Prepend all textual OIDs with PREFIX before parsing                                                                         
+  -L LOGOPTS            Toggle various defaults controlling logging:            
+                          e:           log to standard error                    
+                          o:           log to standard output                   
+                          n:           don't log at all                         
+                          f file:      log to the specified file                
+                          s facility:  log to syslog (via the specified facility)                                                                                
+
+                          (variants)    
+                          [EON] pri:   log to standard error, output or /dev/null for level 'pri' and above                                                      
+                          [EON] p1-p2: log to standard error, output or /dev/null for levels 'p1' to 'p2'                                                        
+                          [FS] pri token:    log to file/syslog for level 'pri' and above                                                                        
+                          [FS] p1-p2 token:  log to file/syslog for levels 'p1' to 'p2'                                                                          
+  -C APPOPTS            Set various application specific behaviours:            
+                          p:  print the number of variables found               
+                          i:  include given OID in the search range             
+                          I:  don't include the given OID, even if no results are returned                                                                       
+                          c:  do not check returned OIDs are increasing         
+                          t:  Display wall-clock time to complete the walk      
+                          T:  Display wall-clock time to complete each request  
+                          E {OID}:  End the walk at the specified OID           
+root@parrot:~/hackthebox/mischief# snmpwalk -c public -v2c 10.10.10.92 > snmpwalk.out                                                                            
+Timeout: No Response from 10.10.10.92   
+root@parrot:~/hackthebox/mischief# vi login                                     
+root@parrot:~/hackthebox/mischief# vi info                                      
+root@parrot:~/hackthebox/mischief# cat info                                     
+info get from smpwalk that it has i[v6 address                                  
+
+ipv6 : dead:beef::250:56ff:fe8f:f4a3    
+root@parrot:~/hackthebox/mischief# ping6 beef::250:56ff:fe8f:f4a3               
+ping6: connect: Network is unreachable  
+root@parrot:~/hackthebox/mischief# ping6 dead:beef::250:56ff:fe8f:f4a3          
+PING dead:beef::250:56ff:fe8f:f4a3(dead:beef::250:56ff:fe8f:f4a3) 56 data bytes 
+^C                                      
+--- dead:beef::250:56ff:fe8f:f4a3 ping statistics ---                           
+32 packets transmitted, 0 received, 100% packet loss, time 31746ms              
+
+root@parrot:~/hackthebox/mischief# ping 10.10.10.92                             
+PING 10.10.10.92 (10.10.10.92) 56(84) bytes of data.                            
+64 bytes from 10.10.10.92: icmp_seq=40 ttl=63 time=251 ms                       
+64 bytes from 10.10.10.92: icmp_seq=41 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.92: icmp_seq=42 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.92: icmp_seq=43 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.92: icmp_seq=44 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.92: icmp_seq=45 ttl=63 time=181 ms                       
+64 bytes from 10.10.10.92: icmp_seq=46 ttl=63 time=256 ms                       
+64 bytes from 10.10.10.92: icmp_seq=47 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.92: icmp_seq=48 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.92: icmp_seq=49 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.92: icmp_seq=50 ttl=63 time=229 ms                       
+64 bytes from 10.10.10.92: icmp_seq=51 ttl=63 time=602 ms                       
+64 bytes from 10.10.10.92: icmp_seq=52 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.92: icmp_seq=53 ttl=63 time=444 ms                       
+64 bytes from 10.10.10.92: icmp_seq=54 ttl=63 time=386 ms                       
+64 bytes from 10.10.10.92: icmp_seq=55 ttl=63 time=345 ms                       
+64 bytes from 10.10.10.92: icmp_seq=56 ttl=63 time=301 ms                       
+64 bytes from 10.10.10.92: icmp_seq=57 ttl=63 time=187 ms                       
+64 bytes from 10.10.10.92: icmp_seq=58 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.92: icmp_seq=59 ttl=63 time=181 ms                       
+64 bytes from 10.10.10.92: icmp_seq=60 ttl=63 time=283 ms                       
+64 bytes from 10.10.10.92: icmp_seq=61 ttl=63 time=420 ms                       
+64 bytes from 10.10.10.92: icmp_seq=62 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.92: icmp_seq=63 ttl=63 time=333 ms                       
+64 bytes from 10.10.10.92: icmp_seq=64 ttl=63 time=292 ms                       
+64 bytes from 10.10.10.92: icmp_seq=65 ttl=63 time=920 ms                       
+64 bytes from 10.10.10.92: icmp_seq=66 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.92: icmp_seq=67 ttl=63 time=558 ms                       
+64 bytes from 10.10.10.92: icmp_seq=68 ttl=63 time=234 ms                       
+64 bytes from 10.10.10.92: icmp_seq=69 ttl=63 time=406 ms                       
+64 bytes from 10.10.10.92: icmp_seq=70 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.92: icmp_seq=71 ttl=63 time=271 ms                       
+64 bytes from 10.10.10.92: icmp_seq=72 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.92: icmp_seq=73 ttl=63 time=695 ms                       
+64 bytes from 10.10.10.92: icmp_seq=74 ttl=63 time=721 ms                       
+64 bytes from 10.10.10.92: icmp_seq=75 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.92: icmp_seq=76 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.92: icmp_seq=77 ttl=63 time=402 ms                       
+64 bytes from 10.10.10.92: icmp_seq=78 ttl=63 time=240 ms                       
+64 bytes from 10.10.10.92: icmp_seq=79 ttl=63 time=204 ms                       
+64 bytes from 10.10.10.92: icmp_seq=80 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.92: icmp_seq=81 ttl=63 time=234 ms                       
+64 bytes from 10.10.10.92: icmp_seq=82 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.92: icmp_seq=83 ttl=63 time=514 ms                       
+64 bytes from 10.10.10.92: icmp_seq=84 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.92: icmp_seq=85 ttl=63 time=388 ms                       
+64 bytes from 10.10.10.92: icmp_seq=86 ttl=63 time=346 ms                       
+64 bytes from 10.10.10.92: icmp_seq=87 ttl=63 time=307 ms                       
+^C                                      
+--- 10.10.10.92 ping statistics ---     
+88 packets transmitted, 48 received, 45.4545% packet loss, time 88004ms         
+rtt min/avg/max/mdev = 180.580/308.782/920.360/160.530 ms                       
+root@parrot:~/hackthebox/mischief# ping6 dead:beef::250:56ff:fe8f:f4a3          
+PING dead:beef::250:56ff:fe8f:f4a3(dead:beef::250:56ff:fe8f:f4a3) 56 data bytes 
+From dead:beef:2::1 icmp_seq=1 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=2 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=3 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=4 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=5 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=6 Destination unreachable: Address unreachable     
+^C                                      
+--- dead:beef::250:56ff:fe8f:f4a3 ping statistics ---                           
+8 packets transmitted, 0 received, +6 errors, 100% packet loss, time 7111ms     
+
+root@parrot:~/hackthebox/mischief# ping dead:beef::250:56ff:fe8f:f4a3                                                                                            
+PING dead:beef::250:56ff:fe8f:f4a3(dead:beef::250:56ff:fe8f:f4a3) 56 data bytes 
+From dead:beef:2::1 icmp_seq=1 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=2 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=3 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=4 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=5 Destination unreachable: Address unreachable     
+From dead:beef:2::1 icmp_seq=6 Destination unreachable: Address unreachable     
+^C                                      
+--- dead:beef::250:56ff:fe8f:f4a3 ping statistics ---                           
+7 packets transmitted, 0 received, +6 errors, 100% packet loss, time 6112ms     
+
+root@parrot:~/hackthebox/mischief# ping6 dead:beef:0000:0000:250:56ff:fe8f:f4a3                                                                                  
+PING dead:beef:0000:0000:250:56ff:fe8f:f4a3(dead:beef::250:56ff:fe8f:f4a3) 56 data bytes                                                                         
+^C                                      
+--- dead:beef:0000:0000:250:56ff:fe8f:f4a3 ping statistics ---                  
+89 packets transmitted, 0 received, 100% packet loss, time 90116ms              
+
+root@parrot:~/hackthebox/mischief# ping 10.10.10.92                             
+PING 10.10.10.92 (10.10.10.92) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.92 ping statistics ---     
+37 packets transmitted, 0 received, 100% packet loss, time 36861ms              
+
+root@parrot:~/hackthebox/mischief# ping -c 10 10.10.10.92                       
+PING 10.10.10.92 (10.10.10.92) 56(84) bytes of data.                            
+
+--- 10.10.10.92 ping statistics ---     
+10 packets transmitted, 0 received, 100% packet loss, time 9204ms               
+
+root@parrot:~/hackthebox/mischief# vi ssh_cred                                  
+root@parrot:~/hackthebox/mischief# cat ssh_cred                                 
+username: loki                          
+password : lokiisthebestnorsegod        
+root@parrot:~/hackthebox/mischief#      

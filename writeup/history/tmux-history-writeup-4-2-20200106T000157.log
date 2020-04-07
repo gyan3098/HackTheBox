@@ -1,0 +1,46 @@
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #cat ssh-cred                        
+username : jkr                            
+password : raykayjay9                     
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #ssh jkr@10.10.10.138                
+jkr@10.10.10.138's password:              
+Linux writeup 4.9.0-8-amd64 x86_64 GNU/Linux                                         
+
+The programs included with the Devuan GNU/Linux system are free software;            
+the exact distribution terms for each program are described in the                   
+individual files in /usr/share/doc/*/copyright.                                      
+
+Devuan GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                    
+permitted by applicable law.              
+Last login: Sun Jan  5 23:34:48 2020 from 10.10.14.14                                
+jkr@writeup:~$ xit                        
+-bash: xit: command not found             
+jkr@writeup:~$ exit                       
+logout                                    
+Connection to 10.10.10.138 closed.        
+┌─[✗]─[root@parrot]─[~/hackthebox/writeup]
+└──╼ #ssh -i writeup root@10.10.10.138    
+root@10.10.10.138's password:             
+Permission denied, please try again.      
+root@10.10.10.138's password:             
+
+┌─[✗]─[root@parrot]─[~/hackthebox/writeup]
+└──╼ #ssh -i writeup root@10.10.10.138    
+
+The programs included with the Devuan GNU/Linux system are free software;            
+the exact distribution terms for each program are described in the                   
+individual files in /usr/share/doc/*/copyright.                                      
+
+Devuan GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                    
+permitted by applicable law.              
+Last login: Sun Jan  5 19:28:27 2020 from 10.10.14.47                                
+root@writeup:~# ls                        
+bin  root.txt                             
+root@writeup:~# cat root.txt              
+eeba47f60b48ef92b734f9b6198d7226          
+root@writeup:~# exit                      
+logout                                    
+Connection to 10.10.10.138 closed.        
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #                                    

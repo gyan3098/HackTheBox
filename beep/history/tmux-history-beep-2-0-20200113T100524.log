@@ -1,0 +1,82 @@
+root@parrot:~/hackthebox/beep# searchsploit elastix                              
+------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                           |  Path                                  
+                                                                                                                         | (/usr/share/exploitdb/)                
+------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Elastix - 'page' Cross-Site Scripting                                                                                    | exploits/php/webapps/38078.py          
+Elastix - Multiple Cross-Site Scripting Vulnerabilities                                                                  | exploits/php/webapps/38544.txt         
+Elastix 2.0.2 - Multiple Cross-Site Scripting Vulnerabilities                                                            | exploits/php/webapps/34942.txt         
+Elastix 2.2.0 - 'graph.php' Local File Inclusion                                                                         | exploits/php/webapps/37637.pl          
+Elastix 2.x - Blind SQL Injection                                                                                        | exploits/php/webapps/36305.txt         
+Elastix < 2.5 - PHP Code Injection                                                                                       | exploits/php/webapps/38091.php         
+FreePBX 2.10.0 / Elastix 2.2.0 - Remote Code Execution                                                                   | exploits/php/webapps/18650.py          
+------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/beep# searchsploit -x exploits/php/webapps/37637.pl     
+  Exploit: Elastix 2.2.0 - 'graph.php' Local File Inclusion                      
+      URL: https://www.exploit-db.com/exploits/37637                             
+     Path: /usr/share/exploitdb/exploits/php/webapps/37637.pl                    
+File Type: ASCII text, with CRLF line terminators                                
+
+
+
+root@parrot:~/hackthebox/beep# vi users                                          
+root@parrot:~/hackthebox/beep# vi passwords                                      
+root@parrot:~/hackthebox/beep# ssh root@10.10.10.7                               
+The authenticity of host '10.10.10.7 (10.10.10.7)' can't be established.         
+RSA key fingerprint is SHA256:Ip2MswIVDX1AIEPoLiHsMFfdg1pEJ0XXD5nFEjki/hI.       
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes         
+Warning: Permanently added '10.10.10.7' (RSA) to the list of known hosts.        
+root@10.10.10.7's password:             
+Last login: Tue Jul 16 11:45:47 2019    
+
+Welcome to Elastix  
+----------------------------------------------------                             
+
+To access your Elastix System, using a separate workstation (PC/MAC/Linux)       
+Open the Internet Browser using the following URL:                               
+http://10.10.10.7   
+
+[root@beep ~]# ls   
+anaconda-ks.cfg            install.log.syslog  webmin-1.570-1.noarch.rpm         
+elastix-pr-2.2-1.i386.rpm  postnochroot 
+install.log                root.txt     
+[root@beep ~]# cat root.txt             
+d88e006123842106982acce0aaf453f0        
+[root@beep ~]# cd /home                 
+[root@beep home]# ls -la                
+total 28            
+drwxr-xr-x  4 root       root       4096 Apr  7  2017 .                          
+drwxr-xr-x 22 root       root       4096 Jan 12 18:29 ..                         
+drwxrwxr-x  2 fanis      fanis      4096 Apr  7  2017 fanis                      
+drwx------  2 spamfilter spamfilter 4096 Apr  7  2017 spamfilter                 
+[root@beep home]# cd fanis              
+[root@beep fanis]# ls -la               
+total 32            
+drwxrwxr-x 2 fanis fanis 4096 Apr  7  2017 .                                     
+drwxr-xr-x 4 root  root  4096 Apr  7  2017 ..                                    
+-rw------- 1 fanis fanis  114 Apr  7  2017 .bash_history                         
+-rw-r--r-- 1 fanis fanis   33 Apr  7  2017 .bash_logout                          
+-rw-r--r-- 1 fanis fanis  176 Apr  7  2017 .bash_profile                         
+-rw-r--r-- 1 fanis fanis  124 Apr  7  2017 .bashrc                               
+-rw-rw-r-- 1 fanis fanis   33 Apr  7  2017 user.txt                              
+[root@beep fanis]# cat .bash_history    
+pwd                 
+cd /home/           
+ls                  
+cd fanis/           
+ls                  
+cat > user.txt      
+cat user.txt        
+ls -al              
+cd ..               
+ls-al               
+ls -al              
+chmod 775 fanis/    
+ls -al              
+exit                
+[root@beep fanis]# exit                 
+logout              
+'screen-256color': unknown terminal type.                                        
+Connection to 10.10.10.7 closed.        
+root@parrot:~/hackthebox/beep#          

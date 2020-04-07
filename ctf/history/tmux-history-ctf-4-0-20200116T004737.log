@@ -1,0 +1,11 @@
+root@parrot:~/hackthebox/ctf# ssh ldapuser@10.10.10.122                         
+The authenticity of host '10.10.10.122 (10.10.10.122)' can't be established.    
+ECDSA key fingerprint is SHA256:N1/2S6I/kcd5HDQzbSvAZVI7yHQQgz+XmLdhk6yVHh4.    
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes        
+Warning: Permanently added '10.10.10.122' (ECDSA) to the list of known hosts.   
+ldapuser@10.10.10.122's password:       
+[ldapuser@ctf ~]$ ls                    
+user.txt                                
+[ldapuser@ctf ~]$ cat user.txt          
+74a8e86f3f6ecd8010a660cfb44ee585        
+[ldapuser@ctf ~]$ timedatetimtimedate   

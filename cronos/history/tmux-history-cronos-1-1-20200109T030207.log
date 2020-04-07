@@ -1,0 +1,106 @@
+┌─[root@parrot]─[~/hackthebox/cronos]   
+└──╼ #gobuster dir -u http://10.10.10.13 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                           
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.13  
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/08 12:55:24 Starting gobuster   
+===============================================================                  
+[ERROR] 2020/01/08 12:55:38 [!] Get http://10.10.10.13/full: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                           
+[ERROR] 2020/01/08 12:55:38 [!] Get http://10.10.10.13/12: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                             
+[ERROR] 2020/01/08 12:55:38 [!] Get http://10.10.10.13/serial: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+Progress: 45 / 220561 (0.02%)^C         
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/08 12:55:43 Finished            
+===============================================================                  
+┌─[root@parrot]─[~/hackthebox/cronos]   
+└──╼ #gobuster dir -u --help                                                                                                                                       
+Error: required flag(s) "wordlist" not set                                       
+┌─[✗]─[root@parrot]─[~/hackthebox/cronos]                                        
+└──╼ #gobuster dir --help                                                                                                                                          
+Uses directory/file brutceforcing mode  
+
+Usage:                                  
+  gobuster dir [flags]                  
+
+Flags:                                  
+  -f, --addslash                      Apped / to each request                    
+  -c, --cookies string                Cookies to use for the requests            
+  -e, --expanded                      Expanded mode, print full URLs             
+  -x, --extensions string             File extension(s) to search for            
+  -r, --followredirect                Follow redirects                           
+  -H, --headers stringArray           Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'                                                                  
+  -h, --help                          help for dir                               
+  -l, --includelength                 Include the length of the body in the output                                                                                 
+  -k, --insecuressl                   Skip SSL certificate verification          
+  -n, --nostatus                      Don't print status codes                   
+  -P, --password string               Password for Basic Auth                    
+  -p, --proxy string                  Proxy to use for requests [http(s)://host:port]                                                                              
+  -s, --statuscodes string            Positive status codes (will be overwritten with statuscodesblacklist if set) (default "200,204,301,302,307,401,403")         
+  -b, --statuscodesblacklist string   Negative status codes (will override statuscodes if set)                                                                     
+      --timeout duration              HTTP Timeout (default 10s)                 
+  -u, --url string                    The target URL                             
+  -a, --useragent string              Set the User-Agent string (default "gobuster/3.0.1")                                                                         
+  -U, --username string               Username for Basic Auth                    
+      --wildcard                      Force continued operation when wildcard found                                                                                
+
+Global Flags:                           
+  -z, --noprogress        Don't display progress                                 
+  -o, --output string     Output file to write results to (defaults to stdout)   
+  -q, --quiet             Don't print the banner and other noise                 
+  -t, --threads int       Number of concurrent threads (default 10)              
+  -v, --verbose           Verbose output (errors)                                
+  -w, --wordlist string   Path to the wordlist                                   
+┌─[root@parrot]─[~/hackthebox/cronos]   
+└──╼ #gobuster dir -u http://10.10.10.13 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50                                                     
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.13  
+[+] Threads:        50                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/08 20:43:38 Starting gobuster   
+===============================================================                  
+Progress: 2206 / 220561 (1.00%)^C       
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/08 20:43:53 Finished            
+===============================================================                  
+┌─[root@parrot]─[~/hackthebox/cronos]   
+└──╼ #gobuster dir -u http://cronos.htb -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50                                                      
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://cronos.htb   
+[+] Threads:        50                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/08 20:44:08 Starting gobuster   
+===============================================================                  
+/css (Status: 301)                      
+/js (Status: 301)                       
+/server-status (Status: 403)            
+[ERROR] 2020/01/08 20:52:52 [!] Get http://cronos.htb/login_box: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/08 21:02:30 [!] Get http://cronos.htb/pdd-63: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                          
+===============================================================                  
+2020/01/08 21:07:18 Finished            
+===============================================================                  
+┌─[root@parrot]─[~/hackthebox/cronos]   
+└──╼ #4                                                                                                                                                            

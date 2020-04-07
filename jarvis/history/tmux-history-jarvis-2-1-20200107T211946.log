@@ -1,0 +1,32 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cd www/                            
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #cp php-reverse-shell.php t.php     
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #vi test.ph                         
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #vi test.ph                         
+
+[1]+  Stopped                 vi test.ph 
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis/www]                                     
+└──╼ #vi test.ph                         
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #ls -la                             
+total 28                                 
+drwxr-xr-x 2 root root 4096 Jan  7 19:44 .                                        
+drwxr-xr-x 4 root root 4096 Jan  7 19:33 ..                                       
+-rwxr-xr-x 1 root root 5493 Jan  7 19:27 php-reverse-shell.php                    
+-rw-r--r-- 1 root root   89 Jan  7 19:44 test.ph                                  
+-rwxr-xr-x 1 root root 5493 Jan  7 19:28 t.php                                    
+┌─[root@parrot]─[~/hackthebox/jarvis/www]
+└──╼ #cd ..                              
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #ls                                 
+connection.b64.php  etc_passwd_file_ways.png  mysql_hashes             nmap   room.b64.php  username-password-mysql.png  www                                        
+connection.php      mysql-cred                mysql-sql-injection.png  notes  room.php      weird-chars                                                             
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vi notes                           
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #vi www/t.php                       
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #                                   

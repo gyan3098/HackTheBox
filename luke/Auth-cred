@@ -1,0 +1,40 @@
+from port 3000
+[                                                                                                                                                                 
+  {                                                                                                                                                               
+    "ID": "1",                 
+    "name": "Admin",
+    "Role": "Superuser"            
+  },                                                                                                                                                              
+  {
+    "ID": "2",
+    "name": "Derry",
+    "Role": "Web Admin"
+  },
+  {
+    "ID": "3",
+    "name": "Yuri",
+    "Role": "Beta Tester"
+  },
+  {
+    "ID": "4",
+    "name": "Dory",
+    "Role": "Supporter"
+  }
+]
+
+{
+  "name": "Admin",
+  "password": "WX5b7)>/rp$U)FW"
+}
+{
+  "name": "Derry",
+  "password": "rZ86wwLvx7jUxtch"
+}
+{
+  "name": "Dory",
+  "password": "5y:!xa=ybfe)/QD"
+}
+{
+  "name": "Yuri",
+  "password": "bet@tester87"
+}

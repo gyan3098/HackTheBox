@@ -1,0 +1,127 @@
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #nmap -p- -sC -oA nmap/allports 10.10.21                                          
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-31 23:51 EST                        
+Nmap scan report for 10.10.21 (10.10.0.21) 
+Host is up (0.00073s latency).             
+All 65535 scanned ports on 10.10.21 (10.10.0.21) are filtered                          
+
+Nmap done: 1 IP address (1 host up) scanned in 106.09 seconds                          
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #nmap -sU -oA nmap/udp 10.10.10.21    
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-31 23:54 EST                        
+Nmap scan report for 10.10.10.21           
+Host is up (0.36s latency).                
+Not shown: 994 closed ports                
+PORT      STATE         SERVICE            
+69/udp    open|filtered tftp               
+5355/udp  open|filtered llmnr              
+23980/udp open|filtered unknown            
+37843/udp open|filtered unknown            
+49194/udp open|filtered unknown            
+58002/udp open|filtered unknown            
+
+Nmap done: 1 IP address (1 host up) scanned in 1136.26 seconds                         
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ls             
+nmap  passwd  squid.conf                   
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #cat passwd     
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #file passwd    
+passwd: empty        
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ls             
+nmap  passwd  passwords  squid.conf        
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #cat passwords  
+kalamari:$apr1$zyzBxQYW$pL360IoLQ5Yum5SLTph.l0                                         
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #vi hash_kalamari                     
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #hashcat -m 1600 hash_kalamari /opt/wordlists/rockyou.txt --force                 
+hashcat (v5.1.0) starting...               
+
+OpenCL Platform #1: The pocl project       
+====================================       
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU               
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                                    
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates           
+Rules: 1             
+
+Applicable optimizers:                     
+* Zero-Byte          
+* Single-Hash        
+* Single-Salt        
+
+Minimum password length supported by kernel: 0                                         
+Maximum password length supported by kernel: 256                                       
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                                 
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance. 
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.      
+
+Watchdog: Hardware monitoring interface not found on your system.                      
+Watchdog: Temperature abort trigger disabled.                                          
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=1 -D DGST_R2=2 -D DGST_R3=3 -D DGST_ELEM=4 -D KERN_TYPE=1600 -D _unroll'
+Dictionary cache hit:                      
+* Filename..: /opt/wordlists/rockyou.txt   
+* Passwords.: 14344384                     
+* Bytes.....: 139921497                    
+* Keyspace..: 14344384                     
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => q                                     
+
+Session..........: hashcat                                                             
+Status...........: Quit                    
+Hash.Type........: Apache $apr1$ MD5, md5apr1, MD5 (APR)                               
+Hash.Target......: $apr1$zyzBxQYW$pL360IoLQ5Yum5SLTph.l0                               
+Time.Started.....: Wed Jan  1 00:19:11 2020 (2 mins, 11 secs)                          
+Time.Estimated...: Wed Jan  1 02:59:07 2020 (2 hours, 37 mins)                         
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                                   
+Guess.Queue......: 1/1 (100.00%)           
+Speed.#1.........:     1495 H/s (19.31ms) @ Accel:128 Loops:125 Thr:1 Vec:8            
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                              
+Progress.........: 193280/14344384 (1.35%) 
+Rejected.........: 0/193280 (0.00%)        
+Restore.Point....: 193280/14344384 (1.35%) 
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:625-750                              
+Candidates.#1....: xxbabexx -> voltaje     
+
+Started: Wed Jan  1 00:18:53 2020          
+Stopped: Wed Jan  1 00:21:23 2020          
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #vi hash_kalamari                     
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ifconfig       
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500                             
+        inet 10.0.2.8  netmask 255.255.255.0  broadcast 10.0.2.255                     
+        inet6 fe80::ed96:d3ba:685a:109f  prefixlen 64  scopeid 0x20<link>              
+        ether 08:00:27:29:cf:e4  txqueuelen 1000  (Ethernet)                           
+        RX packets 19490  bytes 18895166 (18.0 MiB)                                    
+        RX errors 0  dropped 0  overruns 0  frame 0                                    
+        TX packets 149163  bytes 9632301 (9.1 MiB)                                     
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                     
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                                           
+        inet 127.0.0.1  netmask 255.0.0.0  
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>                                   
+        loop  txqueuelen 1000  (Local Loopback)                                        
+        RX packets 5068  bytes 957812 (935.3 KiB)                                      
+        RX errors 0  dropped 0  overruns 0  frame 0                                    
+        TX packets 5068  bytes 957812 (935.3 KiB)                                      
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                     
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500                     
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14               
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>                     
+        inet6 fe80::96a6:c8d2:b1db:4358  prefixlen 64  scopeid 0x20<link>              
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                    
+        RX packets 1720  bytes 822188 (802.9 KiB)                                      
+        RX errors 0  dropped 0  overruns 0  frame 0                                    
+        TX packets 1845  bytes 125683 (122.7 KiB)                                      
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                     
+
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #               

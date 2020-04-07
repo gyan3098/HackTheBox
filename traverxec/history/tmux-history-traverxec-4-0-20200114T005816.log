@@ -1,0 +1,137 @@
+root@parrot:~/hackthebox/traverxec# vi creds                                                                                                                      
+root@parrot:~/hackthebox/traverxec# cat creds                                    
+david:$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/                                         
+root@parrot:~/hackthebox/traverxec# ^C  
+root@parrot:~/hackthebox/traverxec# vi hash                                      
+root@parrot:~/hackthebox/traverxec# hashcat -m 500 hash /opt/wordlists/rockyou.txt                                                                                
+hashcat (v5.1.0) starting...            
+
+* Device #1: Not a native Intel OpenCL runtime. Expect massive speed loss.       
+             You can use --force to override, but do not report related errors.  
+No devices found/left.                  
+
+Started: Mon Jan 13 14:37:57 2020       
+Stopped: Mon Jan 13 14:37:58 2020       
+root@parrot:~/hackthebox/traverxec# hashcat -m 500 hash /opt/wordlists/rockyou.txt --force                                                                        
+hashcat (v5.1.0) starting...            
+
+OpenCL Platform #1: The pocl project    
+====================================    
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 1024/2247 MB allocatable, 3MCU                                                                    
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                              
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates     
+Rules: 1                                
+
+Applicable optimizers:                  
+* Zero-Byte                             
+* Single-Hash                           
+* Single-Salt                           
+
+Minimum password length supported by kernel: 0                                   
+Maximum password length supported by kernel: 256                                 
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                           
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.                                                       
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.                                                                                 
+
+Watchdog: Hardware monitoring interface not found on your system.                
+Watchdog: Temperature abort trigger disabled.                                    
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=0 -D DGST_R1=1 -D DGST_R2=2 -D DGST_R3=3 -D DGST_ELEM=4 -D KERN_TYPE=500 -D _unroll'                                                      
+* Device #1: Kernel m00500-pure.b6401c08.kernel not found in cache! Building may take a while...                                                                  
+Dictionary cache hit:                   
+* Filename..: /opt/wordlists/rockyou.txt                                         
+* Passwords.: 14344384                  
+* Bytes.....: 139921497                 
+* Keyspace..: 14344384                  
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                               
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)                     
+Hash.Target......: $1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/                            
+Time.Started.....: Mon Jan 13 14:38:50 2020 (1 min, 47 secs)                     
+Time.Estimated...: Mon Jan 13 16:29:18 2020 (1 hour, 48 mins)                    
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:     2164 H/s (4.76ms) @ Accel:64 Loops:62 Thr:1 Vec:8         
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                        
+Progress.........: 229056/14344384 (1.60%)                                       
+Rejected.........: 0/229056 (0.00%)     
+Restore.Point....: 229056/14344384 (1.60%)                                       
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:868-930                        
+Candidates.#1....: 19901986 -> 181227   
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                               
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)                     
+Hash.Target......: $1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/                            
+Time.Started.....: Mon Jan 13 14:38:50 2020 (12 mins, 48 secs)                   
+Time.Estimated...: Mon Jan 13 16:16:59 2020 (1 hour, 25 mins)                    
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:     2472 H/s (4.06ms) @ Accel:64 Loops:62 Thr:1 Vec:8         
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                        
+Progress.........: 1685568/14344384 (11.75%)                                     
+Rejected.........: 0/1685568 (0.00%)    
+Restore.Point....: 1685568/14344384 (11.75%)                                     
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:992-1000                       
+Candidates.#1....: jayjus -> jaye12     
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit => s                               
+
+Session..........: hashcat              
+Status...........: Running              
+Hash.Type........: md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)                     
+Hash.Target......: $1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/                            
+Time.Started.....: Mon Jan 13 14:38:50 2020 (12 mins, 51 secs)                   
+Time.Estimated...: Mon Jan 13 16:17:26 2020 (1 hour, 25 mins)                    
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:     2459 H/s (3.92ms) @ Accel:64 Loops:62 Thr:1 Vec:8         
+Recovered........: 0/1 (0.00%) Digests, 0/1 (0.00%) Salts                        
+Progress.........: 1692480/14344384 (11.80%)                                     
+Rejected.........: 0/1692480 (0.00%)    
+Restore.Point....: 1692480/14344384 (11.80%)                                     
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:744-806                        
+Candidates.#1....: jamie59 -> jamesyd   
+
+$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/:Nowonly4me                                    
+                                                                                 
+Session..........: hashcat              
+Status...........: Cracked              
+Hash.Type........: md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)                     
+Hash.Target......: $1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/                            
+Time.Started.....: Mon Jan 13 14:38:50 2020 (1 hour, 5 mins)                     
+Time.Estimated...: Mon Jan 13 15:44:36 2020 (0 secs)                             
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                             
+Guess.Queue......: 1/1 (100.00%)        
+Speed.#1.........:     2905 H/s (3.44ms) @ Accel:64 Loops:62 Thr:1 Vec:8         
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts                    
+Progress.........: 10776384/14344384 (75.13%)                                    
+Rejected.........: 0/10776384 (0.00%)   
+Restore.Point....: 10776192/14344384 (75.12%)                                    
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:992-1000                       
+Candidates.#1....: Nsimm1997 -> Novianita                                        
+
+Started: Mon Jan 13 14:38:03 2020       
+Stopped: Mon Jan 13 15:44:38 2020       
+root@parrot:~/hackthebox/traverxec# ls                                           
+creds  exploit.py  hash  nmap  reverse.php                                       
+root@parrot:~/hackthebox/traverxec# ls  
+creds  exploit.py  hash  nmap  reverse.php                                       
+root@parrot:~/hackthebox/traverxec# vi hash                                      
+root@parrot:~/hackthebox/traverxec# ssh david@10.10.10.165                       
+david@10.10.10.165's password:          
+Permission denied, please try again.    
+david@10.10.10.165's password:          
+Permission denied, please try again.    
+david@10.10.10.165's password:          
+david@10.10.10.165: Permission denied (publickey,password).                      
+root@parrot:~/hackthebox/traverxec# echo $TERM                                   
+screen-256color                         
+root@parrot:~/hackthebox/traverxec#     

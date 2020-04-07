@@ -1,0 +1,5 @@
+# Nmap 7.80 scan initiated Thu Jan 16 02:30:50 2020 as: nmap -sU -v -p161 -oA nmap/mischief-udp 10.10.10.92
+# Ports scanned: TCP(0;) UDP(1;161) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.10.92 ()	Status: Up
+Host: 10.10.10.92 ()	Ports: 161/open/udp//snmp///
+# Nmap done at Thu Jan 16 02:30:50 2020 -- 1 IP address (1 host up) scanned in 0.76 seconds

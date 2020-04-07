@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Mon Jan 13 04:38:42 2020 as: nmap --script redis-info -sV -p 6379 -oA nmap/redis 10.10.10.160
+Host: 10.10.10.160 (postman.htb)	Status: Up
+Host: 10.10.10.160 (postman.htb)	Ports: 6379/open/tcp//redis//Redis key-value store 4.0.9 (64 bits)/
+# Nmap done at Mon Jan 13 04:38:57 2020 -- 1 IP address (1 host up) scanned in 14.53 seconds

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Mon Dec 23 22:41:14 2019 as: nmap -sC -sV -p 135,139,1433,445,47001,49664,49665,49666,49667,49668,49669,49670,49671,5985 -oA scripts -allports 10.10.10.125 -->
+<nmaprun scanner="nmap" args="nmap -sC -sV -p 135,139,1433,445,47001,49664,49665,49666,49667,49668,49669,49670,49671,5985 -oA scripts -allports 10.10.10.125" start="1577158874" startstr="Mon Dec 23 22:41:14 2019" version="7.80" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="14" services="135,139,445,1433,5985,47001,49664-49671"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<taskprogress task="NSE" time="1577158943" percent="99.95" remaining="1" etc="1577158943"/>
+<host starttime="1577158875" endtime="1577158949"><status state="up" reason="reset" reason_ttl="127"/>
+<address addr="10.10.10.125" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="netbios-ssn" product="Microsoft Windows netbios-ssn" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="1433"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ms-sql-s" product="Microsoft SQL Server 2017" version="14.00.1000.00; RTM" method="probed" conf="10"><cpe>cpe:/a:microsoft:sql_server</cpe></service><script id="ms-sql-ntlm-info" output="&#xa;  Target_Name: HTB&#xa;  NetBIOS_Domain_Name: HTB&#xa;  NetBIOS_Computer_Name: QUERIER&#xa;  DNS_Domain_Name: HTB.LOCAL&#xa;  DNS_Computer_Name: QUERIER.HTB.LOCAL&#xa;  DNS_Tree_Name: HTB.LOCAL&#xa;  Product_Version: 10.0.17763"><elem key="Target_Name">HTB</elem>
+<elem key="NetBIOS_Domain_Name">HTB</elem>
+<elem key="NetBIOS_Computer_Name">QUERIER</elem>
+<elem key="DNS_Domain_Name">HTB.LOCAL</elem>
+<elem key="DNS_Computer_Name">QUERIER.HTB.LOCAL</elem>
+<elem key="DNS_Tree_Name">HTB.LOCAL</elem>
+<elem key="Product_Version">10.0.17763</elem>
+</script><script id="ssl-cert" output="Subject: commonName=SSL_Self_Signed_Fallback&#xa;Not valid before: 2019-12-23T16:52:52&#xa;Not valid after:  2049-12-23T16:52:52"><table key="subject">
+<elem key="commonName">\x00S\x00S\x00L\x00_\x00S\x00e\x00l\x00f\x00_\x00S\x00i\x00g\x00n\x00e\x00d\x00_\x00F\x00a\x00l\x00l\x00b\x00a\x00c\x00k</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">\x00S\x00S\x00L\x00_\x00S\x00e\x00l\x00f\x00_\x00S\x00i\x00g\x00n\x00e\x00d\x00_\x00F\x00a\x00l\x00l\x00b\x00a\x00c\x00k</elem>
+</table>
+<table key="pubkey">
+<elem key="bits">2048</elem>
+<elem key="type">rsa</elem>
+<elem key="modulus">userdata: 0x5601b36ae4f8</elem>
+<elem key="exponent">userdata: 0x5601b36ae4b8</elem>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2019-12-23T16:52:52</elem>
+<elem key="notAfter">2049-12-23T16:52:52</elem>
+</table>
+<elem key="md5">43c7378f460df432cf99f62e6a7c8e71</elem>
+<elem key="sha1">dea190f3f639331a09e2f3ce3668c267ef6acab1</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC/jCCAeagAwIBAgIQFTx1Qz/yHZhKL8dg5JLikTANBgkqhkiG9w0BAQsFADA7&#xa;MTkwNwYDVQQDHjAAUwBTAEwAXwBTAGUAbABmAF8AUwBpAGcAbgBlAGQAXwBGAGEA&#xa;bABsAGIAYQBjAGswHhcNMTkxMjIzMTY1MjUyWhcNNDkxMjIzMTY1MjUyWjA7MTkw&#xa;NwYDVQQDHjAAUwBTAEwAXwBTAGUAbABmAF8AUwBpAGcAbgBlAGQAXwBGAGEAbABs&#xa;AGIAYQBjAGswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDE3TJrxwVk&#xa;zhZn0pTPpp8OdL4dRZHpaV2rGAf4k/G+E6CkAtbbQA7RM/SSxzF3dSMFfXVHKxbk&#xa;BsREKLnsWNgypFJnch/zwd6TUvyHOaUBWBElm2/KkaXwxFPcXV6TIMRcLzd8kUZB&#xa;2a9zcP4OQGCO+4d88UiSoLQN4rzC22ZONwWcEF0eKRiUeQdhUVn3Cb5kI/Cdkrbf&#xa;qJDfkK0Xe7O8LloJMreS/KxRJoB8f4LSN5OikgAFEoEhCI4ETpUI6Be/eWbS1OPX&#xa;AK+s81qwVSKzm4bqeOo7K+cycH+tfMpcInKwUt62/ZI97s65hVP5m2UMZ6LTKQus&#xa;SEyXourXOHshAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAIImYbfqx2tcLamUewhv&#xa;U8gPJ8Yp1hvfTzi/xyy1COjqLPlW/iHyArMX/+75hWOv5TiHcdNcNi9JIvgwUw9h&#xa;vJ3HJgGLkm7nun3Gmgc9BGZIzhIMH8//6jGgSuKyPczZSS3QdIiFolGgJ0raC+az&#xa;+a5Zo+L2orzvEwf8PqdfW8w3RV29UR5HiREFdiQNhCqHWaaknfQEiFSiZeBw/5eO&#xa;hCP1VK8wsRxAExHjHgBnDU2Ze9zqKdGopEdSMd/jQ8bauyUS8hv1BHdGuWtvmCPH&#xa;7WnCdA/ifYj5qSVGlGxI1jQN5iH+CYRnDbtIUEILrZZEmGQsvDfX4D3vx8Ri0nz6&#xa;rjE=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="2019-12-24T03:43:29+00:00; +1m00s from scanner time."><elem key="delta">60.0</elem>
+<elem key="date">2019-12-24T03:43:29+00:00</elem>
+</script></port>
+<port protocol="tcp" portid="5985"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-HTTPAPI/2.0"><elem>Microsoft-HTTPAPI/2.0</elem>
+</script><script id="http-title" output="Not Found"><elem key="title">Not Found</elem>
+</script></port>
+<port protocol="tcp" portid="47001"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-HTTPAPI/2.0"><elem>Microsoft-HTTPAPI/2.0</elem>
+</script><script id="http-title" output="Not Found"><elem key="title">Not Found</elem>
+</script></port>
+<port protocol="tcp" portid="49664"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49665"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49666"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49667"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49668"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49669"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49670"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49671"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+</ports>
+<hostscript><script id="clock-skew" output="mean: 1m00s, deviation: 0s, median: 59s"><elem key="count">3</elem>
+<elem key="mean">60</elem>
+<elem key="stddev">0</elem>
+<elem key="median">59</elem>
+</script><script id="ms-sql-info" output="&#xa;  10.10.10.125:1433: &#xa;    Version: &#xa;      name: Microsoft SQL Server 2017 RTM&#xa;      number: 14.00.1000.00&#xa;      Product: Microsoft SQL Server 2017&#xa;      Service pack level: RTM&#xa;      Post-SP patches applied: false&#xa;    TCP port: 1433"><table key="10.10.10.125:1433">
+<table key="Version">
+<elem key="name">Microsoft SQL Server 2017 RTM</elem>
+<elem key="number">14.00.1000.00</elem>
+<elem key="Product">Microsoft SQL Server 2017</elem>
+<elem key="Service pack level">RTM</elem>
+<elem key="Post-SP patches applied">false</elem>
+</table>
+<elem key="TCP port">1433</elem>
+</table>
+</script><script id="smb2-security-mode" output="&#xa;  2.02: &#xa;    Message signing enabled but not required"><table key="2.02">
+<elem>Message signing enabled but not required</elem>
+</table>
+</script><script id="smb2-time" output="&#xa;  date: 2019-12-24T03:43:21&#xa;  start_date: N/A"><elem key="date">2019-12-24T03:43:21</elem>
+<elem key="start_date">N/A</elem>
+</script></hostscript><times srtt="399062" rttvar="130151" to="919666"/>
+</host>
+<runstats><finished time="1577158949" timestr="Mon Dec 23 22:42:29 2019" elapsed="75.51" summary="Nmap done at Mon Dec 23 22:42:29 2019; 1 IP address (1 host up) scanned in 75.51 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

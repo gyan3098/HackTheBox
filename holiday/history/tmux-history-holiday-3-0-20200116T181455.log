@@ -1,0 +1,1466 @@
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+8 packets transmitted, 0 received, 100% packet loss, time 7167ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 0 received, 100% packet loss, time 3068ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=385 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=343 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=302 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=259 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=188 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=186 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=228 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=385 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=189 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=192 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+30 packets transmitted, 13 received, 56.6667% packet loss, time 29408ms         
+rtt min/avg/max/mdev = 185.678/255.777/385.246/73.149 ms                        
+root@parrot:~/hackthebox/holiday# ping -c 5 10.10.10.25                                                                                                          
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=325 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=435 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2000ms            
+rtt min/avg/max/mdev = 325.170/379.926/434.682/54.756 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                                                                                                               
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=125 ttl=63 time=236 ms                      
+64 bytes from 10.10.10.25: icmp_seq=126 ttl=63 time=496 ms                      
+64 bytes from 10.10.10.25: icmp_seq=127 ttl=63 time=462 ms                      
+64 bytes from 10.10.10.25: icmp_seq=128 ttl=63 time=297 ms                      
+64 bytes from 10.10.10.25: icmp_seq=129 ttl=63 time=231 ms                      
+64 bytes from 10.10.10.25: icmp_seq=130 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=131 ttl=63 time=697 ms                      
+64 bytes from 10.10.10.25: icmp_seq=132 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=133 ttl=63 time=314 ms                      
+64 bytes from 10.10.10.25: icmp_seq=134 ttl=63 time=1289 ms                     
+64 bytes from 10.10.10.25: icmp_seq=135 ttl=63 time=1623 ms                     
+64 bytes from 10.10.10.25: icmp_seq=136 ttl=63 time=1643 ms                     
+64 bytes from 10.10.10.25: icmp_seq=137 ttl=63 time=1246 ms                     
+64 bytes from 10.10.10.25: icmp_seq=138 ttl=63 time=686 ms                      
+64 bytes from 10.10.10.25: icmp_seq=139 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=140 ttl=63 time=702 ms                      
+64 bytes from 10.10.10.25: icmp_seq=141 ttl=63 time=922 ms                      
+64 bytes from 10.10.10.25: icmp_seq=143 ttl=63 time=1634 ms                     
+64 bytes from 10.10.10.25: icmp_seq=144 ttl=63 time=1435 ms                     
+64 bytes from 10.10.10.25: icmp_seq=146 ttl=63 time=3287 ms                     
+64 bytes from 10.10.10.25: icmp_seq=148 ttl=63 time=2970 ms                     
+64 bytes from 10.10.10.25: icmp_seq=149 ttl=63 time=1945 ms                     
+64 bytes from 10.10.10.25: icmp_seq=150 ttl=63 time=944 ms                      
+64 bytes from 10.10.10.25: icmp_seq=151 ttl=63 time=787 ms                      
+64 bytes from 10.10.10.25: icmp_seq=152 ttl=63 time=184 ms                      
+64 bytes from 10.10.10.25: icmp_seq=153 ttl=63 time=1008 ms                     
+64 bytes from 10.10.10.25: icmp_seq=154 ttl=63 time=846 ms                      
+64 bytes from 10.10.10.25: icmp_seq=155 ttl=63 time=835 ms                      
+64 bytes from 10.10.10.25: icmp_seq=156 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=157 ttl=63 time=255 ms                      
+64 bytes from 10.10.10.25: icmp_seq=158 ttl=63 time=691 ms                      
+64 bytes from 10.10.10.25: icmp_seq=159 ttl=63 time=681 ms                      
+64 bytes from 10.10.10.25: icmp_seq=160 ttl=63 time=510 ms                      
+64 bytes from 10.10.10.25: icmp_seq=161 ttl=63 time=776 ms                      
+64 bytes from 10.10.10.25: icmp_seq=162 ttl=63 time=597 ms                      
+64 bytes from 10.10.10.25: icmp_seq=163 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=164 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=165 ttl=63 time=789 ms                      
+64 bytes from 10.10.10.25: icmp_seq=166 ttl=63 time=391 ms                      
+64 bytes from 10.10.10.25: icmp_seq=167 ttl=63 time=296 ms                      
+64 bytes from 10.10.10.25: icmp_seq=168 ttl=63 time=797 ms                      
+64 bytes from 10.10.10.25: icmp_seq=169 ttl=63 time=463 ms                      
+64 bytes from 10.10.10.25: icmp_seq=170 ttl=63 time=198 ms                      
+64 bytes from 10.10.10.25: icmp_seq=171 ttl=63 time=652 ms                      
+64 bytes from 10.10.10.25: icmp_seq=172 ttl=63 time=191 ms                      
+64 bytes from 10.10.10.25: icmp_seq=173 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=174 ttl=63 time=184 ms                      
+64 bytes from 10.10.10.25: icmp_seq=175 ttl=63 time=483 ms                      
+64 bytes from 10.10.10.25: icmp_seq=176 ttl=63 time=342 ms                      
+64 bytes from 10.10.10.25: icmp_seq=177 ttl=63 time=194 ms                      
+64 bytes from 10.10.10.25: icmp_seq=178 ttl=63 time=269 ms                      
+64 bytes from 10.10.10.25: icmp_seq=179 ttl=63 time=398 ms                      
+64 bytes from 10.10.10.25: icmp_seq=180 ttl=63 time=576 ms                      
+64 bytes from 10.10.10.25: icmp_seq=181 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=182 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=183 ttl=63 time=378 ms                      
+64 bytes from 10.10.10.25: icmp_seq=184 ttl=63 time=337 ms                      
+64 bytes from 10.10.10.25: icmp_seq=185 ttl=63 time=418 ms                      
+64 bytes from 10.10.10.25: icmp_seq=186 ttl=63 time=465 ms                      
+64 bytes from 10.10.10.25: icmp_seq=187 ttl=63 time=293 ms                      
+64 bytes from 10.10.10.25: icmp_seq=188 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=189 ttl=63 time=757 ms                      
+64 bytes from 10.10.10.25: icmp_seq=190 ttl=63 time=929 ms                      
+64 bytes from 10.10.10.25: icmp_seq=191 ttl=63 time=620 ms                      
+64 bytes from 10.10.10.25: icmp_seq=192 ttl=63 time=199 ms                      
+64 bytes from 10.10.10.25: icmp_seq=193 ttl=63 time=197 ms                      
+64 bytes from 10.10.10.25: icmp_seq=194 ttl=63 time=195 ms                      
+64 bytes from 10.10.10.25: icmp_seq=195 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=196 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=197 ttl=63 time=240 ms                      
+64 bytes from 10.10.10.25: icmp_seq=198 ttl=63 time=292 ms                      
+64 bytes from 10.10.10.25: icmp_seq=199 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=200 ttl=63 time=271 ms                      
+64 bytes from 10.10.10.25: icmp_seq=201 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=202 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=203 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=204 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=205 ttl=63 time=234 ms                      
+64 bytes from 10.10.10.25: icmp_seq=206 ttl=63 time=185 ms                      
+64 bytes from 10.10.10.25: icmp_seq=207 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=208 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=209 ttl=63 time=274 ms                      
+64 bytes from 10.10.10.25: icmp_seq=210 ttl=63 time=223 ms                      
+64 bytes from 10.10.10.25: icmp_seq=211 ttl=63 time=223 ms                      
+64 bytes from 10.10.10.25: icmp_seq=212 ttl=63 time=233 ms                      
+64 bytes from 10.10.10.25: icmp_seq=213 ttl=63 time=199 ms                      
+64 bytes from 10.10.10.25: icmp_seq=214 ttl=63 time=234 ms                      
+64 bytes from 10.10.10.25: icmp_seq=215 ttl=63 time=203 ms                      
+64 bytes from 10.10.10.25: icmp_seq=216 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=217 ttl=63 time=203 ms                      
+64 bytes from 10.10.10.25: icmp_seq=218 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=219 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=220 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=221 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=222 ttl=63 time=369 ms                      
+64 bytes from 10.10.10.25: icmp_seq=223 ttl=63 time=240 ms                      
+64 bytes from 10.10.10.25: icmp_seq=224 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=225 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=226 ttl=63 time=418 ms                      
+64 bytes from 10.10.10.25: icmp_seq=227 ttl=63 time=185 ms                      
+64 bytes from 10.10.10.25: icmp_seq=228 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=229 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=230 ttl=63 time=207 ms                      
+64 bytes from 10.10.10.25: icmp_seq=231 ttl=63 time=203 ms                      
+64 bytes from 10.10.10.25: icmp_seq=232 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=233 ttl=63 time=194 ms                      
+64 bytes from 10.10.10.25: icmp_seq=234 ttl=63 time=410 ms                      
+64 bytes from 10.10.10.25: icmp_seq=235 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=236 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=237 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=238 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=239 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=240 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=241 ttl=63 time=201 ms                      
+64 bytes from 10.10.10.25: icmp_seq=242 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=243 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=244 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=245 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=246 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=247 ttl=63 time=206 ms                      
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+355 packets transmitted, 120 received, 66.1972% packet loss, time 359785ms      
+rtt min/avg/max/mdev = 183.769/460.728/3287.229/496.569 ms, pipe 4              
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=195 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+16 packets transmitted, 1 received, 93.75% packet loss, time 15367ms            
+rtt min/avg/max/mdev = 194.898/194.898/194.898/0.000 ms                         
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=192 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=196 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=197 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=197 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=222 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=219 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=203 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=193 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=193 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=216 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=174 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=410 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=182 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=263 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=229 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=222 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=299 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=72 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=73 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=74 ttl=63 time=236 ms                       
+64 bytes from 10.10.10.25: icmp_seq=75 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=76 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=77 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=78 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=79 ttl=63 time=193 ms                       
+64 bytes from 10.10.10.25: icmp_seq=80 ttl=63 time=193 ms                       
+64 bytes from 10.10.10.25: icmp_seq=81 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=82 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=83 ttl=63 time=244 ms                       
+64 bytes from 10.10.10.25: icmp_seq=84 ttl=63 time=188 ms                       
+64 bytes from 10.10.10.25: icmp_seq=85 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=86 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=87 ttl=63 time=193 ms                       
+64 bytes from 10.10.10.25: icmp_seq=88 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=89 ttl=63 time=185 ms                       
+64 bytes from 10.10.10.25: icmp_seq=90 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=91 ttl=63 time=270 ms                       
+64 bytes from 10.10.10.25: icmp_seq=92 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=93 ttl=63 time=261 ms                       
+64 bytes from 10.10.10.25: icmp_seq=94 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=95 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=96 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=222 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=223 ttl=63 time=242 ms                      
+64 bytes from 10.10.10.25: icmp_seq=224 ttl=63 time=196 ms                      
+64 bytes from 10.10.10.25: icmp_seq=225 ttl=63 time=196 ms                      
+64 bytes from 10.10.10.25: icmp_seq=226 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=227 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=228 ttl=63 time=245 ms                      
+64 bytes from 10.10.10.25: icmp_seq=229 ttl=63 time=392 ms                      
+64 bytes from 10.10.10.25: icmp_seq=230 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=231 ttl=63 time=452 ms                      
+64 bytes from 10.10.10.25: icmp_seq=232 ttl=63 time=408 ms                      
+64 bytes from 10.10.10.25: icmp_seq=233 ttl=63 time=224 ms                      
+64 bytes from 10.10.10.25: icmp_seq=234 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=235 ttl=63 time=256 ms                      
+64 bytes from 10.10.10.25: icmp_seq=236 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=237 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=238 ttl=63 time=291 ms                      
+64 bytes from 10.10.10.25: icmp_seq=239 ttl=63 time=207 ms                      
+64 bytes from 10.10.10.25: icmp_seq=240 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=241 ttl=63 time=225 ms                      
+64 bytes from 10.10.10.25: icmp_seq=242 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=243 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=244 ttl=63 time=630 ms                      
+64 bytes from 10.10.10.25: icmp_seq=245 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=246 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=247 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=248 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=249 ttl=63 time=406 ms                      
+64 bytes from 10.10.10.25: icmp_seq=250 ttl=63 time=304 ms                      
+64 bytes from 10.10.10.25: icmp_seq=251 ttl=63 time=523 ms                      
+64 bytes from 10.10.10.25: icmp_seq=252 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=253 ttl=63 time=221 ms                      
+64 bytes from 10.10.10.25: icmp_seq=254 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=255 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=256 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=257 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=258 ttl=63 time=249 ms                      
+64 bytes from 10.10.10.25: icmp_seq=259 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=260 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=261 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=262 ttl=63 time=239 ms                      
+64 bytes from 10.10.10.25: icmp_seq=263 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=264 ttl=63 time=230 ms                      
+64 bytes from 10.10.10.25: icmp_seq=265 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=266 ttl=63 time=225 ms                      
+64 bytes from 10.10.10.25: icmp_seq=267 ttl=63 time=315 ms                      
+64 bytes from 10.10.10.25: icmp_seq=268 ttl=63 time=189 ms                      
+64 bytes from 10.10.10.25: icmp_seq=269 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=270 ttl=63 time=201 ms                      
+64 bytes from 10.10.10.25: icmp_seq=271 ttl=63 time=223 ms                      
+64 bytes from 10.10.10.25: icmp_seq=272 ttl=63 time=207 ms                      
+64 bytes from 10.10.10.25: icmp_seq=273 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=274 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=275 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=276 ttl=63 time=290 ms                      
+64 bytes from 10.10.10.25: icmp_seq=277 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=278 ttl=63 time=222 ms                      
+64 bytes from 10.10.10.25: icmp_seq=279 ttl=63 time=201 ms                      
+64 bytes from 10.10.10.25: icmp_seq=280 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=281 ttl=63 time=465 ms                      
+64 bytes from 10.10.10.25: icmp_seq=282 ttl=63 time=201 ms                      
+64 bytes from 10.10.10.25: icmp_seq=283 ttl=63 time=400 ms                      
+64 bytes from 10.10.10.25: icmp_seq=284 ttl=63 time=215 ms                      
+64 bytes from 10.10.10.25: icmp_seq=285 ttl=63 time=275 ms                      
+64 bytes from 10.10.10.25: icmp_seq=286 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=287 ttl=63 time=276 ms                      
+64 bytes from 10.10.10.25: icmp_seq=288 ttl=63 time=222 ms                      
+64 bytes from 10.10.10.25: icmp_seq=289 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=290 ttl=63 time=196 ms                      
+64 bytes from 10.10.10.25: icmp_seq=291 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=292 ttl=63 time=332 ms                      
+64 bytes from 10.10.10.25: icmp_seq=293 ttl=63 time=372 ms                      
+64 bytes from 10.10.10.25: icmp_seq=294 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=295 ttl=63 time=221 ms                      
+64 bytes from 10.10.10.25: icmp_seq=296 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=297 ttl=63 time=198 ms                      
+64 bytes from 10.10.10.25: icmp_seq=298 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=299 ttl=63 time=215 ms                      
+64 bytes from 10.10.10.25: icmp_seq=300 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=301 ttl=63 time=232 ms                      
+64 bytes from 10.10.10.25: icmp_seq=302 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=303 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=304 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=305 ttl=63 time=226 ms                      
+64 bytes from 10.10.10.25: icmp_seq=306 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=307 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=308 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=309 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=310 ttl=63 time=198 ms                      
+64 bytes from 10.10.10.25: icmp_seq=311 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=312 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=313 ttl=63 time=274 ms                      
+64 bytes from 10.10.10.25: icmp_seq=314 ttl=63 time=253 ms                      
+64 bytes from 10.10.10.25: icmp_seq=315 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=316 ttl=63 time=211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=317 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=318 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=319 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=320 ttl=63 time=290 ms                      
+64 bytes from 10.10.10.25: icmp_seq=321 ttl=63 time=249 ms                      
+64 bytes from 10.10.10.25: icmp_seq=322 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=323 ttl=63 time=222 ms                      
+64 bytes from 10.10.10.25: icmp_seq=324 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=325 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=326 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=327 ttl=63 time=324 ms                      
+64 bytes from 10.10.10.25: icmp_seq=328 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=329 ttl=63 time=240 ms                      
+64 bytes from 10.10.10.25: icmp_seq=330 ttl=63 time=225 ms                      
+64 bytes from 10.10.10.25: icmp_seq=331 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=332 ttl=63 time=209 ms                      
+64 bytes from 10.10.10.25: icmp_seq=333 ttl=63 time=223 ms                      
+64 bytes from 10.10.10.25: icmp_seq=334 ttl=63 time=353 ms                      
+64 bytes from 10.10.10.25: icmp_seq=335 ttl=63 time=313 ms                      
+64 bytes from 10.10.10.25: icmp_seq=336 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=337 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=338 ttl=63 time=211 ms                      
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+368 packets transmitted, 213 received, 42.1196% packet loss, time 370947ms      
+rtt min/avg/max/mdev = 173.675/226.525/630.087/57.989 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=199 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=247 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=184 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=183 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=256 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=183 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=242 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=205 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=189 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=186 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=187 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=193 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=179 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=204 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=185 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=190 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=187 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=179 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=288 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=374 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=187 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=177 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=216 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=178 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=196 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+123 packets transmitted, 51 received, 58.5366% packet loss, time 123771ms       
+rtt min/avg/max/mdev = 177.009/203.821/373.815/31.402 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=295 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+12 packets transmitted, 1 received, 91.6667% packet loss, time 11245ms          
+rtt min/avg/max/mdev = 294.844/294.844/294.844/0.000 ms                         
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=344 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=301 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2003ms            
+rtt min/avg/max/mdev = 301.085/322.382/343.680/21.297 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=290 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=249 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2003ms            
+rtt min/avg/max/mdev = 249.144/269.664/290.185/20.520 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+5 packets transmitted, 0 received, 100% packet loss, time 4103ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+7 packets transmitted, 0 received, 100% packet loss, time 6136ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5122ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 0 received, 100% packet loss, time 3075ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=216 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=443 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=475 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=361 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+12 packets transmitted, 4 received, 66.6667% packet loss, time 11201ms          
+rtt min/avg/max/mdev = 215.687/373.364/474.596/100.079 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+14 packets transmitted, 0 received, 100% packet loss, time 13295ms              
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+10 packets transmitted, 0 received, 100% packet loss, time 9216ms               
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+5 packets transmitted, 0 received, 100% packet loss, time 4094ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=279 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=241 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms                  
+rtt min/avg/max/mdev = 240.673/259.994/279.315/19.321 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=558 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=391 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=222 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms                  
+rtt min/avg/max/mdev = 221.970/390.435/558.279/137.298 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=253 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=587 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=616 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=183 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=368 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=329 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=290 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=248 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=570 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=596 ms                       
+64 bytes from 10.10.10.25: icmp_seq=72 ttl=63 time=250 ms                       
+64 bytes from 10.10.10.25: icmp_seq=73 ttl=63 time=277 ms                       
+64 bytes from 10.10.10.25: icmp_seq=74 ttl=63 time=232 ms                       
+64 bytes from 10.10.10.25: icmp_seq=75 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=76 ttl=63 time=241 ms                       
+64 bytes from 10.10.10.25: icmp_seq=77 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=78 ttl=63 time=552 ms                       
+64 bytes from 10.10.10.25: icmp_seq=79 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=80 ttl=63 time=396 ms                       
+64 bytes from 10.10.10.25: icmp_seq=81 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=82 ttl=63 time=314 ms                       
+64 bytes from 10.10.10.25: icmp_seq=83 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=84 ttl=63 time=232 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+85 packets transmitted, 26 received, 69.4118% packet loss, time 85409ms         
+rtt min/avg/max/mdev = 183.236/318.420/615.599/139.353 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+8 packets transmitted, 0 received, 100% packet loss, time 7160ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5099ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5125ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+45 packets transmitted, 0 received, 100% packet loss, time 45032ms              
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+10 packets transmitted, 0 received, 100% packet loss, time 9215ms               
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+5 packets transmitted, 0 received, 100% packet loss, time 4087ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5119ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5096ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 0 received, 100% packet loss, time 2031ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 0 received, 100% packet loss, time 3083ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+15 packets transmitted, 0 received, 100% packet loss, time 14320ms              
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+8 packets transmitted, 0 received, 100% packet loss, time 7165ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5118ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=218 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=634 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=216 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=211 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=203 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=327 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=230 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=246 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=207 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=612 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=402 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=359 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=568 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=585 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=610 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=394 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=306 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=193 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=368 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=225 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=382 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=343 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=187 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=517 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=411 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=375 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=329 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=290 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=300 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=224 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=234 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=363 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=308 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=284 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=246 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=655 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=681 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=500 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=231 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=204 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=292 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=599 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=345 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=303 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=264 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=500 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=185 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=1238 ms                      
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=355 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=470 ms                       
+64 bytes from 10.10.10.25: icmp_seq=72 ttl=63 time=563 ms                       
+64 bytes from 10.10.10.25: icmp_seq=73 ttl=63 time=588 ms                       
+64 bytes from 10.10.10.25: icmp_seq=74 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=75 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=76 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=77 ttl=63 time=241 ms                       
+64 bytes from 10.10.10.25: icmp_seq=78 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=79 ttl=63 time=516 ms                       
+64 bytes from 10.10.10.25: icmp_seq=80 ttl=63 time=544 ms                       
+64 bytes from 10.10.10.25: icmp_seq=81 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=82 ttl=63 time=371 ms                       
+64 bytes from 10.10.10.25: icmp_seq=83 ttl=63 time=330 ms                       
+64 bytes from 10.10.10.25: icmp_seq=84 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=85 ttl=63 time=251 ms                       
+64 bytes from 10.10.10.25: icmp_seq=86 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=87 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=88 ttl=63 time=216 ms                       
+64 bytes from 10.10.10.25: icmp_seq=89 ttl=63 time=400 ms                       
+64 bytes from 10.10.10.25: icmp_seq=90 ttl=63 time=219 ms                       
+64 bytes from 10.10.10.25: icmp_seq=91 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=92 ttl=63 time=277 ms                       
+64 bytes from 10.10.10.25: icmp_seq=93 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=94 ttl=63 time=654 ms                       
+64 bytes from 10.10.10.25: icmp_seq=95 ttl=63 time=674 ms                       
+64 bytes from 10.10.10.25: icmp_seq=96 ttl=63 time=492 ms                       
+64 bytes from 10.10.10.25: icmp_seq=97 ttl=63 time=392 ms                       
+64 bytes from 10.10.10.25: icmp_seq=98 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=99 ttl=63 time=310 ms                       
+64 bytes from 10.10.10.25: icmp_seq=100 ttl=63 time=272 ms                      
+64 bytes from 10.10.10.25: icmp_seq=101 ttl=63 time=226 ms                      
+64 bytes from 10.10.10.25: icmp_seq=102 ttl=63 time=633 ms                      
+64 bytes from 10.10.10.25: icmp_seq=103 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=104 ttl=63 time=478 ms                      
+64 bytes from 10.10.10.25: icmp_seq=105 ttl=63 time=382 ms                      
+64 bytes from 10.10.10.25: icmp_seq=106 ttl=63 time=196 ms                      
+64 bytes from 10.10.10.25: icmp_seq=107 ttl=63 time=194 ms                      
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+146 packets transmitted, 107 received, 26.7123% packet loss, time 146069ms      
+rtt min/avg/max/mdev = 185.429/327.724/1237.558/167.718 ms, pipe 2              
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=240 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=204 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=582 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=381 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=340 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=304 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=259 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=222 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=503 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=191 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=231 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=339 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=295 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=254 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=501 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=765 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=1594 ms                      
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=1547 ms                      
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=728 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=1073 ms                      
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=2211 ms                      
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=788 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=886 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=994 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=921 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=842 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=281 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=900 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=982 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=412 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=1280 ms                      
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=381 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=285 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=194 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=259 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=185 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=196 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+66 packets transmitted, 48 received, 27.2727% packet loss, time 65456ms         
+rtt min/avg/max/mdev = 185.215/517.669/2210.937/444.697 ms, pipe 3              
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5097ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 0 received, 100% packet loss, time 2051ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 0 received, 100% packet loss, time 2058ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+14 packets transmitted, 0 received, 100% packet loss, time 13310ms              
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=395 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=279 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=317 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=216 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=240 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=199 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=611 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=431 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=213 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=255 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=807 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=230 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=309 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=248 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=394 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=383 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=271 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=189 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=584 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=437 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=390 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=350 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=309 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=271 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=233 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=567 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=433 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=389 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=267 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=400 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=1598 ms                      
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=975 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=1069 ms                      
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=312 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=336 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=515 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=258 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=800 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=868 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=219 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=233 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=429 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=235 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=216 ms                       
+64 bytes from 10.10.10.25: icmp_seq=72 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=73 ttl=63 time=354 ms                       
+64 bytes from 10.10.10.25: icmp_seq=74 ttl=63 time=313 ms                       
+64 bytes from 10.10.10.25: icmp_seq=75 ttl=63 time=224 ms                       
+64 bytes from 10.10.10.25: icmp_seq=76 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=77 ttl=63 time=254 ms                       
+64 bytes from 10.10.10.25: icmp_seq=78 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.25: icmp_seq=79 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=80 ttl=63 time=392 ms                       
+64 bytes from 10.10.10.25: icmp_seq=81 ttl=63 time=362 ms                       
+64 bytes from 10.10.10.25: icmp_seq=82 ttl=63 time=192 ms                       
+64 bytes from 10.10.10.25: icmp_seq=83 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=84 ttl=63 time=203 ms                       
+64 bytes from 10.10.10.25: icmp_seq=85 ttl=63 time=454 ms                       
+64 bytes from 10.10.10.25: icmp_seq=86 ttl=63 time=315 ms                       
+64 bytes from 10.10.10.25: icmp_seq=87 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.25: icmp_seq=88 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=89 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=90 ttl=63 time=204 ms                       
+64 bytes from 10.10.10.25: icmp_seq=91 ttl=63 time=268 ms                       
+64 bytes from 10.10.10.25: icmp_seq=92 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=93 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=94 ttl=63 time=322 ms                       
+64 bytes from 10.10.10.25: icmp_seq=95 ttl=63 time=442 ms                       
+64 bytes from 10.10.10.25: icmp_seq=96 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=97 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=98 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=99 ttl=63 time=268 ms                       
+64 bytes from 10.10.10.25: icmp_seq=100 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=101 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=102 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=103 ttl=63 time=237 ms                      
+64 bytes from 10.10.10.25: icmp_seq=104 ttl=63 time=389 ms                      
+64 bytes from 10.10.10.25: icmp_seq=105 ttl=63 time=349 ms                      
+64 bytes from 10.10.10.25: icmp_seq=106 ttl=63 time=307 ms                      
+64 bytes from 10.10.10.25: icmp_seq=107 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=108 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=109 ttl=63 time=229 ms                      
+64 bytes from 10.10.10.25: icmp_seq=110 ttl=63 time=231 ms                      
+64 bytes from 10.10.10.25: icmp_seq=111 ttl=63 time=237 ms                      
+64 bytes from 10.10.10.25: icmp_seq=112 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=113 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=114 ttl=63 time=305 ms                      
+64 bytes from 10.10.10.25: icmp_seq=115 ttl=63 time=263 ms                      
+64 bytes from 10.10.10.25: icmp_seq=116 ttl=63 time=224 ms                      
+64 bytes from 10.10.10.25: icmp_seq=117 ttl=63 time=539 ms                      
+64 bytes from 10.10.10.25: icmp_seq=118 ttl=63 time=562 ms                      
+64 bytes from 10.10.10.25: icmp_seq=119 ttl=63 time=387 ms                      
+64 bytes from 10.10.10.25: icmp_seq=120 ttl=63 time=385 ms                      
+64 bytes from 10.10.10.25: icmp_seq=121 ttl=63 time=235 ms                      
+64 bytes from 10.10.10.25: icmp_seq=122 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=123 ttl=63 time=199 ms                      
+64 bytes from 10.10.10.25: icmp_seq=124 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=125 ttl=63 time=523 ms                      
+64 bytes from 10.10.10.25: icmp_seq=126 ttl=63 time=221 ms                      
+64 bytes from 10.10.10.25: icmp_seq=127 ttl=63 time=422 ms                      
+64 bytes from 10.10.10.25: icmp_seq=128 ttl=63 time=383 ms                      
+64 bytes from 10.10.10.25: icmp_seq=129 ttl=63 time=343 ms                      
+64 bytes from 10.10.10.25: icmp_seq=130 ttl=63 time=303 ms                      
+64 bytes from 10.10.10.25: icmp_seq=131 ttl=63 time=207 ms                      
+64 bytes from 10.10.10.25: icmp_seq=132 ttl=63 time=202 ms                      
+64 bytes from 10.10.10.25: icmp_seq=133 ttl=63 time=274 ms                      
+64 bytes from 10.10.10.25: icmp_seq=134 ttl=63 time=257 ms                      
+64 bytes from 10.10.10.25: icmp_seq=135 ttl=63 time=559 ms                      
+64 bytes from 10.10.10.25: icmp_seq=136 ttl=63 time=216 ms                      
+64 bytes from 10.10.10.25: icmp_seq=137 ttl=63 time=341 ms                      
+64 bytes from 10.10.10.25: icmp_seq=138 ttl=63 time=213 ms                      
+64 bytes from 10.10.10.25: icmp_seq=139 ttl=63 time=261 ms                      
+64 bytes from 10.10.10.25: icmp_seq=140 ttl=63 time=222 ms                      
+64 bytes from 10.10.10.25: icmp_seq=141 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=142 ttl=63 time=521 ms                      
+64 bytes from 10.10.10.25: icmp_seq=143 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=144 ttl=63 time=396 ms                      
+64 bytes from 10.10.10.25: icmp_seq=145 ttl=63 time=340 ms                      
+64 bytes from 10.10.10.25: icmp_seq=146 ttl=63 time=299 ms                      
+64 bytes from 10.10.10.25: icmp_seq=147 ttl=63 time=259 ms                      
+64 bytes from 10.10.10.25: icmp_seq=148 ttl=63 time=220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=149 ttl=63 time=263 ms                      
+64 bytes from 10.10.10.25: icmp_seq=150 ttl=63 time=278 ms                      
+64 bytes from 10.10.10.25: icmp_seq=151 ttl=63 time=528 ms                      
+64 bytes from 10.10.10.25: icmp_seq=152 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=153 ttl=63 time=338 ms                      
+64 bytes from 10.10.10.25: icmp_seq=154 ttl=63 time=296 ms                      
+64 bytes from 10.10.10.25: icmp_seq=155 ttl=63 time=283 ms                      
+64 bytes from 10.10.10.25: icmp_seq=156 ttl=63 time=204 ms                      
+64 bytes from 10.10.10.25: icmp_seq=157 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=158 ttl=63 time=184 ms                      
+64 bytes from 10.10.10.25: icmp_seq=159 ttl=63 time=240 ms                      
+64 bytes from 10.10.10.25: icmp_seq=160 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=161 ttl=63 time=206 ms                      
+64 bytes from 10.10.10.25: icmp_seq=162 ttl=63 time=203 ms                      
+64 bytes from 10.10.10.25: icmp_seq=163 ttl=63 time=230 ms                      
+64 bytes from 10.10.10.25: icmp_seq=164 ttl=63 time=214 ms                      
+64 bytes from 10.10.10.25: icmp_seq=165 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=166 ttl=63 time=210 ms                      
+64 bytes from 10.10.10.25: icmp_seq=167 ttl=63 time=498 ms                      
+64 bytes from 10.10.10.25: icmp_seq=168 ttl=63 time=234 ms                      
+64 bytes from 10.10.10.25: icmp_seq=169 ttl=63 time=332 ms                      
+64 bytes from 10.10.10.25: icmp_seq=170 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=171 ttl=63 time=253 ms                      
+64 bytes from 10.10.10.25: icmp_seq=172 ttl=63 time=200 ms                      
+64 bytes from 10.10.10.25: icmp_seq=173 ttl=63 time=217 ms                      
+64 bytes from 10.10.10.25: icmp_seq=174 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=175 ttl=63 time=483 ms                      
+64 bytes from 10.10.10.25: icmp_seq=176 ttl=63 time=207 ms                      
+64 bytes from 10.10.10.25: icmp_seq=177 ttl=63 time=306 ms                      
+64 bytes from 10.10.10.25: icmp_seq=178 ttl=63 time=205 ms                      
+64 bytes from 10.10.10.25: icmp_seq=179 ttl=63 time=253 ms                      
+64 bytes from 10.10.10.25: icmp_seq=180 ttl=63 time=221 ms                      
+64 bytes from 10.10.10.25: icmp_seq=181 ttl=63 time=196 ms                      
+64 bytes from 10.10.10.25: icmp_seq=182 ttl=63 time=650 ms                      
+64 bytes from 10.10.10.25: icmp_seq=183 ttl=63 time=410 ms                      
+64 bytes from 10.10.10.25: icmp_seq=184 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=185 ttl=63 time=215 ms                      
+64 bytes from 10.10.10.25: icmp_seq=186 ttl=63 time=196 ms                      
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+196 packets transmitted, 186 received, 5.10204% packet loss, time 195271ms      
+rtt min/avg/max/mdev = 183.972/303.227/1598.059/171.503 ms, pipe 2              
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 0 received, 100% packet loss, time 2054ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5128ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=259 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=512 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=632 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=654 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=203 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=374 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=210 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=290 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=249 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=586 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=610 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=404 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=363 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=280 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=240 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=565 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=589 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=622 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=397 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=354 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=210 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=236 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=228 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=384 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=347 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=1520 ms                      
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=1493 ms                      
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=927 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=542 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=745 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=294 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=245 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=234 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=632 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=231 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=229 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=317 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=235 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=240 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=202 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=631 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=231 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=199 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=305 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=216 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=222 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=562 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=589 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=383 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=266 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=255 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=516 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=539 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=561 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=583 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=328 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=286 ms                       
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=244 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=219 ms                       
+64 bytes from 10.10.10.25: icmp_seq=72 ttl=63 time=515 ms                       
+64 bytes from 10.10.10.25: icmp_seq=73 ttl=63 time=914 ms                       
+64 bytes from 10.10.10.25: icmp_seq=74 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=75 ttl=63 time=1000 ms                      
+64 bytes from 10.10.10.25: icmp_seq=76 ttl=63 time=271 ms                       
+64 bytes from 10.10.10.25: icmp_seq=77 ttl=63 time=278 ms                       
+64 bytes from 10.10.10.25: icmp_seq=78 ttl=63 time=238 ms                       
+64 bytes from 10.10.10.25: icmp_seq=79 ttl=63 time=680 ms                       
+64 bytes from 10.10.10.25: icmp_seq=80 ttl=63 time=497 ms                       
+64 bytes from 10.10.10.25: icmp_seq=81 ttl=63 time=215 ms                       
+64 bytes from 10.10.10.25: icmp_seq=82 ttl=63 time=396 ms                       
+64 bytes from 10.10.10.25: icmp_seq=83 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=84 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=85 ttl=63 time=816 ms                       
+64 bytes from 10.10.10.25: icmp_seq=86 ttl=63 time=230 ms                       
+64 bytes from 10.10.10.25: icmp_seq=87 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.25: icmp_seq=88 ttl=63 time=478 ms                       
+64 bytes from 10.10.10.25: icmp_seq=89 ttl=63 time=388 ms                       
+64 bytes from 10.10.10.25: icmp_seq=90 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=91 ttl=63 time=546 ms                       
+64 bytes from 10.10.10.25: icmp_seq=92 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=93 ttl=63 time=233 ms                       
+64 bytes from 10.10.10.25: icmp_seq=94 ttl=63 time=1448 ms                      
+64 bytes from 10.10.10.25: icmp_seq=95 ttl=63 time=1008 ms                      
+64 bytes from 10.10.10.25: icmp_seq=96 ttl=63 time=963 ms                       
+64 bytes from 10.10.10.25: icmp_seq=97 ttl=63 time=209 ms                       
+64 bytes from 10.10.10.25: icmp_seq=98 ttl=63 time=1040 ms                      
+64 bytes from 10.10.10.25: icmp_seq=99 ttl=63 time=1326 ms                      
+64 bytes from 10.10.10.25: icmp_seq=100 ttl=63 time=1353 ms                     
+64 bytes from 10.10.10.25: icmp_seq=101 ttl=63 time=1949 ms                     
+64 bytes from 10.10.10.25: icmp_seq=102 ttl=63 time=1161 ms                     
+64 bytes from 10.10.10.25: icmp_seq=103 ttl=63 time=1015 ms                     
+64 bytes from 10.10.10.25: icmp_seq=104 ttl=63 time=230 ms                      
+64 bytes from 10.10.10.25: icmp_seq=105 ttl=63 time=357 ms                      
+64 bytes from 10.10.10.25: icmp_seq=106 ttl=63 time=208 ms                      
+64 bytes from 10.10.10.25: icmp_seq=107 ttl=63 time=275 ms                      
+64 bytes from 10.10.10.25: icmp_seq=108 ttl=63 time=223 ms                      
+64 bytes from 10.10.10.25: icmp_seq=109 ttl=63 time=235 ms                      
+64 bytes from 10.10.10.25: icmp_seq=110 ttl=63 time=234 ms                      
+64 bytes from 10.10.10.25: icmp_seq=111 ttl=63 time=428 ms                      
+64 bytes from 10.10.10.25: icmp_seq=112 ttl=63 time=281 ms                      
+64 bytes from 10.10.10.25: icmp_seq=113 ttl=63 time=792 ms                      
+64 bytes from 10.10.10.25: icmp_seq=114 ttl=63 time=305 ms                      
+64 bytes from 10.10.10.25: icmp_seq=115 ttl=63 time=268 ms                      
+64 bytes from 10.10.10.25: icmp_seq=116 ttl=63 time=212 ms                      
+64 bytes from 10.10.10.25: icmp_seq=117 ttl=63 time=218 ms                      
+64 bytes from 10.10.10.25: icmp_seq=118 ttl=63 time=219 ms                      
+64 bytes from 10.10.10.25: icmp_seq=119 ttl=63 time=229 ms                      
+64 bytes from 10.10.10.25: icmp_seq=120 ttl=63 time=713 ms                      
+64 bytes from 10.10.10.25: icmp_seq=121 ttl=63 time=768 ms                      
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+133 packets transmitted, 119 received, 10.5263% packet loss, time 132484ms      
+rtt min/avg/max/mdev = 197.572/452.139/1949.428/337.944 ms, pipe 2              
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 0 received, 100% packet loss, time 2024ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+
+
+c^C                                     
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5104ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=397 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=353 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=208 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=271 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=206 ms                        
+764 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=508 ms                       
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=224 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+7 packets transmitted, 7 received, 0% packet loss, time 6007ms                  
+rtt min/avg/max/mdev = 206.116/309.472/507.819/106.046 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=232 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=210 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=545 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=220 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=218 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=218 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=236 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=319 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=273 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=236 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=231 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=541 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=243 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=219 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=520 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=418 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=278 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=340 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=295 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=237 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=255 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=334 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=332 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=569 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=634 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=201 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=407 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=221 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=240 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=219 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=400 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=316 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=276 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=234 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=513 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=625 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=445 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=208 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=354 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=248 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=240 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=207 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=507 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=229 ms                       
+64 bytes from 10.10.10.25: icmp_seq=60 ttl=63 time=224 ms                       
+64 bytes from 10.10.10.25: icmp_seq=61 ttl=63 time=204 ms                       
+64 bytes from 10.10.10.25: icmp_seq=62 ttl=63 time=346 ms                       
+64 bytes from 10.10.10.25: icmp_seq=63 ttl=63 time=305 ms                       
+64 bytes from 10.10.10.25: icmp_seq=64 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=65 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=66 ttl=63 time=563 ms                       
+64 bytes from 10.10.10.25: icmp_seq=67 ttl=63 time=236 ms                       
+64 bytes from 10.10.10.25: icmp_seq=68 ttl=63 time=300 ms                       
+64 bytes from 10.10.10.25: icmp_seq=69 ttl=63 time=380 ms                       
+64 bytes from 10.10.10.25: icmp_seq=70 ttl=63 time=205 ms                       
+64 bytes from 10.10.10.25: icmp_seq=71 ttl=63 time=282 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+92 packets transmitted, 71 received, 22.8261% packet loss, time 91546ms         
+rtt min/avg/max/mdev = 196.538/294.239/634.343/116.743 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+6 packets transmitted, 0 received, 100% packet loss, time 5109ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=422 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=232 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=283 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=248 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=551 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=474 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=449 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=244 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=355 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=284 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=235 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=537 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=504 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=897 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=939 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=294 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=274 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=217 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=200 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=211 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=390 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=349 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=273 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=279 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=458 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=512 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=237 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=230 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=397 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=349 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=310 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=272 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=248 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=233 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=206 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=350 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=306 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=220 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=225 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=225 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=225 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=243 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=212 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=263 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=222 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=361 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=223 ms                       
+64 bytes from 10.10.10.25: icmp_seq=55 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=56 ttl=63 time=243 ms                       
+64 bytes from 10.10.10.25: icmp_seq=57 ttl=63 time=346 ms                       
+64 bytes from 10.10.10.25: icmp_seq=58 ttl=63 time=243 ms                       
+64 bytes from 10.10.10.25: icmp_seq=59 ttl=63 time=219 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+83 packets transmitted, 59 received, 28.9157% packet loss, time 82570ms         
+rtt min/avg/max/mdev = 197.314/312.895/938.613/146.683 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+5 packets transmitted, 0 received, 100% packet loss, time 4083ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+11 packets transmitted, 0 received, 100% packet loss, time 10243ms              
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+8 packets transmitted, 0 received, 100% packet loss, time 7157ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 0 received, 100% packet loss, time 3069ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=195 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=259 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=221 ms                        
+64 bytes from 10.10.10.25: icmp_seq=4 ttl=63 time=182 ms                        
+64 bytes from 10.10.10.25: icmp_seq=5 ttl=63 time=381 ms                        
+64 bytes from 10.10.10.25: icmp_seq=6 ttl=63 time=181 ms                        
+64 bytes from 10.10.10.25: icmp_seq=7 ttl=63 time=382 ms                        
+64 bytes from 10.10.10.25: icmp_seq=8 ttl=63 time=341 ms                        
+64 bytes from 10.10.10.25: icmp_seq=9 ttl=63 time=299 ms                        
+64 bytes from 10.10.10.25: icmp_seq=10 ttl=63 time=259 ms                       
+64 bytes from 10.10.10.25: icmp_seq=11 ttl=63 time=226 ms                       
+64 bytes from 10.10.10.25: icmp_seq=12 ttl=63 time=547 ms                       
+64 bytes from 10.10.10.25: icmp_seq=13 ttl=63 time=570 ms                       
+64 bytes from 10.10.10.25: icmp_seq=14 ttl=63 time=383 ms                       
+64 bytes from 10.10.10.25: icmp_seq=15 ttl=63 time=377 ms                       
+64 bytes from 10.10.10.25: icmp_seq=16 ttl=63 time=198 ms                       
+64 bytes from 10.10.10.25: icmp_seq=17 ttl=63 time=297 ms                       
+64 bytes from 10.10.10.25: icmp_seq=18 ttl=63 time=258 ms                       
+64 bytes from 10.10.10.25: icmp_seq=19 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=20 ttl=63 time=317 ms                       
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=321 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=581 ms                       
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=376 ms                       
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=338 ms                       
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=214 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=197 ms                       
+64 bytes from 10.10.10.25: icmp_seq=28 ttl=63 time=498 ms                       
+64 bytes from 10.10.10.25: icmp_seq=29 ttl=63 time=546 ms                       
+64 bytes from 10.10.10.25: icmp_seq=30 ttl=63 time=569 ms                       
+64 bytes from 10.10.10.25: icmp_seq=31 ttl=63 time=378 ms                       
+64 bytes from 10.10.10.25: icmp_seq=32 ttl=63 time=343 ms                       
+64 bytes from 10.10.10.25: icmp_seq=33 ttl=63 time=218 ms                       
+64 bytes from 10.10.10.25: icmp_seq=34 ttl=63 time=259 ms                       
+64 bytes from 10.10.10.25: icmp_seq=35 ttl=63 time=224 ms                       
+64 bytes from 10.10.10.25: icmp_seq=36 ttl=63 time=601 ms                       
+64 bytes from 10.10.10.25: icmp_seq=37 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=38 ttl=63 time=556 ms                       
+64 bytes from 10.10.10.25: icmp_seq=39 ttl=63 time=378 ms                       
+64 bytes from 10.10.10.25: icmp_seq=40 ttl=63 time=337 ms                       
+64 bytes from 10.10.10.25: icmp_seq=41 ttl=63 time=298 ms                       
+64 bytes from 10.10.10.25: icmp_seq=42 ttl=63 time=256 ms                       
+64 bytes from 10.10.10.25: icmp_seq=43 ttl=63 time=227 ms                       
+64 bytes from 10.10.10.25: icmp_seq=44 ttl=63 time=904 ms                       
+64 bytes from 10.10.10.25: icmp_seq=45 ttl=63 time=521 ms                       
+64 bytes from 10.10.10.25: icmp_seq=46 ttl=63 time=419 ms                       
+64 bytes from 10.10.10.25: icmp_seq=47 ttl=63 time=377 ms                       
+64 bytes from 10.10.10.25: icmp_seq=48 ttl=63 time=339 ms                       
+64 bytes from 10.10.10.25: icmp_seq=49 ttl=63 time=297 ms                       
+64 bytes from 10.10.10.25: icmp_seq=50 ttl=63 time=196 ms                       
+64 bytes from 10.10.10.25: icmp_seq=51 ttl=63 time=213 ms                       
+64 bytes from 10.10.10.25: icmp_seq=52 ttl=63 time=195 ms                       
+64 bytes from 10.10.10.25: icmp_seq=53 ttl=63 time=357 ms                       
+64 bytes from 10.10.10.25: icmp_seq=54 ttl=63 time=221 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+71 packets transmitted, 54 received, 23.9437% packet loss, time 70379ms         
+rtt min/avg/max/mdev = 180.768/338.680/904.229/143.320 ms                       
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+5 packets transmitted, 0 received, 100% packet loss, time 4074ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=298 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=187 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms                  
+rtt min/avg/max/mdev = 186.500/242.487/298.475/55.987 ms                        
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=1 ttl=63 time=199 ms                        
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=194 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=185 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms                  
+rtt min/avg/max/mdev = 185.027/192.761/198.992/5.799 ms                         
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=21 ttl=63 time=569 ms                       
+64 bytes from 10.10.10.25: icmp_seq=22 ttl=63 time=1349 ms                      
+64 bytes from 10.10.10.25: icmp_seq=23 ttl=63 time=1703 ms                      
+64 bytes from 10.10.10.25: icmp_seq=24 ttl=63 time=1220 ms                      
+64 bytes from 10.10.10.25: icmp_seq=25 ttl=63 time=1129 ms                      
+64 bytes from 10.10.10.25: icmp_seq=26 ttl=63 time=989 ms                       
+64 bytes from 10.10.10.25: icmp_seq=27 ttl=63 time=562 ms                       
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+27 packets transmitted, 7 received, 74.0741% packet loss, time 26484ms          
+rtt min/avg/max/mdev = 562.083/1074.569/1703.218/381.820 ms, pipe 2             
+root@parrot:~/hackthebox/holiday#       

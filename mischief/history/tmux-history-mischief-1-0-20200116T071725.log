@@ -1,0 +1,64 @@
+root@parrot:~/hackthebox/mischief# ssh loki@10.10.10.92                         
+The authenticity of host '10.10.10.92 (10.10.10.92)' can't be established.      
+ECDSA key fingerprint is SHA256:deaxXTK7ORthfGcKdblPRUmgNrU20oclqMbwVj3hzYI.    
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes        
+Warning: Permanently added '10.10.10.92' (ECDSA) to the list of known hosts.    
+loki@10.10.10.92's password:            
+Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-20-generic x86_64)                
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+  System information as of Thu Jan 16 03:33:09 UTC 2020                         
+
+  System load:  0.03               Processes:            102                    
+  Usage of /:   26.7% of 15.68GB   Users logged in:      0                      
+  Memory usage: 32%                IP address for ens33: 10.10.10.92            
+  Swap usage:   0%                      
+
+
+ * Canonical Livepatch is available for installation.                           
+   - Reduce system reboots and improve kernel security. Activate at:            
+     https://ubuntu.com/livepatch       
+
+0 packages can be updated.              
+0 updates are security updates.         
+
+
+Last login: Sat Jul 14 12:44:04 2018 from 10.10.14.4                            
+loki@Mischief:~$ ls                     
+credentials  hosted  user.txt           
+loki@Mischief:~$ cat user.txt           
+bf58078e7b802c5f32b545eea7c90060        
+loki@Mischief:~$ client_loop: send disconnect: Broken pipe                      
+root@parrot:~/hackthebox/mischief# vi arrow.py                                  
+root@parrot:~/hackthebox/mischief# ping6 dead:beef:0000:0000:0250:56ff:feb9:18b6
+PING dead:beef:0000:0000:0250:56ff:feb9:18b6(dead:beef::250:56ff:feb9:18b6) 56 data bytes           
+64 bytes from dead:beef::250:56ff:feb9:18b6: icmp_seq=1 ttl=63 time=448 ms      
+64 bytes from dead:beef::250:56ff:feb9:18b6: icmp_seq=2 ttl=63 time=189 ms      
+^C                  
+--- dead:beef:0000:0000:0250:56ff:feb9:18b6 ping statistics ---                 
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms                  
+rtt min/avg/max/mdev = 188.670/318.323/447.977/129.653 ms                       
+root@parrot:~/hackthebox/mischief# cat info                                     
+info get from smpwalk that it has i[v6 address                                  
+
+ipv6 : dead:beef::250:56ff:fe8f:f4a3    
+root@parrot:~/hackthebox/mischief# vi info                                      
+root@parrot:~/hackthebox/mischief# ls   
+arrow.py  Enyx  info  login  loki.jpg  nmap  snmpwalk.out  ssh_cred             
+root@parrot:~/hackthebox/mischief# cat lo                                       
+cat: lo: No such file or directory      
+root@parrot:~/hackthebox/mischief# cat login                                    
+credential for port:3366                
+username : loki     
+password : godofmischiefisloki          
+
+
+one anither creds got from the same page after login                            
+
+username : loki     
+password : trickeryanddeceit            
+root@parrot:~/hackthebox/mischief# vi login                                     
+root@parrot:~/hackthebox/mischief#      

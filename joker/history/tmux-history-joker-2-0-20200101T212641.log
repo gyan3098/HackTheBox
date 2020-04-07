@@ -1,0 +1,148 @@
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #seachsploit sudo                     
+-bash: seachsploit: command not found      
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #searchsploit sudo                                                                                                                                                        
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                                        |  Path                                  
+                                                                                                                                      | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+(Tod Miller's) Sudo/SudoEdit 1.6.9p21/1.7.2p4 - Local Privilege Escalation                                                            | exploits/multiple/local/11651.sh       
+Apple Mac OSX - Sudo Password Bypass (Metasploit)                                                                                     | exploits/osx/local/27944.rb            
+Battery Life Toolkit 1.0.9 - 'bltk_sudo' Local Privilege Escalation                                                                   | exploits/linux/local/33576.txt         
+RedStar 3.0 Desktop - Enable sudo Privilege Escalation                                                                                | exploits/linux/local/35746.sh          
+Sudo 1.3.1 < 1.6.8p (OpenBSD) - Pathname Validation Privilege Escalation                                                              | exploits/bsd/local/1087.c              
+Sudo 1.5/1.6 - Heap Corruption                                                                                                        | exploits/linux/local/20901.c           
+Sudo 1.6.3 - Unclean Environment Variable Privilege Escalation                                                                        | exploits/linux/local/21227.sh          
+Sudo 1.6.8 - Information Disclosure                                                                                                   | exploits/linux/local/24606.c           
+Sudo 1.6.8p9 - SHELLOPTS/PS4 Environment Variables Privilege Escalation                                                               | exploits/linux/local/1310.txt          
+Sudo 1.6.9p18 - 'Defaults SetEnv' Local Privilege Escalation                                                                          | exploits/multiple/local/7129.sh        
+Sudo 1.6.x - Environment Variable Handling Security Bypass (1)                                                                        | exploits/linux/local/27056.pl          
+Sudo 1.6.x - Environment Variable Handling Security Bypass (2)                                                                        | exploits/linux/local/27057.py          
+Sudo 1.6.x - Password Prompt Heap Overflow                                                                                            | exploits/linux/local/21420.c           
+Sudo 1.8.14 (RHEL 5/6/7 / Ubuntu) - 'Sudoedit' Unauthorized Privilege Escalation                                                      | exploits/linux/local/37710.txt         
+Sudo 1.8.20 - 'get_process_ttyname()' Local Privilege Escalation                                                                      | exploits/linux/local/42183.c           
+Sudo Perl 1.6.x - Environment Variable Handling Security Bypass                                                                       | exploits/linux/local/26498.txt         
+SudoEdit 1.6.8 - Local Change Permission                                                                                              | exploits/linux/local/470.c             
+ZPanel zsudo - Local Privilege Escalation (Metasploit)                                                                                | exploits/linux/local/26451.rb          
+ptrace - Sudo Token Privilege Escalation (Metasploit)                                                                                 | exploits/linux/local/47345.rb          
+sudo 1.8.0 < 1.8.3p1 - 'sudo_debug' glibc FORTIFY_SOURCE Bypass + Privilege Escalation                                                | exploits/linux/local/25134.c           
+sudo 1.8.0 < 1.8.3p1 - Format String                                                                                                  | exploits/linux/dos/18436.txt           
+sudo 1.8.27 - Security Bypass                                                                                                         | exploits/linux/local/47502.py          
+sudo.bin - NLSPATH Privilege Escalation                                                                                               | exploits/linux/local/319.c             
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Shellcode Title                                                                                                                      |  Path                                  
+                                                                                                                                      | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Linux/x86 - Edit /etc/sudoers (ALL ALL=(ALL) NOPASSWD: ALL) For Full Access + Null-Free Shellcode (79 bytes)                          | shellcodes/linux_x86/44507.c           
+Linux/x86 - Edit /etc/sudoers (ALL ALL=(ALL) NOPASSWD: ALL) For Full Access Shellcode (86 bytes)                                      | shellcodes/linux_x86/13331.c           
+Linux/x86 - chmod 777 /etc/sudoers Shellcode (36 bytes)                                                                               | shellcodes/linux_x86/43463.nasm        
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #searchsploit sudoedit                
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                                        |  Path                                  
+                                                                                                                                      | (/usr/share/exploitdb/)                
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+(Tod Miller's) Sudo/SudoEdit 1.6.9p21/1.7.2p4 - Local Privilege Escalation                                                            | exploits/multiple/local/11651.sh       
+Sudo 1.8.14 (RHEL 5/6/7 / Ubuntu) - 'Sudoedit' Unauthorized Privilege Escalation                                                      | exploits/linux/local/37710.txt         
+SudoEdit 1.6.8 - Local Change Permission                                                                                              | exploits/linux/local/470.c             
+-------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                      
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #searchsploit -x exploits/linux/local/37710.txt                                   
+  Exploit: Sudo 1.8.14 (RHEL 5/6/7 / Ubuntu) - 'Sudoedit' Unauthorized Privilege Escalation                                                                                    
+      URL: https://www.exploit-db.com/exploits/37710                                   
+     Path: /usr/share/exploitdb/exploits/linux/local/37710.txt                         
+File Type: ASCII text, with CRLF line terminators                                      
+
+
+
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ssh-keygen                           
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox /joker/.ssh_key                                                                                      
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Saving key "/root/hackthebox /joker/.ssh_key" failed: No such file or directory        
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #mkdir .ssh_key                       
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ssh-keygen                                                                                                                                                               
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox /joker/.ssh_key                                                                                      
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Saving key "/root/hackthebox /joker/.ssh_key" failed: No such file or directory        
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #ssh-keygen                           
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): ~/hackthebox/joker            
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Passphrases do not match.  Try again.      
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Saving key "~/hackthebox/joker" failed: No such file or directory                      
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #ssh-keygen                           
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox/joker        
+/root/hackthebox/joker already exists.     
+Overwrite (y/n)? n                         
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #ssh-keygen                           
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox/joker/.ssh_key                                                                                       
+/root/hackthebox/joker/.ssh_key already exists.                                        
+Overwrite (y/n)? y                         
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Saving key "/root/hackthebox/joker/.ssh_key" failed: Is a directory                    
+┌─[✗]─[root@parrot]─[~/hackthebox/joker]   
+└──╼ #rmdir .ssh_key                       
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ssh-keygen                                                                                                                                                               
+Generating public/private rsa key pair.    
+Enter file in which to save the key (/root/.ssh/id_rsa): /root/hackthebox/joker/.ssh_key                                                                                       
+Enter passphrase (empty for no passphrase):                                            
+Enter same passphrase again:               
+Your identification has been saved in /root/hackthebox/joker/.ssh_key.                 
+Your public key has been saved in /root/hackthebox/joker/.ssh_key.pub.                 
+The key fingerprint is:                    
+SHA256:5ADd9iKos22o/sg3pBAtWlLQkTk63vbytkq04bb4svc root@parrot                         
+The key's randomart image is:              
++---[RSA 3072]----+                        
+|.o.+.. .         |                        
+|  *  .. o        |                        
+| + . .....       |                        
+|* o . .+. .      |                        
+|o*.+   .S.       |                        
+|o.=+o            |                        
+|. +X.            |                        
+|.oB=+o           |                        
+|oBB*BE.          |                        
++----[SHA256]-----+                        
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ls                                   
+hash_kalamari  iptablesv4.b64  nmap  passwd  passwords  rules.v4  squid.conf           
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #ls -la                               
+total 316                                  
+drwxr-xr-x  3 root root   4096 Jan  1 19:34 .                                          
+drwxr-xr-x 19 root root   4096 Dec 31 23:48 ..                                         
+-rw-r--r--  1 root root     52 Jan  1 00:21 hash_kalamari                              
+-rw-r--r--  1 root root    609 Jan  1 09:27 iptablesv4.b64                             
+drwxr-xr-x  2 root root   4096 Dec 31 23:54 nmap                                       
+-rw-r--r--  1 root root      0 Jan  1 00:01 passwd                                     
+-rw-r--r--  1 root root     47 Jan  1 00:15 passwords                                  
+-rw-r--r--  1 root root      0 Jan  1 09:26 rules.v4                                   
+-rw-r--r--  1 root root 287531 Jan  1 00:13 squid.conf                                 
+-rw-------  1 root root   2602 Jan  1 19:34 .ssh_key                                   
+-rw-r--r--  1 root root    565 Jan  1 19:34 .ssh_key.pub                               
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #cat .ssh_key.pub                     
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDm5G7Aqh7cKmNSCxKxAOM4YY+3J1S3CozvtCJLRzzzWVkeiMbKNkiD5/osF+Qpcur4h4AZT80L40TROPqKFThyCwIjZxJhaMOf19xIaKrX7fZCwM5e0LCqOvOgFTab1f4zVYxIP78wldOqv++wDisNHeCUUwncZWFWrTCun6YS0m2tKcEiXTO6dSmZ5T8hHP0NQTwkRKovECEr3eLrWbHbyfSmi1IZ5dbb5ZjtRhV/l02wAT31Xl1hvN6YXf5Q8k/D5Nv+K9/3QxwOtGXnx3doYVOcwrzlyWWQXLE+lUY9kGwZ5R2GDmOFq94d5bggWBAx5YSGpFYyTJ1CymzaU2tmviMREWuhaNWccypbeweRis5XMBaquFPYmzeq3PFnzm1RmsiHzfY76V9i0b1itdgFTL1L+pSNEe9/G81ulIJcH+D2ibaS5tsa1CCdTJ7HVMYxxpdpHa7EdGzsrERzCJ4lhpJApmu9HY6cXROd3AoHoEmAxdOw8coJYl7nLJ6Yv5s= root@parrot    
+┌─[root@parrot]─[~/hackthebox/joker]       
+└──╼ #                                     

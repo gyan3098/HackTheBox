@@ -1,0 +1,32 @@
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #cd file/                          
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #ls                                
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  keypass_hash_cheat  keypass_hashes  myapp  MyPasswords.kdbx  user.txt         
+┌─[root@parrot]─[~/hackthebox/safe/file]
+└──╼ #cd ..                             
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #vi credential                     
+┌─[root@parrot]─[~/hackthebox/safe]     
+└──╼ #ssh -i safe user@10.10.10.147     
+Linux safe 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1 (2019-04-12) x86_64             
+
+The programs included with the Debian GNU/Linux system are free software;        
+the exact distribution terms for each program are described in the               
+individual files in /usr/share/doc/*/copyright.                                  
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                
+permitted by applicable law.            
+Last login: Sun Dec 29 06:29:26 2019 from 10.10.14.14                            
+user@safe:~$ su                         
+Password:                               
+root@safe:/home/user# ls                
+IMG_0545.JPG  IMG_0546.JPG  IMG_0547.JPG  IMG_0548.JPG  IMG_0552.JPG  IMG_0553.JPG  myapp  MyPasswords.kdbx  user.txt                                             
+root@safe:/home/user# cd /root/         
+root@safe:~# ls                         
+root.txt                                
+root@safe:~# cat root.txt               
+d7af235eb1db9fa059d2b99a6d1d5453        
+root@safe:~#                            

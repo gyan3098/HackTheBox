@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Tue Dec 31 23:54:50 2019 as: nmap -sU -oA nmap/udp 10.10.10.21
+Host: 10.10.10.21 ()	Status: Up
+Host: 10.10.10.21 ()	Ports: 69/open|filtered/udp//tftp///, 5355/open|filtered/udp//llmnr///, 23980/open|filtered/udp//unknown///, 37843/open|filtered/udp//unknown///, 49194/open|filtered/udp//unknown///, 58002/open|filtered/udp//unknown///	Ignored State: closed (994)
+# Nmap done at Wed Jan  1 00:13:46 2020 -- 1 IP address (1 host up) scanned in 1136.26 seconds

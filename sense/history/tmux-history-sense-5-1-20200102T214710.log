@@ -1,0 +1,232 @@
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1006: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,                    
+sid:539def2b34af7e1caf6a4610b7411e695f6f685d,1578015172;ip:9ca7d3520e3cfb301ce5190c677c8aa00a15d6c6,1578015172   
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+sid:560456b35e93d9da6fc9b99ad11daf06791ccb30,1578015367;ip:0cf755cc6dd4e6804ce7191686c218d58a48b857,1578015367   
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+  File "bf-pf.py", line 13                   
+    login = {'__csrf_magic' :csrf ,'usernmaefld':'gyan','passwordfld':'gyan',;'login':'Login'}                   
+                                                                             ^             
+SyntaxError: invalid syntax                  
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #python3 bf-pf.py                       
+^CTraceback (most recent call last):         
+  File "bf-pf.py", line 14, in <module>      
+    r = s.post('http://127.0.0.1/index.php',data=login)                                    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 581, in post            
+    return self.request('POST', url, data=data, json=json, **kwargs)                       
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request         
+    resp = self.send(prep, **send_kwargs)    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send            
+    r = adapter.send(request, **kwargs)      
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send            
+    timeout=timeout   
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen    
+    chunked=chunked,  
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 421, in _make_request                    
+    six.raise_from(e, None)                  
+  File "<string>", line 3, in raise_from     
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 416, in _make_request                    
+    httplib_response = conn.getresponse()    
+  File "/usr/lib/python3.7/http/client.py", line 1344, in getresponse                      
+    response.begin()  
+  File "/usr/lib/python3.7/http/client.py", line 306, in begin                             
+    version, status, reason = self._read_status()                                          
+  File "/usr/lib/python3.7/http/client.py", line 267, in _read_status                      
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")                               
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto                               
+    return self._sock.recv_into(b)           
+KeyboardInterrupt     
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #python3 bf-pf.py                       
+<html><head><title>CSRF check failed</title><script type="text/javascript">if (top != self) {top.location.href = self.location.href;}</script><script type="text/javascript">var csrfMagicToken = "sid:ab87496e8da0171b24b70fbbcd9a54eb5a328257,1578017746";var csrfMagicName = "__csrf_magic";</script><script src="/csrf/csrf-magic.js" type="text/javascript"></script></head><body>CSRF check failed. Either your session has expired, this page has been inactive too long, or you need to enable cookies.<br />Debug: sid:b168ff1b4e73f114d0070b067fb0a2a1f9fc8cc9,1578017704;ip:5c99ab5a3713425bd5c836e22ade2ec7dd82e415,1578017704<script type="text/javascript">CsrfMagic.end();</script></body></html>                                        
+
+sid:b168ff1b4e73f114d0070b067fb0a2a1f9fc8cc9,1578017704;ip:5c99ab5a3713425bd5c836e22ade2ec7dd82e415,1578017704   
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #                
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+^CTraceback (most recent call last):         
+  File "bf-pf.py", line 14, in <module>      
+    r = s.post('http://127.0.0.1/index.php',data=login)                                    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 581, in post            
+    return self.request('POST', url, data=data, json=json, **kwargs)                       
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request         
+    resp = self.send(prep, **send_kwargs)    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send            
+    r = adapter.send(request, **kwargs)      
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send            
+    timeout=timeout   
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen    
+    chunked=chunked,  
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 421, in _make_request                    
+    six.raise_from(e, None)                  
+  File "<string>", line 3, in raise_from     
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 416, in _make_request                    
+    httplib_response = conn.getresponse()    
+  File "/usr/lib/python3.7/http/client.py", line 1344, in getresponse                      
+    response.begin()  
+  File "/usr/lib/python3.7/http/client.py", line 306, in begin                             
+    version, status, reason = self._read_status()                                          
+  File "/usr/lib/python3.7/http/client.py", line 267, in _read_status                      
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")                               
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto                               
+    return self._sock.recv_into(b)           
+KeyboardInterrupt     
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #python3 bf-pf.py                       
+Failed                
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #vi password.txt 
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+Failed                
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+^CTraceback (most recent call last):         
+  File "bf-pf.py", line 13, in <module>      
+    r = s.get('http://127.0.0.1/index.php') #verify here tells to ignore ssl certification 
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 546, in get             
+    return self.request('GET', url, **kwargs)                                              
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request         
+    resp = self.send(prep, **send_kwargs)    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send            
+    r = adapter.send(request, **kwargs)      
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send            
+    timeout=timeout   
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen    
+    chunked=chunked,  
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 421, in _make_request                    
+    six.raise_from(e, None)                  
+  File "<string>", line 3, in raise_from     
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 416, in _make_request                    
+    httplib_response = conn.getresponse()    
+  File "/usr/lib/python3.7/http/client.py", line 1344, in getresponse                      
+    response.begin()  
+  File "/usr/lib/python3.7/http/client.py", line 306, in begin                             
+    version, status, reason = self._read_status()                                          
+  File "/usr/lib/python3.7/http/client.py", line 267, in _read_status                      
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")                               
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto                               
+    return self._sock.recv_into(b)           
+KeyboardInterrupt     
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #proxychains python3 bf-pf.py           
+ProxyChains-3.1 (http://proxychains.sf.net)  
+|S-chain|-<>-127.0.0.1:1080-<--timeout       
+Traceback (most recent call last):           
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 157, in _new_conn      
+    (self._dns_host, self.port), self.timeout, **extra_kw                                  
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection                
+    raise err         
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection                
+    sock.connect(sa)  
+ConnectionRefusedError: [Errno 111] Connection refused                                     
+
+During handling of the above exception, another exception occurred:                        
+
+Traceback (most recent call last):           
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen    
+    chunked=chunked,  
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request                    
+    conn.request(method, url, **httplib_request_kw)                                        
+  File "/usr/lib/python3.7/http/client.py", line 1252, in request                          
+    self._send_request(method, url, body, headers, encode_chunked)                         
+  File "/usr/lib/python3.7/http/client.py", line 1298, in _send_request                    
+    self.endheaders(body, encode_chunked=encode_chunked)                                   
+  File "/usr/lib/python3.7/http/client.py", line 1247, in endheaders                       
+    self._send_output(message_body, encode_chunked=encode_chunked)                         
+  File "/usr/lib/python3.7/http/client.py", line 1026, in _send_output                     
+    self.send(msg)    
+  File "/usr/lib/python3.7/http/client.py", line 966, in send                              
+    self.connect()    
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 184, in connect        
+    conn = self._new_conn()                  
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 169, in _new_conn      
+    self, "Failed to establish a new connection: %s" % e                                   
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f94d764a090>: Failed to establish a new connection: [Errno 111] Connection refused             
+
+During handling of the above exception, another exception occurred:                        
+
+Traceback (most recent call last):           
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send            
+    timeout=timeout   
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 720, in urlopen    
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]                        
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 436, in increment      
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))                         
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /index.php (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f94d764a090>: Failed to establish a new connection: [Errno 111] Connection refused'))        
+
+During handling of the above exception, another exception occurred:                        
+
+Traceback (most recent call last):           
+  File "bf-pf.py", line 13, in <module>      
+    r = s.get('http://127.0.0.1/index.php') #verify here tells to ignore ssl certification 
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 546, in get             
+    return self.request('GET', url, **kwargs)                                              
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request         
+    resp = self.send(prep, **send_kwargs)    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send            
+    r = adapter.send(request, **kwargs)      
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 516, in send            
+    raise ConnectionError(e, request=request)                                              
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /index.php (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f94d764a090>: Failed to establish a new connection: [Errno 111] Connection refused'))     
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #python3 bf-pf.py                                                                     
+Traceback (most recent call last):           
+  File "bf-pf.py", line 14, in <module>      
+    csrf = re.findall(re_csrf,r.text)[0]     
+IndexError: list index out of range          
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #ping 10.10.10.60
+PING 10.10.10.60 (10.10.10.60) 56(84) bytes of data.                                       
+64 bytes from 10.10.10.60: icmp_seq=1 ttl=63 time=382 ms                                   
+64 bytes from 10.10.10.60: icmp_seq=2 ttl=63 time=339 ms                                   
+^C                    
+--- 10.10.10.60 ping statistics ---          
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2002ms                       
+rtt min/avg/max/mdev = 339.095/360.505/381.916/21.410 ms                                   
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #python3 bf-pf.py                       
+Failed %s:%s ('rohit', 'password1\n')        
+^CTraceback (most recent call last):         
+  File "bf-pf.py", line 13, in <module>      
+    r = s.get('http://127.0.0.1/index.php') #verify here tells to ignore ssl certification 
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 546, in get             
+    return self.request('GET', url, **kwargs)                                              
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request         
+    resp = self.send(prep, **send_kwargs)    
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send            
+    r = adapter.send(request, **kwargs)      
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send            
+    timeout=timeout   
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 672, in urlopen    
+    chunked=chunked,  
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 421, in _make_request                    
+    six.raise_from(e, None)                  
+  File "<string>", line 3, in raise_from     
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 416, in _make_request                    
+    httplib_response = conn.getresponse()    
+  File "/usr/lib/python3.7/http/client.py", line 1344, in getresponse                      
+    response.begin()  
+  File "/usr/lib/python3.7/http/client.py", line 306, in begin                             
+    version, status, reason = self._read_status()                                          
+  File "/usr/lib/python3.7/http/client.py", line 267, in _read_status                      
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")                               
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto                               
+    return self._sock.recv_into(b)           
+KeyboardInterrupt     
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #python3 bf-pf.py                       
+Failed rohit:password1                       
+Failed rohit:password2                       
+Failed rohit:password3                       
+Failed rohit:password4                       
+Failed rohit:password5                       
+Failed rohit:pfsense  
+┌─[root@parrot]─[~/hackthebox/sense]         
+└──╼ #                

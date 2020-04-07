@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Fri Jan  3 07:41:07 2020 as: nmap -T4 -sV -sSU -p T:80,443 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074107-nmapstage1 10.10.10.22 -->
+<nmaprun scanner="nmap" args="nmap -T4 -sV -sSU -p T:80,443 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074107-nmapstage1 10.10.10.22" start="1578055267" startstr="Fri Jan  3 07:41:07 2020" version="7.80" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="2" services="80,443"/>
+<scaninfo type="udp" protocol="udp" numservices="0" services=""/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1578055267" endtime="1578055287"><status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="10.10.10.22" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="http" product="Apache httpd" version="2.4.18" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.18</cpe></service></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="http" product="Apache httpd" version="2.4.18" extrainfo="(Ubuntu)" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.18</cpe></service></port>
+</ports>
+<times srtt="293657" rttvar="189185" to="1050397"/>
+</host>
+<runstats><finished time="1578055287" timestr="Fri Jan  3 07:41:27 2020" elapsed="20.07" summary="Nmap done at Fri Jan  3 07:41:27 2020; 1 IP address (1 host up) scanned in 20.07 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

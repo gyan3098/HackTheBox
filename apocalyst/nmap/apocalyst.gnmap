@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Sat Jan 11 00:00:38 2020 as: nmap -sC -sV -oA nmap/apocalyst 10.10.10.46
+Host: 10.10.10.46 ()	Status: Up
+Host: 10.10.10.46 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/	Ignored State: closed (998)
+# Nmap done at Sat Jan 11 00:01:46 2020 -- 1 IP address (1 host up) scanned in 68.57 seconds

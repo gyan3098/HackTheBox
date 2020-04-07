@@ -1,0 +1,245 @@
+┌─[root@parrot]─[~/hackthebox/shocker]
+└──╼ #vi credentials                  
+┌─[root@parrot]─[~/hackthebox/shocker]
+└──╼ #nc -nvlp 1234                   
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                 
+Ncat: Listening on :::1234            
+Ncat: Listening on 0.0.0.0:1234       
+Ncat: Connection from 10.10.10.56.    
+Ncat: Connection from 10.10.10.56:49526.                                     
+$ id                                  
+uid=1000(shelly) gid=1000(shelly) groups=1000(shelly),4(adm),24(cdrom),30(dip),46(plugdev),110(lxd),115(lpadmin),116(sambashare)                           
+$ ^C                                  
+┌─[✗]─[root@parrot]─[~/hackthebox/shocker]                                   
+└──╼ #nc -nvlp 1234                   
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                 
+Ncat: Listening on :::1234            
+Ncat: Listening on 0.0.0.0:1234       
+Ncat: Connection from 10.10.10.56.    
+Ncat: Connection from 10.10.10.56:49528.                                     
+# id                                  
+uid=0(root) gid=0(root) groups=0(root)                                       
+# dir                                 
+# ls                                  
+# whoami                              
+root                                  
+# ls -la                              
+total 0                               
+drwxrwxrwt  2 root root   40 Dec 28 07:31 .                                  
+drwxr-xr-x 20 root root 3880 Dec 28 07:31 ..                                 
+# cd home                             
+/bin/sh: 6: cd: can't cd to home      
+# cd ..                               
+# ls -la                              
+total 4                               
+drwxr-xr-x 20 root root        3880 Dec 28 07:31 .                           
+drwxr-xr-x 23 root root        4096 Sep 22  2017 ..                          
+crw-------  1 root root     10, 175 Dec 28 07:31 agpgart                     
+crw-------  1 root root     10, 235 Dec 28 07:31 autofs                      
+drwxr-xr-x  2 root root         320 Dec 28 07:31 block                       
+drwxr-xr-x  2 root root          60 Dec 28 07:31 bsg                         
+crw-rw----  1 root disk     10, 234 Dec 28 07:31 btrfs-control               
+drwxr-xr-x  3 root root          60 Dec 28 07:31 bus                         
+drwxr-xr-x  2 root root        3400 Dec 28 07:31 char                        
+crw-------  1 root root      5,   1 Dec 28 07:32 console                     
+lrwxrwxrwx  1 root root          11 Dec 28 07:31 core -> /proc/kcore         
+drwxr-xr-x  2 root root          60 Dec 28 07:31 cpu                         
+crw-------  1 root root     10,  59 Dec 28 07:31 cpu_dma_latency             
+crw-------  1 root root     10, 203 Dec 28 07:31 cuse                        
+drwxr-xr-x  5 root root         100 Dec 28 07:31 disk                        
+brw-rw----  1 root disk    252,   0 Dec 28 07:31 dm-0                        
+brw-rw----  1 root disk    252,   1 Dec 28 07:31 dm-1                        
+drwxr-xr-x  2 root root         100 Dec 28 07:31 dri                         
+crw-------  1 root root     10,  61 Dec 28 07:31 ecryptfs                    
+crw-rw----  1 root video    29,   0 Dec 28 07:31 fb0                         
+lrwxrwxrwx  1 root root          13 Dec 28 07:31 fd -> /proc/self/fd         
+crw-rw-rw-  1 root root      1,   7 Dec 28 07:31 full                        
+crw-rw-rw-  1 root root     10, 229 Dec 28 07:31 fuse                        
+crw-------  1 root root    247,   0 Dec 28 07:31 hidraw0                     
+crw-------  1 root root     10, 228 Dec 28 07:31 hpet                        
+drwxr-xr-x  2 root root           0 Dec 28 07:31 hugepages                   
+crw-------  1 root root     10, 183 Dec 28 07:31 hwrng                       
+lrwxrwxrwx  1 root root          25 Dec 28 07:31 initctl -> /run/systemd/initctl/fifo                                                                      
+drwxr-xr-x  4 root root         260 Dec 28 07:31 input                       
+crw-r--r--  1 root root      1,  11 Dec 28 07:31 kmsg                        
+drwxr-xr-x  2 root root          60 Dec 28 07:31 lightnvm                    
+lrwxrwxrwx  1 root root          28 Dec 28 07:31 log -> /run/systemd/journal/dev-log                                                                       
+brw-rw----  1 root disk      7,   0 Dec 28 07:31 loop0                       
+brw-rw----  1 root disk      7,   1 Dec 28 07:31 loop1                       
+brw-rw----  1 root disk      7,   2 Dec 28 07:31 loop2                       
+brw-rw----  1 root disk      7,   3 Dec 28 07:31 loop3                       
+brw-rw----  1 root disk      7,   4 Dec 28 07:31 loop4                       
+brw-rw----  1 root disk      7,   5 Dec 28 07:31 loop5                       
+brw-rw----  1 root disk      7,   6 Dec 28 07:31 loop6                       
+brw-rw----  1 root disk      7,   7 Dec 28 07:31 loop7                       
+crw-rw----  1 root disk     10, 237 Dec 28 07:31 loop-control                
+drwxr-xr-x  2 root root         100 Dec 28 07:31 mapper                      
+crw-------  1 root root     10, 227 Dec 28 07:31 mcelog                      
+crw-r-----  1 root kmem      1,   1 Dec 28 07:31 mem                         
+crw-------  1 root root     10,  56 Dec 28 07:31 memory_bandwidth            
+drwxrwxrwt  2 root root          40 Dec 28 07:31 mqueue                      
+drwxr-xr-x  2 root root          60 Dec 28 07:31 net                         
+crw-------  1 root root     10,  58 Dec 28 07:31 network_latency             
+crw-------  1 root root     10,  57 Dec 28 07:31 network_throughput          
+crw-rw-rw-  1 root root      1,   3 Dec 28 07:31 null                        
+crw-r-----  1 root kmem      1,   4 Dec 28 07:31 port                        
+crw-------  1 root root    108,   0 Dec 28 07:31 ppp                         
+crw-------  1 root root     10,   1 Dec 28 07:31 psaux                       
+crw-rw-rw-  1 root tty       5,   2 Dec 28 09:12 ptmx                        
+drwxr-xr-x  2 root root           0 Dec 28 07:31 pts                         
+crw-rw-rw-  1 root root      1,   8 Dec 28 07:31 random                      
+crw-rw-r--  1 root netdev   10,  62 Dec 28 07:31 rfkill                      
+lrwxrwxrwx  1 root root           4 Dec 28 07:31 rtc -> rtc0                 
+crw-------  1 root root    251,   0 Dec 28 07:31 rtc0                        
+brw-rw----  1 root disk      8,   0 Dec 28 07:31 sda                         
+brw-rw----  1 root disk      8,   1 Dec 28 07:31 sda1                        
+brw-rw----  1 root disk      8,   2 Dec 28 07:31 sda2                        
+brw-rw----  1 root disk      8,   5 Dec 28 07:31 sda5                        
+crw-rw----  1 root disk     21,   0 Dec 28 07:31 sg0                         
+drwxrwxrwt  2 root root          40 Dec 28 07:31 shm                         
+drwxr-xr-x  2 root root          80 Dec 28 07:31 Shocker-vg                  
+crw-------  1 root root     10, 231 Dec 28 07:31 snapshot                    
+drwxr-xr-x  2 root root          80 Dec 28 07:31 snd                         
+lrwxrwxrwx  1 root root          15 Dec 28 07:31 stderr -> /proc/self/fd/2   
+lrwxrwxrwx  1 root root          15 Dec 28 07:31 stdin -> /proc/self/fd/0    
+lrwxrwxrwx  1 root root          15 Dec 28 07:31 stdout -> /proc/self/fd/1   
+crw-rw-rw-  1 root tty       5,   0 Dec 28 07:31 tty                         
+crw--w----  1 root tty       4,   0 Dec 28 07:31 tty0                        
+crw--w----  1 root tty       4,   1 Dec 28 07:31 tty1                        
+crw--w----  1 root tty       4,  10 Dec 28 07:31 tty10                       
+crw--w----  1 root tty       4,  11 Dec 28 07:31 tty11                       
+crw--w----  1 root tty       4,  12 Dec 28 07:31 tty12                       
+crw--w----  1 root tty       4,  13 Dec 28 07:31 tty13                       
+crw--w----  1 root tty       4,  14 Dec 28 07:31 tty14                       
+crw--w----  1 root tty       4,  15 Dec 28 07:31 tty15                       
+crw--w----  1 root tty       4,  16 Dec 28 07:31 tty16                       
+crw--w----  1 root tty       4,  17 Dec 28 07:31 tty17                       
+crw--w----  1 root tty       4,  18 Dec 28 07:31 tty18                       
+crw--w----  1 root tty       4,  19 Dec 28 07:31 tty19                       
+crw--w----  1 root tty       4,   2 Dec 28 07:31 tty2                        
+crw--w----  1 root tty       4,  20 Dec 28 07:31 tty20                       
+crw--w----  1 root tty       4,  21 Dec 28 07:31 tty21                       
+crw--w----  1 root tty       4,  22 Dec 28 07:31 tty22                       
+crw--w----  1 root tty       4,  23 Dec 28 07:31 tty23                       
+crw--w----  1 root tty       4,  24 Dec 28 07:31 tty24                       
+crw--w----  1 root tty       4,  25 Dec 28 07:31 tty25                       
+crw--w----  1 root tty       4,  26 Dec 28 07:31 tty26                       
+crw--w----  1 root tty       4,  27 Dec 28 07:31 tty27                       
+crw--w----  1 root tty       4,  28 Dec 28 07:31 tty28                       
+crw--w----  1 root tty       4,  29 Dec 28 07:31 tty29                       
+crw--w----  1 root tty       4,   3 Dec 28 07:31 tty3                        
+crw--w----  1 root tty       4,  30 Dec 28 07:31 tty30                       
+crw--w----  1 root tty       4,  31 Dec 28 07:31 tty31                       
+crw--w----  1 root tty       4,  32 Dec 28 07:31 tty32                       
+crw--w----  1 root tty       4,  33 Dec 28 07:31 tty33                       
+crw--w----  1 root tty       4,  34 Dec 28 07:31 tty34                       
+crw--w----  1 root tty       4,  35 Dec 28 07:31 tty35                       
+crw--w----  1 root tty       4,  36 Dec 28 07:31 tty36                       
+crw--w----  1 root tty       4,  37 Dec 28 07:31 tty37                       
+crw--w----  1 root tty       4,  38 Dec 28 07:31 tty38                       
+crw--w----  1 root tty       4,  39 Dec 28 07:31 tty39                       
+crw--w----  1 root tty       4,   4 Dec 28 07:31 tty4                        
+crw--w----  1 root tty       4,  40 Dec 28 07:31 tty40                       
+crw--w----  1 root tty       4,  41 Dec 28 07:31 tty41                       
+crw--w----  1 root tty       4,  42 Dec 28 07:31 tty42                       
+crw--w----  1 root tty       4,  43 Dec 28 07:31 tty43                       
+crw--w----  1 root tty       4,  44 Dec 28 07:31 tty44                       
+crw--w----  1 root tty       4,  45 Dec 28 07:31 tty45                       
+crw--w----  1 root tty       4,  46 Dec 28 07:31 tty46                       
+crw--w----  1 root tty       4,  47 Dec 28 07:31 tty47                       
+crw--w----  1 root tty       4,  48 Dec 28 07:31 tty48                       
+crw--w----  1 root tty       4,  49 Dec 28 07:31 tty49                       
+crw--w----  1 root tty       4,   5 Dec 28 07:31 tty5                        
+crw--w----  1 root tty       4,  50 Dec 28 07:31 tty50                       
+crw--w----  1 root tty       4,  51 Dec 28 07:31 tty51                       
+crw--w----  1 root tty       4,  52 Dec 28 07:31 tty52                       
+crw--w----  1 root tty       4,  53 Dec 28 07:31 tty53                       
+crw--w----  1 root tty       4,  54 Dec 28 07:31 tty54                       
+crw--w----  1 root tty       4,  55 Dec 28 07:31 tty55                       
+crw--w----  1 root tty       4,  56 Dec 28 07:31 tty56                       
+crw--w----  1 root tty       4,  57 Dec 28 07:31 tty57                       
+crw--w----  1 root tty       4,  58 Dec 28 07:31 tty58                       
+crw--w----  1 root tty       4,  59 Dec 28 07:31 tty59                       
+crw--w----  1 root tty       4,   6 Dec 28 07:31 tty6                        
+crw--w----  1 root tty       4,  60 Dec 28 07:31 tty60                       
+crw--w----  1 root tty       4,  61 Dec 28 07:31 tty61                       
+crw--w----  1 root tty       4,  62 Dec 28 07:31 tty62                       
+crw--w----  1 root tty       4,  63 Dec 28 07:31 tty63                       
+crw--w----  1 root tty       4,   7 Dec 28 07:31 tty7                        
+crw--w----  1 root tty       4,   8 Dec 28 07:31 tty8                        
+crw--w----  1 root tty       4,   9 Dec 28 07:31 tty9                        
+crw-------  1 root root      5,   3 Dec 28 07:31 ttyprintk                   
+crw-rw----  1 root dialout   4,  64 Dec 28 07:31 ttyS0                       
+crw-rw----  1 root dialout   4,  65 Dec 28 07:31 ttyS1                       
+crw-rw----  1 root dialout   4,  74 Dec 28 07:31 ttyS10                      
+crw-rw----  1 root dialout   4,  75 Dec 28 07:31 ttyS11                      
+crw-rw----  1 root dialout   4,  76 Dec 28 07:31 ttyS12                      
+crw-rw----  1 root dialout   4,  77 Dec 28 07:31 ttyS13                      
+crw-rw----  1 root dialout   4,  78 Dec 28 07:31 ttyS14                      
+crw-rw----  1 root dialout   4,  79 Dec 28 07:31 ttyS15                      
+crw-rw----  1 root dialout   4,  80 Dec 28 07:31 ttyS16                      
+crw-rw----  1 root dialout   4,  81 Dec 28 07:31 ttyS17                      
+crw-rw----  1 root dialout   4,  82 Dec 28 07:31 ttyS18                      
+crw-rw----  1 root dialout   4,  83 Dec 28 07:31 ttyS19                      
+crw-rw----  1 root dialout   4,  66 Dec 28 07:31 ttyS2                       
+crw-rw----  1 root dialout   4,  84 Dec 28 07:31 ttyS20                      
+crw-rw----  1 root dialout   4,  85 Dec 28 07:31 ttyS21                      
+crw-rw----  1 root dialout   4,  86 Dec 28 07:31 ttyS22                      
+crw-rw----  1 root dialout   4,  87 Dec 28 07:31 ttyS23                      
+crw-rw----  1 root dialout   4,  88 Dec 28 07:31 ttyS24                      
+crw-rw----  1 root dialout   4,  89 Dec 28 07:31 ttyS25                      
+crw-rw----  1 root dialout   4,  90 Dec 28 07:31 ttyS26                      
+crw-rw----  1 root dialout   4,  91 Dec 28 07:31 ttyS27                      
+crw-rw----  1 root dialout   4,  92 Dec 28 07:31 ttyS28                      
+crw-rw----  1 root dialout   4,  93 Dec 28 07:31 ttyS29                      
+crw-rw----  1 root dialout   4,  67 Dec 28 07:31 ttyS3                       
+crw-rw----  1 root dialout   4,  94 Dec 28 07:31 ttyS30                      
+crw-rw----  1 root dialout   4,  95 Dec 28 07:31 ttyS31                      
+crw-rw----  1 root dialout   4,  68 Dec 28 07:31 ttyS4                       
+crw-rw----  1 root dialout   4,  69 Dec 28 07:31 ttyS5                       
+crw-rw----  1 root dialout   4,  70 Dec 28 07:31 ttyS6                       
+crw-rw----  1 root dialout   4,  71 Dec 28 07:31 ttyS7                       
+crw-rw----  1 root dialout   4,  72 Dec 28 07:31 ttyS8                       
+crw-rw----  1 root dialout   4,  73 Dec 28 07:31 ttyS9                       
+crw-------  1 root root     10, 239 Dec 28 07:31 uhid                        
+crw-------  1 root root     10, 223 Dec 28 07:31 uinput                      
+crw-rw-rw-  1 root root      1,   9 Dec 28 07:31 urandom                     
+crw-------  1 root root     10, 240 Dec 28 07:31 userio                      
+crw-rw----  1 root tty       7,   0 Dec 28 07:31 vcs                         
+crw-rw----  1 root tty       7,   1 Dec 28 07:31 vcs1                        
+crw-rw----  1 root tty       7,   2 Dec 28 07:31 vcs2                        
+crw-rw----  1 root tty       7,   3 Dec 28 07:31 vcs3                        
+crw-rw----  1 root tty       7,   4 Dec 28 07:31 vcs4                        
+crw-rw----  1 root tty       7,   5 Dec 28 07:31 vcs5                        
+crw-rw----  1 root tty       7,   6 Dec 28 07:31 vcs6                        
+crw-rw----  1 root tty       7, 128 Dec 28 07:31 vcsa                        
+crw-rw----  1 root tty       7, 129 Dec 28 07:31 vcsa1                       
+crw-rw----  1 root tty       7, 130 Dec 28 07:31 vcsa2                       
+crw-rw----  1 root tty       7, 131 Dec 28 07:31 vcsa3                       
+crw-rw----  1 root tty       7, 132 Dec 28 07:31 vcsa4                       
+crw-rw----  1 root tty       7, 133 Dec 28 07:31 vcsa5                       
+crw-rw----  1 root tty       7, 134 Dec 28 07:31 vcsa6                       
+drwxr-xr-x  2 root root          60 Dec 28 07:31 vfio                        
+crw-------  1 root root     10,  63 Dec 28 07:31 vga_arbiter                 
+crw-------  1 root root     10, 137 Dec 28 07:31 vhci                        
+crw-------  1 root root     10, 238 Dec 28 07:31 vhost-net                   
+crw-------  1 root root     10,  55 Dec 28 07:31 vmci                        
+crw-rw-rw-  1 root root     10,  54 Dec 28 07:31 vsock                       
+crw-rw-rw-  1 root root      1,   5 Dec 28 07:31 zero                        
+# cd home                             
+/bin/sh: 9: cd: can't cd to home      
+# cd ~                                
+# ls -la                              
+total 32                              
+drwx------  4 root root 4096 Sep 22  2017 .                                  
+drwxr-xr-x 23 root root 4096 Sep 22  2017 ..                                 
+-rw-------  1 root root    0 Sep 25  2017 .bash_history                      
+-rw-r--r--  1 root root 3106 Oct 22  2015 .bashrc                            
+drwx------  2 root root 4096 Sep 22  2017 .cache                             
+drwxr-xr-x  2 root root 4096 Sep 22  2017 .nano                              
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile                           
+-r--------  1 root root   33 Sep 22  2017 root.txt                           
+-rw-r--r--  1 root root  170 Sep 22  2017 .wget-hsts                         
+# cat root.txt                        
+52c2715605d70c7619030560dc1ca467      
+#                                     

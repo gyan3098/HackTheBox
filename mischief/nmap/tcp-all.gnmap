@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Thu Jan 16 02:30:03 2020 as: nmap -p- -v --max-retries 0 -oA nmap/tcp-all 10.10.10.92
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.10.92 ()	Status: Down
+# Nmap done at Thu Jan 16 02:30:04 2020 -- 1 IP address (0 hosts up) scanned in 1.16 seconds

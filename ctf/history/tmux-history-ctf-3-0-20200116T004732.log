@@ -1,0 +1,39 @@
+root@parrot:~/hackthebox/ctf# git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git                                                                  
+Cloning into 'PayloadsAllTheThings'...  
+remote: Enumerating objects: 3527, done.                                        
+remote: Total 3527 (delta 0), reused 0 (delta 0), pack-reused 3527              
+Receiving objects: 100% (3527/3527), 7.45 MiB | 74.00 KiB/s, done.              
+Resolving deltas: 100% (1980/1980), done.                                       
+root@parrot:~/hackthebox/ctf# mv PayloadsAllTheThings/ /opt/                    
+root@parrot:~/hackthebox/ctf# apt install stoken                                
+Reading package lists... Done           
+Building dependency tree                
+Reading state information... Done       
+The following packages were automatically installed and are no longer required: 
+  cython dcraw flac libdbd-sqlite3-perl libfluidsynth1 libhtml-linkextractor-perl libjpeg-turbo-progs liblwp-protocol-socks-perl libndpi2.6 libout123-0          
+  libreadline7 librecode0 libstd-rust-1.39 libturbojpeg0 libxml-simple-perl linux-compiler-gcc-8-x86 linux-headers-5.2.0-2parrot1-amd64                          
+  linux-headers-5.2.0-2parrot1-common linux-image-5.2.0-2parrot1-amd64 linux-kbuild-5.2 mpg123 php-sqlite3 php7.3-sqlite3 python-alembic python-autobahn         
+  python-babel python-bottle python-cbor python-chameleon python-click-plugins python-cssselect python-deprecation python-django python-editor                   
+  python-feedparser python-filedepot python-filteralchemy python-flask-babelex python-flask-classful python-flask-kvsession python-flask-login                   
+  python-flask-mail python-flask-principal python-flask-restless python-flask-security python-flask-session python-flask-sqlalchemy python-flaskext.wtf          
+  python-formencode python-html2text python-hupper python-ipy python-lz4 python-marshmallow python-marshmallow-sqlalchemy python-mimeparse python-mimerender     
+  python-neovim python-nplusone python-openid python-passlib python-paste python-pastedeploy python-pastescript python-pcapfile python-plaster                   
+  python-plaster-pastedeploy python-png python-pyqrcode python-pyquery python-pyramid python-qrcode python-repoze.lru python-scgi python-selenium python-shodan  
+  python-simplekv python-snappy python-speaklater python-sqlalchemy-schemadisplay python-sqlparse python-syslog-rfc5424-formatter python-tempita                 
+  python-translationstring python-trie python-trollius python-txaio python-u-msgpack python-ubjson python-unidecode python-venusian python-waitress              
+  python-webargs python-webob python-websocket python-webtest python-wsaccel python-wtforms python-xlsxwriter python-zope.component python-zope.deprecation      
+  python-zope.event python-zope.hookable recode ruby-dataobjects ruby-dataobjects-mysql ruby-dataobjects-postgres ruby-dataobjects-sqlite3 ruby-dm-core          
+  ruby-dm-do-adapter ruby-dm-migrations ruby-dm-sqlite-adapter                  
+Use 'apt autoremove' to remove them.    
+Suggested packages:                     
+  qrencode zbar-tools                   
+The following NEW packages will be installed:                                   
+  stoken                                
+0 upgraded, 1 newly installed, 0 to remove and 139 not upgraded.                
+Need to get 35.2 kB of archives.        
+After this operation, 136 kB of additional disk space will be used.             
+Err:1 https://deb.parrot.sh/parrot rolling/main amd64 stoken amd64 0.92-1       
+  Could not handshake: Error in the pull function. [IP: 172.105.49.243 443]     
+E: Failed to fetch https://deb.parrot.sh/parrot/pool/main/s/stoken/stoken_0.92-1_amd64.deb  Could not handshake: Error in the pull function. [IP: 172.105.49.243 443]                                    
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?                                                                            
+root@parrot:~/hackthebox/ctf#           

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Tue Dec 31 02:43:54 2019 as: nmap -p- -oA allports.nmap -&#45;max-retries 0 10.10.10.76 -->
+<nmaprun scanner="nmap" args="nmap -p- -oA allports.nmap -&#45;max-retries 0 10.10.10.76" start="1577778234" startstr="Tue Dec 31 02:43:54 2019" version="7.80" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1577778234" endtime="1577783271"><status state="up" reason="echo-reply" reason_ttl="254"/>
+<address addr="10.10.10.76" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="45806">
+<extrareasons reason="no-responses" count="45806"/>
+</extraports>
+<extraports state="closed" count="19725">
+<extrareasons reason="resets" count="19725"/>
+</extraports>
+<port protocol="tcp" portid="79"><state state="open" reason="syn-ack" reason_ttl="59"/><service name="finger" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="rpcbind" method="table" conf="3"/></port>
+<port protocol="tcp" portid="36683"><state state="open" reason="syn-ack" reason_ttl="59"/></port>
+<port protocol="tcp" portid="57258"><state state="open" reason="syn-ack" reason_ttl="63"/></port>
+</ports>
+<times srtt="215604" rttvar="9366" to="253068"/>
+</host>
+<runstats><finished time="1577783271" timestr="Tue Dec 31 04:07:51 2019" elapsed="5036.56" summary="Nmap done at Tue Dec 31 04:07:51 2019; 1 IP address (1 host up) scanned in 5036.56 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

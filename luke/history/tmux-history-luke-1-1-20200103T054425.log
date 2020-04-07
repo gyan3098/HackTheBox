@@ -1,0 +1,197 @@
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #gobuster dir -u http://10.10.10.137 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php         
+===============================================================                  
+Gobuster v3.0.1     
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.137 
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Extensions:     php                 
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/03 01:51:29 Starting gobuster   
+===============================================================                  
+/login.php (Status: 200)                
+/member (Status: 301)                   
+/management (Status: 401)               
+/css (Status: 301)  
+/js (Status: 301)   
+/vendor (Status: 301)                   
+/config.php (Status: 200)               
+/LICENSE (Status: 200)                  
+[ERROR] 2020/01/03 02:33:05 [!] Get http://10.10.10.137/54454: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/03 02:33:06 [!] Get http://10.10.10.137/mgp00008: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/03 02:33:07 [!] Get http://10.10.10.137/54444.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 02:33:16 [!] Get http://10.10.10.137/002254.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/03 02:33:18 [!] Get http://10.10.10.137/handycam.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 02:33:20 [!] Get http://10.10.10.137/fp6.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/03 02:33:21 [!] Get http://10.10.10.137/gtr2.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/03 02:33:24 [!] Get http://10.10.10.137/bildung: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/03 02:33:26 [!] Get http://10.10.10.137/elisp: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/03 02:33:27 [!] Get http://10.10.10.137/nmap-hackers.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 02:33:29 [!] Get http://10.10.10.137/creditreports: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 02:33:29 [!] Get http://10.10.10.137/nero6.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 02:33:29 [!] Get http://10.10.10.137/mortgage_calculator: net/http: request canceled (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 02:33:31 [!] Get http://10.10.10.137/individual-i: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 02:33:31 [!] Get http://10.10.10.137/buycialisgeneric: net/http: request canceled (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 02:34:18 [!] Get http://10.10.10.137/000944.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/31554.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/25162.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/ab5_images: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/121041.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/15945.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/091304sirva: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/nordic-empress.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/wienkultur140x80trans.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/floater.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/03 03:52:05 [!] Get http://10.10.10.137/Vampire%20Revenge.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/082304campusnets: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/keio-ot: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/ercim-ck: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/0405appscampus: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/Squarez: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/120606-hinkley: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/vc_experts: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/venture_choice: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/header_newsevents: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)   
+[ERROR] 2020/01/03 03:52:15 [!] Get http://10.10.10.137/Interaction: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/charmod: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/212418: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/Bos: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/icon_multimedia: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/Wubly: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/DSig: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/0308wormworld: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)       
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/Kato: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/abednarz: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:52:25 [!] Get http://10.10.10.137/koufax: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/rachmanblog: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/Lightyear%20Blaster: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) 
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/archives_title: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/AR2006120701643: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/medianews: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/Hullabaloo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/020606nutter: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/Jungle%20Juice: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/phar: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 03:52:35 [!] Get http://10.10.10.137/CG: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/seed-img: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/suckers: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/WAI-WEBCONTENT: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/040405sonictest: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/0920rev: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/Toy%20Trouble: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)       
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/mg19225812: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/011606nutter: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/Secret%20Spy: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:45 [!] Get http://10.10.10.137/Mob%20Masher: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/003028: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/webarch-pressrelease: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/222227: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/eyepieces: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/demo_1: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/raidenx: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/demo_2: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/demo_4: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/shopping_off: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:52:55 [!] Get http://10.10.10.137/demo_3: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/demo_5: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/dvd-recorders: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)       
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/cleaning-supplies: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)   
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/h_what: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/cimage: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/003026: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/xsv: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/warbears: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/canadiannews: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:05 [!] Get http://10.10.10.137/h_demoletter: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/h_demotracker: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)       
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/inria: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/2000-2: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/hostile-skies: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)       
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/science_off: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/newsid_6184000: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/investors_circle: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/Sheriff%20Tripeaks: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)  
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/conference_guru: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:53:15 [!] Get http://10.10.10.137/Diner%20Dash: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/Gythol%20Granditti: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)  
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/british-columbia: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/nvca: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/pr_newswire: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/demo_6: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/news_active: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/tlr: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/W3C-FAQs: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/demo_7: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:25 [!] Get http://10.10.10.137/demo_8: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/demo_9: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/demo07_partners: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/guidewire_group: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/st-maarten: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/101606gearhead: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)      
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/usscole: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/10319: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/swsig: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/cole20010109: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:35 [!] Get http://10.10.10.137/spin2001: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/afplifestyleusinternet: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/ednote: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/fullreport: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/cjcs_directives: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)     
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/speech-synthesis: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/60572: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/DODc-small: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/14067: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/111306drinternet: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)    
+[ERROR] 2020/01/03 03:53:45 [!] Get http://10.10.10.137/06BUZZbanner: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/13130: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/freebsd-6: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/0471128457: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/11774: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/cfplogo3d: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/yunus: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/colloques: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/092506nutter: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/accountInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)         
+[ERROR] 2020/01/03 03:53:55 [!] Get http://10.10.10.137/071706nutter: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)        
+[ERROR] 2020/01/03 03:54:53 [!] Get http://10.10.10.137/button_atom03: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/03 03:54:53 [!] Get http://10.10.10.137/button_txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/03 03:54:53 [!] Get http://10.10.10.137/button_rdf10: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/03 03:54:54 [!] Get http://10.10.10.137/infoCenter.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/03 03:55:07 [!] Get http://10.10.10.137/Handango75x183: net/http: request canceled (Client.Timeout exceeded while awaiting headers)               
+Progress: 114437 / 220561 (51.88%)^C    
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/03 03:57:20 Finished            
+===============================================================                  
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #gobuster dir -u http://10.10.10.137:3000 -w /usr/share/wordlists/dirbuster/
+directory-list-2.3-medium.txt -x php                                             
+===============================================================                  
+Gobuster v3.0.1     
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.137:3000                                     
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Extensions:     php                 
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/03 04:26:44 Starting gobuster   
+===============================================================                  
+/login (Status: 200)                    
+/users (Status: 200)                    
+/Login (Status: 200)                    
+Progress: 1747 / 220561 (0.79%)^C       
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/03 04:28:02 Finished            
+===============================================================                  
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #              

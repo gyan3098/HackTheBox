@@ -1,0 +1,520 @@
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+8 packets transmitted, 0 received, 100% packet loss, time 7157ms                
+
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=204 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=214 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 2 received, 50% packet loss, time 3006ms                 
+rtt min/avg/max/mdev = 204.025/209.103/214.181/5.078 ms                         
+root@parrot:~/hackthebox/holiday# ping 10.10.10.25                              
+PING 10.10.10.25 (10.10.10.25) 56(84) bytes of data.                            
+64 bytes from 10.10.10.25: icmp_seq=2 ttl=63 time=383 ms                        
+64 bytes from 10.10.10.25: icmp_seq=3 ttl=63 time=341 ms                        
+^C                                      
+--- 10.10.10.25 ping statistics ---     
+4 packets transmitted, 2 received, 50% packet loss, time 3011ms                 
+rtt min/avg/max/mdev = 341.086/361.880/382.675/20.794 ms                        
+root@parrot:~/hackthebox/holiday# tmux new -s nightmare                                                                                                          
+sessions should be nested with care, unset $TMUX to force                       
+root@parrot:~/hackthebox/holiday# sqlmap -r login.req --risk 3 --level 5 -T users --dump                                                                         
+        ___                             
+       __H__                            
+ ___ ___[)]_____ ___ ___  {1.3.12#stable}                                       
+|_ -| . ["]     | .'| . |               
+|___|_  [)]_|_|_|__,|  _|               
+      |_|V...       |_|   http://sqlmap.org                                     
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program                             
+
+[*] starting @ 13:16:50 /2020-01-16/    
+
+[13:16:50] [INFO] parsing HTTP request from 'login.req'                         
+[13:16:51] [INFO] testing connection to the target URL                          
+[13:17:21] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:17:21] [WARNING] if the problem persists please check that the provided target URL is reachable. In case that it is, you can try to rerun with switch '--random-agent' and/or proxy switches ('--ignore-proxy', '--proxy',...)               
+^C                                      
+
+[*] ending @ 13:17:25 /2020-01-16/      
+
+root@parrot:~/hackthebox/holiday# sqlmap -r login.req --risk 3 --level 5 -T users --dump                                                                         
+        ___                             
+       __H__                            
+ ___ ___["]_____ ___ ___  {1.3.12#stable}                                       
+|_ -| . [.]     | .'| . |               
+|___|_  [)]_|_|_|__,|  _|               
+      |_|V...       |_|   http://sqlmap.org                                     
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program                             
+
+[*] starting @ 13:19:01 /2020-01-16/    
+
+[13:19:01] [INFO] parsing HTTP request from 'login.req'                         
+[13:19:02] [INFO] testing connection to the target URL                          
+^C                                      
+
+[*] ending @ 13:19:18 /2020-01-16/      
+
+root@parrot:~/hackthebox/holiday# sqlmap -r login.req --risk 3 --level 5 -T users --dump                                                                         
+        ___                             
+       __H__                            
+ ___ ___["]_____ ___ ___  {1.3.12#stable}                                       
+|_ -| . ["]     | .'| . |               
+|___|_  [(]_|_|_|__,|  _|               
+      |_|V...       |_|   http://sqlmap.org                                     
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program                             
+
+[*] starting @ 13:19:20 /2020-01-16/    
+
+[13:19:20] [INFO] parsing HTTP request from 'login.req'                         
+[13:19:20] [INFO] testing connection to the target URL                          
+[13:19:21] [INFO] testing if the target URL content is stable                   
+[13:19:22] [INFO] target URL content is stable                                  
+[13:19:22] [INFO] testing if POST parameter 'username' is dynamic               
+[13:19:22] [WARNING] POST parameter 'username' does not appear to be dynamic    
+[13:19:23] [WARNING] heuristic (basic) test shows that POST parameter 'username' might not be injectable                                                         
+[13:19:23] [INFO] testing for SQL injection on POST parameter 'username'        
+[13:19:23] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'    
+[13:20:47] [WARNING] there is a possibility that the target (or WAF/IPS) is dropping 'suspicious' requests                                                       
+[13:20:47] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:22:17] [CRITICAL] connection timed out to the target URL                    
+[13:22:34] [INFO] POST parameter 'username' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable (with --string="Invalid User")           
+[13:22:34] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                          
+[13:22:35] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'                                                               
+[13:22:35] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                      
+[13:22:35] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'                                                                           
+[13:22:37] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                              
+[13:22:38] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'                                                                   
+[13:22:40] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                    
+[13:22:41] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                     
+[13:22:41] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                             
+[13:22:42] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                              
+[13:22:43] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                
+[13:22:45] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                 
+[13:22:47] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                    
+[13:22:58] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'                                                                         
+[13:22:59] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'                                                                                
+[13:23:01] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause' 
+[13:23:02] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'  
+[13:23:02] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'                                                            
+[13:23:04] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (IN)'                                                             
+[13:23:05] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (CONVERT)'                                                       
+[13:23:05] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (CONVERT)'                                                        
+[13:23:05] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (CONCAT)'                                                        
+[13:23:06] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (CONCAT)'                                                         
+[13:23:06] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'                                                                            
+[13:23:06] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (XMLType)'                                                                             
+[13:23:07] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (UTL_INADDR.GET_HOST_ADDRESS)'                                                        
+[13:23:08] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (UTL_INADDR.GET_HOST_ADDRESS)'                                                         
+[13:23:09] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                                  
+[13:23:09] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                                   
+[13:23:10] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (DBMS_UTILITY.SQLID_TO_SQLHASH)'                                                      
+[13:23:11] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (DBMS_UTILITY.SQLID_TO_SQLHASH)'                                                       
+[13:23:11] [INFO] testing 'Firebird AND error-based - WHERE or HAVING clause'   
+[13:23:12] [INFO] testing 'Firebird OR error-based - WHERE or HAVING clause'    
+[13:23:12] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                          
+[13:23:13] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'                                                                       
+[13:23:14] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'  
+[13:23:14] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'                                                                           
+[13:23:14] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[13:23:15] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'                                                                             
+[13:23:15] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'                                                                          
+[13:23:15] [INFO] testing 'PostgreSQL error-based - Parameter replace'          
+[13:23:16] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'                                                                         
+[13:23:16] [INFO] testing 'Microsoft SQL Server/Sybase error-based - Parameter replace'                                                                          
+[13:23:17] [INFO] testing 'Microsoft SQL Server/Sybase error-based - Parameter replace (integer column)'                                                         
+[13:23:18] [INFO] testing 'Oracle error-based - Parameter replace'              
+[13:23:18] [INFO] testing 'Firebird error-based - Parameter replace'            
+[13:23:18] [INFO] testing 'MySQL inline queries'                                
+[13:23:19] [INFO] testing 'PostgreSQL inline queries'                           
+[13:23:19] [INFO] testing 'Microsoft SQL Server/Sybase inline queries'          
+[13:23:19] [INFO] testing 'Oracle inline queries'                               
+[13:23:20] [INFO] testing 'SQLite inline queries'                               
+[13:23:20] [INFO] testing 'Firebird inline queries'                             
+[13:23:20] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'           
+[13:23:20] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)                                   
+[13:23:21] [INFO] testing 'MySQL >= 5.0.12 stacked queries'                     
+[13:23:21] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'                                                                              
+[13:23:22] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'       
+[13:23:22] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query - comment)'                                                                               
+[13:23:23] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query)'        
+[13:23:23] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'          
+[13:23:23] [INFO] testing 'PostgreSQL > 8.1 stacked queries'                    
+[13:23:24] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'  
+[13:23:24] [INFO] testing 'PostgreSQL stacked queries (heavy query)'            
+[13:23:25] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'  
+[13:23:25] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'            
+[13:23:26] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'                                                                                
+[13:23:26] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (DECLARE - comment)'                                                                      
+[13:23:26] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries'         
+[13:23:27] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (DECLARE)'                                                                                
+[13:23:28] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'                                                                         
+[13:23:28] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE)'  
+[13:23:29] [INFO] testing 'Oracle stacked queries (heavy query - comment)'      
+[13:23:29] [INFO] testing 'Oracle stacked queries (heavy query)'                
+[13:23:30] [INFO] testing 'Oracle stacked queries (DBMS_LOCK.SLEEP - comment)'  
+[13:23:30] [INFO] testing 'Oracle stacked queries (DBMS_LOCK.SLEEP)'            
+[13:23:31] [INFO] testing 'Oracle stacked queries (USER_LOCK.SLEEP - comment)'  
+[13:23:31] [INFO] testing 'Oracle stacked queries (USER_LOCK.SLEEP)'            
+[13:23:31] [INFO] testing 'IBM DB2 stacked queries (heavy query - comment)'     
+[13:23:32] [INFO] testing 'IBM DB2 stacked queries (heavy query)'               
+[13:23:33] [INFO] testing 'SQLite > 2.0 stacked queries (heavy query - comment)'
+[13:23:34] [INFO] testing 'SQLite > 2.0 stacked queries (heavy query)'          
+[13:23:34] [INFO] testing 'Firebird stacked queries (heavy query - comment)'    
+[13:23:34] [INFO] testing 'Firebird stacked queries (heavy query)'              
+[13:23:35] [INFO] testing 'SAP MaxDB stacked queries (heavy query - comment)'   
+[13:23:35] [INFO] testing 'SAP MaxDB stacked queries (heavy query)'             
+[13:23:35] [INFO] testing 'HSQLDB >= 1.7.2 stacked queries (heavy query - comment)'                                                                              
+[13:23:36] [INFO] testing 'HSQLDB >= 1.7.2 stacked queries (heavy query)'       
+[13:23:36] [INFO] testing 'HSQLDB >= 2.0 stacked queries (heavy query - comment)'                                                                                
+[13:23:36] [INFO] testing 'HSQLDB >= 2.0 stacked queries (heavy query)'         
+[13:23:36] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'  
+[13:23:37] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP)'   
+[13:23:37] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP)'        
+[13:23:37] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP)'         
+[13:23:37] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP - comment)'                                                                               
+[13:23:38] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP - comment)'                                                                                
+[13:23:38] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP - comment)'                                                                         
+[13:23:38] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP - comment)'                                                                          
+[13:23:39] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (heavy query)'   
+[13:23:39] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (heavy query)'    
+[13:23:39] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (heavy query - comment)'                                                                          
+[13:23:40] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (heavy query - comment)'                                                                           
+[13:23:40] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind'              
+[13:23:41] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (comment)'    
+[13:23:41] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP)'
+[13:23:41] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP - comment)'                                                                       
+[13:23:41] [INFO] testing 'MySQL AND time-based blind (ELT)'                    
+[13:23:42] [INFO] testing 'MySQL OR time-based blind (ELT)'                     
+[13:23:42] [INFO] testing 'MySQL AND time-based blind (ELT - comment)'          
+[13:23:42] [INFO] testing 'MySQL OR time-based blind (ELT - comment)'           
+[13:23:43] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'               
+[13:23:43] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind'                
+[13:23:43] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind (comment)'     
+[13:23:43] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind (comment)'      
+[13:23:44] [INFO] testing 'PostgreSQL AND time-based blind (heavy query)'       
+[13:23:44] [INFO] testing 'PostgreSQL OR time-based blind (heavy query)'        
+[13:23:45] [INFO] testing 'PostgreSQL AND time-based blind (heavy query - comment)'                                                                              
+[13:23:45] [INFO] testing 'PostgreSQL OR time-based blind (heavy query - comment)'                                                                               
+[13:23:45] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF)'   
+[13:23:46] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF - comment)'                                                                          
+[13:23:46] [INFO] testing 'Microsoft SQL Server/Sybase AND time-based blind (heavy query)'                                                                       
+[13:23:46] [INFO] testing 'Microsoft SQL Server/Sybase OR time-based blind (heavy query)'                                                                        
+[13:23:46] [INFO] testing 'Microsoft SQL Server/Sybase AND time-based blind (heavy query - comment)'                                                             
+[13:23:47] [INFO] testing 'Microsoft SQL Server/Sybase OR time-based blind (heavy query - comment)'                                                              
+[13:23:47] [INFO] testing 'Oracle AND time-based blind'                         
+[13:23:47] [INFO] testing 'Oracle OR time-based blind'                          
+[13:23:47] [INFO] testing 'Oracle AND time-based blind (comment)'               
+[13:23:48] [INFO] testing 'Oracle OR time-based blind (comment)'                
+[13:23:48] [INFO] testing 'Oracle AND time-based blind (heavy query)'           
+[13:23:49] [INFO] testing 'Oracle OR time-based blind (heavy query)'            
+[13:23:49] [INFO] testing 'Oracle AND time-based blind (heavy query - comment)' 
+[13:23:49] [INFO] testing 'Oracle OR time-based blind (heavy query - comment)'  
+[13:23:50] [INFO] testing 'IBM DB2 AND time-based blind (heavy query)'          
+[13:23:50] [INFO] testing 'IBM DB2 OR time-based blind (heavy query)'           
+[13:23:50] [INFO] testing 'IBM DB2 AND time-based blind (heavy query - comment)'
+[13:23:50] [INFO] testing 'IBM DB2 OR time-based blind (heavy query - comment)' 
+[13:23:51] [INFO] testing 'SQLite > 2.0 AND time-based blind (heavy query)'     
+[13:23:51] [INFO] testing 'SQLite > 2.0 OR time-based blind (heavy query)'      
+[13:23:51] [INFO] testing 'SQLite > 2.0 AND time-based blind (heavy query - comment)'                                                                            
+[13:23:51] [INFO] testing 'SQLite > 2.0 OR time-based blind (heavy query - comment)'                                                                             
+[13:23:52] [INFO] testing 'Firebird >= 2.0 AND time-based blind (heavy query)'  
+[13:23:52] [INFO] testing 'Firebird >= 2.0 OR time-based blind (heavy query)'   
+[13:23:53] [INFO] testing 'Firebird >= 2.0 AND time-based blind (heavy query - comment)'                                                                         
+[13:23:53] [INFO] testing 'Firebird >= 2.0 OR time-based blind (heavy query - comment)'                                                                          
+[13:23:53] [INFO] testing 'SAP MaxDB AND time-based blind (heavy query)'        
+[13:23:54] [INFO] testing 'SAP MaxDB OR time-based blind (heavy query)'         
+[13:23:54] [INFO] testing 'SAP MaxDB AND time-based blind (heavy query - comment)'                                                                               
+[13:23:54] [INFO] testing 'SAP MaxDB OR time-based blind (heavy query - comment)'                                                                                
+[13:23:55] [INFO] testing 'HSQLDB >= 1.7.2 AND time-based blind (heavy query)'  
+[13:23:55] [INFO] testing 'HSQLDB >= 1.7.2 OR time-based blind (heavy query)'   
+[13:23:55] [INFO] testing 'HSQLDB >= 1.7.2 AND time-based blind (heavy query - comment)'                                                                         
+[13:23:56] [INFO] testing 'HSQLDB >= 1.7.2 OR time-based blind (heavy query - comment)'                                                                          
+[13:23:56] [INFO] testing 'HSQLDB > 2.0 AND time-based blind (heavy query)'     
+[13:23:56] [INFO] testing 'HSQLDB > 2.0 OR time-based blind (heavy query)'      
+[13:23:56] [INFO] testing 'HSQLDB > 2.0 AND time-based blind (heavy query - comment)'                                                                            
+[13:23:57] [INFO] testing 'HSQLDB > 2.0 OR time-based blind (heavy query - comment)'                                                                             
+[13:23:57] [INFO] testing 'Informix AND time-based blind (heavy query)'         
+[13:23:57] [INFO] testing 'Informix OR time-based blind (heavy query)'          
+[13:23:58] [INFO] testing 'Informix AND time-based blind (heavy query - comment)'                                                                                
+[13:23:58] [INFO] testing 'Informix OR time-based blind (heavy query - comment)'
+[13:23:58] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                       
+[13:23:59] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query - comment) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                             
+[13:23:59] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace'
+[13:24:00] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)'                                                                  
+[13:24:00] [INFO] testing 'MySQL < 5.0.12 time-based blind - Parameter replace (heavy queries)'                                                                  
+[13:24:00] [INFO] testing 'MySQL time-based blind - Parameter replace (bool)'   
+[13:24:01] [INFO] testing 'MySQL time-based blind - Parameter replace (ELT)'    
+[13:24:01] [INFO] testing 'MySQL time-based blind - Parameter replace (MAKE_SET)'                                                                                
+[13:24:02] [INFO] testing 'PostgreSQL > 8.1 time-based blind - Parameter replace'                                                                                
+[13:24:02] [INFO] testing 'PostgreSQL time-based blind - Parameter replace (heavy query)'                                                                        
+[13:24:02] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind - Parameter replace (heavy queries)'                                                     
+[13:24:03] [INFO] testing 'Oracle time-based blind - Parameter replace (DBMS_LOCK.SLEEP)'                                                                        
+[13:24:03] [INFO] testing 'Oracle time-based blind - Parameter replace (DBMS_PIPE.RECEIVE_MESSAGE)'                                                              
+[13:24:03] [INFO] testing 'Oracle time-based blind - Parameter replace (heavy queries)'                                                                          
+[13:24:04] [INFO] testing 'SQLite > 2.0 time-based blind - Parameter replace (heavy query)'                                                                      
+[13:24:04] [INFO] testing 'Firebird time-based blind - Parameter replace (heavy query)'                                                                          
+[13:24:05] [INFO] testing 'SAP MaxDB time-based blind - Parameter replace (heavy query)'                                                                         
+[13:24:05] [INFO] testing 'IBM DB2 time-based blind - Parameter replace (heavy query)'                                                                           
+[13:24:05] [INFO] testing 'HSQLDB >= 1.7.2 time-based blind - Parameter replace (heavy query)'                                                                   
+[13:24:06] [INFO] testing 'HSQLDB > 2.0 time-based blind - Parameter replace (heavy query)'                                                                      
+[13:24:06] [INFO] testing 'Informix time-based blind - Parameter replace (heavy query)'                                                                          
+[13:24:06] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'        
+[13:24:06] [WARNING] using unescaped version of the test because of zero knowledge of the back-end DBMS. You can try to explicitly set it with option '--dbms'   
+[13:24:06] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found            
+[13:24:13] [INFO] testing 'Generic UNION query (random number) - 1 to 20 columns'                                                                                
+[13:24:19] [INFO] testing 'Generic UNION query (NULL) - 21 to 40 columns'       
+[13:24:25] [INFO] testing 'Generic UNION query (random number) - 21 to 40 columns'                                                                               
+[13:24:59] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:26:29] [CRITICAL] connection timed out to the target URL                    
+[13:26:39] [INFO] target URL appears to be UNION injectable with 33 columns     
+[13:26:39] [WARNING] applying generic concatenation (CONCAT)                    
+[13:27:16] [WARNING] if UNION based SQL injection is not detected, please consider and/or try to force the back-end DBMS (e.g. '--dbms=mysql')                   
+[13:27:16] [INFO] testing 'Generic UNION query (NULL) - 41 to 60 columns'       
+[13:27:22] [INFO] testing 'Generic UNION query (random number) - 41 to 60 columns'                                                                               
+[13:27:27] [INFO] testing 'Generic UNION query (NULL) - 61 to 80 columns'       
+[13:27:33] [INFO] testing 'Generic UNION query (random number) - 61 to 80 columns'                                                                               
+[13:27:38] [INFO] testing 'Generic UNION query (NULL) - 81 to 100 columns'      
+[13:27:44] [INFO] testing 'Generic UNION query (random number) - 81 to 100 columns'                                                                              
+[13:27:49] [INFO] testing 'MySQL UNION query (NULL) - 1 to 20 columns'          
+[13:27:55] [INFO] testing 'MySQL UNION query (random number) - 1 to 20 columns' 
+[13:28:02] [INFO] testing 'MySQL UNION query (NULL) - 21 to 40 columns'         
+[13:28:08] [INFO] testing 'MySQL UNION query (random number) - 21 to 40 columns'
+[13:28:13] [INFO] testing 'MySQL UNION query (NULL) - 41 to 60 columns'         
+[13:28:18] [INFO] testing 'MySQL UNION query (random number) - 41 to 60 columns'
+[13:28:23] [INFO] testing 'MySQL UNION query (NULL) - 61 to 80 columns'         
+[13:28:29] [INFO] testing 'MySQL UNION query (random number) - 61 to 80 columns'
+[13:28:34] [INFO] testing 'MySQL UNION query (NULL) - 81 to 100 columns'        
+[13:29:08] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:30:38] [CRITICAL] connection timed out to the target URL                    
+[13:33:13] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:34:43] [CRITICAL] connection timed out to the target URL                    
+injection not exploitable with NULL values. Do you want to try with a random integer value for option '--union-char'? [Y/n] Y                                    
+[13:37:22] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:38:51] [WARNING] user aborted during detection phase                        
+s                                       
+[13:39:06] [INFO] checking if the injection point on POST parameter 'username' is a false positive                                                               
+[13:39:07] [WARNING] false positive or unexploitable injection point detected   
+[13:39:07] [WARNING] POST parameter 'username' does not seem to be injectable   
+[13:39:07] [INFO] testing if POST parameter 'password' is dynamic               
+[13:39:07] [WARNING] POST parameter 'password' does not appear to be dynamic    
+[13:39:08] [WARNING] heuristic (basic) test shows that POST parameter 'password' might not be injectable                                                         
+[13:39:08] [INFO] testing for SQL injection on POST parameter 'password'        
+[13:39:08] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'    
+[13:39:20] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause'     
+[13:39:38] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT)'                                                                                
+[13:39:49] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (subquery - comment)'                                                                
+[13:39:57] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (subquery - comment)'                                                                 
+[13:40:09] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (comment)'                                                                           
+[13:40:11] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (comment)'                                                                            
+[13:40:15] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - comment)'                                                                      
+[13:40:17] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'                                                                     
+[13:40:22] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'                                                                      
+[13:40:32] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'                                                                
+[13:40:38] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (Microsoft Access comment)'                                                          
+[13:40:44] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (Microsoft Access comment)'                                                           
+[13:40:53] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'                                                         
+[13:41:25] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:42:55] [CRITICAL] connection timed out to the target URL                    
+[13:43:19] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                
+[13:43:30] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                 
+[13:43:48] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                     
+[13:44:01] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                      
+[13:44:19] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                
+[13:44:29] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                 
+[13:44:48] [INFO] testing 'PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)'                                                                   
+[13:44:59] [INFO] testing 'PostgreSQL OR boolean-based blind - WHERE or HAVING clause (CAST)'                                                                    
+[13:45:36] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:47:06] [CRITICAL] connection timed out to the target URL                    
+[13:47:34] [INFO] testing 'Oracle AND boolean-based blind - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                          
+[13:47:46] [INFO] testing 'Oracle OR boolean-based blind - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                           
+[13:48:12] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'                                                                             
+[13:48:12] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'                                                                             
+[13:48:12] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'                                                            
+[13:48:13] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)' 
+[13:48:13] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'                                                                 
+[13:48:13] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'                                                                             
+[13:48:13] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'                                                            
+[13:48:14] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace'  
+[13:48:14] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (original value)'                                                                  
+[13:48:14] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES)'                                                                 
+[13:48:15] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES - original value)'                                                
+[13:48:15] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - Parameter replace'                                                                  
+[13:48:15] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - Parameter replace (original value)'                                                 
+[13:48:16] [INFO] testing 'Oracle boolean-based blind - Parameter replace'      
+[13:48:16] [INFO] testing 'Oracle boolean-based blind - Parameter replace (original value)'                                                                      
+[13:48:17] [INFO] testing 'Informix boolean-based blind - Parameter replace'    
+[13:48:17] [INFO] testing 'Informix boolean-based blind - Parameter replace (original value)'                                                                    
+[13:48:17] [INFO] testing 'Microsoft Access boolean-based blind - Parameter replace'                                                                             
+[13:48:18] [INFO] testing 'Microsoft Access boolean-based blind - Parameter replace (original value)'                                                            
+[13:48:18] [INFO] testing 'Boolean-based blind - Parameter replace (DUAL)'      
+[13:48:19] [INFO] testing 'Boolean-based blind - Parameter replace (DUAL - original value)'                                                                      
+[13:48:19] [INFO] testing 'Boolean-based blind - Parameter replace (CASE)'      
+[13:48:19] [INFO] testing 'Boolean-based blind - Parameter replace (CASE - original value)'                                                                      
+[13:48:19] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'                                                                         
+[13:48:20] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                        
+[13:48:21] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'                                                                          
+[13:48:21] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                         
+[13:48:21] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY, GROUP BY clause'                                                                           
+[13:48:22] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (original value)'                                                                    
+[13:48:22] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (GENERATE_SERIES)'                                                                   
+[13:48:23] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - ORDER BY clause'                                                                    
+[13:48:23] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - ORDER BY clause (original value)'                                                   
+[13:48:24] [INFO] testing 'Oracle boolean-based blind - ORDER BY, GROUP BY clause'                                                                               
+[13:48:25] [INFO] testing 'Oracle boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                              
+[13:48:25] [INFO] testing 'Microsoft Access boolean-based blind - ORDER BY, GROUP BY clause'                                                                     
+[13:48:26] [INFO] testing 'Microsoft Access boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                    
+[13:48:26] [INFO] testing 'SAP MaxDB boolean-based blind - ORDER BY, GROUP BY clause'                                                                            
+[13:48:27] [INFO] testing 'SAP MaxDB boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                           
+[13:48:28] [INFO] testing 'HAVING boolean-based blind - WHERE, GROUP BY clause' 
+[13:48:48] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'  
+[13:48:56] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'   
+[13:48:56] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries'    
+[13:49:02] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries (GENERATE_SERIES)'                                                                   
+[13:49:37] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:51:07] [CRITICAL] connection timed out to the target URL                    
+[13:51:16] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - Stacked queries (IF)'                                                               
+[13:51:23] [INFO] testing 'Microsoft SQL Server/Sybase boolean-based blind - Stacked queries'                                                                    
+[13:51:30] [INFO] testing 'Oracle boolean-based blind - Stacked queries'        
+[13:51:39] [INFO] testing 'Microsoft Access boolean-based blind - Stacked queries'                                                                               
+[13:51:48] [INFO] testing 'SAP MaxDB boolean-based blind - Stacked queries'     
+[13:51:55] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                          
+[13:52:12] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'                                                               
+[13:52:26] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                      
+[13:52:42] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'                                                                           
+[13:53:01] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                              
+[13:53:18] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'                                                                   
+[13:53:56] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:55:26] [CRITICAL] connection timed out to the target URL                    
+[13:55:39] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                    
+[13:55:50] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                     
+[13:56:04] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                             
+[13:56:13] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                              
+[13:56:25] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                
+[13:56:34] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                 
+[13:56:43] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                    
+[13:56:53] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'                                                                         
+[13:57:03] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'                                                                                
+[13:57:07] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause' 
+[13:57:17] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'  
+[13:57:23] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'                                                            
+[13:57:34] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (IN)'                                                             
+[13:58:04] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[13:59:34] [CRITICAL] connection timed out to the target URL                    
+[13:59:50] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (CONVERT)'                                                       
+[14:00:00] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (CONVERT)'                                                        
+[14:00:08] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (CONCAT)'                                                        
+[14:00:21] [INFO] testing 'Microsoft SQL Server/Sybase OR error-based - WHERE or HAVING clause (CONCAT)'                                                         
+[14:00:29] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'                                                                            
+[14:00:41] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (XMLType)'                                                                             
+[14:00:51] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (UTL_INADDR.GET_HOST_ADDRESS)'                                                        
+[14:01:04] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (UTL_INADDR.GET_HOST_ADDRESS)'                                                         
+[14:01:13] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                                  
+[14:01:26] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)'                                                                   
+[14:01:35] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (DBMS_UTILITY.SQLID_TO_SQLHASH)'                                                      
+[14:02:12] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[14:03:42] [CRITICAL] connection timed out to the target URL                    
+[14:03:53] [INFO] testing 'Oracle OR error-based - WHERE or HAVING clause (DBMS_UTILITY.SQLID_TO_SQLHASH)'                                                       
+[14:03:59] [INFO] testing 'Firebird AND error-based - WHERE or HAVING clause'   
+[14:04:08] [INFO] testing 'Firebird OR error-based - WHERE or HAVING clause'    
+[14:04:14] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                          
+[14:04:21] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'                                                                       
+[14:04:21] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'  
+[14:04:21] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'                                                                           
+[14:04:21] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[14:04:21] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'                                                                             
+[14:04:22] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'                                                                          
+[14:04:22] [INFO] testing 'PostgreSQL error-based - Parameter replace'          
+[14:04:22] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'                                                                         
+[14:04:22] [INFO] testing 'Microsoft SQL Server/Sybase error-based - Parameter replace'                                                                          
+[14:04:22] [INFO] testing 'Microsoft SQL Server/Sybase error-based - Parameter replace (integer column)'                                                         
+[14:04:22] [INFO] testing 'Oracle error-based - Parameter replace'              
+[14:04:23] [INFO] testing 'Firebird error-based - Parameter replace'            
+[14:04:23] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (BIGINT UNSIGNED)'                                                               
+[14:04:23] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (EXP)'                                                                           
+[14:04:23] [INFO] testing 'MySQL >= 5.7.8 error-based - ORDER BY, GROUP BY clause (JSON_KEYS)'                                                                   
+[14:04:24] [INFO] testing 'MySQL >= 5.0 error-based - ORDER BY, GROUP BY clause (FLOOR)'                                                                         
+[14:04:24] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (EXTRACTVALUE)'                                                                  
+[14:04:24] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (UPDATEXML)'                                                                     
+[14:04:25] [INFO] testing 'MySQL >= 4.1 error-based - ORDER BY, GROUP BY clause (FLOOR)'                                                                         
+[14:04:25] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause'  
+[14:04:25] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause (GENERATE_SERIES)'                                                                 
+[14:04:26] [INFO] testing 'Microsoft SQL Server/Sybase error-based - ORDER BY clause'                                                                            
+[14:04:26] [INFO] testing 'Oracle error-based - ORDER BY, GROUP BY clause'      
+[14:04:27] [INFO] testing 'Firebird error-based - ORDER BY clause'              
+[14:04:27] [INFO] testing 'MySQL inline queries'                                
+[14:04:27] [INFO] testing 'PostgreSQL inline queries'                           
+[14:04:27] [INFO] testing 'Microsoft SQL Server/Sybase inline queries'          
+[14:04:27] [INFO] testing 'Oracle inline queries'                               
+[14:04:27] [INFO] testing 'SQLite inline queries'                               
+[14:04:28] [INFO] testing 'Firebird inline queries'                             
+[14:04:28] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'           
+[14:04:32] [INFO] testing 'MySQL >= 5.0.12 stacked queries'                     
+[14:04:39] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'                                                                              
+[14:04:43] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'       
+[14:04:50] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query - comment)'                                                                               
+[14:04:53] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query)'        
+[14:05:00] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'          
+[14:05:04] [INFO] testing 'PostgreSQL > 8.1 stacked queries'                    
+[14:05:11] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'  
+[14:05:15] [INFO] testing 'PostgreSQL stacked queries (heavy query)'            
+[14:05:21] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'  
+[14:05:25] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'            
+[14:05:32] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'                                                                                
+[14:05:36] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (DECLARE - comment)'                                                                      
+[14:05:40] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries'         
+[14:05:47] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (DECLARE)'                                                                                
+[14:08:02] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'                                                                         
+[14:08:07] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE)'  
+[14:08:16] [INFO] testing 'Oracle stacked queries (heavy query - comment)'      
+[14:08:21] [INFO] testing 'Oracle stacked queries (heavy query)'                
+[14:08:29] [INFO] POST parameter 'password' appears to be 'Oracle stacked queries (heavy query)' injectable                                                      
+it looks like the back-end DBMS is 'Oracle'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y                                                
+[14:15:52] [INFO] testing 'Generic UNION query (30) - 1 to 20 columns'          
+[14:15:52] [CRITICAL] unable to connect to the target URL. sqlmap is going to retry the request(s)                                                               
+[14:15:52] [WARNING] most likely web server instance hasn't recovered yet from previous timed based payload. If the problem persists please wait for a few minutes and rerun without flag 'T' in option '--technique' (e.g. '--flush-session --technique=BEUS') or try to lower the value of option '--time-sec' (e.g. '--time-sec=2')                                    
+[14:16:27] [INFO] testing 'Generic UNION query (30) - 21 to 40 columns'         
+[14:16:32] [INFO] testing 'Generic UNION query (60) - 41 to 60 columns'         
+[14:16:37] [INFO] testing 'Generic UNION query (30) - 61 to 80 columns'         
+[14:16:42] [INFO] testing 'Generic UNION query (30) - 81 to 100 columns'        
+[14:16:47] [INFO] checking if the injection point on POST parameter 'password' is a false positive                                                               
+[14:16:48] [WARNING] false positive or unexploitable injection point detected   
+[14:16:48] [WARNING] POST parameter 'password' does not seem to be injectable   
+[14:16:48] [INFO] testing if parameter 'User-Agent' is dynamic                  
+[14:16:48] [INFO] parameter 'User-Agent' appears to be dynamic                  
+[14:16:48] [WARNING] heuristic (basic) test shows that parameter 'User-Agent' might not be injectable                                                            
+[14:16:48] [INFO] testing for SQL injection on parameter 'User-Agent'           
+[14:16:48] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'    
+[14:16:57] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause'     
+[14:17:19] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT)'                                                                                
+[14:17:26] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (subquery - comment)'                                                                
+[14:17:26] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (subquery - comment)'                                                                 
+[14:18:08] [CRITICAL] connection timed out to the target URL. sqlmap is going to retry the request(s)                                                            
+[14:19:38] [CRITICAL] connection timed out to the target URL                    
+[14:20:09] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (comment)'                                                                           
+[14:20:10] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (comment)'                                                                            
+[14:20:47] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - comment)'                                                                      
+[14:20:47] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'                                                                             
+[14:20:48] [INFO] testing 'Boolean-based blind - Parameter replace (DUAL)'      
+[14:20:49] [INFO] testing 'Boolean-based blind - Parameter replace (DUAL - original value)'                                                                      
+[14:20:50] [INFO] testing 'Boolean-based blind - Parameter replace (CASE)'      
+[14:20:51] [INFO] testing 'Boolean-based blind - Parameter replace (CASE - original value)'                                                                      
+[14:20:52] [INFO] testing 'HAVING boolean-based blind - WHERE, GROUP BY clause' 
+it is recommended to perform only basic UNION tests if there is not at least one other (potential) technique found. Do you want to reduce the number of requests? [Y/n] n                                
+[14:46:27] [INFO] testing 'Generic UNION query (30) - 1 to 10 columns'          
+[14:46:27] [CRITICAL] unable to connect to the target URL. sqlmap is going to retry the request(s)                                                               
+[14:46:30] [WARNING] user aborted during detection phase                        
+how do you want to proceed? [(S)kip current test/(e)nd detection phase/(n)ext parameter/(c)hange verbosity/(q)uit] q                                             
+[14:46:32] [WARNING] HTTP error codes detected during run:                      
+404 (Not Found) - 240 times             
+[14:46:32] [ERROR] user quit            
+
+[*] ending @ 14:46:32 /2020-01-16/      
+
+root@parrot:~/hackthebox/holiday#       

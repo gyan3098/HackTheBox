@@ -1,0 +1,7 @@
+Dangerous functions
+- exec,shell_exec,system,passthru,eval,popen
+- unserialize,include.file_put_commands
+- $_COOKIE | if
+
+
+the above 3 ways are the main things to look at while analyzing php page

@@ -1,0 +1,2897 @@
+root@parrot:~/hackthebox/calamity# cd xalvas-files/                             
+root@parrot:~/hackthebox/calamity/xalvas-files# ls                              
+recov.wav  rick.wav  xouzouris.mp3      
+root@parrot:~/hackthebox/calamity/xalvas-files# mv xouzouris.mp3 xouzouris.wav  
+root@parrot:~/hackthebox/calamity/xalvas-files# exiftool *.wav                  
+======== recov.wav                      
+ExifTool Version Number         : 11.80 
+File Name                       : recov.wav                                     
+Directory                       : .     
+File Size                       : 3.0 MB                                        
+File Modification Date/Time     : 2020:01:15 03:38:13-05:00                     
+File Access Date/Time           : 2020:01:15 03:37:31-05:00                     
+File Inode Change Date/Time     : 2020:01:15 03:38:13-05:00                     
+File Permissions                : rw-r--r--                                     
+File Type                       : WAV   
+File Type Extension             : wav   
+MIME Type                       : audio/x-wav                                   
+Encoding                        : Microsoft PCM                                 
+Num Channels                    : 2     
+Sample Rate                     : 44100 
+Avg Bytes Per Sec               : 176400                                        
+Bits Per Sample                 : 16    
+Comment                         : Isn't this were we came in?                   
+Duration                        : 18.12 s                                       
+======== rick.wav                       
+ExifTool Version Number         : 11.80 
+File Name                       : rick.wav                                      
+Directory                       : .     
+File Size                       : 3.0 MB                                        
+File Modification Date/Time     : 2020:01:15 03:31:54-05:00                     
+File Access Date/Time           : 2020:01:15 03:31:31-05:00                     
+File Inode Change Date/Time     : 2020:01:15 03:31:54-05:00                     
+File Permissions                : rw-r--r--                                     
+File Type                       : WAV   
+File Type Extension             : wav   
+MIME Type                       : audio/x-wav                                   
+Encoding                        : Microsoft PCM                                 
+Num Channels                    : 2     
+Sample Rate                     : 44100 
+Avg Bytes Per Sec               : 176400                                        
+Bits Per Sample                 : 16    
+Duration                        : 18.12 s                                       
+======== xouzouris.wav                  
+ExifTool Version Number         : 11.80 
+File Name                       : xouzouris.wav                                 
+Directory                       : .     
+File Size                       : 2.5 MB                                        
+File Modification Date/Time     : 2020:01:15 03:35:56-05:00                     
+File Access Date/Time           : 2020:01:15 03:34:22-05:00                     
+File Inode Change Date/Time     : 2020:01:15 03:40:37-05:00                     
+File Permissions                : rw-r--r--                                     
+File Type                       : MP3   
+File Type Extension             : mp3   
+MIME Type                       : audio/mpeg                                    
+MPEG Audio Version              : 1     
+Audio Layer                     : 3     
+Sample Rate                     : 44100 
+Channel Mode                    : Stereo                                        
+MS Stereo                       : Off   
+Intensity Stereo                : Off   
+Copyright Flag                  : False 
+Original Media                  : False 
+Emphasis                        : None  
+VBR Frames                      : 6329  
+VBR Bytes                       : 2645680                                       
+ID3 Size                        : 159   
+User Defined Text               : (compatible_brands) isommp42                  
+Encoding Time                   : 2014:06:19 00:16:06                           
+Encoder Settings                : Lavf53.32.100                                 
+Audio Bitrate                   : 128 kbps                                      
+Duration                        : 0:02:45 (approx)                              
+    3 image files read                  
+root@parrot:~/hackthebox/calamity/xalvas-files# 47936..* ^C                     
+root@parrot:~/hackthebox/calamity/xalvas-files# 185^C                           
+root@parrot:~/hackthebox/calamity/xalvas-files# ssh xalvas@10.10.10.27          
+The authenticity of host '10.10.10.27 (10.10.10.27)' can't be established.      
+ECDSA key fingerprint is SHA256:yT6ino7wgCPkMVczALjJ+BeH7VZB+It79p9HRVPEyuY.    
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes        
+Warning: Permanently added '10.10.10.27' (ECDSA) to the list of known hosts.    
+xalvas@10.10.10.27's password:          
+Permission denied, please try again.    
+xalvas@10.10.10.27's password:          
+Permission denied, please try again.    
+xalvas@10.10.10.27's password:          
+xalvas@10.10.10.27: Permission denied (publickey,password).                     
+root@parrot:~/hackthebox/calamity/xalvas-files# vi ssh_password                                                                                                 
+root@parrot:~/hackthebox/calamity/xalvas-files# cat ssh_password                
+username : xalvas                       
+password : 18547936..*                  
+root@parrot:~/hackthebox/calamity/xalvas-files# ssh xalvas@10.10.10.27                                                                                          
+xalvas@10.10.10.27's password:          
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic i686)                 
+
+ * Documentation:  https://help.ubuntu.com                                      
+ * Management:     https://landscape.canonical.com                              
+ * Support:        https://ubuntu.com/advantage                                 
+
+9 packages can be updated.              
+8 updates are security updates.         
+
+
+Last login: Fri Jun 30 08:27:25 2017 from 10.10.13.44                           
+xalvas@calamity:~$ ls                   
+alarmclocks  app  dontforget.txt  intrusions  peda  recov.wav  user.txt         
+xalvas@calamity:~$ cat intrusions       
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2017-06-28 04:55:42.796288                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2017-06-28 05:22:11.228988                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2017-06-28 05:23:23.424719                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2017-06-29 02:43:57.083849                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS python     ...PROCESS KILLED AT 2017-06-29 02:48:47.909739                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS sh         ...PROCESS KILLED AT 2017-06-29 06:25:04.202315                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS sh         ...PROCESS KILLED AT 2017-06-29 06:25:04.780685                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS python     ...PROCESS KILLED AT 2017-06-29 06:25:06.209358                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc        ...PROCESS KILLED AT 2017-06-29 12:15:32.329358                                                            
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc        ...PROCESS KILLED AT 2017-06-29 12:15:32.330115                                                            
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc        ...PROCESS KILLED AT 2017-06-29 12:16:10.508710                                                            
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc        ...PROCESS KILLED AT 2017-06-29 12:16:10.510537                                                            
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS python3    ...PROCESS KILLED AT 2017-12-24 10:30:28.836132                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2020-01-15 03:02:58.215599                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2020-01-15 03:16:52.955664                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2020-01-15 03:17:25.135512                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS nc         ...PROCESS KILLED AT 2020-01-15 03:22:10.805055                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS sh         ...PROCESS KILLED AT 2020-01-15 03:28:00.756312                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS sh         ...PROCESS KILLED AT 2020-01-15 03:28:02.771301                                                           
+POSSIBLE INTRUSION BY BLACKLISTED PROCCESS python3   ...PROCESS KILLED AT 2020-01-15 03:55:30.645339                                                            
+xalvas@calamity:~$ cd app/              
+xalvas@calamity:~/app$ ls               
+goodluck  src.c                         
+xalvas@calamity:~/app$ cd ..            
+xalvas@calamity:~$ exit                 
+logout                                  
+Connection to 10.10.10.27 closed.       
+root@parrot:~/hackthebox/calamity/xalvas-files# scp alpine-v3.11-i686-20200115_0409.tar.gz xalvas@10.10.10.27:                                                  
+xalvas@10.10.10.27's password:          
+alpine-v3.11-i686-20200115_0409.tar.gz: No such file or directory               
+root@parrot:~/hackthebox/calamity/xalvas-files# cd /opt/lxd-alpine-builder/     
+root@parrot:/opt/lxd-alpine-builder# ls 
+alpine-v3.11-i686-20200115_0409.tar.gz  build-alpine  LICENSE  README.md  xalvas@10.10.10.27                                                                    
+root@parrot:/opt/lxd-alpine-builder# file xalvas@10.10.10.27                    
+xalvas@10.10.10.27: gzip compressed data, last modified: Wed Jan 15 09:09:38 2020, from Unix, original size modulo 2^32 8099840                                 
+root@parrot:/opt/lxd-alpine-builder# rm xalvas@10.10.10.27                      
+root@parrot:/opt/lxd-alpine-builder# ls 
+alpine-v3.11-i686-20200115_0409.tar.gz  build-alpine  LICENSE  README.md        
+root@parrot:/opt/lxd-alpine-builder# scp alpine-v3.11-i686-20200115_0409.tar.gz  xalvas@10.10.10.27:/dev/shm/.tmp/alpine.tar.gz                                 
+xalvas@10.10.10.27's password:          
+scp: /dev/shm/.tmp/alpine.tar.gz: No such file or directory                     
+root@parrot:/opt/lxd-alpine-builder# scp alpine-v3.11-i686-20200115_0409.tar.gz  xalvas@10.10.10.27:/dev/shm/alpine.tar.gz                                      
+xalvas@10.10.10.27's password:          
+alpine-v3.11-i686-20200115_0409.tar.gz                                                                                          0%    0     0.0KB/s   --:-- ETAclient_loop: send disconnect: Broken pipe                                        
+lost connection                         
+root@parrot:/opt/lxd-alpine-builder# ls 
+alpine-v3.11-i686-20200115_0409.tar.gz  build-alpine  LICENSE  README.md        
+root@parrot:/opt/lxd-alpine-builder# tar xvf alpine-v3.11-i686-20200115_0409.tar.gz                                                                             
+metadata.yaml                           
+templates/                              
+templates/hostname.tpl                  
+templates/hosts.tpl                     
+rootfs/                                 
+rootfs/dev/                             
+rootfs/dev/null                         
+rootfs/dev/pts/                         
+rootfs/dev/shm/                         
+rootfs/mnt/                             
+rootfs/sys/                             
+rootfs/sbin/                            
+rootfs/sbin/rc-sstat                    
+rootfs/sbin/mkmntdirs                   
+rootfs/sbin/route                       
+rootfs/sbin/iptunnel                    
+rootfs/sbin/setup-apkrepos              
+rootfs/sbin/raidautorun                 
+rootfs/sbin/setup-mta                   
+rootfs/sbin/ipneigh                     
+rootfs/sbin/setup-bootable              
+rootfs/sbin/blockdev                    
+rootfs/sbin/loadkmap                    
+rootfs/sbin/setup-alpine                
+rootfs/sbin/setup-timezone              
+rootfs/sbin/hwclock                     
+rootfs/sbin/rc-service                  
+rootfs/sbin/nologin                     
+rootfs/sbin/watchdog                    
+rootfs/sbin/fstrim                      
+rootfs/sbin/getty                       
+rootfs/sbin/setup-proxy                 
+rootfs/sbin/poweroff                    
+rootfs/sbin/hdparm                      
+rootfs/sbin/arp                         
+rootfs/sbin/fbsplash                    
+rootfs/sbin/iproute                     
+rootfs/sbin/lbu_update                  
+rootfs/sbin/switch_root                 
+rootfs/sbin/init                        
+rootfs/sbin/mdev                        
+rootfs/sbin/ifup                        
+rootfs/sbin/lsmod                       
+rootfs/sbin/lbu_commit                  
+rootfs/sbin/reboot                      
+rootfs/sbin/lbu_include                 
+rootfs/sbin/ifdown                      
+rootfs/sbin/ifenslave                   
+rootfs/sbin/logread                     
+rootfs/sbin/rmmod                       
+rootfs/sbin/blkid                       
+rootfs/sbin/setup-ntp                   
+rootfs/sbin/service                     
+rootfs/sbin/ifconfig                    
+rootfs/sbin/fdisk                       
+rootfs/sbin/udhcpc                      
+rootfs/sbin/acpid                       
+rootfs/sbin/setup-xorg-base             
+rootfs/sbin/setconsole                  
+rootfs/sbin/start-stop-daemon           
+rootfs/sbin/losetup                     
+rootfs/sbin/iplink                      
+rootfs/sbin/setup-acf                   
+rootfs/sbin/nameif                      
+rootfs/sbin/inotifyd                    
+rootfs/sbin/swapoff                     
+rootfs/sbin/adjtimex                    
+rootfs/sbin/mkdosfs                     
+rootfs/sbin/sysctl                      
+rootfs/sbin/klogd                       
+rootfs/sbin/findfs                      
+rootfs/sbin/openrc-init                 
+rootfs/sbin/tunctl                      
+rootfs/sbin/ip                          
+rootfs/sbin/insmod                      
+rootfs/sbin/setup-keymap                
+rootfs/sbin/supervise-daemon            
+rootfs/sbin/openrc-shutdown             
+rootfs/sbin/setup-xen-dom0              
+rootfs/sbin/apk                         
+rootfs/sbin/setup-disk                  
+rootfs/sbin/syslogd                     
+rootfs/sbin/modprobe                    
+rootfs/sbin/rc                          
+rootfs/sbin/mkfs.vfat                   
+rootfs/sbin/lbu_status                  
+rootfs/sbin/slattach                    
+rootfs/sbin/openrc-run                  
+rootfs/sbin/iprule                      
+rootfs/sbin/setup-sshd                  
+rootfs/sbin/ldconfig                    
+rootfs/sbin/depmod                      
+rootfs/sbin/rc-update                   
+rootfs/sbin/lbu                         
+rootfs/sbin/mkswap                      
+rootfs/sbin/setup-apkcache              
+rootfs/sbin/runscript                   
+rootfs/sbin/swapon                      
+rootfs/sbin/halt                        
+rootfs/sbin/update-conf                 
+rootfs/sbin/update-kernel               
+rootfs/sbin/setup-dns                   
+rootfs/sbin/openrc                      
+rootfs/sbin/vconfig                     
+rootfs/sbin/lbu_exclude                 
+rootfs/sbin/setup-hostname              
+rootfs/sbin/modinfo                     
+rootfs/sbin/setup-lbu                   
+rootfs/sbin/fsck                        
+rootfs/sbin/setup-gparted-desktop       
+rootfs/sbin/setup-interfaces            
+rootfs/sbin/ipaddr                      
+rootfs/etc/                             
+rootfs/etc/crontabs/                    
+rootfs/etc/crontabs/root                
+rootfs/etc/services                     
+rootfs/etc/alpine-release               
+rootfs/etc/sysctl.conf                  
+rootfs/etc/runlevels/                   
+rootfs/etc/runlevels/boot/              
+rootfs/etc/runlevels/boot/networking    
+rootfs/etc/runlevels/boot/syslog        
+rootfs/etc/runlevels/boot/bootmisc      
+rootfs/etc/runlevels/sysinit/           
+rootfs/etc/runlevels/shutdown/          
+rootfs/etc/runlevels/nonetwork/         
+rootfs/etc/runlevels/default/           
+rootfs/etc/mdev.conf                    
+rootfs/etc/modules-load.d/              
+rootfs/etc/udhcpd.conf                  
+rootfs/etc/protocols                    
+rootfs/etc/shadow                       
+rootfs/etc/securetty                    
+rootfs/etc/rc.conf                      
+rootfs/etc/passwd                       
+rootfs/etc/network/                     
+rootfs/etc/network/if-post-up.d/        
+rootfs/etc/network/interfaces           
+rootfs/etc/network/if-post-down.d/      
+rootfs/etc/network/if-pre-up.d/         
+rootfs/etc/network/if-up.d/             
+rootfs/etc/network/if-up.d/dad          
+rootfs/etc/network/if-pre-down.d/       
+rootfs/etc/network/if-down.d/           
+rootfs/etc/ssl/                         
+rootfs/etc/ssl/ct_log_list.cnf          
+rootfs/etc/ssl/openssl.cnf              
+rootfs/etc/ssl/openssl.cnf.dist         
+rootfs/etc/ssl/private/                 
+rootfs/etc/ssl/misc/                    
+rootfs/etc/ssl/misc/tsget               
+rootfs/etc/ssl/misc/tsget.pl            
+rootfs/etc/ssl/misc/CA.pl               
+rootfs/etc/ssl/ct_log_list.cnf.dist     
+rootfs/etc/ssl/cert.pem                 
+rootfs/etc/ssl/certs/                   
+rootfs/etc/inittab                      
+rootfs/etc/fstab                        
+rootfs/etc/modules                      
+rootfs/etc/profile.d/                   
+rootfs/etc/profile.d/locale             
+rootfs/etc/profile.d/color_prompt       
+rootfs/etc/sysctl.d/                    
+rootfs/etc/sysctl.d/README              
+rootfs/etc/sysctl.d/00-alpine.conf      
+rootfs/etc/shells                       
+rootfs/etc/hosts                        
+rootfs/etc/os-release                   
+rootfs/etc/local.d/                     
+rootfs/etc/local.d/README               
+rootfs/etc/logrotate.d/                 
+rootfs/etc/logrotate.d/acpid            
+rootfs/etc/logrotate.d/openrc           
+rootfs/etc/init.d/                      
+rootfs/etc/init.d/local                 
+rootfs/etc/init.d/firstboot             
+rootfs/etc/init.d/networking            
+rootfs/etc/init.d/termencoding          
+rootfs/etc/init.d/inetd                 
+rootfs/etc/init.d/savecache             
+rootfs/etc/init.d/syslog                
+rootfs/etc/init.d/loadkmap              
+rootfs/etc/init.d/hwclock               
+rootfs/etc/init.d/functions.sh          
+rootfs/etc/init.d/watchdog              
+rootfs/etc/init.d/agetty                
+rootfs/etc/init.d/swclock               
+rootfs/etc/init.d/consolefont           
+rootfs/etc/init.d/bootmisc              
+rootfs/etc/init.d/loopback              
+rootfs/etc/init.d/rdate                 
+rootfs/etc/init.d/urandom               
+rootfs/etc/init.d/mdev                  
+rootfs/etc/init.d/hwdrivers             
+rootfs/etc/init.d/s6-svscan             
+rootfs/etc/init.d/runsvdir              
+rootfs/etc/init.d/localmount            
+rootfs/etc/init.d/netmount              
+rootfs/etc/init.d/killprocs             
+rootfs/etc/init.d/mount-ro              
+rootfs/etc/init.d/acpid                 
+rootfs/etc/init.d/ntpd                  
+rootfs/etc/init.d/modules               
+rootfs/etc/init.d/devfs                 
+rootfs/etc/init.d/sysfs                 
+rootfs/etc/init.d/udhcpd                
+rootfs/etc/init.d/save-keymaps          
+rootfs/etc/init.d/dmesg                 
+rootfs/etc/init.d/swap                  
+rootfs/etc/init.d/staticroute           
+rootfs/etc/init.d/cgroups               
+rootfs/etc/init.d/sysctl                
+rootfs/etc/init.d/root                  
+rootfs/etc/init.d/klogd                 
+rootfs/etc/init.d/numlock               
+rootfs/etc/init.d/dnsd                  
+rootfs/etc/init.d/crond                 
+rootfs/etc/init.d/save-termencoding     
+rootfs/etc/init.d/mtab                  
+rootfs/etc/init.d/sysfsconf             
+rootfs/etc/init.d/net-online            
+rootfs/etc/init.d/httpd                 
+rootfs/etc/init.d/procfs                
+rootfs/etc/init.d/binfmt                
+rootfs/etc/init.d/osclock               
+rootfs/etc/init.d/modloop               
+rootfs/etc/init.d/hostname              
+rootfs/etc/init.d/fsck                  
+rootfs/etc/apk/                         
+rootfs/etc/apk/protected_paths.d/       
+rootfs/etc/apk/arch                     
+rootfs/etc/apk/world                    
+rootfs/etc/apk/keys/                    
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub         
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub         
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub         
+rootfs/etc/apk/repositories             
+rootfs/etc/modprobe.d/                  
+rootfs/etc/modprobe.d/blacklist.conf    
+rootfs/etc/modprobe.d/aliases.conf      
+rootfs/etc/modprobe.d/kms.conf          
+rootfs/etc/modprobe.d/i386.conf         
+rootfs/etc/mtab                         
+rootfs/etc/acpi/                        
+rootfs/etc/acpi/PWRF/                   
+rootfs/etc/acpi/PWRF/00000080           
+rootfs/etc/profile                      
+rootfs/etc/motd                         
+rootfs/etc/lbu/                         
+rootfs/etc/lbu/lbu.conf                 
+rootfs/etc/opt/                         
+rootfs/etc/issue                        
+rootfs/etc/group                        
+rootfs/etc/periodic/                    
+rootfs/etc/periodic/15min/              
+rootfs/etc/periodic/daily/              
+rootfs/etc/periodic/monthly/            
+rootfs/etc/periodic/weekly/             
+rootfs/etc/periodic/hourly/             
+rootfs/etc/conf.d/                      
+rootfs/etc/conf.d/syslog                
+rootfs/etc/conf.d/loadkmap              
+rootfs/etc/conf.d/hwclock               
+rootfs/etc/conf.d/watchdog              
+rootfs/etc/conf.d/agetty                
+rootfs/etc/conf.d/consolefont           
+rootfs/etc/conf.d/bootmisc              
+rootfs/etc/conf.d/rdate                 
+rootfs/etc/conf.d/urandom               
+rootfs/etc/conf.d/localmount            
+rootfs/etc/conf.d/netmount              
+rootfs/etc/conf.d/killprocs             
+rootfs/etc/conf.d/ntpd                  
+rootfs/etc/conf.d/modules               
+rootfs/etc/conf.d/devfs                 
+rootfs/etc/conf.d/dmesg                 
+rootfs/etc/conf.d/swap                  
+rootfs/etc/conf.d/staticroute           
+rootfs/etc/conf.d/klogd                 
+rootfs/etc/conf.d/crond                 
+rootfs/etc/conf.d/mtab                  
+rootfs/etc/conf.d/net-online            
+rootfs/etc/conf.d/modloop               
+rootfs/etc/conf.d/hostname              
+rootfs/etc/conf.d/fsck                  
+rootfs/etc/hostname                     
+rootfs/srv/                             
+rootfs/var/                             
+rootfs/var/local/                       
+rootfs/var/empty/                       
+rootfs/var/lock/                        
+rootfs/var/lock/subsys/                 
+rootfs/var/spool/                       
+rootfs/var/spool/cron/                  
+rootfs/var/spool/cron/crontabs          
+rootfs/var/spool/mail                   
+rootfs/var/tmp/                         
+rootfs/var/run                          
+rootfs/var/lib/                         
+rootfs/var/lib/misc/                    
+rootfs/var/lib/udhcpd/                  
+rootfs/var/lib/apk/                     
+rootfs/var/log/                         
+rootfs/var/mail/                        
+rootfs/var/cache/                       
+rootfs/var/cache/misc/                  
+rootfs/var/cache/apk/                   
+rootfs/var/opt/                         
+rootfs/media/                           
+rootfs/media/usb/                       
+rootfs/media/floppy/                    
+rootfs/media/cdrom/                     
+rootfs/proc/                            
+rootfs/tmp/                             
+rootfs/bin/                             
+rootfs/bin/watch                        
+rootfs/bin/mknod                        
+rootfs/bin/stat                         
+rootfs/bin/bbsuid                       
+rootfs/bin/getopt                       
+rootfs/bin/rm                           
+rootfs/bin/uniso                        
+rootfs/bin/touch                        
+rootfs/bin/grep                         
+rootfs/bin/sleep                        
+rootfs/bin/dumpkmap                     
+rootfs/bin/rev                          
+rootfs/bin/fdflush                      
+rootfs/bin/mkdir                        
+rootfs/bin/su                           
+rootfs/bin/ping6                        
+rootfs/bin/mount                        
+rootfs/bin/arch                         
+rootfs/bin/netstat                      
+rootfs/bin/reformime                    
+rootfs/bin/busybox                      
+rootfs/bin/bbconfig                     
+rootfs/bin/pipe_progress                
+rootfs/bin/printenv                     
+rootfs/bin/sh                           
+rootfs/bin/lzop                         
+rootfs/bin/linux64                      
+rootfs/bin/gunzip                       
+rootfs/bin/pidof                        
+rootfs/bin/mktemp                       
+rootfs/bin/usleep                       
+rootfs/bin/conspy                       
+rootfs/bin/ash                          
+rootfs/bin/umount                       
+rootfs/bin/setpriv                      
+rootfs/bin/ping                         
+rootfs/bin/link                         
+rootfs/bin/chmod                        
+rootfs/bin/more                         
+rootfs/bin/fgrep                        
+rootfs/bin/ln                           
+rootfs/bin/mv                           
+rootfs/bin/dmesg                        
+rootfs/bin/base64                       
+rootfs/bin/true                         
+rootfs/bin/linux32                      
+rootfs/bin/ed                           
+rootfs/bin/chgrp                        
+rootfs/bin/dd                           
+rootfs/bin/ipcalc                       
+rootfs/bin/kill                         
+rootfs/bin/makemime                     
+rootfs/bin/date                         
+rootfs/bin/false                        
+rootfs/bin/cat                          
+rootfs/bin/tar                          
+rootfs/bin/login                        
+rootfs/bin/ls                           
+rootfs/bin/echo                         
+rootfs/bin/fsync                        
+rootfs/bin/chown                        
+rootfs/bin/kbd_mode                     
+rootfs/bin/gzip                         
+rootfs/bin/pwd                          
+rootfs/bin/iostat                       
+rootfs/bin/uname                        
+rootfs/bin/run-parts                    
+rootfs/bin/df                           
+rootfs/bin/setserial                    
+rootfs/bin/sync                         
+rootfs/bin/zcat                         
+rootfs/bin/egrep                        
+rootfs/bin/stty                         
+rootfs/bin/mountpoint                   
+rootfs/bin/ionice                       
+rootfs/bin/mpstat                       
+rootfs/bin/cp                           
+rootfs/bin/sed                          
+rootfs/bin/rmdir                        
+rootfs/bin/ps                           
+rootfs/bin/nice                         
+rootfs/bin/fatattr                      
+rootfs/bin/dnsdomainname                
+rootfs/bin/hostname                     
+rootfs/bin/rc-status                    
+rootfs/run/                             
+rootfs/lib/                             
+rootfs/lib/libz.so.1.2.11               
+rootfs/lib/dasd-functions.sh            
+rootfs/lib/libeinfo.so.1                
+rootfs/lib/firmware/                    
+rootfs/lib/libz.so.1                    
+rootfs/lib/mdev/                        
+rootfs/lib/mdev/dvbdev                  
+rootfs/lib/mdev/usbdisk_link            
+rootfs/lib/mdev/xvd_links               
+rootfs/lib/mdev/ide_links               
+rootfs/lib/mdev/usbdev                  
+rootfs/lib/libcrypto.so.1.1             
+rootfs/lib/libc.musl-x86.so.1           
+rootfs/lib/apk/                         
+rootfs/lib/apk/db/                      
+rootfs/lib/apk/db/installed             
+rootfs/lib/apk/db/lock                  
+rootfs/lib/apk/db/scripts.tar           
+rootfs/lib/apk/db/triggers              
+rootfs/lib/rc/                          
+rootfs/lib/rc/sbin/                     
+rootfs/lib/rc/sbin/mark_service_hotplugged                                      
+rootfs/lib/rc/sbin/swclock              
+rootfs/lib/rc/sbin/mark_service_stopped 
+rootfs/lib/rc/sbin/mark_service_inactive                                        
+rootfs/lib/rc/sbin/mark_service_stopping                                        
+rootfs/lib/rc/sbin/mark_service_started 
+rootfs/lib/rc/sbin/mark_service_failed  
+rootfs/lib/rc/sbin/mark_service_starting                                        
+rootfs/lib/rc/sbin/rc-abort             
+rootfs/lib/rc/sbin/mark_service_crashed 
+rootfs/lib/rc/sbin/mark_service_wasinactive                                     
+rootfs/lib/rc/sh/                       
+rootfs/lib/rc/sh/openrc-run.sh          
+rootfs/lib/rc/sh/cgroup-release-agent.sh                                        
+rootfs/lib/rc/sh/rc-functions.sh        
+rootfs/lib/rc/sh/functions.sh           
+rootfs/lib/rc/sh/start-stop-daemon.sh   
+rootfs/lib/rc/sh/binfmt.sh              
+rootfs/lib/rc/sh/init.sh                
+rootfs/lib/rc/sh/gendepends.sh          
+rootfs/lib/rc/sh/s6.sh                  
+rootfs/lib/rc/sh/rc-cgroup.sh           
+rootfs/lib/rc/sh/runit.sh               
+rootfs/lib/rc/sh/rc-mount.sh            
+rootfs/lib/rc/sh/init-early.sh          
+rootfs/lib/rc/sh/supervise-daemon.sh    
+rootfs/lib/rc/tmp/                      
+rootfs/lib/rc/bin/                      
+rootfs/lib/rc/bin/rc-sstat              
+rootfs/lib/rc/bin/get_options           
+rootfs/lib/rc/bin/veoutdent             
+rootfs/lib/rc/bin/einfo                 
+rootfs/lib/rc/bin/veend                 
+rootfs/lib/rc/bin/kill_all              
+rootfs/lib/rc/bin/eoutdent              
+rootfs/lib/rc/bin/service_hotplugged    
+rootfs/lib/rc/bin/ewarn                 
+rootfs/lib/rc/bin/service_started_daemon                                        
+rootfs/lib/rc/bin/eerrorn               
+rootfs/lib/rc/bin/checkpath             
+rootfs/lib/rc/bin/on_ac_power           
+rootfs/lib/rc/bin/service_starting      
+rootfs/lib/rc/bin/eerror                
+rootfs/lib/rc/bin/service_get_value     
+rootfs/lib/rc/bin/vebegin               
+rootfs/lib/rc/bin/service_wasinactive   
+rootfs/lib/rc/bin/veindent              
+rootfs/lib/rc/bin/service_set_value     
+rootfs/lib/rc/bin/eval_ecolors          
+rootfs/lib/rc/bin/veinfo                
+rootfs/lib/rc/bin/ewarnn                
+rootfs/lib/rc/bin/service_stopping      
+rootfs/lib/rc/bin/ebegin                
+rootfs/lib/rc/bin/mountinfo             
+rootfs/lib/rc/bin/is_newer_than         
+rootfs/lib/rc/bin/fstabinfo             
+rootfs/lib/rc/bin/save_options          
+rootfs/lib/rc/bin/service_crashed       
+rootfs/lib/rc/bin/ewend                 
+rootfs/lib/rc/bin/esyslog               
+rootfs/lib/rc/bin/ewaitfile             
+rootfs/lib/rc/bin/is_older_than         
+rootfs/lib/rc/bin/shell_var             
+rootfs/lib/rc/bin/eindent               
+rootfs/lib/rc/bin/service_inactive      
+rootfs/lib/rc/bin/einfon                
+rootfs/lib/rc/bin/service_started       
+rootfs/lib/rc/bin/service_stopped       
+rootfs/lib/rc/bin/vewend                
+rootfs/lib/rc/bin/eend                  
+rootfs/lib/rc/bin/rc-depend             
+rootfs/lib/rc/bin/vewarn                
+rootfs/lib/rc/version                   
+rootfs/lib/libssl.so.1.1                
+rootfs/lib/librc.so.1                   
+rootfs/lib/libalpine.sh                 
+rootfs/lib/ld-musl-i386.so.1            
+rootfs/root/                            
+rootfs/usr/                             
+rootfs/usr/local/                       
+rootfs/usr/local/bin/                   
+rootfs/usr/local/lib/                   
+rootfs/usr/local/share/                 
+rootfs/usr/sbin/                        
+rootfs/usr/sbin/chpasswd                
+rootfs/usr/sbin/rdev                    
+rootfs/usr/sbin/rfkill                  
+rootfs/usr/sbin/chroot                  
+rootfs/usr/sbin/sendmail                
+rootfs/usr/sbin/rdate                   
+rootfs/usr/sbin/readprofile             
+rootfs/usr/sbin/delgroup                
+rootfs/usr/sbin/ether-wake              
+rootfs/usr/sbin/nanddump                
+rootfs/usr/sbin/setfont                 
+rootfs/usr/sbin/ntpd                    
+rootfs/usr/sbin/adduser                 
+rootfs/usr/sbin/readahead               
+rootfs/usr/sbin/fbset                   
+rootfs/usr/sbin/partprobe               
+rootfs/usr/sbin/arping                  
+rootfs/usr/sbin/add-shell               
+rootfs/usr/sbin/deluser                 
+rootfs/usr/sbin/brctl                   
+rootfs/usr/sbin/nbd-client              
+rootfs/usr/sbin/loadfont                
+rootfs/usr/sbin/crond                   
+rootfs/usr/sbin/nandwrite               
+rootfs/usr/sbin/killall5                
+rootfs/usr/sbin/remove-shell            
+rootfs/usr/sbin/fdformat                
+rootfs/usr/sbin/powertop                
+rootfs/usr/sbin/setlogcons              
+rootfs/usr/sbin/addgroup                
+rootfs/usr/sbin/lspci                   
+rootfs/usr/bin/                         
+rootfs/usr/bin/comm                     
+rootfs/usr/bin/flock                    
+rootfs/usr/bin/tail                     
+rootfs/usr/bin/pstree                   
+rootfs/usr/bin/[                        
+rootfs/usr/bin/scanelf                  
+rootfs/usr/bin/xargs                    
+rootfs/usr/bin/traceroute6              
+rootfs/usr/bin/bzip2                    
+rootfs/usr/bin/strings                  
+rootfs/usr/bin/whois                    
+rootfs/usr/bin/volname                  
+rootfs/usr/bin/md5sum                   
+rootfs/usr/bin/sort                     
+rootfs/usr/bin/clear                    
+rootfs/usr/bin/crontab                  
+rootfs/usr/bin/mesg                     
+rootfs/usr/bin/tr                       
+rootfs/usr/bin/cut                      
+rootfs/usr/bin/shuf                     
+rootfs/usr/bin/yes                      
+rootfs/usr/bin/diff                     
+rootfs/usr/bin/ipcrm                    
+rootfs/usr/bin/fuser                    
+rootfs/usr/bin/eject                    
+rootfs/usr/bin/iconv                    
+rootfs/usr/bin/tac                      
+rootfs/usr/bin/uudecode                 
+rootfs/usr/bin/renice                   
+rootfs/usr/bin/vi                       
+rootfs/usr/bin/udhcpc6                  
+rootfs/usr/bin/hd                       
+rootfs/usr/bin/nc                       
+rootfs/usr/bin/lzopcat                  
+rootfs/usr/bin/nl                       
+rootfs/usr/bin/du                       
+rootfs/usr/bin/chvt                     
+rootfs/usr/bin/basename                 
+rootfs/usr/bin/fold                     
+rootfs/usr/bin/groups                   
+rootfs/usr/bin/hostid                   
+rootfs/usr/bin/cryptpw                  
+rootfs/usr/bin/whoami                   
+rootfs/usr/bin/wget                     
+rootfs/usr/bin/uuencode                 
+rootfs/usr/bin/nohup                    
+rootfs/usr/bin/bc                       
+rootfs/usr/bin/smemcap                  
+rootfs/usr/bin/setsid                   
+rootfs/usr/bin/split                    
+rootfs/usr/bin/deallocvt                
+rootfs/usr/bin/factor                   
+rootfs/usr/bin/unlzop                   
+rootfs/usr/bin/bzcat                    
+rootfs/usr/bin/lsusb                    
+rootfs/usr/bin/mkpasswd                 
+rootfs/usr/bin/showkey                  
+rootfs/usr/bin/cpio                     
+rootfs/usr/bin/unzip                    
+rootfs/usr/bin/xz                       
+rootfs/usr/bin/unxz                     
+rootfs/usr/bin/xzcat                    
+rootfs/usr/bin/passwd                   
+rootfs/usr/bin/dumpleases               
+rootfs/usr/bin/which                    
+rootfs/usr/bin/printf                   
+rootfs/usr/bin/pmap                     
+rootfs/usr/bin/install                  
+rootfs/usr/bin/unlink                   
+rootfs/usr/bin/shred                    
+rootfs/usr/bin/env                      
+rootfs/usr/bin/readlink                 
+rootfs/usr/bin/reset                    
+rootfs/usr/bin/truncate                 
+rootfs/usr/bin/dc                       
+rootfs/usr/bin/lzcat                    
+rootfs/usr/bin/lsof                     
+rootfs/usr/bin/expand                   
+rootfs/usr/bin/nslookup                 
+rootfs/usr/bin/pscan                    
+rootfs/usr/bin/find                     
+rootfs/usr/bin/fallocate                
+rootfs/usr/bin/mkfifo                   
+rootfs/usr/bin/killall                  
+rootfs/usr/bin/uniq                     
+rootfs/usr/bin/unlzma                   
+rootfs/usr/bin/ipcs                     
+rootfs/usr/bin/expr                     
+rootfs/usr/bin/nsenter                  
+rootfs/usr/bin/blkdiscard               
+rootfs/usr/bin/tee                      
+rootfs/usr/bin/openvt                   
+rootfs/usr/bin/sha256sum                
+rootfs/usr/bin/[[                       
+rootfs/usr/bin/nmeter                   
+rootfs/usr/bin/top                      
+rootfs/usr/bin/beep                     
+rootfs/usr/bin/microcom                 
+rootfs/usr/bin/pwdx                     
+rootfs/usr/bin/unshare                  
+rootfs/usr/bin/cksum                    
+rootfs/usr/bin/sum                      
+rootfs/usr/bin/sha3sum                  
+rootfs/usr/bin/paste                    
+rootfs/usr/bin/pgrep                    
+rootfs/usr/bin/realpath                 
+rootfs/usr/bin/time                     
+rootfs/usr/bin/wc                       
+rootfs/usr/bin/nproc                    
+rootfs/usr/bin/timeout                  
+rootfs/usr/bin/lzma                     
+rootfs/usr/bin/unix2dos                 
+rootfs/usr/bin/vlock                    
+rootfs/usr/bin/ssl_client               
+rootfs/usr/bin/pkill                    
+rootfs/usr/bin/tty                      
+rootfs/usr/bin/hexdump                  
+rootfs/usr/bin/seq                      
+rootfs/usr/bin/patch                    
+rootfs/usr/bin/head                     
+rootfs/usr/bin/unexpand                 
+rootfs/usr/bin/getconf                  
+rootfs/usr/bin/ldd                      
+rootfs/usr/bin/resize                   
+rootfs/usr/bin/traceroute               
+rootfs/usr/bin/dirname                  
+rootfs/usr/bin/od                       
+rootfs/usr/bin/sha1sum                  
+rootfs/usr/bin/id                       
+rootfs/usr/bin/logger                   
+rootfs/usr/bin/ttysize                  
+rootfs/usr/bin/free                     
+rootfs/usr/bin/cmp                      
+rootfs/usr/bin/test                     
+rootfs/usr/bin/dos2unix                 
+rootfs/usr/bin/uptime                   
+rootfs/usr/bin/awk                      
+rootfs/usr/bin/getent                   
+rootfs/usr/bin/xxd                      
+rootfs/usr/bin/less                     
+rootfs/usr/bin/sha512sum                
+rootfs/usr/bin/bunzip2                  
+rootfs/usr/bin/cal                      
+rootfs/usr/bin/setkeycodes              
+rootfs/usr/lib/                         
+rootfs/usr/lib/libtls-standalone.so.1   
+rootfs/usr/lib/libtls-standalone.so.1.0.0                                       
+rootfs/usr/lib/libcrypto.so.1.1         
+rootfs/usr/lib/engines-1.1/             
+rootfs/usr/lib/engines-1.1/afalg.so     
+rootfs/usr/lib/engines-1.1/padlock.so   
+rootfs/usr/lib/engines-1.1/capi.so      
+rootfs/usr/lib/libssl.so.1.1            
+rootfs/usr/share/                       
+rootfs/usr/share/misc/                  
+rootfs/usr/share/udhcpc/                
+rootfs/usr/share/udhcpc/default.script  
+rootfs/usr/share/alpine-mirrors/        
+rootfs/usr/share/alpine-mirrors/mirrors.yaml                                    
+rootfs/usr/share/alpine-mirrors/MIRRORS.txt                                     
+rootfs/usr/share/man/                   
+rootfs/usr/share/apk/                   
+rootfs/usr/share/apk/keys/              
+rootfs/usr/share/apk/keys/x86/          
+rootfs/usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub                                                                               
+rootfs/usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub                                                                               
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub   
+rootfs/usr/share/apk/keys/aarch64/      
+rootfs/usr/share/apk/keys/aarch64/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub                                                                           
+rootfs/usr/share/apk/keys/s390x/        
+rootfs/usr/share/apk/keys/s390x/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub                                                                             
+rootfs/usr/share/apk/keys/armhf/        
+rootfs/usr/share/apk/keys/armhf/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub                                                                             
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub   
+rootfs/usr/share/apk/keys/x86_64/       
+rootfs/usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub                                                                            
+rootfs/usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub                                                                            
+rootfs/usr/share/apk/keys/ppc64le/      
+rootfs/usr/share/apk/keys/ppc64le/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub                                                                           
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub   
+rootfs/usr/share/openrc/                
+rootfs/usr/share/openrc/support/        
+rootfs/usr/share/openrc/support/init.d.examples/                                
+rootfs/usr/share/openrc/support/init.d.examples/dhcpcd                          
+rootfs/usr/share/openrc/support/init.d.examples/polkitd                         
+rootfs/usr/share/openrc/support/init.d.examples/wpa_supplicant                  
+rootfs/usr/share/openrc/support/init.d.examples/avahi-dnsconfd                  
+rootfs/usr/share/openrc/support/init.d.examples/hald                            
+rootfs/usr/share/openrc/support/init.d.examples/ntpd                            
+rootfs/usr/share/openrc/support/init.d.examples/avahid                          
+rootfs/usr/share/openrc/support/init.d.examples/dbus                            
+rootfs/usr/share/openrc/support/init.d.examples/README.md                       
+rootfs/usr/share/openrc/support/init.d.examples/sshd                            
+rootfs/usr/share/openrc/support/init.d.examples/openvpn                         
+rootfs/usr/share/openrc/support/init.d.examples/named                           
+rootfs/usr/share/openrc/support/deptree2dot/                                    
+rootfs/usr/share/openrc/support/deptree2dot/deptree2dot                         
+rootfs/usr/share/openrc/support/deptree2dot/README.md                           
+rootfs/usr/share/openrc/support/openvpn/                                        
+rootfs/usr/share/openrc/support/openvpn/README.md                               
+rootfs/usr/share/openrc/support/openvpn/up.sh                                   
+rootfs/usr/share/openrc/support/openvpn/down.sh                                 
+rootfs/usr/share/openrc/support/sysvinit/                                       
+rootfs/usr/share/openrc/support/sysvinit/halt.sh                                
+rootfs/usr/share/openrc/support/sysvinit/inittab                                
+rootfs/usr/share/openrc/support/sysvinit/README.md                              
+rootfs/home/                            
+rootfs/opt/                             
+root@parrot:/opt/lxd-alpine-builder# ls 
+alpine-v3.11-i686-20200115_0409.tar.gz  build-alpine  LICENSE  metadata.yaml  README.md  rootfs  templates                                                      
+root@parrot:/opt/lxd-alpine-builder# ls -la                                     
+total 3232                              
+drwxr-xr-x  5 root root    4096 Jan 15 05:38 .                                  
+drwxr-xr-x 48 root root    4096 Jan 15 04:04 ..                                 
+-rw-r--r--  1 root root 3242708 Jan 15 04:09 alpine-v3.11-i686-20200115_0409.tar.gz                                                                             
+-rwxr-xr-x  1 root root    7498 Jan 15 04:04 build-alpine                       
+drwxr-xr-x  8 root root    4096 Jan 15 04:04 .git                               
+-rw-r--r--  1 root root   26530 Jan 15 04:04 LICENSE                            
+-rw-r--r--  1 root root     604 Jan 15 04:09 metadata.yaml                      
+-rw-r--r--  1 root root     768 Jan 15 04:04 README.md                          
+drwxr-xr-x 19 root root    4096 Jan 15 04:09 rootfs                             
+drwxr-xr-x  2 root root    4096 Jan 15 04:09 templates                          
+root@parrot:/opt/lxd-alpine-builder# rm metadata.yaml rootfs/ templates/        
+rm: cannot remove 'rootfs/': Is a directory                                     
+rm: cannot remove 'templates/': Is a directory                                  
+root@parrot:/opt/lxd-alpine-builder# rm -r metadata.yaml rootfs/ templates/                                                                                     
+rm: cannot remove 'metadata.yaml': No such file or directory                    
+root@parrot:/opt/lxd-alpine-builder# rm -r rootfs/ templates/                                                                                                   
+rm: cannot remove 'rootfs/': No such file or directory                          
+rm: cannot remove 'templates/': No such file or directory                       
+root@parrot:/opt/lxd-alpine-builder# ls 
+alpine-v3.11-i686-20200115_0409.tar.gz  build-alpine  LICENSE  README.md        
+root@parrot:/opt/lxd-alpine-builder# tar -h                                                                                                                     
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options                                                                               
+Try 'tar --help' or 'tar --usage' for more information.                         
+root@parrot:/opt/lxd-alpine-builder# tar --help                                 
+Usage: tar [OPTION...] [FILE]...        
+GNU 'tar' saves many files together into a single tape or disk archive, and can 
+restore individual files from the archive.                                      
+
+Examples:                               
+  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.     
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.       
+  tar -xf archive.tar          # Extract all files from archive.tar.            
+
+ Local file name selection:             
+
+      --add-file=FILE        add given FILE to the archive (useful if its name  
+                             starts with a dash)                                
+  -C, --directory=DIR        change to directory DIR                            
+      --exclude=PATTERN      exclude files, given as a PATTERN                  
+      --exclude-backups      exclude backup and lock files                      
+      --exclude-caches       exclude contents of directories containing         
+                             CACHEDIR.TAG, except for the tag file itself       
+      --exclude-caches-all   exclude directories containing CACHEDIR.TAG        
+      --exclude-caches-under exclude everything under directories containing    
+                             CACHEDIR.TAG                                       
+      --exclude-ignore=FILE  read exclude patterns for each directory from      
+                             FILE, if it exists                                 
+      --exclude-ignore-recursive=FILE   
+                             read exclude patterns for each directory and its   
+                             subdirectories from FILE, if it exists             
+      --exclude-tag=FILE     exclude contents of directories containing FILE,   
+                             except for FILE itself                             
+      --exclude-tag-all=FILE exclude directories containing FILE                
+      --exclude-tag-under=FILE   exclude everything under directories           
+                             containing FILE                                    
+      --exclude-vcs          exclude version control system directories         
+      --exclude-vcs-ignores  read exclude patterns from the VCS ignore files    
+      --no-null              disable the effect of the previous --null option   
+      --no-recursion         avoid descending automatically in directories      
+      --no-unquote           do not unquote input file or member names          
+      --no-verbatim-files-from   -T treats file names starting with dash as     
+                             options (default)                                  
+      --null                 -T reads null-terminated names; implies            
+                             --verbatim-files-from                              
+      --recursion            recurse into directories (default)                 
+  -T, --files-from=FILE      get names to extract or create from FILE           
+      --unquote              unquote input file or member names (default)       
+      --verbatim-files-from  -T reads file names verbatim (no escape or option  
+                             handling)  
+  -X, --exclude-from=FILE    exclude patterns listed in FILE                    
+
+ File name matching options (affect both exclude and include patterns):         
+
+      --anchored             patterns match file name start                     
+      --ignore-case          ignore case                                        
+      --no-anchored          patterns match after any '/' (default for          
+                             exclusion) 
+      --no-ignore-case       case sensitive matching (default)                  
+      --no-wildcards         verbatim string matching                           
+      --no-wildcards-match-slash   wildcards do not match '/'                   
+      --wildcards            use wildcards (default for exclusion)              
+      --wildcards-match-slash   wildcards match '/' (default for exclusion)     
+
+ Main operation mode:                   
+
+  -A, --catenate, --concatenate   append tar files to an archive                
+  -c, --create               create a new archive                               
+  -d, --diff, --compare      find differences between archive and file system   
+      --delete               delete from the archive (not on mag tapes!)        
+  -r, --append               append files to the end of an archive              
+  -t, --list                 list the contents of an archive                    
+      --test-label           test the archive volume label and exit             
+  -u, --update               only append files newer than copy in archive       
+  -x, --extract, --get       extract files from an archive                      
+
+ Operation modifiers:                   
+
+      --check-device         check device numbers when creating incremental     
+                             archives (default)                                 
+  -g, --listed-incremental=FILE   handle new GNU-format incremental backup      
+  -G, --incremental          handle old GNU-format incremental backup           
+      --hole-detection=TYPE  technique to detect holes                          
+      --ignore-failed-read   do not exit with nonzero on unreadable files       
+      --level=NUMBER         dump level for created listed-incremental archive  
+  -n, --seek                 archive is seekable                                
+      --no-check-device      do not check device numbers when creating          
+                             incremental archives                               
+      --no-seek              archive is not seekable                            
+      --occurrence[=NUMBER]  process only the NUMBERth occurrence of each file  
+                             in the archive; this option is valid only in       
+                             conjunction with one of the subcommands --delete,  
+                             --diff, --extract or --list and when a list of     
+                             files is given either on the command line or via   
+                             the -T option; NUMBER defaults to 1                
+      --sparse-version=MAJOR[.MINOR]    
+                             set version of the sparse format to use (implies   
+                             --sparse)  
+  -S, --sparse               handle sparse files efficiently                    
+
+ Overwrite control:                     
+
+  -k, --keep-old-files       don't replace existing files when extracting,      
+                             treat them as errors                               
+      --keep-directory-symlink   preserve existing symlinks to directories when 
+                             extracting 
+      --keep-newer-files     don't replace existing files that are newer than   
+                             their archive copies                               
+      --no-overwrite-dir     preserve metadata of existing directories          
+      --one-top-level[=DIR]  create a subdirectory to avoid having loose files  
+                             extracted  
+      --overwrite            overwrite existing files when extracting           
+      --overwrite-dir        overwrite metadata of existing directories when    
+                             extracting (default)                               
+      --recursive-unlink     empty hierarchies prior to extracting directory    
+      --remove-files         remove files after adding them to the archive      
+      --skip-old-files       don't replace existing files when extracting,      
+                             silently skip over them                            
+  -U, --unlink-first         remove each file prior to extracting over it       
+  -W, --verify               attempt to verify the archive after writing it     
+
+ Select output stream:                  
+
+      --ignore-command-error ignore exit codes of children                      
+      --no-ignore-command-error   treat non-zero exit codes of children as      
+                             error      
+  -O, --to-stdout            extract files to standard output                   
+      --to-command=COMMAND   pipe extracted files to another program            
+
+ Handling of file attributes:           
+
+      --atime-preserve[=METHOD]   preserve access times on dumped files, either 
+                             by restoring the times after reading               
+                             (METHOD='replace'; default) or by not setting the  
+                             times in the first place (METHOD='system')         
+      --clamp-mtime          only set time when the file is more recent than    
+                             what was given with --mtime                        
+      --delay-directory-restore   delay setting modification times and          
+                             permissions of extracted directories until the end 
+                             of extraction                                      
+      --group=NAME           force NAME as group for added files                
+      --group-map=FILE       use FILE to map file owner GIDs and names          
+      --mode=CHANGES         force (symbolic) mode CHANGES for added files      
+      --mtime=DATE-OR-FILE   set mtime for added files from DATE-OR-FILE        
+  -m, --touch                don't extract file modified time                   
+      --no-delay-directory-restore      
+                             cancel the effect of --delay-directory-restore     
+                             option     
+      --no-same-owner        extract files as yourself (default for ordinary    
+                             users)     
+      --no-same-permissions  apply the user's umask when extracting permissions 
+                             from the archive (default for ordinary users)      
+      --numeric-owner        always use numbers for user/group names            
+      --owner=NAME           force NAME as owner for added files                
+      --owner-map=FILE       use FILE to map file owner UIDs and names          
+  -p, --preserve-permissions, --same-permissions                                
+                             extract information about file permissions         
+                             (default for superuser)                            
+      --same-owner           try extracting files with the same ownership as    
+                             exists in the archive (default for superuser)      
+  -s, --preserve-order, --same-order    
+                             member arguments are listed in the same order as   
+                             the files in the archive                           
+      --sort=ORDER           directory sorting order: none (default), name or   
+                             inode      
+
+ Handling of extended file attributes:  
+
+      --acls                 Enable the POSIX ACLs support                      
+      --no-acls              Disable the POSIX ACLs support                     
+      --no-selinux           Disable the SELinux context support                
+      --no-xattrs            Disable extended attributes support                
+      --selinux              Enable the SELinux context support                 
+      --xattrs               Enable extended attributes support                 
+      --xattrs-exclude=MASK  specify the exclude pattern for xattr keys         
+      --xattrs-include=MASK  specify the include pattern for xattr keys         
+
+ Device selection and switching:        
+
+  -f, --file=ARCHIVE         use archive file or device ARCHIVE                 
+      --force-local          archive file is local even if it has a colon       
+  -F, --info-script=NAME, --new-volume-script=NAME                              
+                             run script at end of each tape (implies -M)        
+  -L, --tape-length=NUMBER   change tape after writing NUMBER x 1024 bytes      
+  -M, --multi-volume         create/list/extract multi-volume archive           
+      --rmt-command=COMMAND  use given rmt COMMAND instead of rmt               
+      --rsh-command=COMMAND  use remote COMMAND instead of rsh                  
+      --volno-file=FILE      use/update the volume number in FILE               
+
+ Device blocking:                       
+
+  -b, --blocking-factor=BLOCKS   BLOCKS x 512 bytes per record                  
+  -B, --read-full-records    reblock as we read (for 4.2BSD pipes)              
+  -i, --ignore-zeros         ignore zeroed blocks in archive (means EOF)        
+      --record-size=NUMBER   NUMBER of bytes per record, multiple of 512        
+
+ Archive format selection:              
+
+  -H, --format=FORMAT        create archive of the given format                 
+
+ FORMAT is one of the following:        
+
+    gnu                      GNU tar 1.13.x format                              
+    oldgnu                   GNU format as per tar <= 1.12                      
+    pax                      POSIX 1003.1-2001 (pax) format                     
+    posix                    same as pax                                        
+    ustar                    POSIX 1003.1-1988 (ustar) format                   
+    v7                       old V7 tar format                                  
+
+      --old-archive, --portability      
+                             same as --format=v7                                
+      --pax-option=keyword[[:]=value][,keyword[[:]=value]]...                   
+                             control pax keywords                               
+      --posix                same as --format=posix                             
+  -V, --label=TEXT           create archive with volume name TEXT; at           
+                             list/extract time, use TEXT as a globbing pattern  
+                             for volume name                                    
+
+ Compression options:                   
+
+  -a, --auto-compress        use archive suffix to determine the compression    
+                             program    
+  -I, --use-compress-program=PROG       
+                             filter through PROG (must accept -d)               
+  -j, --bzip2                filter the archive through bzip2                   
+  -J, --xz                   filter the archive through xz                      
+      --lzip                 filter the archive through lzip                    
+      --lzma                 filter the archive through xz                      
+      --lzop                 filter the archive through lzop                    
+      --no-auto-compress     do not use archive suffix to determine the         
+                             compression program                                
+  -z, --gzip, --gunzip, --ungzip   filter the archive through gzip              
+      --zstd                 filter the archive through zstd                    
+  -Z, --compress, --uncompress   filter the archive through compress            
+
+ Local file selection:                  
+
+      --backup[=CONTROL]     backup before removal, choose version CONTROL      
+  -h, --dereference          follow symlinks; archive and dump the files they   
+                             point to   
+      --hard-dereference     follow hard links; archive and dump the files they 
+                             refer to   
+  -K, --starting-file=MEMBER-NAME       
+                             begin at member MEMBER-NAME when reading the       
+                             archive    
+      --newer-mtime=DATE     compare date and time when data changed only       
+  -N, --newer=DATE-OR-FILE, --after-date=DATE-OR-FILE                           
+                             only store files newer than DATE-OR-FILE           
+      --one-file-system      stay in local file system when creating archive    
+  -P, --absolute-names       don't strip leading '/'s from file names           
+      --suffix=STRING        backup before removal, override usual suffix ('~'  
+                             unless overridden by environment variable          
+                             SIMPLE_BACKUP_SUFFIX)                              
+
+ File name transformations:             
+
+      --strip-components=NUMBER   strip NUMBER leading components from file     
+                             names on extraction                                
+      --transform=EXPRESSION, --xform=EXPRESSION                                
+                             use sed replace EXPRESSION to transform file       
+                             names      
+
+ Informative output:                    
+
+      --checkpoint[=NUMBER]  display progress messages every NUMBERth record    
+                             (default 10)                                       
+      --checkpoint-action=ACTION   execute ACTION on each checkpoint            
+      --full-time            print file time to its full resolution             
+      --index-file=FILE      send verbose output to FILE                        
+  -l, --check-links          print a message if not all links are dumped        
+      --no-quote-chars=STRING   disable quoting for characters from STRING      
+      --quote-chars=STRING   additionally quote characters from STRING          
+      --quoting-style=STYLE  set name quoting style; see below for valid STYLE  
+                             values     
+  -R, --block-number         show block number within archive with each message 
+                                        
+      --show-defaults        show tar defaults                                  
+      --show-omitted-dirs    when listing or extracting, list each directory    
+                             that does not match search criteria                
+      --show-snapshot-field-ranges      
+                             show valid ranges for snapshot-file fields         
+      --show-transformed-names, --show-stored-names                             
+                             show file or archive names after transformation    
+      --totals[=SIGNAL]      print total bytes after processing the archive;    
+                             with an argument - print total bytes when this     
+                             SIGNAL is delivered; Allowed signals are: SIGHUP,  
+                             SIGQUIT, SIGINT, SIGUSR1 and SIGUSR2; the names    
+                             without SIG prefix are also accepted               
+      --utc                  print file modification times in UTC               
+  -v, --verbose              verbosely list files processed                     
+      --warning=KEYWORD      warning control                                    
+  -w, --interactive, --confirmation     
+                             ask for confirmation for every action              
+
+ Compatibility options:                 
+
+  -o                         when creating, same as --old-archive; when         
+                             extracting, same as --no-same-owner                
+
+ Other options:                         
+
+  -?, --help                 give this help list                                
+      --restrict             disable use of some potentially harmful options    
+      --usage                give a short usage message                         
+      --version              print program version                              
+
+Mandatory or optional arguments to long options are also mandatory or optional  
+for any corresponding short options.    
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.     
+The version control may be set with --backup or VERSION_CONTROL, values are:    
+
+  none, off       never make backups    
+  t, numbered     make numbered backups 
+  nil, existing   numbered if numbered backups exist, simple otherwise          
+  never, simple   always make simple backups                                    
+
+Valid arguments for the --quoting-style option are:                             
+
+  literal                               
+  shell                                 
+  shell-always                          
+  shell-escape                          
+  shell-escape-always                   
+  c                                     
+  c-maybe                               
+  escape                                
+  locale                                
+  clocale                               
+
+*This* tar defaults to:                 
+--format=gnu -f- -b20 --quoting-style=escape --rmt-command=/usr/sbin/rmt        
+--rsh-command=/usr/bin/rsh              
+root@parrot:/opt/lxd-alpine-builder# tar xvf alpine-v3.11-i686-20200115_0409.tar.gz -o parrot                                                                   
+tar: parrot: Not found in archive       
+tar: Exiting with failure status due to previous errors                         
+root@parrot:/opt/lxd-alpine-builder# tar xvf alpine-v3.11-i686-20200115_0409.tar.gz -O parrot                                                                   
+tar: parrot: Not found in archive       
+tar: Exiting with failure status due to previous errors                         
+root@parrot:/opt/lxd-alpine-builder# mkdir apline                               
+root@parrot:/opt/lxd-alpine-builder# mv alpine-v3.11-i686-20200115_0409.tar.gz apline/                                                                          
+root@parrot:/opt/lxd-alpine-builder# cd apline/                                 
+root@parrot:/opt/lxd-alpine-builder/apline# ls                                  
+alpine-v3.11-i686-20200115_0409.tar.gz  
+root@parrot:/opt/lxd-alpine-builder/apline# tar xvf alpine-v3.11-i686-20200115_0409.tar.gz                                                                      
+metadata.yaml                           
+templates/                              
+templates/hostname.tpl                  
+templates/hosts.tpl                     
+rootfs/                                 
+rootfs/dev/                             
+rootfs/dev/null                         
+rootfs/dev/pts/                         
+rootfs/dev/shm/                         
+rootfs/mnt/                             
+rootfs/sys/                             
+rootfs/sbin/                            
+rootfs/sbin/rc-sstat                    
+rootfs/sbin/mkmntdirs                   
+rootfs/sbin/route                       
+rootfs/sbin/iptunnel                    
+rootfs/sbin/setup-apkrepos              
+rootfs/sbin/raidautorun                 
+rootfs/sbin/setup-mta                   
+rootfs/sbin/ipneigh                     
+rootfs/sbin/setup-bootable              
+rootfs/sbin/blockdev                    
+rootfs/sbin/loadkmap                    
+rootfs/sbin/setup-alpine                
+rootfs/sbin/setup-timezone              
+rootfs/sbin/hwclock                     
+rootfs/sbin/rc-service                  
+rootfs/sbin/nologin                     
+rootfs/sbin/watchdog                    
+rootfs/sbin/fstrim                      
+rootfs/sbin/getty                       
+rootfs/sbin/setup-proxy                 
+rootfs/sbin/poweroff                    
+rootfs/sbin/hdparm                      
+rootfs/sbin/arp                         
+rootfs/sbin/fbsplash                    
+rootfs/sbin/iproute                     
+rootfs/sbin/lbu_update                  
+rootfs/sbin/switch_root                 
+rootfs/sbin/init                        
+rootfs/sbin/mdev                        
+rootfs/sbin/ifup                        
+rootfs/sbin/lsmod                       
+rootfs/sbin/lbu_commit                  
+rootfs/sbin/reboot                      
+rootfs/sbin/lbu_include                 
+rootfs/sbin/ifdown                      
+rootfs/sbin/ifenslave                   
+rootfs/sbin/logread                     
+rootfs/sbin/rmmod                       
+rootfs/sbin/blkid                       
+rootfs/sbin/setup-ntp                   
+rootfs/sbin/service                     
+rootfs/sbin/ifconfig                    
+rootfs/sbin/fdisk                       
+rootfs/sbin/udhcpc                      
+rootfs/sbin/acpid                       
+rootfs/sbin/setup-xorg-base             
+rootfs/sbin/setconsole                  
+rootfs/sbin/start-stop-daemon           
+rootfs/sbin/losetup                     
+rootfs/sbin/iplink                      
+rootfs/sbin/setup-acf                   
+rootfs/sbin/nameif                      
+rootfs/sbin/inotifyd                    
+rootfs/sbin/swapoff                     
+rootfs/sbin/adjtimex                    
+rootfs/sbin/mkdosfs                     
+rootfs/sbin/sysctl                      
+rootfs/sbin/klogd                       
+rootfs/sbin/findfs                      
+rootfs/sbin/openrc-init                 
+rootfs/sbin/tunctl                      
+rootfs/sbin/ip                          
+rootfs/sbin/insmod                      
+rootfs/sbin/setup-keymap                
+rootfs/sbin/supervise-daemon            
+rootfs/sbin/openrc-shutdown             
+rootfs/sbin/setup-xen-dom0              
+rootfs/sbin/apk                         
+rootfs/sbin/setup-disk                  
+rootfs/sbin/syslogd                     
+rootfs/sbin/modprobe                    
+rootfs/sbin/rc                          
+rootfs/sbin/mkfs.vfat                   
+rootfs/sbin/lbu_status                  
+rootfs/sbin/slattach                    
+rootfs/sbin/openrc-run                  
+rootfs/sbin/iprule                      
+rootfs/sbin/setup-sshd                  
+rootfs/sbin/ldconfig                    
+rootfs/sbin/depmod                      
+rootfs/sbin/rc-update                   
+rootfs/sbin/lbu                         
+rootfs/sbin/mkswap                      
+rootfs/sbin/setup-apkcache              
+rootfs/sbin/runscript                   
+rootfs/sbin/swapon                      
+rootfs/sbin/halt                        
+rootfs/sbin/update-conf                 
+rootfs/sbin/update-kernel               
+rootfs/sbin/setup-dns                   
+rootfs/sbin/openrc                      
+rootfs/sbin/vconfig                     
+rootfs/sbin/lbu_exclude                 
+rootfs/sbin/setup-hostname              
+rootfs/sbin/modinfo                     
+rootfs/sbin/setup-lbu                   
+rootfs/sbin/fsck                        
+rootfs/sbin/setup-gparted-desktop       
+rootfs/sbin/setup-interfaces            
+rootfs/sbin/ipaddr                      
+rootfs/etc/                             
+rootfs/etc/crontabs/                    
+rootfs/etc/crontabs/root                
+rootfs/etc/services                     
+rootfs/etc/alpine-release               
+rootfs/etc/sysctl.conf                  
+rootfs/etc/runlevels/                   
+rootfs/etc/runlevels/boot/              
+rootfs/etc/runlevels/boot/networking    
+rootfs/etc/runlevels/boot/syslog        
+rootfs/etc/runlevels/boot/bootmisc      
+rootfs/etc/runlevels/sysinit/           
+rootfs/etc/runlevels/shutdown/          
+rootfs/etc/runlevels/nonetwork/         
+rootfs/etc/runlevels/default/           
+rootfs/etc/mdev.conf                    
+rootfs/etc/modules-load.d/              
+rootfs/etc/udhcpd.conf                  
+rootfs/etc/protocols                    
+rootfs/etc/shadow                       
+rootfs/etc/securetty                    
+rootfs/etc/rc.conf                      
+rootfs/etc/passwd                       
+rootfs/etc/network/                     
+rootfs/etc/network/if-post-up.d/        
+rootfs/etc/network/interfaces           
+rootfs/etc/network/if-post-down.d/      
+rootfs/etc/network/if-pre-up.d/         
+rootfs/etc/network/if-up.d/             
+rootfs/etc/network/if-up.d/dad          
+rootfs/etc/network/if-pre-down.d/       
+rootfs/etc/network/if-down.d/           
+rootfs/etc/ssl/                         
+rootfs/etc/ssl/ct_log_list.cnf          
+rootfs/etc/ssl/openssl.cnf              
+rootfs/etc/ssl/openssl.cnf.dist         
+rootfs/etc/ssl/private/                 
+rootfs/etc/ssl/misc/                    
+rootfs/etc/ssl/misc/tsget               
+rootfs/etc/ssl/misc/tsget.pl            
+rootfs/etc/ssl/misc/CA.pl               
+rootfs/etc/ssl/ct_log_list.cnf.dist     
+rootfs/etc/ssl/cert.pem                 
+rootfs/etc/ssl/certs/                   
+rootfs/etc/inittab                      
+rootfs/etc/fstab                        
+rootfs/etc/modules                      
+rootfs/etc/profile.d/                   
+rootfs/etc/profile.d/locale             
+rootfs/etc/profile.d/color_prompt       
+rootfs/etc/sysctl.d/                    
+rootfs/etc/sysctl.d/README              
+rootfs/etc/sysctl.d/00-alpine.conf      
+rootfs/etc/shells                       
+rootfs/etc/hosts                        
+rootfs/etc/os-release                   
+rootfs/etc/local.d/                     
+rootfs/etc/local.d/README               
+rootfs/etc/logrotate.d/                 
+rootfs/etc/logrotate.d/acpid            
+rootfs/etc/logrotate.d/openrc           
+rootfs/etc/init.d/                      
+rootfs/etc/init.d/local                 
+rootfs/etc/init.d/firstboot             
+rootfs/etc/init.d/networking            
+rootfs/etc/init.d/termencoding          
+rootfs/etc/init.d/inetd                 
+rootfs/etc/init.d/savecache             
+rootfs/etc/init.d/syslog                
+rootfs/etc/init.d/loadkmap              
+rootfs/etc/init.d/hwclock               
+rootfs/etc/init.d/functions.sh          
+rootfs/etc/init.d/watchdog              
+rootfs/etc/init.d/agetty                
+rootfs/etc/init.d/swclock               
+rootfs/etc/init.d/consolefont           
+rootfs/etc/init.d/bootmisc              
+rootfs/etc/init.d/loopback              
+rootfs/etc/init.d/rdate                 
+rootfs/etc/init.d/urandom               
+rootfs/etc/init.d/mdev                  
+rootfs/etc/init.d/hwdrivers             
+rootfs/etc/init.d/s6-svscan             
+rootfs/etc/init.d/runsvdir              
+rootfs/etc/init.d/localmount            
+rootfs/etc/init.d/netmount              
+rootfs/etc/init.d/killprocs             
+rootfs/etc/init.d/mount-ro              
+rootfs/etc/init.d/acpid                 
+rootfs/etc/init.d/ntpd                  
+rootfs/etc/init.d/modules               
+rootfs/etc/init.d/devfs                 
+rootfs/etc/init.d/sysfs                 
+rootfs/etc/init.d/udhcpd                
+rootfs/etc/init.d/save-keymaps          
+rootfs/etc/init.d/dmesg                 
+rootfs/etc/init.d/swap                  
+rootfs/etc/init.d/staticroute           
+rootfs/etc/init.d/cgroups               
+rootfs/etc/init.d/sysctl                
+rootfs/etc/init.d/root                  
+rootfs/etc/init.d/klogd                 
+rootfs/etc/init.d/numlock               
+rootfs/etc/init.d/dnsd                  
+rootfs/etc/init.d/crond                 
+rootfs/etc/init.d/save-termencoding     
+rootfs/etc/init.d/mtab                  
+rootfs/etc/init.d/sysfsconf             
+rootfs/etc/init.d/net-online            
+rootfs/etc/init.d/httpd                 
+rootfs/etc/init.d/procfs                
+rootfs/etc/init.d/binfmt                
+rootfs/etc/init.d/osclock               
+rootfs/etc/init.d/modloop               
+rootfs/etc/init.d/hostname              
+rootfs/etc/init.d/fsck                  
+rootfs/etc/apk/                         
+rootfs/etc/apk/protected_paths.d/       
+rootfs/etc/apk/arch                     
+rootfs/etc/apk/world                    
+rootfs/etc/apk/keys/                    
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub         
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub         
+rootfs/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub         
+rootfs/etc/apk/repositories             
+rootfs/etc/modprobe.d/                  
+rootfs/etc/modprobe.d/blacklist.conf    
+rootfs/etc/modprobe.d/aliases.conf      
+rootfs/etc/modprobe.d/kms.conf          
+rootfs/etc/modprobe.d/i386.conf         
+rootfs/etc/mtab                         
+rootfs/etc/acpi/                        
+rootfs/etc/acpi/PWRF/                   
+rootfs/etc/acpi/PWRF/00000080           
+rootfs/etc/profile                      
+rootfs/etc/motd                         
+rootfs/etc/lbu/                         
+rootfs/etc/lbu/lbu.conf                 
+rootfs/etc/opt/                         
+rootfs/etc/issue                        
+rootfs/etc/group                        
+rootfs/etc/periodic/                    
+rootfs/etc/periodic/15min/              
+rootfs/etc/periodic/daily/              
+rootfs/etc/periodic/monthly/            
+rootfs/etc/periodic/weekly/             
+rootfs/etc/periodic/hourly/             
+rootfs/etc/conf.d/                      
+rootfs/etc/conf.d/syslog                
+rootfs/etc/conf.d/loadkmap              
+rootfs/etc/conf.d/hwclock               
+rootfs/etc/conf.d/watchdog              
+rootfs/etc/conf.d/agetty                
+rootfs/etc/conf.d/consolefont           
+rootfs/etc/conf.d/bootmisc              
+rootfs/etc/conf.d/rdate                 
+rootfs/etc/conf.d/urandom               
+rootfs/etc/conf.d/localmount            
+rootfs/etc/conf.d/netmount              
+rootfs/etc/conf.d/killprocs             
+rootfs/etc/conf.d/ntpd                  
+rootfs/etc/conf.d/modules               
+rootfs/etc/conf.d/devfs                 
+rootfs/etc/conf.d/dmesg                 
+rootfs/etc/conf.d/swap                  
+rootfs/etc/conf.d/staticroute           
+rootfs/etc/conf.d/klogd                 
+rootfs/etc/conf.d/crond                 
+rootfs/etc/conf.d/mtab                  
+rootfs/etc/conf.d/net-online            
+rootfs/etc/conf.d/modloop               
+rootfs/etc/conf.d/hostname              
+rootfs/etc/conf.d/fsck                  
+rootfs/etc/hostname                     
+rootfs/srv/                             
+rootfs/var/                             
+rootfs/var/local/                       
+rootfs/var/empty/                       
+rootfs/var/lock/                        
+rootfs/var/lock/subsys/                 
+rootfs/var/spool/                       
+rootfs/var/spool/cron/                  
+rootfs/var/spool/cron/crontabs          
+rootfs/var/spool/mail                   
+rootfs/var/tmp/                         
+rootfs/var/run                          
+rootfs/var/lib/                         
+rootfs/var/lib/misc/                    
+rootfs/var/lib/udhcpd/                  
+rootfs/var/lib/apk/                     
+rootfs/var/log/                         
+rootfs/var/mail/                        
+rootfs/var/cache/                       
+rootfs/var/cache/misc/                  
+rootfs/var/cache/apk/                   
+rootfs/var/opt/                         
+rootfs/media/                           
+rootfs/media/usb/                       
+rootfs/media/floppy/                    
+rootfs/media/cdrom/                     
+rootfs/proc/                            
+rootfs/tmp/                             
+rootfs/bin/                             
+rootfs/bin/watch                        
+rootfs/bin/mknod                        
+rootfs/bin/stat                         
+rootfs/bin/bbsuid                       
+rootfs/bin/getopt                       
+rootfs/bin/rm                           
+rootfs/bin/uniso                        
+rootfs/bin/touch                        
+rootfs/bin/grep                         
+rootfs/bin/sleep                        
+rootfs/bin/dumpkmap                     
+rootfs/bin/rev                          
+rootfs/bin/fdflush                      
+rootfs/bin/mkdir                        
+rootfs/bin/su                           
+rootfs/bin/ping6                        
+rootfs/bin/mount                        
+rootfs/bin/arch                         
+rootfs/bin/netstat                      
+rootfs/bin/reformime                    
+rootfs/bin/busybox                      
+rootfs/bin/bbconfig                     
+rootfs/bin/pipe_progress                
+rootfs/bin/printenv                     
+rootfs/bin/sh                           
+rootfs/bin/lzop                         
+rootfs/bin/linux64                      
+rootfs/bin/gunzip                       
+rootfs/bin/pidof                        
+rootfs/bin/mktemp                       
+rootfs/bin/usleep                       
+rootfs/bin/conspy                       
+rootfs/bin/ash                          
+rootfs/bin/umount                       
+rootfs/bin/setpriv                      
+rootfs/bin/ping                         
+rootfs/bin/link                         
+rootfs/bin/chmod                        
+rootfs/bin/more                         
+rootfs/bin/fgrep                        
+rootfs/bin/ln                           
+rootfs/bin/mv                           
+rootfs/bin/dmesg                        
+rootfs/bin/base64                       
+rootfs/bin/true                         
+rootfs/bin/linux32                      
+rootfs/bin/ed                           
+rootfs/bin/chgrp                        
+rootfs/bin/dd                           
+rootfs/bin/ipcalc                       
+rootfs/bin/kill                         
+rootfs/bin/makemime                     
+rootfs/bin/date                         
+rootfs/bin/false                        
+rootfs/bin/cat                          
+rootfs/bin/tar                          
+rootfs/bin/login                        
+rootfs/bin/ls                           
+rootfs/bin/echo                         
+rootfs/bin/fsync                        
+rootfs/bin/chown                        
+rootfs/bin/kbd_mode                     
+rootfs/bin/gzip                         
+rootfs/bin/pwd                          
+rootfs/bin/iostat                       
+rootfs/bin/uname                        
+rootfs/bin/run-parts                    
+rootfs/bin/df                           
+rootfs/bin/setserial                    
+rootfs/bin/sync                         
+rootfs/bin/zcat                         
+rootfs/bin/egrep                        
+rootfs/bin/stty                         
+rootfs/bin/mountpoint                   
+rootfs/bin/ionice                       
+rootfs/bin/mpstat                       
+rootfs/bin/cp                           
+rootfs/bin/sed                          
+rootfs/bin/rmdir                        
+rootfs/bin/ps                           
+rootfs/bin/nice                         
+rootfs/bin/fatattr                      
+rootfs/bin/dnsdomainname                
+rootfs/bin/hostname                     
+rootfs/bin/rc-status                    
+rootfs/run/                             
+rootfs/lib/                             
+rootfs/lib/libz.so.1.2.11               
+rootfs/lib/dasd-functions.sh            
+rootfs/lib/libeinfo.so.1                
+rootfs/lib/firmware/                    
+rootfs/lib/libz.so.1                    
+rootfs/lib/mdev/                        
+rootfs/lib/mdev/dvbdev                  
+rootfs/lib/mdev/usbdisk_link            
+rootfs/lib/mdev/xvd_links               
+rootfs/lib/mdev/ide_links               
+rootfs/lib/mdev/usbdev                  
+rootfs/lib/libcrypto.so.1.1             
+rootfs/lib/libc.musl-x86.so.1           
+rootfs/lib/apk/                         
+rootfs/lib/apk/db/                      
+rootfs/lib/apk/db/installed             
+rootfs/lib/apk/db/lock                  
+rootfs/lib/apk/db/scripts.tar           
+rootfs/lib/apk/db/triggers              
+rootfs/lib/rc/                          
+rootfs/lib/rc/sbin/                     
+rootfs/lib/rc/sbin/mark_service_hotplugged                                      
+rootfs/lib/rc/sbin/swclock              
+rootfs/lib/rc/sbin/mark_service_stopped 
+rootfs/lib/rc/sbin/mark_service_inactive                                        
+rootfs/lib/rc/sbin/mark_service_stopping                                        
+rootfs/lib/rc/sbin/mark_service_started 
+rootfs/lib/rc/sbin/mark_service_failed  
+rootfs/lib/rc/sbin/mark_service_starting                                        
+rootfs/lib/rc/sbin/rc-abort             
+rootfs/lib/rc/sbin/mark_service_crashed 
+rootfs/lib/rc/sbin/mark_service_wasinactive                                     
+rootfs/lib/rc/sh/                       
+rootfs/lib/rc/sh/openrc-run.sh          
+rootfs/lib/rc/sh/cgroup-release-agent.sh                                        
+rootfs/lib/rc/sh/rc-functions.sh        
+rootfs/lib/rc/sh/functions.sh           
+rootfs/lib/rc/sh/start-stop-daemon.sh   
+rootfs/lib/rc/sh/binfmt.sh              
+rootfs/lib/rc/sh/init.sh                
+rootfs/lib/rc/sh/gendepends.sh          
+rootfs/lib/rc/sh/s6.sh                  
+rootfs/lib/rc/sh/rc-cgroup.sh           
+rootfs/lib/rc/sh/runit.sh               
+rootfs/lib/rc/sh/rc-mount.sh            
+rootfs/lib/rc/sh/init-early.sh          
+rootfs/lib/rc/sh/supervise-daemon.sh    
+rootfs/lib/rc/tmp/                      
+rootfs/lib/rc/bin/                      
+rootfs/lib/rc/bin/rc-sstat              
+rootfs/lib/rc/bin/get_options           
+rootfs/lib/rc/bin/veoutdent             
+rootfs/lib/rc/bin/einfo                 
+rootfs/lib/rc/bin/veend                 
+rootfs/lib/rc/bin/kill_all              
+rootfs/lib/rc/bin/eoutdent              
+rootfs/lib/rc/bin/service_hotplugged    
+rootfs/lib/rc/bin/ewarn                 
+rootfs/lib/rc/bin/service_started_daemon                                        
+rootfs/lib/rc/bin/eerrorn               
+rootfs/lib/rc/bin/checkpath             
+rootfs/lib/rc/bin/on_ac_power           
+rootfs/lib/rc/bin/service_starting      
+rootfs/lib/rc/bin/eerror                
+rootfs/lib/rc/bin/service_get_value     
+rootfs/lib/rc/bin/vebegin               
+rootfs/lib/rc/bin/service_wasinactive   
+rootfs/lib/rc/bin/veindent              
+rootfs/lib/rc/bin/service_set_value     
+rootfs/lib/rc/bin/eval_ecolors          
+rootfs/lib/rc/bin/veinfo                
+rootfs/lib/rc/bin/ewarnn                
+rootfs/lib/rc/bin/service_stopping      
+rootfs/lib/rc/bin/ebegin                
+rootfs/lib/rc/bin/mountinfo             
+rootfs/lib/rc/bin/is_newer_than         
+rootfs/lib/rc/bin/fstabinfo             
+rootfs/lib/rc/bin/save_options          
+rootfs/lib/rc/bin/service_crashed       
+rootfs/lib/rc/bin/ewend                 
+rootfs/lib/rc/bin/esyslog               
+rootfs/lib/rc/bin/ewaitfile             
+rootfs/lib/rc/bin/is_older_than         
+rootfs/lib/rc/bin/shell_var             
+rootfs/lib/rc/bin/eindent               
+rootfs/lib/rc/bin/service_inactive      
+rootfs/lib/rc/bin/einfon                
+rootfs/lib/rc/bin/service_started       
+rootfs/lib/rc/bin/service_stopped       
+rootfs/lib/rc/bin/vewend                
+rootfs/lib/rc/bin/eend                  
+rootfs/lib/rc/bin/rc-depend             
+rootfs/lib/rc/bin/vewarn                
+rootfs/lib/rc/version                   
+rootfs/lib/libssl.so.1.1                
+rootfs/lib/librc.so.1                   
+rootfs/lib/libalpine.sh                 
+rootfs/lib/ld-musl-i386.so.1            
+rootfs/root/                            
+rootfs/usr/                             
+rootfs/usr/local/                       
+rootfs/usr/local/bin/                   
+rootfs/usr/local/lib/                   
+rootfs/usr/local/share/                 
+rootfs/usr/sbin/                        
+rootfs/usr/sbin/chpasswd                
+rootfs/usr/sbin/rdev                    
+rootfs/usr/sbin/rfkill                  
+rootfs/usr/sbin/chroot                  
+rootfs/usr/sbin/sendmail                
+rootfs/usr/sbin/rdate                   
+rootfs/usr/sbin/readprofile             
+rootfs/usr/sbin/delgroup                
+rootfs/usr/sbin/ether-wake              
+rootfs/usr/sbin/nanddump                
+rootfs/usr/sbin/setfont                 
+rootfs/usr/sbin/ntpd                    
+rootfs/usr/sbin/adduser                 
+rootfs/usr/sbin/readahead               
+rootfs/usr/sbin/fbset                   
+rootfs/usr/sbin/partprobe               
+rootfs/usr/sbin/arping                  
+rootfs/usr/sbin/add-shell               
+rootfs/usr/sbin/deluser                 
+rootfs/usr/sbin/brctl                   
+rootfs/usr/sbin/nbd-client              
+rootfs/usr/sbin/loadfont                
+rootfs/usr/sbin/crond                   
+rootfs/usr/sbin/nandwrite               
+rootfs/usr/sbin/killall5                
+rootfs/usr/sbin/remove-shell            
+rootfs/usr/sbin/fdformat                
+rootfs/usr/sbin/powertop                
+rootfs/usr/sbin/setlogcons              
+rootfs/usr/sbin/addgroup                
+rootfs/usr/sbin/lspci                   
+rootfs/usr/bin/                         
+rootfs/usr/bin/comm                     
+rootfs/usr/bin/flock                    
+rootfs/usr/bin/tail                     
+rootfs/usr/bin/pstree                   
+rootfs/usr/bin/[                        
+rootfs/usr/bin/scanelf                  
+rootfs/usr/bin/xargs                    
+rootfs/usr/bin/traceroute6              
+rootfs/usr/bin/bzip2                    
+rootfs/usr/bin/strings                  
+rootfs/usr/bin/whois                    
+rootfs/usr/bin/volname                  
+rootfs/usr/bin/md5sum                   
+rootfs/usr/bin/sort                     
+rootfs/usr/bin/clear                    
+rootfs/usr/bin/crontab                  
+rootfs/usr/bin/mesg                     
+rootfs/usr/bin/tr                       
+rootfs/usr/bin/cut                      
+rootfs/usr/bin/shuf                     
+rootfs/usr/bin/yes                      
+rootfs/usr/bin/diff                     
+rootfs/usr/bin/ipcrm                    
+rootfs/usr/bin/fuser                    
+rootfs/usr/bin/eject                    
+rootfs/usr/bin/iconv                    
+rootfs/usr/bin/tac                      
+rootfs/usr/bin/uudecode                 
+rootfs/usr/bin/renice                   
+rootfs/usr/bin/vi                       
+rootfs/usr/bin/udhcpc6                  
+rootfs/usr/bin/hd                       
+rootfs/usr/bin/nc                       
+rootfs/usr/bin/lzopcat                  
+rootfs/usr/bin/nl                       
+rootfs/usr/bin/du                       
+rootfs/usr/bin/chvt                     
+rootfs/usr/bin/basename                 
+rootfs/usr/bin/fold                     
+rootfs/usr/bin/groups                   
+rootfs/usr/bin/hostid                   
+rootfs/usr/bin/cryptpw                  
+rootfs/usr/bin/whoami                   
+rootfs/usr/bin/wget                     
+rootfs/usr/bin/uuencode                 
+rootfs/usr/bin/nohup                    
+rootfs/usr/bin/bc                       
+rootfs/usr/bin/smemcap                  
+rootfs/usr/bin/setsid                   
+rootfs/usr/bin/split                    
+rootfs/usr/bin/deallocvt                
+rootfs/usr/bin/factor                   
+rootfs/usr/bin/unlzop                   
+rootfs/usr/bin/bzcat                    
+rootfs/usr/bin/lsusb                    
+rootfs/usr/bin/mkpasswd                 
+rootfs/usr/bin/showkey                  
+rootfs/usr/bin/cpio                     
+rootfs/usr/bin/unzip                    
+rootfs/usr/bin/xz                       
+rootfs/usr/bin/unxz                     
+rootfs/usr/bin/xzcat                    
+rootfs/usr/bin/passwd                   
+rootfs/usr/bin/dumpleases               
+rootfs/usr/bin/which                    
+rootfs/usr/bin/printf                   
+rootfs/usr/bin/pmap                     
+rootfs/usr/bin/install                  
+rootfs/usr/bin/unlink                   
+rootfs/usr/bin/shred                    
+rootfs/usr/bin/env                      
+rootfs/usr/bin/readlink                 
+rootfs/usr/bin/reset                    
+rootfs/usr/bin/truncate                 
+rootfs/usr/bin/dc                       
+rootfs/usr/bin/lzcat                    
+rootfs/usr/bin/lsof                     
+rootfs/usr/bin/expand                   
+rootfs/usr/bin/nslookup                 
+rootfs/usr/bin/pscan                    
+rootfs/usr/bin/find                     
+rootfs/usr/bin/fallocate                
+rootfs/usr/bin/mkfifo                   
+rootfs/usr/bin/killall                  
+rootfs/usr/bin/uniq                     
+rootfs/usr/bin/unlzma                   
+rootfs/usr/bin/ipcs                     
+rootfs/usr/bin/expr                     
+rootfs/usr/bin/nsenter                  
+rootfs/usr/bin/blkdiscard               
+rootfs/usr/bin/tee                      
+rootfs/usr/bin/openvt                   
+rootfs/usr/bin/sha256sum                
+rootfs/usr/bin/[[                       
+rootfs/usr/bin/nmeter                   
+rootfs/usr/bin/top                      
+rootfs/usr/bin/beep                     
+rootfs/usr/bin/microcom                 
+rootfs/usr/bin/pwdx                     
+rootfs/usr/bin/unshare                  
+rootfs/usr/bin/cksum                    
+rootfs/usr/bin/sum                      
+rootfs/usr/bin/sha3sum                  
+rootfs/usr/bin/paste                    
+rootfs/usr/bin/pgrep                    
+rootfs/usr/bin/realpath                 
+rootfs/usr/bin/time                     
+rootfs/usr/bin/wc                       
+rootfs/usr/bin/nproc                    
+rootfs/usr/bin/timeout                  
+rootfs/usr/bin/lzma                     
+rootfs/usr/bin/unix2dos                 
+rootfs/usr/bin/vlock                    
+rootfs/usr/bin/ssl_client               
+rootfs/usr/bin/pkill                    
+rootfs/usr/bin/tty                      
+rootfs/usr/bin/hexdump                  
+rootfs/usr/bin/seq                      
+rootfs/usr/bin/patch                    
+rootfs/usr/bin/head                     
+rootfs/usr/bin/unexpand                 
+rootfs/usr/bin/getconf                  
+rootfs/usr/bin/ldd                      
+rootfs/usr/bin/resize                   
+rootfs/usr/bin/traceroute               
+rootfs/usr/bin/dirname                  
+rootfs/usr/bin/od                       
+rootfs/usr/bin/sha1sum                  
+rootfs/usr/bin/id                       
+rootfs/usr/bin/logger                   
+rootfs/usr/bin/ttysize                  
+rootfs/usr/bin/free                     
+rootfs/usr/bin/cmp                      
+rootfs/usr/bin/test                     
+rootfs/usr/bin/dos2unix                 
+rootfs/usr/bin/uptime                   
+rootfs/usr/bin/awk                      
+rootfs/usr/bin/getent                   
+rootfs/usr/bin/xxd                      
+rootfs/usr/bin/less                     
+rootfs/usr/bin/sha512sum                
+rootfs/usr/bin/bunzip2                  
+rootfs/usr/bin/cal                      
+rootfs/usr/bin/setkeycodes              
+rootfs/usr/lib/                         
+rootfs/usr/lib/libtls-standalone.so.1   
+rootfs/usr/lib/libtls-standalone.so.1.0.0                                       
+rootfs/usr/lib/libcrypto.so.1.1         
+rootfs/usr/lib/engines-1.1/             
+rootfs/usr/lib/engines-1.1/afalg.so     
+rootfs/usr/lib/engines-1.1/padlock.so   
+rootfs/usr/lib/engines-1.1/capi.so      
+rootfs/usr/lib/libssl.so.1.1            
+rootfs/usr/share/                       
+rootfs/usr/share/misc/                  
+rootfs/usr/share/udhcpc/                
+rootfs/usr/share/udhcpc/default.script  
+rootfs/usr/share/alpine-mirrors/        
+rootfs/usr/share/alpine-mirrors/mirrors.yaml                                    
+rootfs/usr/share/alpine-mirrors/MIRRORS.txt                                     
+rootfs/usr/share/man/                   
+rootfs/usr/share/apk/                   
+rootfs/usr/share/apk/keys/              
+rootfs/usr/share/apk/keys/x86/          
+rootfs/usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub                                                                               
+rootfs/usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub                                                                               
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub   
+rootfs/usr/share/apk/keys/aarch64/      
+rootfs/usr/share/apk/keys/aarch64/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub                                                                           
+rootfs/usr/share/apk/keys/s390x/        
+rootfs/usr/share/apk/keys/s390x/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub                                                                             
+rootfs/usr/share/apk/keys/armhf/        
+rootfs/usr/share/apk/keys/armhf/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub                                                                             
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub   
+rootfs/usr/share/apk/keys/x86_64/       
+rootfs/usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub                                                                            
+rootfs/usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub                                                                            
+rootfs/usr/share/apk/keys/ppc64le/      
+rootfs/usr/share/apk/keys/ppc64le/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub                                                                           
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub   
+rootfs/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub   
+rootfs/usr/share/openrc/                
+rootfs/usr/share/openrc/support/        
+rootfs/usr/share/openrc/support/init.d.examples/                                
+rootfs/usr/share/openrc/support/init.d.examples/dhcpcd                          
+rootfs/usr/share/openrc/support/init.d.examples/polkitd                         
+rootfs/usr/share/openrc/support/init.d.examples/wpa_supplicant                  
+rootfs/usr/share/openrc/support/init.d.examples/avahi-dnsconfd                  
+rootfs/usr/share/openrc/support/init.d.examples/hald                            
+rootfs/usr/share/openrc/support/init.d.examples/ntpd                            
+rootfs/usr/share/openrc/support/init.d.examples/avahid                          
+rootfs/usr/share/openrc/support/init.d.examples/dbus                            
+rootfs/usr/share/openrc/support/init.d.examples/README.md                       
+rootfs/usr/share/openrc/support/init.d.examples/sshd                            
+rootfs/usr/share/openrc/support/init.d.examples/openvpn                         
+rootfs/usr/share/openrc/support/init.d.examples/named                           
+rootfs/usr/share/openrc/support/deptree2dot/                                    
+rootfs/usr/share/openrc/support/deptree2dot/deptree2dot                         
+rootfs/usr/share/openrc/support/deptree2dot/README.md                           
+rootfs/usr/share/openrc/support/openvpn/                                        
+rootfs/usr/share/openrc/support/openvpn/README.md                               
+rootfs/usr/share/openrc/support/openvpn/up.sh                                   
+rootfs/usr/share/openrc/support/openvpn/down.sh                                 
+rootfs/usr/share/openrc/support/sysvinit/                                       
+rootfs/usr/share/openrc/support/sysvinit/halt.sh                                
+rootfs/usr/share/openrc/support/sysvinit/inittab                                
+rootfs/usr/share/openrc/support/sysvinit/README.md                              
+rootfs/home/                            
+rootfs/opt/                             
+root@parrot:/opt/lxd-alpine-builder/apline# ls                                  
+alpine-v3.11-i686-20200115_0409.tar.gz  metadata.yaml  rootfs  templates        
+root@parrot:/opt/lxd-alpine-builder/apline# ls -la                              
+total 3188                              
+drwxr-xr-x  4 root root    4096 Jan 15 05:44 .                                  
+drwxr-xr-x  4 root root    4096 Jan 15 05:44 ..                                 
+-rw-r--r--  1 root root 3242708 Jan 15 04:09 alpine-v3.11-i686-20200115_0409.tar.gz                                                                             
+-rw-r--r--  1 root root     604 Jan 15 04:09 metadata.yaml                      
+drwxr-xr-x 19 root root    4096 Jan 15 04:09 rootfs                             
+drwxr-xr-x  2 root root    4096 Jan 15 04:09 templates                          
+root@parrot:/opt/lxd-alpine-builder/apline# python -m SimpleHTTPServer          
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.27 - - [15/Jan/2020 05:45:50] code 404, message File not found         
+10.10.10.27 - - [15/Jan/2020 05:45:50] "GET /README.md HTTP/1.1" 404 -          
+10.10.10.27 - - [15/Jan/2020 05:46:15] "GET /metadata.yaml HTTP/1.1" 200 -      
+10.10.10.27 - - [15/Jan/2020 05:51:18] "GET /alpine-v3.11-i686-20200115_0409.tar.gz HTTP/1.1" 200 -                                                             
+^C^C----------------------------------------                                    
+Exception happened during processing of request from ('10.10.10.27', 55904)     
+Traceback (most recent call last):      
+  File "/usr/lib/python2.7/SocketServer.py", line 293, in _handle_request_noblock                                                                               
+    self.process_request(request, client_address)                               
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request       
+    self.finish_request(request, client_address)                                
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request        
+    self.RequestHandlerClass(request, client_address, self)                     
+  File "/usr/lib/python2.7/SocketServer.py", line 657, in __init__              
+    self.finish()                       
+  File "/usr/lib/python2.7/SocketServer.py", line 711, in finish                
+    self.wfile.flush()                  
+  File "/usr/lib/python2.7/socket.py", line 307, in flush                       
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])             
+KeyboardInterrupt                       
+----------------------------------------                                        
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:/opt/lxd-alpine-builder/apline# python -m SimpleHTTPServer          
+Serving HTTP on 0.0.0.0 port 8000 ...   
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:/opt/lxd-alpine-builder/apline# cd rootfs/                          
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# ls                           
+bin  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var                                                                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# python -m SimpleHTTPServer   
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET / HTTP/1.1" 200 -                   
+10.10.14.14 - - [15/Jan/2020 05:59:34] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /robots.txt HTTP/1.1" 404 -         
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /dev/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /etc/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /home/ HTTP/1.1" 200 -              
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /lib/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /media/ HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /mnt/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /opt/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /proc/ HTTP/1.1" 200 -              
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /root/ HTTP/1.1" 200 -              
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /run/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /sbin/ HTTP/1.1" 200 -              
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /srv/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /sys/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /tmp/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /usr/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /var/ HTTP/1.1" 200 -               
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/arch HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/ash HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/base64 HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/bbconfig HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/bbsuid HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/busybox HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/cat HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/chgrp HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/chmod HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/chown HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/conspy HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/cp HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/date HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/dd HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/df HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:34] "GET /bin/dmesg HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/dnsdomainname HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/dumpkmap HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/echo HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/ed HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/egrep HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/false HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/fatattr HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/fdflush HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/fgrep HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/fsync HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/getopt HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/grep HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/gunzip HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/gzip HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/hostname HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/ionice HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/iostat HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/ipcalc HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/kbd_mode HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/kill HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/link HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/linux32 HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:35] "GET /bin/linux64 HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/ln HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/login HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/ls HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/lzop HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/makemime HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mkdir HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mknod HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mktemp HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/more HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mount HTTP/1.1" 404 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mountpoint HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mpstat HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/mv HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/netstat HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/nice HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/pidof HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/ping HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/ping6 HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/pipe_progress HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/printenv HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/ps HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/pwd HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/rc-status HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/reformime HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/rev HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/rm HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/rmdir HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/run-parts HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/sed HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/setpriv HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/setserial HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/sh HTTP/1.1" 200 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/sleep HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/stat HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/stty HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/su HTTP/1.1" 404 -             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/sync HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/tar HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/touch HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/true HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/umount HTTP/1.1" 404 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/uname HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/uniso HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/usleep HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/watch HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /bin/zcat HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /dev/null HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /dev/pts/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /dev/shm/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/acpi/ HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/alpine-release HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/apk/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/conf.d/ HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/crontabs/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/fstab HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/group HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/hostname HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/hosts HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/init.d/ HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/inittab HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/issue HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/lbu/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/local.d/ HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/logrotate.d/ HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/mdev.conf HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/modprobe.d/ HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/modules HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/modules-load.d/ HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/motd HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/mtab HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/network/ HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/opt/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/os-release HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/passwd HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/periodic/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/profile HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/profile.d/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/protocols HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/rc.conf HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/runlevels/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/securetty HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/services HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/shadow HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/shells HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/ssl/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/sysctl.conf HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/sysctl.d/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /etc/udhcpd.conf HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/apk/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/dasd-functions.sh HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/firmware/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/ld-musl-i386.so.1 HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/libalpine.sh HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/libc.musl-x86.so.1 HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:36] "GET /lib/libcrypto.so.1.1 HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/libeinfo.so.1 HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/librc.so.1 HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/libssl.so.1.1 HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/libz.so.1 HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/libz.so.1.2.11 HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/mdev/ HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /lib/rc/ HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /media/cdrom/ HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /media/floppy/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /media/usb/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/acpid HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/adjtimex HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/apk HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/arp HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/blkid HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/blockdev HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/depmod HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/fbsplash HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/fdisk HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/findfs HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/fsck HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/fstrim HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/getty HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/halt HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/hdparm HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/hwclock HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ifconfig HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ifdown HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ifenslave HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ifup HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/init HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/inotifyd HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/insmod HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ip HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ipaddr HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/iplink HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/ipneigh HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/iproute HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/iprule HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/iptunnel HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/klogd HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/lbu HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/lbu_commit HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/lbu_exclude HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/lbu_include HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:37] "GET /sbin/lbu_status HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/lbu_update HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/ldconfig HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/loadkmap HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/logread HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/losetup HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/lsmod HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/mdev HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/mkdosfs HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/mkfs.vfat HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/mkmntdirs HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/mkswap HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/modinfo HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/modprobe HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/nameif HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/nologin HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/openrc HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/openrc-init HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/openrc-run HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/openrc-shutdown HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/poweroff HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/raidautorun HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/rc HTTP/1.1" 200 -            
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/rc-service HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:38] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/rc-sstat HTTP/1.1" 404 -      
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/rc-update HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/reboot HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/rmmod HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/route HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:38] "GET /sbin/runscript HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:39] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/service HTTP/1.1" 404 -       
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setconsole HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-acf HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-alpine HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-apkcache HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-apkrepos HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-bootable HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:39] "GET /sbin/setup-disk HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-dns HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-gparted-desktop HTTP/1.1" 200 -                                                                         
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-hostname HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-interfaces HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-keymap HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-lbu HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:40] "GET /sbin/setup-mta HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-ntp HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-proxy HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-sshd HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-timezone HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-xen-dom0 HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/setup-xorg-base HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/slattach HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/start-stop-daemon HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:41] "GET /sbin/supervise-daemon HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/swapoff HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/swapon HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/switch_root HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/sysctl HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/syslogd HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/tunctl HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/udhcpc HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/update-conf HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/update-kernel HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/vconfig HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /sbin/watchdog HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /usr/bin/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /usr/lib/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:42] "GET /usr/local/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /usr/sbin/ HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /usr/share/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /var/cache/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /var/empty/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /var/lib/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /var/local/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:43] "GET /var/lock/ HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/log/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/mail/ HTTP/1.1" 200 -          
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/opt/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/run/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/spool/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:44] "GET /var/tmp/ HTTP/1.1" 200 -           
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/acpi/PWRF/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/apk/arch HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/apk/keys/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/apk/protected_paths.d/ HTTP/1.1" 200 -                                                                         
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/apk/repositories HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/apk/world HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/conf.d/agetty HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:45] "GET /etc/conf.d/bootmisc HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/consolefont HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/crond HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/devfs HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/dmesg HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/fsck HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/hostname HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/hwclock HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/killprocs HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/klogd HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/loadkmap HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/localmount HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/modloop HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/modules HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/mtab HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/net-online HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/netmount HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/ntpd HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/rdate HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/staticroute HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/swap HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/syslog HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/urandom HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/conf.d/watchdog HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/crontabs/root HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/init.d/acpid HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/init.d/agetty HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/init.d/binfmt HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:46] "GET /etc/init.d/bootmisc HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/cgroups HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/consolefont HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/crond HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/devfs HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/dmesg HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/dnsd HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/firstboot HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/fsck HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:47] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/functions.sh HTTP/1.1" 404 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/hostname HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/httpd HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/hwclock HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/hwdrivers HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/inetd HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/killprocs HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/klogd HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/loadkmap HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/local HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/localmount HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/loopback HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/mdev HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/modloop HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/modules HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/mount-ro HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/mtab HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/net-online HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/netmount HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/networking HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/ntpd HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/numlock HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/osclock HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/procfs HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:47] "GET /etc/init.d/rdate HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:48] "GET /etc/init.d/root HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:49] "GET /etc/init.d/runsvdir HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:49] "GET /etc/init.d/s6-svscan HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:49] "GET /etc/init.d/save-keymaps HTTP/1.1" 200 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:49] "GET /etc/init.d/save-termencoding HTTP/1.1" 200 -                                                                       
+10.10.14.14 - - [15/Jan/2020 05:59:49] "GET /etc/init.d/savecache HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/staticroute HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/swap HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/swclock HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/sysctl HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/sysfs HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/sysfsconf HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/syslog HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/termencoding HTTP/1.1" 200 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/udhcpd HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/urandom HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/init.d/watchdog HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/lbu/lbu.conf HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/local.d/README HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/logrotate.d/acpid HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/logrotate.d/openrc HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/modprobe.d/aliases.conf HTTP/1.1" 200 -                                                                        
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/modprobe.d/blacklist.conf HTTP/1.1" 200 -                                                                      
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/modprobe.d/i386.conf HTTP/1.1" 200 -                                                                           
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/modprobe.d/kms.conf HTTP/1.1" 200 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/network/if-down.d/ HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:50] "GET /etc/network/if-post-down.d/ HTTP/1.1" 200 -                                                                        
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/network/if-post-up.d/ HTTP/1.1" 200 -                                                                          
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/network/if-pre-down.d/ HTTP/1.1" 200 -                                                                         
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/network/if-pre-up.d/ HTTP/1.1" 200 -                                                                           
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/network/if-up.d/ HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/network/interfaces HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/periodic/15min/ HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/periodic/daily/ HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:51] "GET /etc/periodic/hourly/ HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/periodic/monthly/ HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/periodic/weekly/ HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/profile.d/color_prompt HTTP/1.1" 200 -                                                                         
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/profile.d/locale HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/runlevels/boot/ HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/runlevels/default/ HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/runlevels/nonetwork/ HTTP/1.1" 200 -                                                                           
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/runlevels/shutdown/ HTTP/1.1" 200 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/runlevels/sysinit/ HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/ssl/cert.pem HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/ssl/certs/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/ssl/ct_log_list.cnf HTTP/1.1" 200 -                                                                            
+10.10.14.14 - - [15/Jan/2020 05:59:52] "GET /etc/ssl/ct_log_list.cnf.dist HTTP/1.1" 200 -                                                                       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/ssl/misc/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/ssl/openssl.cnf HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/ssl/openssl.cnf.dist HTTP/1.1" 200 -                                                                           
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/ssl/private/ HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/sysctl.d/00-alpine.conf HTTP/1.1" 200 -                                                                        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /etc/sysctl.d/README HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/apk/db/ HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/mdev/dvbdev HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/mdev/ide_links HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/mdev/usbdev HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/mdev/usbdisk_link HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/mdev/xvd_links HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/rc/bin/ HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/rc/sbin/ HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/rc/sh/ HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/rc/tmp/ HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /lib/rc/version HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/%5B HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/%5B%5B HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/awk HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/basename HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/bc HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/beep HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/blkdiscard HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/bunzip2 HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/bzcat HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/bzip2 HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cal HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/chvt HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cksum HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/clear HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cmp HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/comm HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cpio HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/crontab HTTP/1.1" 404 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cryptpw HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/cut HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/dc HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/deallocvt HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/diff HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/dirname HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/dos2unix HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/du HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/dumpleases HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/eject HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/env HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/expand HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/expr HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/factor HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/fallocate HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/find HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/flock HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/fold HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/free HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/fuser HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/getconf HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/getent HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/groups HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/hd HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/head HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/hexdump HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/hostid HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/iconv HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/id HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/install HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/ipcrm HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/ipcs HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/killall HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/ldd HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/less HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/logger HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/lsof HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/lsusb HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/lzcat HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/lzma HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/lzopcat HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/md5sum HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/mesg HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/microcom HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/mkfifo HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/mkpasswd HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nc HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nl HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nmeter HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nohup HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nproc HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nsenter HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/nslookup HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/od HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/openvt HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/passwd HTTP/1.1" 404 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/paste HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/patch HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pgrep HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pkill HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pmap HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/printf HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pscan HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pstree HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/pwdx HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/readlink HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/realpath HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/renice HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/reset HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/resize HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/scanelf HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/seq HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/setkeycodes HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/setsid HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sha1sum HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sha256sum HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sha3sum HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sha512sum HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/showkey HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/shred HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/shuf HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/smemcap HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sort HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/split HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/ssl_client HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/strings HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/sum HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/tac HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/tail HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/tee HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/test HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/time HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/timeout HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/top HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/tr HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/traceroute HTTP/1.1" 404 - 
+10.10.14.14 - - [15/Jan/2020 05:59:53] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/traceroute6 HTTP/1.1" 404 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/truncate HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/tty HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/ttysize HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/udhcpc6 HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unexpand HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/uniq HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unix2dos HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unlink HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unlzma HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unlzop HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unshare HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unxz HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/unzip HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/uptime HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/uudecode HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/uuencode HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/vi HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:53] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/vlock HTTP/1.1" 404 -      
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/volname HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:53] "GET /usr/bin/wc HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/wget HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/which HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/whoami HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/whois HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/xargs HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/xxd HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/xz HTTP/1.1" 200 -         
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/xzcat HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/bin/yes HTTP/1.1" 200 -        
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/lib/engines-1.1/ HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/lib/libcrypto.so.1.1 HTTP/1.1" 200 -                                                                           
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/lib/libssl.so.1.1 HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/lib/libtls-standalone.so.1 HTTP/1.1" 200 -                                                                     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/lib/libtls-standalone.so.1.0.0 HTTP/1.1" 200 -                                                                 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/local/bin/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/local/lib/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/local/share/ HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/add-shell HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/addgroup HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/adduser HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/arping HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/brctl HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/chpasswd HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/chroot HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/crond HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/delgroup HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/deluser HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/ether-wake HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/fbset HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/fdformat HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/killall5 HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/loadfont HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/lspci HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/nanddump HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/nandwrite HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/nbd-client HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/ntpd HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/partprobe HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/powertop HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/rdate HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/rdev HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/readahead HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/readprofile HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/remove-shell HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/rfkill HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/sendmail HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/setfont HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/sbin/setlogcons HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/alpine-mirrors/ HTTP/1.1" 200 -                                                                          
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/apk/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/man/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/misc/ HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/openrc/ HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /usr/share/udhcpc/ HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/cache/apk/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/cache/misc/ HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/lib/apk/ HTTP/1.1" 200 -       
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/lib/misc/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/lib/udhcpd/ HTTP/1.1" 200 -    
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/lock/subsys/ HTTP/1.1" 200 -   
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/agetty.reload HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/alsa/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/avahi-daemon/ HTTP/1.1" 200 -                                                                              
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/blkid/ HTTP/1.1" 200 -     
+10.10.14.14 - - [15/Jan/2020 05:59:54] code 404, message File not found         
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/charon.ctl HTTP/1.1" 404 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/charon.pid HTTP/1.1" 200 - 
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/console-setup/ HTTP/1.1" 200 -                                                                             
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/crond.pid HTTP/1.1" 200 -  
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/crond.reboot HTTP/1.1" 200 -                                                                               
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/cryptsetup/ HTTP/1.1" 200 -                                                                                
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/dbus/ HTTP/1.1" 200 -      
+10.10.14.14 - - [15/Jan/2020 05:59:54] "GET /var/run/dmeventd-client HTTP/1.1" 200 -                                                                            
+^C----------------------------------------                                      
+Exception happened during processing of request from ('10.10.14.14', 46202)     
+Traceback (most recent call last):      
+  File "/usr/lib/python2.7/SocketServer.py", line 293, in _handle_request_noblock                                                                               
+    self.process_request(request, client_address)                               
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request       
+    self.finish_request(request, client_address)                                
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request        
+    self.RequestHandlerClass(request, client_address, self)                     
+  File "/usr/lib/python2.7/SocketServer.py", line 655, in __init__              
+    self.handle()                       
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle              
+    self.handle_one_request()           
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 328, in handle_one_request  
+    method()                            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 48, in do_GET             
+    self.copyfile(f, self.wfile)        
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 192, in copyfile          
+    shutil.copyfileobj(source, outputfile)                                      
+  File "/usr/lib/python2.7/shutil.py", line 63, in copyfileobj                  
+    buf = fsrc.read(length)             
+KeyboardInterrupt                       
+----------------------------------------                                        
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# python -m SimpleHTTPServer   
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.27 - - [15/Jan/2020 06:05:10] "GET / HTTP/1.1" 200 -                   
+10.10.10.27 - - [15/Jan/2020 06:06:22] code 404, message File not found         
+10.10.10.27 - - [15/Jan/2020 06:06:22] "GET /alpine-v3.11-i686-20200115_0409.tar.gz HTTP/1.1" 404 -                                                             
+10.10.10.27 - - [15/Jan/2020 06:07:12] "GET / HTTP/1.1" 200 -                   
+10.10.10.27 - - [15/Jan/2020 06:08:09] "GET / HTTP/1.1" 200 -                   
+10.10.10.27 - - [15/Jan/2020 06:08:09] code 404, message File not found         
+10.10.10.27 - - [15/Jan/2020 06:08:09] "GET /robots.txt HTTP/1.1" 404 -         
+10.10.10.27 - - [15/Jan/2020 06:08:10] "GET /bin/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:11] "GET /dev/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:11] "GET /etc/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:12] "GET /home/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:08:12] "GET /lib/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:13] "GET /media/ HTTP/1.1" 200 -             
+10.10.10.27 - - [15/Jan/2020 06:08:14] "GET /mnt/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:15] "GET /opt/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:15] "GET /proc/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:08:16] "GET /root/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:08:16] "GET /run/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:08:17] "GET /sbin/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:09:54] "GET /srv/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:09:54] "GET /sys/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:09:55] "GET /tmp/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:09:56] "GET /usr/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:09:56] "GET /var/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:09:57] "GET /bin/arch HTTP/1.1" 200 -           
+----------------------------------------                                        
+Exception happened during processing of request from ('10.10.10.27', 55952)     
+Traceback (most recent call last):      
+  File "/usr/lib/python2.7/SocketServer.py", line 293, in _handle_request_noblock                                                                               
+    self.process_request(request, client_address)                               
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request       
+    self.finish_request(request, client_address)                                
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request        
+    self.RequestHandlerClass(request, client_address, self)                     
+  File "/usr/lib/python2.7/SocketServer.py", line 657, in __init__              
+    self.finish()                       
+  File "/usr/lib/python2.7/SocketServer.py", line 716, in finish                
+    self.wfile.close()                  
+  File "/usr/lib/python2.7/socket.py", line 283, in close                       
+    self.flush()                        
+  File "/usr/lib/python2.7/socket.py", line 307, in flush                       
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])             
+error: [Errno 32] Broken pipe           
+----------------------------------------                                        
+10.10.10.27 - - [15/Jan/2020 06:25:43] "GET / HTTP/1.1" 200 -                   
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs# python -m SimpleHTTPServer   
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.27 - - [15/Jan/2020 06:33:38] "GET / HTTP/1.1" 200 -                   
+10.10.10.27 - - [15/Jan/2020 06:33:39] code 404, message File not found         
+10.10.10.27 - - [15/Jan/2020 06:33:39] "GET /robots.txt HTTP/1.1" 404 -         
+10.10.10.27 - - [15/Jan/2020 06:33:39] "GET /bin/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:40] "GET /dev/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:41] "GET /etc/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:41] "GET /home/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:33:42] "GET /lib/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:42] "GET /media/ HTTP/1.1" 200 -             
+10.10.10.27 - - [15/Jan/2020 06:33:43] "GET /mnt/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:44] "GET /opt/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:44] "GET /proc/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:33:45] "GET /root/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:33:45] "GET /run/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:33:46] "GET /sbin/ HTTP/1.1" 200 -              
+10.10.10.27 - - [15/Jan/2020 06:34:48] "GET /srv/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:34:49] "GET /sys/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:34:50] "GET /tmp/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:34:50] "GET /usr/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:34:51] "GET /var/ HTTP/1.1" 200 -               
+10.10.10.27 - - [15/Jan/2020 06:34:52] "GET /bin/arch HTTP/1.1" 200 -           
+^C----------------------------------------                                      
+Exception happened during processing of request from ('10.10.10.27', 56008)     
+Traceback (most recent call last):      
+  File "/usr/lib/python2.7/SocketServer.py", line 293, in _handle_request_noblock                                                                               
+    self.process_request(request, client_address)                               
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request       
+    self.finish_request(request, client_address)                                
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request        
+    self.RequestHandlerClass(request, client_address, self)                     
+  File "/usr/lib/python2.7/SocketServer.py", line 655, in __init__              
+    self.handle()                       
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle              
+    self.handle_one_request()           
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 328, in handle_one_request  
+    method()                            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 48, in do_GET             
+    self.copyfile(f, self.wfile)        
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 192, in copyfile          
+    shutil.copyfileobj(source, outputfile)                                      
+  File "/usr/lib/python2.7/shutil.py", line 66, in copyfileobj                  
+    fdst.write(buf)                     
+  File "/usr/lib/python2.7/socket.py", line 328, in write                       
+    self.flush()                        
+  File "/usr/lib/python2.7/socket.py", line 307, in flush                       
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])             
+KeyboardInterrupt                       
+----------------------------------------                                        
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:/opt/lxd-alpine-builder/apline/rootfs#                              

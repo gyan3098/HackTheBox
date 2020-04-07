@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Thu Jan 16 07:26:50 2020 as: nmap -sC -sV -oA nmap/ariekei 10.10.10.65
+Host: 10.10.10.65 ()	Status: Up
+Host: 10.10.10.65 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)/, 443/open/tcp//ssl|https//nginx|1.10.2/, 1022/open/tcp//ssh//OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.8 (Ubuntu Linux; protocol 2.0)/	Ignored State: closed (997)
+# Nmap done at Thu Jan 16 07:29:13 2020 -- 1 IP address (1 host up) scanned in 142.42 seconds

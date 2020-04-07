@@ -1,0 +1,171 @@
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #ls                               
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #mkdir nmap                       
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #nmap -sC -sV -oA nmap/haircut 10.10.10.24                                
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-09 10:44 EST                
+Nmap scan report for 10.10.10.24       
+Host is up (0.18s latency).            
+Not shown: 998 closed ports            
+PORT   STATE SERVICE VERSION           
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)                                                                              
+| ssh-hostkey:                         
+|   2048 e9:75:c1:e4:b3:63:3c:93:f2:c6:18:08:36:48:ce:36 (RSA)                 
+|   256 87:00:ab:a9:8f:6f:4b:ba:fb:c6:7a:55:a8:60:b2:68 (ECDSA)                
+|_  256 b6:1b:5c:a9:26:5c:dc:61:b7:75:90:6c:88:51:6e:54 (ED25519)              
+80/tcp open  http    nginx 1.10.0 (Ubuntu)                                     
+|_http-server-header: nginx/1.10.0 (Ubuntu)                                    
+|_http-title:  HTB Hairdresser         
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                        
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                 
+Nmap done: 1 IP address (1 host up) scanned in 43.52 seconds                   
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #gobuster dir -u http://10.10.10.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                       
+===============================================================                
+Gobuster v3.0.1                        
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                
+===============================================================                
+[+] Url:            http://10.10.10.24 
+[+] Threads:        10                 
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                                               
+[+] Status codes:   200,204,301,302,307,401,403                                
+[+] User Agent:     gobuster/3.0.1     
+[+] Timeout:        10s                
+===============================================================                
+2020/01/09 10:48:27 Starting gobuster  
+===============================================================                
+/uploads (Status: 301)                 
+[ERROR] 2020/01/09 10:58:02 [!] Get http://10.10.10.24/banner_top: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 10:58:08 [!] Get http://10.10.10.24/dokumentation: net/http: request canceled (Client.Timeout exceeded while awaiting headers)              
+[ERROR] 2020/01/09 10:58:11 [!] Get http://10.10.10.24/dul: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 10:58:11 [!] Get http://10.10.10.24/160-siliconextra: net/http: request canceled (Client.Timeout exceeded while awaiting headers)           
+[ERROR] 2020/01/09 10:58:11 [!] Get http://10.10.10.24/334-cheatsheets: net/http: request canceled (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/09 10:58:11 [!] Get http://10.10.10.24/MediaKit: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 10:58:12 [!] Get http://10.10.10.24/334-casestudies: net/http: request canceled (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/09 10:58:12 [!] Get http://10.10.10.24/xbm: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 10:58:20 [!] Get http://10.10.10.24/shakeit: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 10:58:21 [!] Get http://10.10.10.24/xbq: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 10:58:21 [!] Get http://10.10.10.24/feather: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 10:58:22 [!] Get http://10.10.10.24/0091: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:22 [!] Get http://10.10.10.24/0100: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:22 [!] Get http://10.10.10.24/0083: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:24 [!] Get http://10.10.10.24/loupe: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 10:58:26 [!] Get http://10.10.10.24/0055: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:28 [!] Get http://10.10.10.24/oscar: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 10:58:30 [!] Get http://10.10.10.24/0129: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:31 [!] Get http://10.10.10.24/0130: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:31 [!] Get http://10.10.10.24/FP: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+[ERROR] 2020/01/09 10:58:32 [!] Get http://10.10.10.24/button_enlarge: net/http: request canceled (Client.Timeout exceeded while awaiting headers)             
+[ERROR] 2020/01/09 10:58:40 [!] Get http://10.10.10.24/Hide: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 10:58:41 [!] Get http://10.10.10.24/mar3launch: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:00:41 [!] Get http://10.10.10.24/EC: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+[ERROR] 2020/01/09 11:00:47 [!] Get http://10.10.10.24/struct: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:00:48 [!] Get http://10.10.10.24/3453: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:00:48 [!] Get http://10.10.10.24/200410: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:00:49 [!] Get http://10.10.10.24/SB: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+[ERROR] 2020/01/09 11:00:56 [!] Get http://10.10.10.24/6653: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:00:58 [!] Get http://10.10.10.24/itr: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:01:01 [!] Get http://10.10.10.24/perso: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 11:01:02 [!] Get http://10.10.10.24/Video-Games: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/09 11:01:03 [!] Get http://10.10.10.24/may06: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 11:01:06 [!] Get http://10.10.10.24/passwdqc: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:01:10 [!] Get http://10.10.10.24/menu_arrow: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:01:13 [!] Get http://10.10.10.24/menu_end: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:01:14 [!] Get http://10.10.10.24/profit: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:01:14 [!] Get http://10.10.10.24/layoffs: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:01:22 [!] Get http://10.10.10.24/squidoo: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:01:24 [!] Get http://10.10.10.24/sic: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:01:24 [!] Get http://10.10.10.24/bz: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+[ERROR] 2020/01/09 11:01:33 [!] Get http://10.10.10.24/bread: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 11:01:34 [!] Get http://10.10.10.24/chart1: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:01:42 [!] Get http://10.10.10.24/index_9: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:01:47 [!] Get http://10.10.10.24/sag: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:01:52 [!] Get http://10.10.10.24/6661: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:02:12 [!] Get http://10.10.10.24/tallahassee: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/09 11:03:04 [!] Get http://10.10.10.24/hamachi: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:03:23 [!] Get http://10.10.10.24/xserve: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:03:26 [!] Get http://10.10.10.24/log_in: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:03:37 [!] Get http://10.10.10.24/Academic: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:04:30 [!] Get http://10.10.10.24/wordpress-plugins: net/http: request canceled (Client.Timeout exceeded while awaiting headers)          
+[ERROR] 2020/01/09 11:04:30 [!] Get http://10.10.10.24/housekeeping: net/http: request canceled (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/09 11:04:34 [!] Get http://10.10.10.24/msg00093: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:04:36 [!] Get http://10.10.10.24/journalist: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:04:36 [!] Get http://10.10.10.24/0709: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:04:36 [!] Get http://10.10.10.24/Latest_News: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/09 11:04:36 [!] Get http://10.10.10.24/motoryzacja: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                
+[ERROR] 2020/01/09 11:04:37 [!] Get http://10.10.10.24/donald-melanson: net/http: request canceled (Client.Timeout exceeded while awaiting headers)            
+[ERROR] 2020/01/09 11:04:38 [!] Get http://10.10.10.24/caption: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:04:38 [!] Get http://10.10.10.24/Sessions: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:04:40 [!] Get http://10.10.10.24/B1: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                         
+[ERROR] 2020/01/09 11:04:44 [!] Get http://10.10.10.24/20093: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                      
+[ERROR] 2020/01/09 11:04:46 [!] Get http://10.10.10.24/psw: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:04:46 [!] Get http://10.10.10.24/0803: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:04:46 [!] Get http://10.10.10.24/callback: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:04:52 [!] Get http://10.10.10.24/3773: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+[ERROR] 2020/01/09 11:04:55 [!] Get http://10.10.10.24/ontrack: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:04:57 [!] Get http://10.10.10.24/4158: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                       
+Progress: 21212 / 220561 (9.62%)^C     
+[!] Keyboard interrupt detected, terminating.                                  
+===============================================================                
+2020/01/09 11:05:07 Finished           
+===============================================================                
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #gobuster dir -u http://10.10.10.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php -t 20                                          
+===============================================================                
+Gobuster v3.0.1                        
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)                
+===============================================================                
+[+] Url:            http://10.10.10.24 
+[+] Threads:        20                 
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                                               
+[+] Status codes:   200,204,301,302,307,401,403                                
+[+] User Agent:     gobuster/3.0.1     
+[+] Extensions:     php                
+[+] Timeout:        10s                
+===============================================================                
+2020/01/09 11:05:30 Starting gobuster  
+===============================================================                
+/uploads (Status: 301)                 
+[ERROR] 2020/01/09 11:06:11 [!] Get http://10.10.10.24/strona_7: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:09:10 [!] Get http://10.10.10.24/t1.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:09:10 [!] Get http://10.10.10.24/oracle.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:09:15 [!] Get http://10.10.10.24/183.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:09:15 [!] Get http://10.10.10.24/photoshop: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/09 11:09:15 [!] Get http://10.10.10.24/Forums: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                     
+[ERROR] 2020/01/09 11:09:15 [!] Get http://10.10.10.24/212.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:09:31 [!] Get http://10.10.10.24/ps3.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:11:53 [!] Get http://10.10.10.24/button2: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                    
+[ERROR] 2020/01/09 11:13:05 [!] Get http://10.10.10.24/les: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:16:37 [!] Get http://10.10.10.24/contributing: net/http: request canceled (Client.Timeout exceeded while awaiting headers)               
+[ERROR] 2020/01/09 11:16:37 [!] Get http://10.10.10.24/pres.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:16:40 [!] Get http://10.10.10.24/mem: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:16:42 [!] Get http://10.10.10.24/new2.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:16:48 [!] Get http://10.10.10.24/employees: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/09 11:16:48 [!] Get http://10.10.10.24/cip: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                        
+[ERROR] 2020/01/09 11:16:49 [!] Get http://10.10.10.24/reputation: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:18:04 [!] Get http://10.10.10.24/anti_virus: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+[ERROR] 2020/01/09 11:18:04 [!] Get http://10.10.10.24/tshirt-9b: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                  
+[ERROR] 2020/01/09 11:18:29 [!] Get http://10.10.10.24/pr27.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:18:32 [!] Get http://10.10.10.24/2753.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                   
+[ERROR] 2020/01/09 11:18:38 [!] Get http://10.10.10.24/procfs.php: net/http: request canceled (Client.Timeout exceeded while awaiting headers)                 
+Progress: 7116 / 220561 (3.23%)^C      
+[!] Keyboard interrupt detected, terminating.                                  
+===============================================================                
+2020/01/09 11:18:59 Finished           
+===============================================================                
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #cd www                                                                                                                                                   
+┌─[root@parrot]─[~/hackthebox/haircut/www]                                     
+└──╼ #cp /opt/linux_privsec/LinEnum.sh .                                       
+┌─[root@parrot]─[~/hackthebox/haircut/www]                                     
+└──╼ #ls                               
+LinEnum.sh  reverse.php  shell.php     
+┌─[root@parrot]─[~/hackthebox/haircut/www]                                     
+└──╼ #cd ..                            
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #ls                               
+libhax.c  nmap  rootshell.c  shell.sh  www                                     
+┌─[root@parrot]─[~/hackthebox/haircut] 
+└──╼ #                                 

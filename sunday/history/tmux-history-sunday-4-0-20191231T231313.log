@@ -1,0 +1,246 @@
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #cd /opt/SecLists/                 
+┌─[root@parrot]─[/opt/SecLists]         
+└──╼ #ls                                
+CONTRIBUTING.md  CONTRIBUTORS.md  Discovery  Fuzzing  IOCs  LICENSE  Miscellaneous  Passwords  Pattern-Matching  Payloads  README.md  Usernames  Web-Shells     
+┌─[root@parrot]─[/opt/SecLists]         
+└──╼ #cd Passwords/                     
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #ls                                
+bt4-password.txt            der-postillon.txt                       probable-v2-top12000.txt       url-to-download-passwords.md                                 
+cirt-default-passwords.txt  dutch_wordlist                          probable-v2-top1575.txt        UserPassCombo-Jay.txt
+clarkson-university-82.txt  Honeypot-Captures                       probable-v2-top207.txt         WiFi-WPA             
+Common-Credentials          Keyboard-Combinations.txt               README.md                      xato-net-10-million-passwords-1000000.txt                    
+Cracked-Hashes              Leaked-Databases                        richelieu-french-top20000.txt  xato-net-10-million-passwords-100000.txt                     
+darkc0de.txt                Malware                                 richelieu-french-top5000.txt   xato-net-10-million-passwords-10000.txt                      
+darkweb2017-top10000.txt    Most-Popular-Letter-Passes.txt          SCRABBLE-hackerhouse.tgz       xato-net-10-million-passwords-1000.txt                       
+darkweb2017-top1000.txt     mssql-passwords-nansh0u-guardicore.txt  Software                       xato-net-10-million-passwords-100.txt                        
+darkweb2017-top100.txt      openwall.net-all.txt                    stupid-ones-in-production.txt  xato-net-10-million-passwords-10.txt                         
+darkweb2017-top10.txt       Permutations                            twitter-banned.txt             xato-net-10-million-passwords-dup.txt                        
+Default-Credentials         PHP-Magic-Hashes.txt                    unkown-azul.txt                xato-net-10-million-passwords.txt                            
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #find . -type f -exec wc -l {} \; | sort -nr                               
+5189454 ./xato-net-10-million-passwords.txt                                     
+3721224 ./openwall.net-all.txt          
+3431316 ./Leaked-Databases/md5decryptor-uk.txt                                  
+3132006 ./Leaked-Databases/alleged-gmail-passwords.txt                          
+1652903 ./bt4-password.txt              
+1471056 ./darkc0de.txt                  
+1000000 ./xato-net-10-million-passwords-1000000.txt                             
+999999 ./Common-Credentials/10-million-password-list-top-1000000.txt            
+755995 ./xato-net-10-million-passwords-dup.txt                                  
+720302 ./Leaked-Databases/000webhost.txt                                        
+679006 ./dutch_wordlist                 
+375853 ./Leaked-Databases/Ashley-Madison.txt                                    
+306706 ./Software/cain-and-abel.txt     
+226928 ./Leaked-Databases/honeynet-withcount.txt                                
+226928 ./Leaked-Databases/honeynet2.txt 
+226081 ./Leaked-Databases/honeynet.txt  
+213627 ./Leaked-Databases/rockyou.txt.tar.gz                                    
+212904 ./Leaked-Databases/rockyou-withcount.txt.tar.gz                          
+184389 ./Leaked-Databases/phpbb-withcount.txt                                   
+184388 ./Leaked-Databases/phpbb.txt     
+184364 ./Leaked-Databases/phpbb-cleaned-up.txt                                  
+172696 ./mssql-passwords-nansh0u-guardicore.txt                                 
+105096 ./Honeypot-Captures/multiplesources-passwords-fabian-fingerle.de.txt     
+100000 ./xato-net-10-million-passwords-100000.txt                               
+100000 ./Common-Credentials/10-million-password-list-top-100000.txt             
+100000 ./Common-Credentials/100k-most-used-passwords-NCSC.txt                   
+95073 ./Leaked-Databases/muslimMatch-withcount.txt                              
+95072 ./Leaked-Databases/muslimMatch.txt                                        
+84195 ./Cracked-Hashes/milw0rm-dictionary.txt                                   
+59186 ./Leaked-Databases/rockyou-75.txt 
+51286 ./Honeypot-Captures/python-heralding-sep2019.txt                          
+47603 ./Most-Popular-Letter-Passes.txt  
+42660 ./Leaked-Databases/rockyou-70.txt 
+38820 ./Leaked-Databases/tuscl.txt      
+37144 ./Leaked-Databases/myspace-withcount.txt                                  
+37126 ./Leaked-Databases/myspace.txt    
+30289 ./Leaked-Databases/rockyou-65.txt 
+21040 ./Leaked-Databases/rockyou-60.txt 
+20000 ./richelieu-french-top20000.txt   
+14235 ./Leaked-Databases/rockyou-55.txt 
+12877 ./SCRABBLE-hackerhouse.tgz        
+12864 ./Leaked-Databases/bible-withcount.txt                                    
+12645 ./probable-v2-top12000.txt        
+12570 ./Leaked-Databases/bible.txt      
+12234 ./Leaked-Databases/singles.org-withcount.txt                              
+12233 ./Leaked-Databases/singles.org.txt                                        
+11781 ./Leaked-Databases/Lizard-Squad.txt                                       
+10000 ./xato-net-10-million-passwords-10000.txt                                 
+10000 ./Common-Credentials/four-digit-pin-codes-sorted-by-frequency-withcount.csv                   
+10000 ./Common-Credentials/10-million-password-list-top-10000.txt               
+10000 ./Common-Credentials/10k-most-common.txt                                  
+9999 ./darkweb2017-top10000.txt         
+9604 ./Keyboard-Combinations.txt        
+9437 ./Leaked-Databases/rockyou-50.txt  
+8930 ./Leaked-Databases/hotmail.txt     
+8348 ./Leaked-Databases/faithwriters-withcount.txt                              
+8345 ./Leaked-Databases/faithwriters.txt                                        
+8089 ./Leaked-Databases/porn-unknown-withcount.txt                              
+8088 ./Leaked-Databases/porn-unknown.txt                                        
+6163 ./Leaked-Databases/rockyou-45.txt  
+5000 ./richelieu-french-top5000.txt     
+4800 ./WiFi-WPA/probable-v2-wpa-top4800.txt                                     
+4064 ./Leaked-Databases/youporn2012.txt 
+4062 ./Leaked-Databases/youporn2012-raw.txt                                     
+3957 ./Leaked-Databases/rockyou-40.txt  
+3916 ./unkown-azul.txt                  
+3106 ./Software/john-the-ripper.txt     
+2850 ./Default-Credentials/default-passwords.csv                                
+2506 ./Leaked-Databases/rockyou-35.txt  
+2351 ./Leaked-Databases/hak5-withcount.txt                                      
+2351 ./Leaked-Databases/hak5.txt        
+1904 ./Leaked-Databases/carders.cc.txt  
+1575 ./probable-v2-top1575.txt          
+1556 ./Leaked-Databases/rockyou-30.txt  
+1476 ./Leaked-Databases/izmy.txt        
+1152 ./Permutations/korelogic-password.txt                                      
+1134 ./Permutations/1337speak.txt       
+1049 ./Common-Credentials/best1050.txt  
+1032 ./cirt-default-passwords.txt       
+1000 ./xato-net-10-million-passwords-1000.txt                                   
+1000 ./Common-Credentials/10-million-password-list-top-1000.txt                 
+999 ./darkweb2017-top1000.txt           
+929 ./Leaked-Databases/rockyou-25.txt   
+895 ./Leaked-Databases/elitehacker-withcount.txt                                
+895 ./Leaked-Databases/elitehacker.txt  
+815 ./Common-Credentials/common-passwords-win.txt                               
+727 ./UserPassCombo-Jay.txt             
+716 ./Default-Credentials/oracle-betterdefaultpasslist.txt                      
+560 ./Default-Credentials/telnet-phenoelit.txt                                  
+512 ./Leaked-Databases/rockyou-20.txt   
+500 ./Common-Credentials/10-million-password-list-top-500.txt                   
+499 ./Common-Credentials/500-worst-passwords.txt                                
+447 ./WiFi-WPA/probable-v2-wpa-top447.txt                                       
+397 ./twitter-banned.txt                
+249 ./Leaked-Databases/rockyou-15.txt   
+249 ./Default-Credentials/Oracle EBS userlist.txt                               
+249 ./Default-Credentials/Oracle EBS passwordlist.txt                           
+207 ./probable-v2-top207.txt            
+181 ./Malware/conficker.txt             
+173 ./Common-Credentials/medical-devices.txt                                    
+146 ./Default-Credentials/telnet-betterdefaultpasslist.txt                      
+131 ./Default-Credentials/ssh-betterdefaultpasslist.txt                         
+112 ./Default-Credentials/scada-pass.csv                                        
+110 ./Common-Credentials/best110.txt    
+100 ./xato-net-10-million-passwords-100.txt                                     
+100 ./Leaked-Databases/adobe100.txt     
+100 ./Common-Credentials/worst-passwords-2017-top100-slashdata.txt              
+100 ./Common-Credentials/10-million-password-list-top-100.txt                   
+99 ./darkweb2017-top100.txt             
+92 ./Leaked-Databases/rockyou-10.txt    
+82 ./clarkson-university-82.txt         
+79 ./Default-Credentials/tomcat-betterdefaultpasslist.txt                       
+72 ./Permutations/password-permutations.txt                                     
+66 ./Default-Credentials/mssql-betterdefaultpasslist.txt                        
+66 ./Default-Credentials/ftp-betterdefaultpasslist.txt                          
+62 ./WiFi-WPA/probable-v2-wpa-top62.txt 
+60 ./Malware/mirai-botnet.txt           
+41 ./Default-Credentials/vnc-betterdefaultpasslist.txt                          
+27 ./Default-Credentials/windows-betterdefaultpasslist.txt                      
+25 ./PHP-Magic-Hashes.txt               
+25 ./Common-Credentials/top-passwords-shortlist.txt                             
+25 ./Common-Credentials/SplashData-2015-2.txt                                   
+25 ./Common-Credentials/SplashData-2015-1.txt                                   
+25 ./Common-Credentials/SplashData-2014.txt                                     
+23 ./Honeypot-Captures/Sucuri-Top-Wordpress-Passwords.txt                       
+23 ./Default-Credentials/mysql-betterdefaultpasslist.txt                        
+21 ./Common-Credentials/top-20-common-SSH-passwords.txt                         
+15 ./Common-Credentials/best15.txt      
+13 ./Leaked-Databases/rockyou-05.txt    
+10 ./xato-net-10-million-passwords-10.txt                                       
+10 ./Honeypot-Captures/wordpress-attacks-july2014.txt                           
+10 ./darkweb2017-top10.txt              
+8 ./Default-Credentials/postgres-betterdefaultpasslist.txt                      
+8 ./Default-Credentials/db2-betterdefaultpasslist.txt                           
+6 ./README.md                           
+4 ./stupid-ones-in-production.txt       
+3 ./url-to-download-passwords.md        
+1 ./der-postillon.txt                   
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #echo $TERM                        
+screen-256color                         
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #ssh -p 22022 sunny@10.10.10.76    
+ssh: connect to host 10.10.10.76 port 22022: No route to host                   
+┌─[✗]─[root@parrot]─[/opt/SecLists/Passwords]                                   
+└──╼ #ping 10.10.10.76                  
+PING 10.10.10.76 (10.10.10.76) 56(84) bytes of data.                            
+64 bytes from 10.10.10.76: icmp_seq=1 ttl=254 time=252 ms                       
+64 bytes from 10.10.10.76: icmp_seq=2 ttl=254 time=217 ms                       
+^C                                      
+--- 10.10.10.76 ping statistics ---     
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms                  
+rtt min/avg/max/mdev = 217.038/234.656/252.274/17.618 ms                        
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #ping 10.10.10.76                  
+PING 10.10.10.76 (10.10.10.76) 56(84) bytes of data.                            
+64 bytes from 10.10.10.76: icmp_seq=1 ttl=254 time=272 ms                       
+^[[A64 bytes from 10.10.10.76: icmp_seq=2 ttl=254 time=231 ms                   
+^C                                      
+--- 10.10.10.76 ping statistics ---     
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms                  
+rtt min/avg/max/mdev = 231.317/251.466/271.615/20.149 ms                        
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #ssh -p 22022 sunny@10.10.10.76    
+ssh: connect to host 10.10.10.76 port 22022: Connection timed out               
+┌─[✗]─[root@parrot]─[/opt/SecLists/Passwords]                                   
+└──╼ #echo $TERM                        
+screen-256color                         
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #cd -                              
+/opt/SecLists                           
+┌─[root@parrot]─[/opt/SecLists]         
+└──╼ #cd -                              
+/opt/SecLists/Passwords                 
+┌─[root@parrot]─[/opt/SecLists/Passwords]                                       
+└──╼ #cd ~/hackthebox/sunday/           
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #ls                                
+nmap  sammy  ssh_credential             
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #vi ssh_credential                 
+┌─[root@parrot]─[~/hackthebox/sunday]   
+└──╼ #cd /srm                           
+-bash: cd: /srm: No such file or directory                                      
+┌─[✗]─[root@parrot]─[~/hackthebox/sunday]                                       
+└──╼ #cd /                              
+┌─[root@parrot]─[/]                     
+└──╼ #ls                                
+bin   dev  home        initrd.img.old  lib32  libx32      media  opt   root  sandbox  snap  sys       tmp  var      vmlinuz.old                                 
+boot  etc  initrd.img  lib             lib64  lost+found  mnt    proc  run   sbin     srv   tftpboot  usr  vmlinuz      
+┌─[root@parrot]─[/]                     
+└──╼ #mkdir /srv                        
+mkdir: cannot create directory ‘/srv’: File exists                              
+┌─[✗]─[root@parrot]─[/]                 
+└──╼ #cd srv/                           
+┌─[root@parrot]─[/srv]                  
+└──╼ #ls                                
+tftp                                    
+┌─[root@parrot]─[/srv]                  
+└──╼ #mkdir php                         
+┌─[root@parrot]─[/srv]                  
+└──╼ #cd php                            
+┌─[root@parrot]─[/srv/php]              
+└──╼ #ls                                
+┌─[root@parrot]─[/srv/php]              
+└──╼ #vi upload.php                     
+┌─[root@parrot]─[/srv/php]              
+└──╼ #vi upload.php                     
+┌─[root@parrot]─[/srv/php]              
+└──╼ #php -S 10.10.14.14:8001 -t .      
+PHP 7.3.12-1 Development Server started at Tue Dec 31 09:52:16 2019             
+Listening on http://10.10.14.14:8001    
+Document root is /srv/php               
+Press Ctrl-C to quit.                   
+[Tue Dec 31 09:57:04 2019] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /srv/php/upload.php on line 3                                       
+[Tue Dec 31 09:57:04 2019] 10.10.10.76:59144 [500]: /upload.php - syntax error, unexpected ';', expecting ')' in /srv/php/upload.php on line 3                  
+[Tue Dec 31 10:00:52 2019] PHP Warning:  Use of undefined constant filename - assumed 'filename' (this will throw an Error in a future version of PHP) in /srv/php/upload.php on line 2                 
+[Tue Dec 31 10:00:52 2019] PHP Notice:  Undefined index: filename in /srv/php/upload.php on line 2  
+[Tue Dec 31 10:00:52 2019] PHP Warning:  file_put_contents(uploads/): failed to open stream: Is a directory in /srv/php/upload.php on line 3                    
+[Tue Dec 31 10:00:52 2019] 10.10.10.76:35311 [200]: /upload.php                 
+[Tue Dec 31 10:05:17 2019] PHP Warning:  Use of undefined constant filename - assumed 'filename' (this will throw an Error in a future version of PHP) in /srv/php/upload.php on line 2                 
+[Tue Dec 31 10:05:17 2019] PHP Notice:  Undefined index: filename in /srv/php/upload.php on line 2  
+[Tue Dec 31 10:05:17 2019] PHP Warning:  file_put_contents(upload/): failed to open stream: Is a directory in /srv/php/upload.php on line 3                     
+[Tue Dec 31 10:05:17 2019] 10.10.10.76:55371 [200]: /upload.php                 

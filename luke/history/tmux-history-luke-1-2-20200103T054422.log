@@ -1,0 +1,79 @@
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #mkdir ftp     
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cd ftp/       
+┌─[root@parrot]─[~/hackthebox/luke/ftp] 
+└──╼ #ftp 10.10.10.137                  
+Connected to 10.10.10.137.              
+220 vsFTPd 3.0.3+ (ext.1) ready...      
+Name (10.10.10.137:root): anonymous     
+331 Please specify the password.        
+Password:           
+230 Login successful.                   
+Remote system type is UNIX.             
+Using binary mode to transfer files.    
+ftp> ls             
+200 PORT command successful. Consider using PASV.                               
+150 Here comes the directory listing.   
+drwxr-xr-x    2 0        0             512 Apr 14  2019 webapp                  
+226 Directory send OK.                  
+ftp> cd webapp      
+250 Directory successfully changed.     
+ftp> ls             
+200 PORT command successful. Consider using PASV.                               
+150 Here comes the directory listing.   
+-r-xr-xr-x    1 0        0             306 Apr 14  2019 for_Chihiro.txt         
+226 Directory send OK.                  
+ftp> get for_Chihiro.txt                
+local: for_Chihiro.txt remote: for_Chihiro.txt                                  
+200 PORT command successful. Consider using PASV.                               
+150 Opening BINARY mode data connection for for_Chihiro.txt (306 bytes).        
+226 Transfer complete.                  
+306 bytes received in 0.00 secs (5.4042 MB/s)                                   
+ftp> exit           
+221 Goodbye.        
+┌─[root@parrot]─[~/hackthebox/luke/ftp] 
+└──╼ #ls            
+for_Chihiro.txt     
+┌─[root@parrot]─[~/hackthebox/luke/ftp] 
+└──╼ #cat for_Chihiro.txt               
+Dear Chihiro !!     
+
+As you told me that you wanted to learn Web Development and Frontend, I can give you a little push by showing the sources of                                    
+the actual website I've created .       
+Normally you should know where to look but hurry up because I will delete them soon because of our security policies !  
+
+Derry               
+┌─[root@parrot]─[~/hackthebox/luke/ftp] 
+└──╼ #cd ..         
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi gobuster-out                   
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi gobuster-out                   
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cat gobuster-out                  
+#####on port 80#########                
+/login.php (Status: 200)                
+/member (Status: 301)                   
+/management (Status: 401)                                                       
+/vendor (Status: 301)                   
+/config.php (Status: 200)               
+/LICENSE (Status: 200)                  
+
+#####On port 3000######                 
+/login (Status: 200)                    
+/users (Status: 200)                    
+/Login (Status: 200)                    
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi gobuster-out                                                           
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #vi credential 
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #cat credential                    
+findings from config.php(port 80)       
+username  : root    
+password : Zk6heYCyv6ZE9Xcg             
+┌─[root@parrot]─[~/hackthebox/luke]     
+└──╼ #echo -n Zk6heYCyv6ZE9Xcg | base64 -d                                      
+fNyDw ┌─[root@parrot]─[~/hackthebox/luke]                                       
+└──╼ #              

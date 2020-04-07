@@ -1,0 +1,67 @@
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #vi ban-me.sh                   
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #curl -vvv 10.10.10.60          
+*   Trying 10.10.10.60:80...         
+* TCP_NODELAY set                    
+* Connected to 10.10.10.60 (10.10.10.60) port 80 (#0)                      
+> GET / HTTP/1.1                     
+> Host: 10.10.10.60                  
+> User-Agent: curl/7.67.0            
+> Accept: */*                        
+>                                    
+* Mark bundle as not supporting multiuse                                   
+< HTTP/1.1 301 Moved Permanently     
+< Location: https://10.10.10.60/     
+< Content-Length: 0                  
+< Date: Thu, 02 Jan 2020 12:36:52 GMT                                      
+< Server: lighttpd/1.4.35            
+<                                    
+* Connection #0 to host 10.10.10.60 left intact                            
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #ssh -h                         
+unknown option -- h                  
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]                  
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]     
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]      
+           [-i identity_file] [-J [user@]host[:port]] [-L address]         
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]                                                                            
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]     
+           [-w local_tun[:remote_tun]] destination [command]               
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #netstat -alnp | grep LIST | grep 1080                                
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #vi /etc/proxychains.conf       
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #proxychains curl -k 10.10.10.60
+ProxyChains-3.1 (http://proxychains.sf.net)                                
+|S-chain|-<>-127.0.0.1:1080-<--timeout                                     
+curl: (7) Couldn't connect to server 
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #proxychains curl -k https://10.10.10.60                              
+ProxyChains-3.1 (http://proxychains.sf.net)                                
+|S-chain|-<>-127.0.0.1:1080-<--timeout                                     
+curl: (7) Couldn't connect to server 
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #vi /etc/proxychains.conf                                                                                                                         
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #proxychains curl -k https://10.10.10.60                              
+ProxyChains-3.1 (http://proxychains.sf.net)                                
+|S-chain|-<>-127.0.0.1:1080-<--timeout                                     
+curl: (7) Couldn't connect to server 
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #proxychains curl -k https://10.10.10.60                              
+ProxyChains-3.1 (http://proxychains.sf.net)                                
+|S-chain|-<>-127.0.0.1:1080-<--timeout                                     
+curl: (7) Couldn't connect to server 
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ #proxychains curl -k https://10.10.10.60                              
+ProxyChains-3.1 (http://proxychains.sf.net)                                
+|S-chain|-<>-127.0.0.1:1080-<--timeout                                     
+curl: (7) Couldn't connect to server 
+┌─[✗]─[root@parrot]─[~/hackthebox/sense]                                   
+└──╼ # vi gobuster.out               
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #vi login_credentials           
+┌─[root@parrot]─[~/hackthebox/sense] 
+└──╼ #                                   

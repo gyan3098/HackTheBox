@@ -1,0 +1,75 @@
+root@parrot:~/hackthebox/holiday# vi holiday.js                                 
+root@parrot:~/hackthebox/holiday# python -m SimpleHTTPServer 8000               
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.25 - - [16/Jan/2020 15:51:58] "GET /holiday.js HTTP/1.1" 200 -         
+10.10.10.25 - - [16/Jan/2020 15:54:58] "GET /holiday.js HTTP/1.1" 200 -         
+10.10.10.25 - - [16/Jan/2020 15:59:59] "GET /holiday.js HTTP/1.1" 200 -         
+10.10.10.25 - - [16/Jan/2020 16:03:59] "GET /holiday.js HTTP/1.1" 200 -         
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/holiday# python -m SimpleHTTPServer 80                 
+Serving HTTP on 0.0.0.0 port 80 ...     
+10.10.10.25 - - [16/Jan/2020 16:06:59] "GET /holiday.js HTTP/1.1" 200 -         
+10.10.10.25 - - [16/Jan/2020 16:12:59] "GET /holiday.js HTTP/1.1" 200 -         
+10.10.10.25 - - [16/Jan/2020 16:15:59] "GET /holiday.js HTTP/1.1" 200 -         
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/holiday# mv ~/Downloads/export-notes-1579184867826 .   
+root@parrot:~/hackthebox/holiday# ping 0x0A0A0E0E                               
+PING 0x0A0A0E0E (10.10.14.14) 56(84) bytes of data.                             
+64 bytes from 10.10.14.14: icmp_seq=1 ttl=64 time=0.027 ms                      
+64 bytes from 10.10.14.14: icmp_seq=2 ttl=64 time=0.030 ms                      
+^C                                      
+--- 0x0A0A0E0E ping statistics ---      
+2 packets transmitted, 2 received, 0% packet loss, time 1008ms                  
+rtt min/avg/max/mdev = 0.027/0.028/0.030/0.001 ms                               
+root@parrot:~/hackthebox/holiday# vi shell                                      
+root@parrot:~/hackthebox/holiday# python -m SimpleHTTPServer 80                                                                                                  
+Serving HTTP on 0.0.0.0 port 80 ...     
+10.10.10.25 - - [16/Jan/2020 16:36:00] "GET /shell HTTP/1.1" 200 -              
+10.10.10.25 - - [16/Jan/2020 16:44:20] "GET /shell2 HTTP/1.1" 200 -             
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/holiday#       

@@ -1,0 +1,20 @@
+root@parrot:~/hackthebox/popcorn# vi torrent                                   
+root@parrot:~/hackthebox/popcorn# ls   
+gobuster.out  nmap  torrent            
+root@parrot:~/hackthebox/popcorn# cd ~/Downloads/                              
+root@parrot:~/Downloads# ls            
+ BloodHound-linux-x64.zip               ghidra_9.1.1_PUBLIC_20191218.zip                 LinuxDriver4Fedora_v2.5.0.3           wget-log                        
+ burpsuite_community_linux_v2_1_07.sh   google-chrome-stable_79.0.3945.117-1_amd64.deb   LinuxDriver4Fedora_v2.5.0.3.tar.bz2   wget-log.1                      
+'cacert(1).der'                         google-chrome-stable_current_amd64.deb           logo.png                              wicd-1.7.4.tar.gz               
+ cacert.der                             hotspotd-0.1.4                                   sidebar.jpeg                                                          
+'CasuS 1.5.php.jpeg'                    hotspotd-0.1.4.tar.gz                           'Telegram Desktop'                                                     
+ discord-0.0.9.deb                      kali-linux-2019.4-amd64.iso.torrent              tsetup.1.9.3.tar.xz                                                   
+root@parrot:~/Downloads# vi lol.torrent
+root@parrot:~/Downloads# vi kali-linux-2019.4-amd64.iso.torrent                
+root@parrot:~/Downloads# vi kali-linux-2019.4-amd64.iso.torrent                
+root@parrot:~/Downloads# vi lo         
+logo.png     lol.torrent               
+root@parrot:~/Downloads# vi lol.torrent                                        
+root@parrot:~/Downloads# file lol.torrent                                      
+lol.torrent: BitTorrent file           
+root@parrot:~/Downloads#               

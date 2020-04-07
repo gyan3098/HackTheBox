@@ -1,0 +1,13 @@
+# Nmap 7.80 scan initiated Mon Dec 30 21:55:45 2019 as: nmap -sC -sV -oA nmap/sunday 10.10.10.76
+Nmap scan report for 10.10.10.76
+Host is up (0.20s latency).
+Not shown: 997 closed ports
+PORT     STATE    SERVICE       VERSION
+79/tcp   open     finger        Sun Solaris fingerd
+|_finger: No one logged on\x0D
+111/tcp  open     rpcbind       2-4 (RPC #100000)
+1102/tcp filtered adobeserver-1
+Service Info: OS: Solaris; CPE: cpe:/o:sun:sunos
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Dec 30 21:57:40 2019 -- 1 IP address (1 host up) scanned in 115.19 seconds

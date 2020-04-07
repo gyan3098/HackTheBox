@@ -1,0 +1,44 @@
+┌─[root@parrot]─[~]           
+└──╼ #snmp-check 10.10.10.125 
+snmp-check v1.9 - SNMP enumerator                            
+Copyright (c) 2005-2015 by Matteo Cantoni (www.nothink.org)  
+
+[+] Try to connect to 10.10.10.125:161 using SNMPv1 and community 'public'
+
+[!] 10.10.10.125:161 SNMP request timeout                     
+┌─[root@parrot]─[~]            
+└──╼ #smbmap -H 10.10.10.125 -u anonymous                    
+[+] Finding open SMB ports....                               
+[!] Authentication error on 10.10.10.125                      
+[!] Authentication error on 10.10.10.125                      
+┌─[root@parrot]─[~]            
+└──╼ #smbclient -N //10.10.10.125/Reports                    
+Try "help" to get a list of possible commands.                
+smb: \> dir                    
+  .                                   D        0  Mon Jan 28 18:23:48 2019
+  ..                                  D        0  Mon Jan 28 18:23:48 2019
+  Currency Volume Report.xlsm         A    12229  Sun Jan 27 17:21:34 2019
+
+                6469119 blocks of size 4096. 1604597 blocks available 
+smb: \> get "^Crency Volume Report.xlsm                       
+┌─[✗]─[root@parrot]─[~]        
+└──╼ #smbclient -N //10.10.10.125/Reports                     
+Try "help" to get a list of possible commands.                
+smb: \> get "Currency Volume Report.xlsm"                     
+getting file \Currency Volume Report.xlsm of size 12229 as Currency Volume Report.xlsm (7.3 KiloBytes/sec) (average 7.3 KiloBytes/sec)
+smb: \> exit                   
+┌─[root@parrot]─[~]            
+└──╼ #ls                       
+'Currency Volume Report.xlsm'   Desktop     Downloads   gyan         Music              Pictures   Templates
+ ,d                             Documents   go          hackthebox   nmap_secript.txt   Public     Videos
+┌─[root@parrot]─[~]            
+└──╼ #mv 'Currency Volume Report.xlsm' hackthebox/querrier/   
+┌─[root@parrot]─[~]            
+└──╼ #cd hackthebox//querrier/ 
+┌─[root@parrot]─[~/hackthebox/querrier]                       
+└──╼ #ls                       
+'Currency Volume Report.xlsm'   nmap                          
+┌─[root@parrot]─[~/hackthebox/querrier]                       
+└──╼ #vi 'Currency Volume Report.xlsm'                        
+┌─[root@parrot]─[~/hackthebox/querrier]                       
+└──╼ #         

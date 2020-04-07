@@ -1,0 +1,18 @@
+root@parrot:~/hackthebox/minion# nmap -sC -sV -n -p 62696 10.10.10.57           
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-17 07:58 IST                 
+Nmap scan report for 10.10.10.57        
+Host is up (0.40s latency).             
+
+PORT      STATE SERVICE VERSION         
+62696/tcp open  http    Microsoft IIS httpd 8.5                                 
+| http-methods:                         
+|_  Potentially risky methods: TRACE    
+| http-robots.txt: 1 disallowed entry   
+|_/backend                              
+|_http-server-header: Microsoft-IIS/8.5 
+|_http-title: Site doesn't have a title (text/html).                            
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows                        
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                  
+Nmap done: 1 IP address (1 host up) scanned in 22.76 seconds                    
+root@parrot:~/hackthebox/minion#        

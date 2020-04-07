@@ -1,0 +1,19 @@
+# Nmap 7.80 scan initiated Fri Jan  3 07:43:38 2020 as: nmap -T4 -sV -n -sSU -p T:23,21,22,110,111,2049,3389,8080,U:500,5060 -oA /tmp/sparta-3rX7bV-running/nmap/20200103074338-nmapstage3 10.10.10.22
+Nmap scan report for 10.10.10.22
+Host is up (0.26s latency).
+
+PORT     STATE         SERVICE       VERSION
+21/tcp   filtered      ftp
+22/tcp   open          ssh           OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+23/tcp   filtered      telnet
+110/tcp  filtered      pop3
+111/tcp  filtered      rpcbind
+2049/tcp filtered      nfs
+3389/tcp filtered      ms-wbt-server
+8080/tcp filtered      http-proxy
+500/udp  open|filtered isakmp
+5060/udp open|filtered sip
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan  3 07:45:31 2020 -- 1 IP address (1 host up) scanned in 112.98 seconds
